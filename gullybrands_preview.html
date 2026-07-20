@@ -1,0 +1,1451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gully Brands — Small brands. Made loud.</title>
+  <style>
+/* Marketing site styles — strict 3-colour brand (yellow + ink + cream) */
+/* ============================================================
+   GULLY BRANDS — colors & type tokens
+   Mumbai shop board / auto-rickshaw / BEST bus.
+   Strict 3-colour brand: Taxi Yellow + Jet Black + Cream.
+   Tagline: Small brands. Made loud.
+   ============================================================ */
+
+/* ---------- FONTS ---------- */
+
+/* ----- The only Fraunces we ship: the supplied 72pt SuperSoft Black Italic cut.
+         No variable axes, no WONK/SOFT range, no Google-served alternates. ----- */
+
+/* Registered as "Fraunces Billboard" — used explicitly via .t-billboard / wordmark. */
+@font-face {
+  font-family: "Fraunces Billboard";
+  src: url("./fonts/Fraunces-72pt-SuperSoft-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Also registered as plain "Fraunces" so any italic request for the serif family
+   (tagline, italic display) hits this file. Upright Fraunces falls back to Georgia
+   until more licensed weights are added. */
+@font-face {
+  font-family: "Fraunces";
+  src: url("./fonts/Fraunces-72pt-SuperSoft-BlackItalic.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Inter (body) + JetBrains Mono (eyebrows). No Fraunces from Google. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+/* ============================================================
+   COLOR TOKENS
+   ============================================================ */
+:root {
+  /* ---- BRAND PALETTE — these three, and only these three.
+         Never introduce a 4th brand colour without a written reason. ---- */
+  --brand-yellow:   #FFC72C;  /* Taxi Yellow — primary brand colour */
+  --brand-ink:      #0A0A0A;  /* Jet Black — all text on yellow/cream */
+  --brand-cream:    #F4ECD8;  /* Cream — long-reading surfaces */
+
+  /* Soft helpers — same hue, used only for hover/pressed states */
+  --brand-yellow-deep: #E8AE15;  /* press / hover-darker on yellow */
+  --brand-yellow-tint: #FFE38C;  /* faint yellow wash on cream */
+
+  /* ---- LEGACY ALIASES (kept for prior generated files) ---- */
+  --auto-yellow:     var(--brand-yellow);
+  --auto-yellow-deep:var(--brand-yellow-deep);
+  --auto-yellow-tint:var(--brand-yellow-tint);
+  --ink:             var(--brand-ink);
+  --shop-cream:      var(--brand-cream);
+
+  /* ---- Functional accents — ONLY allowed inside infographics / UI states.
+         Never as brand colour. Never in marketing collateral. ---- */
+  --ui-success:     #1E6F4B;   /* green for "go" */
+  --ui-danger:      #D7263D;   /* red for "warning" */
+  --ui-info:        #143C8C;   /* blue for data points */
+  --ui-warning:     #E8AE15;   /* warning yellow */
+
+  /* ---- Surfaces ---- */
+  --bg-paper:       var(--brand-cream);
+  --bg-yellow:      var(--brand-yellow);
+  --bg-ink:         var(--brand-ink);
+
+  /* ---- Foreground roles ---- */
+  --fg-1:           var(--brand-ink);      /* primary text */
+  --fg-2:           #2B2418;               /* slightly softened ink — body copy on cream */
+  --fg-3:           #6B5F4A;               /* tertiary, captions */
+  --fg-on-ink:      var(--brand-cream);
+  --fg-on-yellow:   var(--brand-ink);
+
+  /* Never put yellow text on cream — contrast too low. Yellow text only on ink. */
+
+  /* ---- Borders ---- */
+  --line-ink:       var(--brand-ink);
+  --line-soft:      rgba(10,10,10,0.18);
+  --line-hair:      rgba(10,10,10,0.08);
+
+  /* ---- Shadows ---- */
+  /* Block / poster: flat hard offset, like a Marathi-cinema poster.
+     Allowed on UI components (cards, buttons). NEVER on the logo itself. */
+  --shadow-block-sm:  3px 3px 0 var(--brand-ink);
+  --shadow-block:     5px 5px 0 var(--brand-ink);
+  --shadow-block-lg:  8px 8px 0 var(--brand-ink);
+  /* No drop shadows, no gradients, no glow on the logo, ever. */
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --font-display: "Fraunces Billboard", "Fraunces", Georgia, serif;
+  --font-serif:   "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* Type scale — block-poster scale, big headlines */
+  --t-billboard:  clamp(72px, 12vw, 168px);
+  --t-display:    clamp(56px, 8vw, 112px);
+  --t-tagline:    clamp(28px, 3.4vw, 40px);
+  --t-h1:         clamp(40px, 5vw, 64px);
+  --t-h2:         clamp(30px, 3.6vw, 44px);
+  --t-h3:         24px;
+  --t-h4:         20px;
+  --t-body-lg:    19px;
+  --t-body:       17px;
+  --t-body-sm:    15px;
+  --t-caption:    13px;
+  --t-micro:      11px;
+
+  /* Line heights */
+  --lh-tight:   0.95;
+  --lh-snug:    1.1;
+  --lh-normal:  1.5;
+  --lh-loose:   1.65;
+
+  /* ---- Radii ---- */
+  --r-0: 0;
+  --r-1: 4px;
+  --r-2: 8px;
+  --r-3: 14px;
+  --r-4: 22px;
+  --r-pill: 999px;
+
+  /* ---- Spacing (4px base) ---- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  /* Legacy shadow aliases */
+  --shadow-sticker-sm: var(--shadow-block-sm);
+  --shadow-sticker:    var(--shadow-block);
+  --shadow-sticker-lg: var(--shadow-block-lg);
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   ============================================================ */
+
+/* Wordmark — Fraunces Billboard (the supplied 72pt SuperSoft Black Italic).
+   Reserved for the logo lockup and billboard moments.
+   Letter-spacing stays at 0 — the supplied cut has built-in metrics. */
+.t-billboard {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  font-size: var(--t-billboard);
+  line-height: var(--lh-tight);
+  letter-spacing: 0;
+  color: var(--brand-ink);
+}
+
+/* Big display — used for slide titles & hero headlines */
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  font-size: var(--t-display);
+  line-height: var(--lh-tight);
+  letter-spacing: 0;
+}
+
+/* Tagline — Fraunces Italic 500 for hero placements (per guidelines).
+   "Small brands. Made loud." */
+.t-tagline {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: var(--t-tagline);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+
+.t-h1 {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: var(--t-h1);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+}
+.t-h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--t-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.005em;
+}
+.t-h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--t-h3);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.t-h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--t-h4);
+  line-height: 1.3;
+}
+.t-body-lg {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--t-body-lg);
+  line-height: var(--lh-normal);
+}
+.t-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+}
+.t-body-sm {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--t-body-sm);
+  line-height: var(--lh-normal);
+}
+.t-caption {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--t-caption);
+  line-height: 1.4;
+}
+.t-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--t-micro);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.t-mono {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--t-body-sm);
+  line-height: var(--lh-normal);
+}
+
+@import url("https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css");
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--brand-cream);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+button { font: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Layout ---------- */
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+/* ---------- Header ---------- */
+.gb-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--brand-cream);
+  border-bottom: 1.5px solid var(--brand-ink);
+  height: 68px;
+}
+.gb-header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.gb-logo { display: flex; align-items: center; gap: 12px; }
+.gb-logo .mark {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--brand-yellow);
+  border: 2px solid var(--brand-ink);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.gb-logo .mark img { width: 100%; height: 100%; }
+.gb-logo .name {
+  font-family: var(--font-display);
+  font-weight: 900; font-style: italic;
+  font-size: 22px; line-height: 1;
+  letter-spacing: 0;
+  color: var(--brand-ink);
+}
+.gb-nav { display: flex; gap: 14px; align-items: center; }
+.gb-nav a:not(:last-child) {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--brand-ink);
+  background: var(--brand-cream);
+  border: 2px solid var(--brand-ink);
+  border-radius: 100px;
+  padding: 8px 16px;
+  line-height: 1;
+  box-shadow: 3px 3px 0 var(--brand-ink);
+  transition: transform .12s cubic-bezier(.2,.7,.3,1), box-shadow .12s, background .12s;
+  display: inline-flex;
+  align-items: center;
+}
+.gb-nav a:not(:last-child):hover {
+  background: var(--brand-yellow-tint);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--brand-ink);
+}
+.gb-nav a:not(:last-child):active {
+  background: var(--brand-yellow);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--brand-ink);
+}
+
+
+/* ---------- Buttons ---------- */
+.btn {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 11px 20px;
+  border: 2px solid var(--brand-ink);
+  border-radius: 100px;
+  line-height: 1;
+  transition: transform .16s cubic-bezier(.2,.7,.3,1), box-shadow .16s;
+  background: var(--brand-yellow);
+  color: var(--brand-ink);
+  box-shadow: 4px 4px 0 var(--brand-ink);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--brand-ink); }
+.btn:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--brand-ink); }
+.btn.ink   { background: var(--brand-ink); color: var(--brand-yellow); }
+.btn.cream { background: var(--brand-cream); color: var(--brand-ink); }
+.btn.ghost { background: transparent; box-shadow: none; }
+.btn.lg    { padding: 14px 26px; font-size: 17px; box-shadow: 5px 5px 0 var(--brand-ink); }
+.btn.lg:hover { box-shadow: 8px 8px 0 var(--brand-ink); }
+
+/* ---------- Hero ---------- */
+.gb-hero {
+  background: var(--brand-yellow);
+  border-bottom: 1.5px solid var(--brand-ink);
+  padding: 80px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.gb-hero .eye {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-ink);
+  margin-bottom: 28px;
+  display: flex; gap: 14px; align-items: center;
+}
+.gb-hero .eye .dot { width: 8px; height: 8px; background: var(--brand-ink); border-radius: 50%; }
+.gb-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 900; font-style: italic;
+  font-size: clamp(64px, 11vw, 140px);
+  line-height: 0.94;
+  letter-spacing: 0;
+  color: var(--brand-ink);
+  max-width: 12ch;
+}
+.gb-hero h1 em { font-style: italic; color: inherit; }
+.gb-hero .sub {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--brand-ink);
+  max-width: 56ch;
+  margin-top: 28px;
+  opacity: 0.85;
+}
+.gb-hero .tag {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 26px;
+  color: var(--brand-ink);
+  margin-top: 18px;
+  opacity: 0.9;
+}
+.gb-hero .cta-row { display: flex; gap: 16px; margin-top: 40px; }
+
+/* Hero stamp — ink on ink shadow */
+.hero-stamp {
+  position: absolute;
+  top: 92px; right: 60px;
+  background: var(--brand-ink);
+  color: var(--brand-yellow);
+  padding: 14px 18px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transform: rotate(6deg);
+  border: 2px solid var(--brand-ink);
+  box-shadow: 4px 4px 0 var(--brand-yellow-deep);
+  line-height: 1.4;
+  text-align: center;
+}
+.hero-stamp .num { font-family: var(--font-display); font-style: italic; font-weight: 900; font-size: 30px; letter-spacing: 0; display: block; color: var(--brand-yellow); }
+
+/* ---------- Section header ---------- */
+.section { padding: 96px 0; border-bottom: 1.5px solid var(--brand-ink); }
+.section.cream  { background: var(--brand-cream); }
+.section.ink    { background: var(--brand-ink); color: var(--fg-on-ink); }
+.section.yellow { background: var(--brand-yellow); }
+
+.s-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 20px;
+}
+.section.ink .s-eyebrow { color: var(--brand-yellow); }
+.s-eyebrow .bar { width: 30px; height: 1.5px; background: currentColor; }
+.s-title {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(38px, 4.6vw, 56px);
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: currentColor;
+  max-width: 18ch;
+}
+.section.ink .s-title { color: var(--brand-cream); }
+.s-lede {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  max-width: 56ch;
+  margin-top: 18px;
+}
+.section.ink .s-lede { color: var(--brand-cream); opacity: 0.85; }
+.section.yellow .s-eyebrow { color: var(--brand-ink); opacity: 0.7; }
+.section.yellow .s-lede { color: var(--brand-ink); opacity: 0.8; }
+
+/* ---------- What I do — 3 stickers ---------- */
+.do-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 52px;
+}
+.do-card {
+  background: var(--brand-cream);
+  border: 2px solid var(--brand-ink);
+  border-radius: var(--r-3);
+  box-shadow: 5px 5px 0 var(--brand-ink);
+  padding: 28px;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: transform .16s, box-shadow .16s;
+}
+.do-card:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--brand-ink); }
+.do-card.yel { background: var(--brand-yellow); }
+.do-card.ink { background: var(--brand-ink); color: var(--brand-cream); }
+.do-card .icn {
+  width: 48px; height: 48px;
+  border: 2px solid var(--brand-ink);
+  border-radius: var(--r-2);
+  display: grid; place-items: center;
+  font-size: 24px;
+  background: var(--brand-yellow);
+  color: var(--brand-ink);
+  align-self: flex-start;
+}
+.do-card.ink .icn { border-color: var(--brand-yellow); }
+.do-card h3 {
+  font-family: var(--font-serif);
+  font-weight: 800; font-style: italic;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+.do-card.ink h3 { color: var(--brand-yellow); }
+.do-card p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+.do-card .px {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-top: 1.5px solid currentColor;
+  padding-top: 12px;
+  margin-top: auto;
+  opacity: 0.7;
+}
+
+/* ---------- Work grid ---------- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 52px;
+}
+.case {
+  border: 2px solid var(--brand-ink);
+  border-radius: var(--r-3);
+  background: var(--brand-cream);
+  overflow: hidden;
+  box-shadow: 5px 5px 0 var(--brand-ink);
+  transition: transform .16s, box-shadow .16s;
+  display: flex; flex-direction: column;
+  cursor: pointer;
+}
+.case:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 var(--brand-ink); }
+.case .thumb {
+  height: 220px;
+  display: grid; place-items: center;
+  border-bottom: 1.5px solid var(--brand-ink);
+  position: relative;
+  overflow: hidden;
+}
+.case .thumb .case-video,
+.case .thumb .case-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.case .thumb .case-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.42);
+  z-index: 2;
+  transition: background 0.16s ease;
+}
+.case:hover .thumb .case-overlay {
+  background: rgba(10, 10, 10, 0.3);
+}
+.case .thumb .label {
+  font-family: var(--font-display);
+  font-weight: 900; font-style: italic;
+  font-size: 58px;
+  line-height: 0.9;
+  letter-spacing: 0;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 3;
+  color: #ffffff;
+  text-shadow: 2px 2px 0 var(--brand-ink);
+}
+.case .thumb .stamp {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--brand-ink); color: var(--brand-yellow);
+  padding: 5px 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--brand-yellow);
+  z-index: 3;
+}
+.case .meta { padding: 22px 26px 24px; display: flex; flex-direction: column; gap: 8px; }
+.case .cat {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.case h4 {
+  font-family: var(--font-serif);
+  font-weight: 800; font-style: italic;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: var(--brand-ink);
+}
+.case p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.case .stats {
+  display: flex; gap: 20px;
+  margin-top: 6px;
+  border-top: 1.5px solid var(--line-soft);
+  padding-top: 14px;
+}
+.case .stat .n {
+  font-family: var(--font-display);
+  font-weight: 900; font-style: italic;
+  font-size: 26px;
+  color: var(--brand-ink);
+  line-height: 1;
+}
+.case .stat .l {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin-top: 4px;
+}
+
+/* Case thumb palettes — yellow / ink / cream only */
+.t-yel    { background: var(--brand-yellow); color: var(--brand-ink); }
+.t-ink    { background: var(--brand-ink);    color: var(--brand-yellow); }
+.t-cream  { background: var(--brand-cream);  color: var(--brand-ink); }
+/* Stripes — alternative cover treatments */
+.t-stripe-yel {
+  background:
+    repeating-linear-gradient(135deg, var(--brand-ink) 0 18px, var(--brand-yellow) 18px 60px);
+  color: var(--brand-ink);
+}
+.t-stripe-cream {
+  background:
+    repeating-linear-gradient(135deg, var(--brand-cream) 0 18px, var(--brand-yellow) 18px 60px);
+  color: var(--brand-ink);
+}
+
+/* ---------- Pricing (ink section) ---------- */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 52px;
+}
+.price {
+  border: 2px solid var(--brand-yellow);
+  background: transparent;
+  border-radius: var(--r-3);
+  padding: 28px;
+  display: flex; flex-direction: column; gap: 16px;
+  color: var(--brand-cream);
+}
+.price.featured {
+  background: var(--brand-yellow);
+  color: var(--brand-ink);
+  border-color: var(--brand-yellow);
+  box-shadow: 6px 6px 0 var(--brand-cream);
+  position: relative;
+}
+.price.featured .featured-tag {
+  position: absolute; top: -14px; left: 24px;
+  background: var(--brand-ink); color: var(--brand-yellow);
+  padding: 4px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--brand-ink);
+}
+.price .name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.price .amt {
+  font-family: var(--font-display);
+  font-weight: 900; font-style: italic;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.price .amt .per {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+.price ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.price li {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.45;
+  display: flex; gap: 10px; align-items: flex-start;
+  opacity: 0.92;
+}
+.price li::before { content: "→"; font-weight: 700; opacity: 0.55; }
+.price a { margin-top: auto; display: block; width: 100%; text-decoration: none; }
+.price .btn { width: 100%; justify-content: center; }
+
+/* ---------- Contact ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  margin-top: 52px;
+  align-items: start;
+}
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.field label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.field input, .field textarea, .field select {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--brand-ink);
+  border-radius: var(--r-2);
+  background: var(--brand-cream);
+  color: var(--brand-ink);
+  outline: none;
+  transition: transform .16s, box-shadow .16s;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  transform: translate(-1px,-1px);
+  box-shadow: 3px 3px 0 var(--brand-ink);
+}
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.contact-aside {
+  background: var(--brand-cream);
+  border: 2px solid var(--brand-ink);
+  border-radius: var(--r-3);
+  padding: 28px;
+  box-shadow: 5px 5px 0 var(--brand-ink);
+}
+.contact-aside h3 {
+  font-family: var(--font-serif);
+  font-weight: 800; font-style: italic;
+  font-size: 30px;
+  line-height: 1.05;
+  color: var(--brand-ink);
+  margin-bottom: 18px;
+}
+.contact-aside .li {
+  display: flex; gap: 12px; align-items: center;
+  padding: 14px 0;
+  border-top: 1.5px solid var(--brand-ink);
+  color: var(--brand-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+}
+.contact-aside .li .icn { font-size: 18px; width: 22px; }
+.contact-aside .li b { font-weight: 600; }
+.contact-aside .li .sub { display: block; font-size: 12px; opacity: 0.65; margin-top: 2px; font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.success-note {
+  background: var(--brand-ink);
+  color: var(--brand-yellow);
+  padding: 18px 22px;
+  border: 2px solid var(--brand-ink);
+  border-radius: var(--r-2);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  margin-top: 14px;
+  display: flex; gap: 10px; align-items: center;
+  box-shadow: 4px 4px 0 var(--brand-yellow-deep);
+}
+
+/* ---------- Footer ---------- */
+.gb-footer {
+  background: var(--brand-ink);
+  color: var(--brand-cream);
+  padding: 64px 0 36px;
+}
+.gb-footer h2 {
+  font-family: var(--font-display);
+  font-weight: 900; font-style: italic;
+  font-size: clamp(56px, 8vw, 96px);
+  line-height: 0.95;
+  letter-spacing: 0;
+  color: var(--brand-yellow);
+  margin-bottom: 36px;
+  max-width: 18ch;
+}
+.gb-footer h2 em { font-style: italic; color: inherit; }
+.foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px; padding-top: 32px; border-top: 1.5px solid rgba(244,236,216,0.18); }
+.foot-grid h5 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-yellow);
+  margin-bottom: 14px;
+}
+.foot-grid a, .foot-grid .li {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--brand-cream);
+  display: block;
+  padding: 4px 0;
+  opacity: 0.85;
+  transition: opacity .16s;
+}
+.foot-grid a:hover { opacity: 1; color: var(--brand-yellow); }
+.foot-mark { display: flex; align-items: flex-start; gap: 14px; }
+.foot-mark .mark {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid var(--brand-yellow);
+}
+.foot-mark .mark img { width: 100%; height: 100%; }
+.foot-mark .name {
+  font-family: var(--font-display);
+  font-weight: 900; font-style: italic;
+  font-size: 30px;
+  color: var(--brand-yellow);
+  line-height: 1;
+}
+.foot-mark p { font-family: var(--font-sans); font-size: 14px; opacity: 0.7; margin-top: 8px; max-width: 36ch; line-height: 1.45; }
+.foot-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1.5px solid rgba(244,236,216,0.12);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* ---------- Helpers ---------- */
+.kbd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel">
+/* eslint-disable */
+// Gully Brands — marketing site components
+// Each component uses CSS classes from site.css (which imports the root design system).
+
+const { useState } = React;
+
+// ---------- Header ----------
+function Header({ active = "work", onNav }) {
+  const navItems = [
+    { key: "work", label: "Work" },
+    { key: "approach", label: "Approach" },
+    { key: "pricing", label: "Pricing" },
+    { key: "about", label: "About" }
+  ];
+  return (
+    <header className="gb-header">
+      <div className="wrap">
+        <a href="#" className="gb-logo" onClick={(e) => { e.preventDefault(); onNav && onNav("home"); }}>
+          <div className="mark">
+            <img src="assets/logo-square-yellow.png" alt="Gully Brands" />
+          </div>
+          <span className="name">Gully Brands</span>
+        </a>
+        <nav className="gb-nav">
+          {navItems.map((item) => (
+            <a key={item.key} href={`#${item.key}`} className={active === item.key ? "active" : ""} onClick={() => onNav && onNav(item.key)}>{item.label}</a>
+          ))}
+          <a href="#contact" onClick={() => onNav && onNav("contact")}>
+            <button className="btn" style={{ padding: "9px 16px", fontSize: 14 }}>
+              Say Hello <i className="ph-bold ph-arrow-up-right"></i>
+            </button>
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+// ---------- Hero ----------
+function Hero() {
+  return (
+    <section className="gb-hero">
+      <div className="wrap">
+        <div className="eye">
+          <span className="dot"></span>
+          ULHASNAGAR · MUMBAI · EST. 2026
+        </div>
+        <h1>Small brands.<br />Made loud.</h1>
+        <p className="tag">Marketing for the corner shops of Ulhasnagar.</p>
+        <p className="sub">
+          A one-person agency for the dukaan, the tapri, the home kitchen, and the salon. I do the work the big agencies won't touch — and the work they couldn't if they tried.
+        </p>
+        <div className="cta-row">
+          <a href="#work" onClick={(e) => { e.preventDefault(); const el = document.getElementById("work"); if (el) { const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top, behavior: "smooth" }); } }} style={{ display: "inline-block" }}>
+            <button className="btn lg">see the work <i className="ph-bold ph-arrow-down"></i></button>
+          </a>
+          <a href="book.html" style={{ display: "inline-block" }}>
+            <button className="btn lg ink">book a 20-min call</button>
+          </a>
+        </div>
+      </div>
+      <div className="hero-stamp">
+        currently working with<br />
+        <span className="num">12</span>
+        small businesses
+      </div>
+    </section>
+  );
+}
+
+// ---------- What I do ----------
+function WhatIDo() {
+  const items = [
+    { 
+      icn: "ph-storefront", 
+      title: "Brand kits & signage", 
+      body: "New signage, menus, packaging — designed once, looking right from the street. Print files included.", 
+      price: "from ₹2,999", 
+      className: "has-video",
+      video: "assets/shop-board.mp4"
+    },
+    { 
+      icn: "ph-instagram-logo", 
+      title: "Instagram that doesn't suck", 
+      body: "Reels, posts, replies. Customized edit, trending audio, and hyper-local hashtags.", 
+      price: "from ₹2,999/month", 
+      className: "has-video yel",
+      video: "assets/instagram-suck.mp4"
+    },
+    { 
+      icn: "ph-fire", 
+      title: "Festival campaigns", 
+      body: "Diwali, Eid, Ganesh, the school re-open. Quick, loud, sold out by day three.", 
+      price: "project-based", 
+      className: "has-video ink",
+      video: "assets/festival-campaigns.mp4"
+    },
+  ];
+  return (
+    <section className="section sand" id="approach">
+      <div className="wrap">
+        <div className="s-eyebrow"><span className="bar"></span>WHAT I DO</div>
+        <h2 className="s-title">Three things, done well.</h2>
+        <p className="s-lede">No retainers I can't explain on a phone call. No "strategy decks". Just the work, shipped fast, in a voice that sounds like you on a good day.</p>
+        <div className="do-grid">
+          {items.map((it, i) => (
+            <article key={i} className={`do-card ${it.className}`}>
+              {it.video && (
+                <React.Fragment>
+                  <video src={it.video} autoPlay loop muted playsInline className="card-video" />
+                  <div className="card-overlay" />
+                </React.Fragment>
+              )}
+              <div className="icn"><i className={`ph-bold ${it.icn}`}></i></div>
+              <h3>{it.title}</h3>
+              <p>{it.body}</p>
+              <div className="px">{it.price}</div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Work / case studies ----------
+function Work() {
+  const cases = [
+    { 
+      video: "assets/himalayan-squad.mp4",
+      label: "EXPEDITION",
+      stamp: "2.4× bookings",
+      cat: "CASE STUDY №01 · TOUR OPERATOR",
+      title: "The Himalayan Squad",
+      body: "Built a high-converting single-page booking engine, compiled an elite 12-page proposal, and launched high-impact cinematic video Reels. We took their adventure presence from invisible to premium.",
+      stats: [["2.4×","bookings"],["12","pages"],["₹20k","scope"]],
+      link: "https://himalayan-squad.surge.sh"
+    },
+    { 
+      video: "assets/luna-hooks.mp4",
+      label: "WHIMSY",
+      stamp: "sold out · 3 days",
+      cat: "CASE STUDY №02 · CROCHET MAKER",
+      title: "Luna Hooks",
+      body: "Rebuilt their visual brand kit with a vibrant, nature-inspired 'Maker's Palette', launched their custom looping-video 'Whimsy Lookbook', and optimized their bio funnel for friction-free WhatsApp ordering.",
+      stats: [["100%","sold out"],["1","brand kit"],["₹9k","scope"]],
+      link: "https://luna-hooks.surge.sh"
+    },
+    { 
+      video: "assets/nakoda-gold.mp4",
+      label: "VIRASAT",
+      stamp: "gold standard",
+      cat: "CASE STUDY №03 · JEWELLER",
+      title: "Nakoda Gold, Ambernath",
+      body: "Designed 4:5 editorial social posts with direct brand borders and custom-padded shield monograms. We built a 12-day social calendar that preserves their physical storefront's legacy.",
+      stats: [["12d","calendar"],["5","posts"],["₹6k","scope"]],
+      link: "https://www.instagram.com/nakoda_gold/"
+    },
+    { 
+      video: "assets/the-nut-atelier.mp4",
+      label: "CRUNCH",
+      stamp: "luxe identity",
+      cat: "CASE STUDY №04 · GOURMET WALNUTS",
+      title: "The Nut Atelier",
+      body: "Engineered a premium identity showcase, launched a full-bleed luxury website with cinematic flavor loops, and drafted high-converting social copy focusing on tannin-neutral health benefits.",
+      stats: [["3.5×","clicks"],["1","luxe site"],["₹15k","scope"]],
+      link: "https://the-nut-atelier.surge.sh"
+    }
+  ];
+  return (
+    <section className="section cream" id="work">
+      <div className="wrap">
+        <div className="s-eyebrow"><span className="bar"></span>RECENT WORK</div>
+        <h2 className="s-title">A few rooms made loud.</h2>
+        <p className="s-lede">Small budgets, big results. Each one done in two-to-six weeks. Every photo is the actual shop, not a stock library.</p>
+        <div className="work-grid">
+          {cases.map((c, i) => (
+            <a key={i} href={c.link} target="_blank" rel="noopener noreferrer" className="case">
+              <div className="thumb has-media">
+                {c.video && (
+                  <React.Fragment>
+                    <video src={c.video} autoPlay loop muted playsInline className="case-video" />
+                    <div className="case-overlay" />
+                  </React.Fragment>
+                )}
+                {c.img && (
+                  <React.Fragment>
+                    <img src={c.img} className="case-img" alt={c.title} />
+                    <div className="case-overlay" />
+                  </React.Fragment>
+                )}
+                <div className="label">{c.label}</div>
+                <div className="stamp">{c.stamp}</div>
+              </div>
+              <div className="meta">
+                <div className="cat">{c.cat}</div>
+                <h4>{c.title}</h4>
+                <p>{c.body}</p>
+                <div className="stats">
+                  {c.stats.map((s, j) => (
+                    <div key={j} className="stat">
+                      <div className="n">{s[0]}</div>
+                      <div className="l">{s[1]}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Pricing ----------
+function Pricing() {
+  const tiers = [
+    { name: "starter plan", amt: "₹2,999", per: "/ month", featured: false, items: ["8 reels or posts / month", "1 kickoff shoot (45 mins)", "Hindi & English copywriting", "Google Maps setup & basic SEO", "Cancel any month, no lock-ins"], cta: "book starter" },
+    { name: "growth plan", amt: "₹5,999", per: "/ month", featured: true, items: ["12 reels or posts / month", "1 structured monthly shoot", "Google Maps takeover (weekly updates)", "Custom bio-link page (Surge.sh)", "Review-boosting QR counter stand"], cta: "book growth" },
+    { name: "premium plan", amt: "₹9,999", per: "/ month", featured: false, items: ["16 reels or posts / month", "Bi-weekly shoots (2x / month)", "Meta / Google Ads setup & creatives", "WhatsApp automation & catalog flow", "Deep monthly growth analytics"], cta: "book premium" },
+  ];
+  const oneTimeServices = [
+    { name: "Logo & Brand Board", amt: "₹2,999", items: ["Full logo design made for your target audience", "Locked brand color palette and typography rules", "Handover of high-res formats for prints, signboards"] },
+    { name: "Complete Brand Website", amt: "₹9,999", items: ["GSAP scroll-triggered, premium multi-section site", "Custom copywriting, catalogs, and booking engine", "Completely mobile-friendly, custom domain support"] },
+    { name: "WhatsApp Booking Mini-Site", amt: "₹4,999", items: ["High-speed landing page hosted on Surge.sh", "Frictionless form launching pre-filled WhatsApp chat", "Aesthetic mobile design styled to match your shop"] },
+    { name: "Google Maps Optimization", amt: "₹1,999", items: ["Full profile setup, SEO, & map verification", "Staging organic reviews & custom tabletop QR stand", "Actionable guide on ranking in local 'near me' searches"] }
+  ];
+  return (
+    <section className="section ink" id="pricing">
+      <div className="wrap">
+        <div className="s-eyebrow"><span className="bar"></span>WHAT I CHARGE</div>
+        <h2 className="s-title">No asterisks. Rupees up front.</h2>
+        <p className="s-lede">I'm one person. I take twelve clients at a time. If we're a fit, we'll know in twenty minutes.</p>
+        <div className="price-grid">
+          {tiers.map((t, i) => (
+            <article key={i} className={`price ${t.featured ? "featured" : ""}`}>
+              {t.featured && <span className="featured-tag">MOST PICKED</span>}
+              <div className="name">{t.name}</div>
+              <div className="amt">{t.amt}<span className="per">{t.per}</span></div>
+              <ul>{t.items.map((it, j) => <li key={j}>{it}</li>)}</ul>
+              <a href={
+                t.name.includes("starter") ? "https://wa.me/918668715250?text=Hi%20Gully%20Brands!%20I'd%20love%20to%20book%20the%20Starter%20Plan%20(₹2,999/mo)%20for%20my%20business." :
+                t.name.includes("growth") ? "https://wa.me/918668715250?text=Hi%20Gully%20Brands!%20I'd%20love%20to%20book%20the%20Growth%20Plan%20(₹5,999/mo)%20for%20my%20business." :
+                "https://wa.me/918668715250?text=Hi%20Gully%20Brands!%20I'd%20love%20to%20book%20the%20Premium%20Plan%20(₹9,999/mo)%20for%20my%20business."
+              } target="_blank" rel="noopener noreferrer" style={{ display: "block", width: "100%" }}>
+                <button className={`btn ${t.featured ? "ink" : ""}`} style={{ width: "100%", justifyContent: "center" }}>{t.cta} <i className="ph-bold ph-arrow-right"></i></button>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <h3 style={{
+          fontFamily: "var(--font-serif)",
+          fontWeight: 800,
+          fontStyle: "italic",
+          fontSize: 32,
+          marginTop: 64,
+          marginBottom: 12,
+          color: "var(--brand-yellow)",
+          textAlign: "center",
+          letterSpacing: 0
+        }}>One-Time Setups</h3>
+        <p className="s-lede" style={{ textAlign: "center", marginBottom: 36, color: "var(--brand-cream)", opacity: 0.85 }}>For clients who want to build trust first before moving to a monthly retainer.</p>
+
+        <div className="one-time-grid">
+          {oneTimeServices.map((s, i) => (
+            <article key={i} className="price">
+              <div className="name" style={{ color: "var(--brand-yellow)" }}>{s.name}</div>
+              <div className="amt">{s.amt}<span className="per"> once</span></div>
+              <ul>{s.items.map((it, j) => <li key={j}>{it}</li>)}</ul>
+              <a href={`https://wa.me/918668715250?text=Hi%20Gully%20Brands!%20I'd%20love%20to%20book%20the%20${encodeURIComponent(s.name)}%20(${s.amt})%20setup.`} target="_blank" rel="noopener noreferrer" style={{ display: "block", width: "100%" }}>
+                <button className="btn" style={{ width: "100%", justifyContent: "center" }}>book setup <i className="ph-bold ph-arrow-right"></i></button>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- About ----------
+function About() {
+  const values = [
+    {
+      icn: "ph-video-camera",
+      num: "01",
+      title: "Customized Street Hooks",
+      desc: "No lazy stock layouts or generic templates that make you look like everyone else. Every design, video cut, and page is tailor-made to capture the unique pride and energy of your shop."
+    },
+    {
+      icn: "ph-chat-centered-text",
+      num: "02",
+      title: "Zero Corporate Fluff",
+      desc: "No 'brand synergy' or 'funnel optimization' jargon. We talk in plain Hindi and English. Our only focus is how many new clients are walking through your door."
+    },
+    {
+      icn: "ph-user",
+      num: "03",
+      title: "One-Man Army",
+      desc: "I limit myself to only 12 active clients at any time. When you call, you talk directly to me—the person holding the camera, editing the cuts, and writing your code."
+    }
+  ];
+
+  return (
+    <section className="section sand" id="about" style={{ background: "#FAF6F0" }}>
+      <div className="wrap">
+        <div className="s-eyebrow"><span className="bar"></span>THE STORY</div>
+        <h2 className="s-title">Bedroom to the bazaar.</h2>
+        <p className="s-lede">No glass offices, no boardrooms. Just street-level marketing designed to make your local brand look completely elite.</p>
+        
+        <div className="about-grid">
+          <div className="about-text">
+            <h3>I'm Nick.</h3>
+            <p>
+              I don't operate out of a high-end agency office in Bandra or a fancy co-working space in Dubai. Gully Brands was born right inside my bedroom in <strong>Ulhasnagar</strong>.
+            </p>
+            <p>
+              I started this because I saw local business owners—the real backbone of our neighborhoods—getting ripped off by bloated agency retainers. They pay lakhs of rupees for 'strategic audits' only to receive stock templates that look completely soulless.
+            </p>
+            <p>
+              Your shop has real flavor. The way the gold solitaire shines at the showroom, the steam rising from the hot kadhai at the tapri, the scissor-snaps at the salon. That's what people love. I capture that authentic, street-level energy on my phone camera, wrap it in elite typography, and build direct WhatsApp-powered systems that make booking and buying completely effortless.
+            </p>
+          </div>
+          
+          <div className="about-identity">
+            <div className="identity-card">
+              <div className="identity-header">
+                <div className="avatar">
+                  <i className="ph-bold ph-user-circle"></i>
+                </div>
+                <div>
+                  <div className="name" style={{ letterSpacing: 0 }}>Nick Sakharkar</div>
+                  <div className="role">FOUNDER, GULLY BRANDS</div>
+                </div>
+              </div>
+              <div className="identity-stats">
+                <div className="stat-box">
+                  <div className="num">100%</div>
+                  <div className="lbl">LOCAL FOCUS</div>
+                </div>
+                <div className="stat-box">
+                  <div className="num">12</div>
+                  <div className="lbl">MAX CLIENTS</div>
+                </div>
+              </div>
+              <div className="identity-quote">
+                "I make sure your digital presence matches the physical sweat you've put into your business."
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="about-pillars" style={{ marginTop: 52 }}>
+          <h4 style={{
+            fontFamily: "var(--font-serif)",
+            fontWeight: 800,
+            fontStyle: "italic",
+            fontSize: 28,
+            marginBottom: 24,
+            color: "var(--brand-ink)",
+            letterSpacing: 0
+          }}>Our Street Rules:</h4>
+          <div className="pillars-grid">
+            {values.map((v, idx) => (
+              <div key={idx} className="pillar-card">
+                <div className="pillar-num">{v.num}</div>
+                <div className="icn" style={{
+                  width: 36, height: 36,
+                  border: "1.5px solid var(--brand-ink)",
+                  borderRadius: "var(--r-2)",
+                  display: "grid", placeItems: "center",
+                  background: "var(--brand-yellow)",
+                  marginBottom: 16,
+                  fontSize: 16
+                }}>
+                  <i className={`ph-bold ${v.icn}`}></i>
+                </div>
+                <h5>{v.title}</h5>
+                <p>{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Contact ----------
+function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+  return (
+    <section className="section yellow" id="contact">
+      <div className="wrap">
+        <div className="s-eyebrow"><span className="bar"></span>SAY HELLO</div>
+        <h2 className="s-title">Tell me about your shop.</h2>
+        <p className="s-lede">I read every message. I usually reply same day, sometimes the next morning if I'm on a shoot.</p>
+        <div className="contact-grid">
+          <form onSubmit={(e) => { 
+            e.preventDefault(); 
+            const name = e.target.elements[0].value;
+            const shop = e.target.elements[1].value;
+            const phone = e.target.elements[2].value;
+            const budget = e.target.elements[3].value;
+            const needs = e.target.elements[4].value;
+            setSubmitted(true); 
+            
+            const message = `Hi Gully Brands! I'd love to chat.
+• Name: ${name}
+• Shop: ${shop}
+• Phone: ${phone}
+• Budget: ${budget}
+• What I need: ${needs}`;
+            
+            const waUrl = `https://wa.me/918668715250?text=${encodeURIComponent(message)}`;
+            setTimeout(() => { window.open(waUrl, '_blank'); }, 1000);
+          }}>
+            <div className="row2">
+              <div className="field">
+                <label>YOUR NAME</label>
+                <input type="text" placeholder="Sneha, Imran, Iqbal…" defaultValue="" />
+              </div>
+              <div className="field">
+                <label>SHOP / BUSINESS</label>
+                <input type="text" placeholder="e.g. home bakery, tapri, salon" />
+              </div>
+            </div>
+            <div className="row2">
+              <div className="field">
+                <label>PHONE / WHATSAPP</label>
+                <input type="tel" placeholder="+91" />
+              </div>
+              <div className="field">
+                <label>BUDGET</label>
+                <select defaultValue="">
+                  <option value="" disabled>pick one</option>
+                  <option>Starter Plan (₹2,999/mo)</option>
+                  <option>Growth Plan (₹5,999/mo)</option>
+                  <option>Premium Plan (₹9,999/mo)</option>
+                  <option>Logo & Brand Board (₹2,999 once)</option>
+                  <option>Complete Brand Website (₹9,999 once)</option>
+                  <option>WhatsApp Booking Mini-Site (₹4,999 once)</option>
+                  <option>Google Maps Optimization (₹1,999 once)</option>
+                  <option>One-off Project / Custom scope</option>
+                  <option>Let's chat</option>
+                </select>
+              </div>
+            </div>
+            <div className="field">
+              <label>WHAT DO YOU NEED?</label>
+              <textarea rows="4" placeholder="logo, reels, a menu redesign, a sign repainted…"></textarea>
+            </div>
+            <button type="submit" className="btn lg ink" style={{ marginTop: 8 }}>
+              send it <i className="ph-bold ph-paper-plane-tilt"></i>
+            </button>
+            {submitted && (
+              <div className="success-note">
+                <i className="ph-bold ph-check-circle" style={{ fontSize: 20 }}></i>
+                got it. I'll text you on WhatsApp by tonight.
+              </div>
+            )}
+          </form>
+
+          <aside className="contact-aside">
+            <h3>Or just call.</h3>
+            <div className="li">
+              <i className="ph-bold ph-phone icn"></i>
+              <div>
+                <b>+91 86687 15250</b>
+                <span className="sub">10am – 8pm IST</span>
+              </div>
+            </div>
+            <div className="li">
+              <i className="ph-bold ph-instagram-logo icn"></i>
+              <div>
+                <b>@gullybrands.in</b>
+                <span className="sub">DMs open</span>
+              </div>
+            </div>
+            <div className="li">
+              <i className="ph-bold ph-map-pin icn"></i>
+              <div>
+                <b>Ulhasnagar 421005</b>
+                <span className="sub">visits by appointment</span>
+              </div>
+            </div>
+            <div className="li" style={{ borderBottom: "1.5px solid var(--ink)" }}>
+              <i className="ph-bold ph-coffee icn"></i>
+              <div>
+                <b>Chai's on me</b>
+                <span className="sub">first meeting</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Footer ----------
+function Footer() {
+  return (
+    <footer className="gb-footer">
+      <div className="wrap">
+        <h2>Make your shop impossible to miss.</h2>
+        <div className="foot-grid">
+          <div className="foot-mark">
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                <div className="mark"><img src="assets/logo-square-yellow.png" alt="Gully Brands" /></div>
+                <span className="name">Gully Brands</span>
+              </div>
+              <p>A one-person marketing agency for small neighbourhood businesses. Based in Ulhasnagar, working across Bombay.</p>
+            </div>
+          </div>
+          <div>
+            <h5>WORK</h5>
+            <a href="#work">recent</a>
+            <a href="#work">archive</a>
+            <a href="#work">testimonials</a>
+          </div>
+          <div>
+            <h5>OFFICE</h5>
+            <div className="li">+91 86687 15250</div>
+            <div className="li">@gullybrands.in</div>
+            <div className="li">hi@gullybrands.in</div>
+          </div>
+          <div>
+            <h5>ELSEWHERE</h5>
+            <a href="https://www.instagram.com/gullybrands.in/" target="_blank" rel="noopener noreferrer">instagram</a>
+            <a href="https://wa.me/918668715250" target="_blank" rel="noopener noreferrer">whatsapp</a>
+            <a href="book.html">book a call</a>
+          </div>
+        </div>
+        <div className="foot-bottom">
+          <span>© 2026 · GULLY BRANDS</span>
+          <span>SMALL BRANDS · MADE LOUD</span>
+          <span>ULHASNAGAR → BOMBAY</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+// Expose to window so index.html can compose
+Object.assign(window, { Header, Hero, WhatIDo, Work, About, Pricing, Contact, Footer });
+
+</script>
+  <script type="text/babel">
+    const { useState } = React;
+
+    function App() {
+      const [active, setActive] = useState("work");
+      const onNav = (k) => {
+        setActive(k);
+        const el = document.getElementById(k === "home" ? "" : k);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top, behavior: "smooth" });
+        } else if (k === "home") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      };
+      return (
+        <React.Fragment>
+          <Header active={active} onNav={onNav} />
+          <main>
+            <Hero />
+            <WhatIDo />
+            <Work />
+            <Pricing />
+            <About />
+            <Contact />
+          </main>
+          <Footer />
+        </React.Fragment>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
