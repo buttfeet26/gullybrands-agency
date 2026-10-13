@@ -429,7 +429,7 @@ const F = {
 /* kind: site | brand | own | ai  (a work can carry several) */
 const WORK = [
  {id:'nakoda-gold', name:'Nakoda Gold', sub:'Jewellers · Ambernath · since 1999', trade:'Jeweller', place:'Ambernath, India', no:'01', live:true,
-  url:'https://nakodagold.com', shot:'nakoda-gold', kinds:['site','brand'], sign:'#0F3B2C', fg:'#E2C27A', a1:'#E2C27A', a2:'#0F3B2C', font:F.cormorant,
+  url:'https://nakodagold.com', extra:[['Brand showcase','https://nakoda-gold-showcase.surge.sh']], shot:'nakoda-gold', kinds:['site','brand'], sign:'#0F3B2C', fg:'#E2C27A', a1:'#E2C27A', a2:'#0F3B2C', font:F.cormorant,
   tags:['Website','Shop','Local SEO','Ads'], video:'nakoda-gold',
   brief:'A 27-year-old gold jeweller on Station Road with 207 Google reviews and no real web presence. The job: a site that sells trust first, then the jewellery, and shows up when someone in Thane district searches for a jeweller.',
   made:['Full multi-page site with a scroll-video hero and shop catalogue (36+ new 22K and rose-gold pieces in October alone)','Around 20 local landing pages, one per nearby town, plus gold-rate and gold-exchange pages','28 custom share cards so every page previews properly on WhatsApp','Dussehra–Diwali ad campaign: 10 poster designs in 3 sizes, offer landing page, Google Ads call and WhatsApp conversion tracking','Google Merchant product feed and Google Business Profile care: 108 review replies posted','4:5 Instagram posts and a 12-day social calendar'],
@@ -441,19 +441,19 @@ const WORK = [
   made:['Brand kit and logo system for a quieter, editorial sister brand','Custom Shopify theme, iterated from v1 to v5 and published live','Catalogue of 10 pieces priced in tiers, free shipping, 7-day exchange','Removed a third-party cart drawer that made checkout look cheap'],
   results:[['10','pieces live'],['v5','theme shipped']]},
  {id:'emonfer', name:'Emonfer', sub:'Ebanistería · Madrid', trade:'Carpenter', place:'Madrid, Spain', no:'03', live:true,
-  url:'https://emonfer.es', shot:'emonfer', kinds:['site','brand','ai'], sign:'#2B1D14', fg:'#E9D8B8', a1:'#8A5A35', a2:'#2B1D14', font:F.cormorant,
+  url:'https://emonfer.es', extra:[['Netlify mirror','https://carpinteriaemonfer.netlify.app']], shot:'emonfer', kinds:['site','brand','ai'], sign:'#2B1D14', fg:'#E9D8B8', a1:'#8A5A35', a2:'#2B1D14', font:F.cormorant,
   tags:['Rebrand','Website','AI chatbot','Spanish'],
   brief:'A Madrid cabinet-maker with 35 years at the bench, rebranded from "Carpintería Emonfer" to "Emonfer Ebanistería", kept the line "Calidad que perdura", and finally got a site as good as his work.',
   made:['12-page site written in Peninsular Spanish: services, filterable project gallery with lightbox, blog, contact','Before/after restoration slider (a 1950s radio brought back to life)','Gemini chatbot that quotes his real prices, with a rule-based fallback if the API is down','Portfolio curated from his Instagram, plus a workshop photo graded from one of his videos','GSAP and Lenis motion, Schema.org Carpenter data, cookie-free, LSSI/RGPD legal pages'],
   results:[['12','pages'],['0','cookies'],['ES','es-ES only']]},
  {id:'pets', name:'Shree Swami Samarth', sub:'Pets shop · clinic · grooming', trade:'Pet shop & vet', place:'Ulhasnagar & Ambernath', no:'04', live:true,
-  url:'https://shreeswamisamarthpetshop.in', shot:'pets', kinds:['site','brand'], sign:'#0E4D57', fg:'#FFFFFF', a1:'#F2A93B', a2:'#0E4D57', font:F.baloo,
+  url:'https://shreeswamisamarthpetshop.in', extra:[['Interactive showcase','https://shree-swami-pets-showcase.surge.sh']], shot:'pets', kinds:['site','brand'], sign:'#0E4D57', fg:'#FFFFFF', a1:'#F2A93B', a2:'#0E4D57', font:F.baloo,
   tags:['Website','Google Business','Instagram'],
   brief:'Two branches, an in-store vet and 10am–10pm hours, but an Instagram bio full of addresses and Google services with no descriptions. The job: make the shop as findable as it is trusted.',
   made:['Website with its own domain, plus an interactive "see your business live" showcase','Services page with 23 written service descriptions, also published to Google Business','46 of 47 Google reviews answered and 11 product photos corrected','Review and menu QR cards for the counter, Instagram profile rewrite, Meta ad targeting plan'],
   results:[['46/47','reviews answered'],['23','services written']]},
  {id:'sai', name:'Sai Healthy Corner', sub:'Juices · soups · healthy chaat', trade:'Juice stall', place:'Ulhasnagar, India', no:'05', live:true,
-  url:'https://saihealthycorner.in', shot:'sai', kinds:['site','brand'], sign:'#2F5D34', fg:'#FFF6E2', a1:'#E8853D', a2:'#FFF6E2', font:F.baloo,
+  url:'https://saihealthycorner.in', extra:[['Showcase deck','https://sai-healthy-corner-showcase.surge.sh']], shot:'sai', kinds:['site','brand'], sign:'#2F5D34', fg:'#FFF6E2', a1:'#E8853D', a2:'#FFF6E2', font:F.baloo,
   tags:['Website','Menu','Google reviews','QR cards'],
   brief:'A morning juice stall run by Coach Anita on Netaji Road. People pre-book on WhatsApp by 9pm and pick up at 8am, so the site has to make that loop easy.',
   made:['Website with the pre-order flow front and centre','84-item menu page with photos and structured data, linked from Google Business','Review-request WhatsApp broadcast and printable menu and review QR cards','Showcase deck for the owner'],
@@ -476,10 +476,10 @@ const WORK = [
   brief:'A refurbished laptop shop with 162 Google reviews. I pitched with a finished site instead of a deck: "Every laptop has a history. We tell you it."',
   made:['Dark grid storefront in Space Grotesk and Space Mono','Scroll-scrubbed video hero generated from real shop photos with Wan 2.2, compressed to 1 MB','Voice-of-customer analysis of their reviews, brand kit ("Guru Orange" #F4830D), local SEO plan'],
   results:[['1 MB','hero video'],['162','reviews mined']]},
- {id:'mad-arcade', name:'Mad Arcade', sub:'Máquinas arcade · Madrid', trade:'Arcade machines', place:'Madrid, Spain', no:'09', live:false,
+ {id:'mad-arcade', name:'Mad Arcade', sub:'Máquinas arcade · Madrid', trade:'Arcade machines', place:'Madrid, Spain', no:'09', live:true,
   url:'https://mad-arcade-demo.surge.sh', shot:'mad-arcade', kinds:['site'], sign:'#0B0F2A', fg:'#22E3FF', a1:'#FF2E88', a2:'#0B0F2A', font:F.arcade,
-  tags:['Pitch site','Spanish','Configurator'],
-  brief:'A Madrid workshop that builds and restores arcade and virtual pinball machines. Pitch demo in Spanish with an arcade-cabinet video hero.',
+  tags:['Website','Spanish','Configurator'],
+  brief:'A Madrid workshop that builds and restores arcade and virtual pinball machines, with 15 years of craft and a 3-year warranty. The site had to feel like switching on a cabinet.',
   made:['Spanish site with a video hero, machine roster and a "configure your machine" builder','Neon arcade identity applied across the page'],
   results:[['ES','in Spanish'],['1','machine configurator']]},
  {id:'himalayan', name:'The Himalayan Squad', sub:'Expedition specialists', trade:'Tour operator', place:'Himalaya, India', no:'10', live:true,
@@ -574,7 +574,7 @@ function renderIndex(f){
     <div class="n"><button type="button" data-open="${w.id}">${esc(w.name)}</button></div>
     <div class="p">${esc(w.trade)} · ${esc(w.place)}</div>
     <div class="w">${esc(w.tags.join(' · '))}</div>
-    <div class="l"><a href="${w.url}" target="_blank" rel="noopener">${w.live?'Live site ↗':'Demo ↗'}</a></div>
+    <div class="l"><a href="${w.url}" target="_blank" rel="noopener">${w.live?'Live site ↗':'Demo ↗'}</a>${(w.extra||[]).map(([l,u])=>`<br><a href="${u}" target="_blank" rel="noopener">${esc(l)} ↗</a>`).join('')}</div>
   </div>`).join('');
 }
 renderIndex('all');
@@ -594,7 +594,8 @@ function openCase(id, push=true){
   $('#caseBrief').textContent = w.brief;
   $('#caseMade').innerHTML = w.made.map(m=>`<li>${esc(m)}</li>`).join('');
   $('#caseResults').innerHTML = w.results.map(([b,s])=>`<div><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join('');
-  $('#caseLinks').innerHTML = `<a class="btn" href="${w.url}" target="_blank" rel="noopener">${w.live?'Visit the live site ↗':'Open the demo ↗'}</a>`;
+  $('#caseLinks').innerHTML = `<a class="btn" href="${w.url}" target="_blank" rel="noopener">${w.live?'Visit the live site ↗':'Open the demo ↗'}</a>`
+    + (w.extra||[]).map(([l,u])=>`<a class="btn ghost" href="${u}" target="_blank" rel="noopener">${esc(l)} ↗</a>`).join('');
   $('#caseMedia').innerHTML = `<div class="duo"><img src="img/shots/${w.shot}-d.jpg" alt="${esc(w.name)} on desktop" width="1200" height="750"><img class="ph" src="img/shots/${w.shot}-m.jpg" alt="${esc(w.name)} on a phone" width="420"></div>`
     + (w.video?`<video src="video/${w.video}.mp4" muted loop playsinline autoplay preload="metadata" aria-label="${esc(w.name)} reel"></video>`:'');
   if(!dlg.open) dlg.showModal();
