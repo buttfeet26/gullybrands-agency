@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Walk the Gully</title>
+<meta name="description" content="The portfolio of Rahul Sakharkar (Gully Brands, Ulhasnagar): websites, brand kits, ad campaigns, reels, apps and AI media pipelines for small shops in India, Spain and Poland.">
+<meta property="og:title" content="Walk the Gully">
+<meta property="og:description" content="Every shop on this street is one I built. Websites, brand kits, ads, reels, apps and AI.">
+<meta property="og:image" content="img/shots/nakoda-gold-d.jpg">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Baloo+2:wght@700;800&family=Rubik+Mono+One&family=Space+Mono:wght@700&display=swap">
+<style>
+/* Layout: one Ulhasnagar lane. Yellow signboard hero, a night street of client shopfronts
+   that slides sideways as you scroll, then the poster wall, the workshop (AI), the plain index
+   and the counter. Deliberately one look (Gully Brands taxi yellow / ink / cream), no dark mode. */
+@font-face{font-family:"Fraunces Billboard";src:url("fonts/Fraunces-72pt-SuperSoft-BlackItalic.ttf") format("truetype");font-weight:900;font-style:italic;font-display:swap}
+:root{
+  color-scheme:light;
+  --yellow:#FFC72C; --yellow-deep:#E8AE15; --yellow-tint:#FFE38C;
+  --ink:#0A0A0A; --ink-2:#17140F; --street:#121010;
+  --cream:#F4ECD8; --cream-2:#EADFC4;
+  --fg-2:#2B2418; --fg-3:#6B5F4A; --on-ink:#F4ECD8; --on-ink-3:#A89C82;
+  --line:rgba(10,10,10,.18); --line-ink:rgba(244,236,216,.16);
+  --f-bill:"Fraunces Billboard","Fraunces",Georgia,"Times New Roman",serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gutter:clamp(16px,4vw,48px);
+  --s-1:.8125rem; --s0:1rem; --s1:1.25rem; --s2:1.75rem; --s3:clamp(2.2rem,5vw,3.4rem); --s4:clamp(3.4rem,11vw,8.5rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 var(--s0)/1.55 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:2px}
+.on-ink :focus-visible{outline-color:var(--yellow)}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{padding-inline:var(--gutter);max-width:1320px;margin-inline:auto}
+.eyebrow{font:600 var(--s-1)/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.bill{font-family:var(--f-bill);font-weight:900;font-style:italic;letter-spacing:-.01em;line-height:.92}
+.btn{display:inline-flex;align-items:center;gap:.5em;font:600 .95rem/1 var(--f-body);padding:.85em 1.25em;border:2px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--yellow);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--yellow)}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--yellow);border-bottom:2px solid var(--ink)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}
+.brand img{width:34px;height:34px;border:2px solid var(--ink)}
+.brand small{display:block;font:500 .72rem/1.2 var(--f-mono);letter-spacing:.06em;color:var(--fg-2)}
+.nav{display:flex;gap:4px;flex-wrap:nowrap}
+.nav a{white-space:nowrap}
+.nav a{font:600 .85rem/1 var(--f-body);text-decoration:none;padding:.6em .8em;border-radius:999px}
+.nav a:hover{background:var(--ink);color:var(--yellow)}
+@media (max-width:720px){.nav a:not(.keep){display:none}.brand small{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--yellow);border-bottom:2px solid var(--ink);position:relative;overflow:hidden}
+.hero .wrap{padding-block:clamp(40px,7vw,96px) clamp(36px,6vw,72px);display:grid;gap:28px}
+.hero h1{font-size:var(--s4)}
+.hero h1 .u{display:inline-block;background:var(--ink);color:var(--yellow);padding:0 .12em .04em;transform:rotate(-1.5deg)}
+.hero .lede{max-width:58ch;font-size:var(--s1);line-height:1.45;color:var(--fg-2)}
+.hero .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.ledger{display:flex;flex-wrap:wrap;border:2px solid var(--ink);background:var(--cream);max-width:fit-content}
+.ledger div{padding:12px 18px;border-right:2px solid var(--ink);min-width:0}
+.ledger div:last-child{border-right:0}
+.ledger b{display:block;font:900 italic 2rem/1 var(--f-bill);font-variant-numeric:tabular-nums}
+.ledger span{font:500 .72rem/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--fg-3)}
+@media (max-width:560px){.ledger div{flex:1 1 45%;border-bottom:2px solid var(--ink)}.ledger div:nth-child(2n){border-right:0}}
+.stamp{position:absolute;right:var(--gutter);top:28px;width:150px;height:150px;border:3px solid var(--ink);border-radius:50%;display:grid;place-items:center;text-align:center;transform:rotate(12deg);font:700 .7rem/1.25 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:18px;background:var(--yellow)}
+.stamp b{display:block;font:900 italic 2.1rem/1 var(--f-bill);letter-spacing:0;text-transform:none}
+@media (max-width:900px){.stamp{display:none}}
+
+/* ---------- the street ---------- */
+.street{background:var(--street);color:var(--on-ink);position:relative}
+.street-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;padding-block:56px 28px}
+.street-head h2{font-size:var(--s3)}
+.street-head h2 em{color:var(--yellow)}
+.street-head p{max-width:46ch;color:var(--on-ink-3)}
+.lane-viewport{overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--yellow) transparent}
+.lane-viewport.pinned{overflow:hidden}
+.lane{display:flex;gap:clamp(18px,2.4vw,34px);padding:10px var(--gutter) 0;width:max-content;align-items:end}
+.road{height:64px;background:repeating-linear-gradient(90deg,var(--yellow) 0 60px,transparent 60px 120px) center/100% 6px no-repeat,#1c1a17;border-top:6px solid #2a2622}
+.street-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:18px 56px;color:var(--on-ink-3);font:500 .78rem/1.4 var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+.street-foot a{color:var(--yellow)}
+
+.shop{--sign:#222;--signfg:#fff;--a1:#FFC72C;--a2:#0A0A0A;--sign-font:var(--f-bill);
+  width:clamp(270px,78vw,340px);scroll-snap-align:center;flex:none;display:flex;flex-direction:column;position:relative}
+.shop .sign{background:var(--sign);color:var(--signfg);border:3px solid #000;border-bottom:0;padding:14px 16px 12px;text-align:center;position:relative;box-shadow:0 0 0 rgba(255,199,44,0);transition:box-shadow .3s}
+.shop .sign .nm{font-family:var(--sign-font);font-size:1.7rem;line-height:1;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shop .sign .sub{font:600 .68rem/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;opacity:.85;display:block;margin-top:6px}
+.shop .awning{height:34px;background:repeating-linear-gradient(90deg,var(--a1) 0 26px,var(--a2) 26px 52px);border-inline:3px solid #000;
+  -webkit-mask:radial-gradient(14px 12px at 13px 100%,#0000 98%,#000) 0 0/26px 100% repeat-x;mask:radial-gradient(14px 12px at 13px 100%,#0000 98%,#000) 0 0/26px 100% repeat-x}
+.shop .front{border:3px solid #000;border-top:0;background:#2a2622;padding:14px 14px 0;display:grid;grid-template-columns:1fr 54px;gap:10px;height:250px}
+.shop .window{all:unset;cursor:pointer;position:relative;border:3px solid #000;background:#000;overflow:hidden;display:block;height:calc(100% - 14px)}
+.shop .window img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s,filter .3s;filter:saturate(.9) brightness(.92)}
+.shop .window::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.18),transparent 40%);pointer-events:none}
+.shop .window:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.shop .door{background:#3a342d;border:3px solid #000;border-bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:10px 0;font:700 .62rem/1.1 var(--f-mono);color:var(--on-ink-3);text-align:center}
+.shop .door i{width:8px;height:8px;border-radius:50%;background:var(--yellow);display:block}
+.shop .board{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 2px 0;font:500 .72rem/1.3 var(--f-mono);letter-spacing:.05em;color:var(--on-ink-3);text-transform:uppercase}
+.shop .board .open{border:1.5px solid currentColor;padding:2px 6px;border-radius:3px;white-space:nowrap}
+.shop .board .open.live{color:#7ee2a8}
+.shop .tags{display:flex;flex-wrap:wrap;gap:6px;padding-top:10px}
+.shop .tags span{font:500 .72rem/1 var(--f-body);padding:5px 8px;border:1px solid var(--line-ink);border-radius:999px;color:var(--on-ink)}
+.shop:hover .sign,.shop:focus-within .sign{box-shadow:0 0 34px rgba(255,199,44,.35)}
+.shop:hover .window img,.shop:focus-within .window img{transform:scale(1.04);filter:none}
+.shop .peek{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font:700 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:var(--yellow);color:var(--ink);padding:7px 10px;border:2px solid #000;white-space:nowrap}
+.shop.own .front{background:#3b2f12}
+.lane-label{flex:none;align-self:stretch;display:flex;align-items:center;justify-content:center;width:120px;writing-mode:vertical-rl;transform:rotate(180deg);font:700 .8rem/1 var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);border-inline:2px dashed var(--line-ink)}
+
+/* ---------- section scaffolding ---------- */
+.sec{padding-block:clamp(56px,8vw,104px)}
+.sec-head{display:grid;gap:12px;margin-bottom:34px;max-width:68ch}
+.sec-head h2{font-size:var(--s3)}
+.sec-head p{color:var(--fg-2);font-size:1.08rem}
+
+/* ---------- poster wall ---------- */
+.wall{background:var(--cream-2);border-block:2px solid var(--ink);background-image:radial-gradient(rgba(10,10,10,.06) 1px,transparent 1px);background-size:14px 14px}
+.posters{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(170px,44vw),1fr));gap:18px}
+.poster{background:#fff;padding:6px;box-shadow:0 8px 18px rgba(10,10,10,.18);position:relative;transform:rotate(var(--r,0deg));transition:transform .25s}
+.poster:hover{transform:rotate(0) scale(1.04);z-index:2}
+.poster::before{content:"";position:absolute;top:-9px;left:50%;width:64px;height:20px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,227,140,.85);border:1px solid rgba(10,10,10,.1)}
+.poster img{aspect-ratio:1;object-fit:cover;width:100%}
+.reels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,44vw),1fr));gap:18px;margin-top:44px}
+.reel{border:3px solid var(--ink);background:var(--ink);border-radius:18px;overflow:hidden;position:relative}
+.reel video{aspect-ratio:9/16;object-fit:cover;width:100%}
+.reel figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.85));color:var(--on-ink);font:600 .8rem/1.3 var(--f-body)}
+.reel figcaption span{display:block;font:500 .66rem/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--yellow)}
+.wall-note{margin-top:18px;font:500 .78rem/1.5 var(--f-mono);color:var(--fg-3)}
+
+/* ---------- workshop (AI) ---------- */
+.shopfloor{background:var(--ink);color:var(--on-ink)}
+.shopfloor .sec-head p{color:var(--on-ink-3)}
+.shopfloor .sec-head h2 em{color:var(--yellow)}
+.bench{display:grid;gap:28px;grid-template-columns:repeat(12,1fr)}
+.bench > *{min-width:0}
+.tool{border:2px solid var(--line-ink);padding:clamp(18px,2.6vw,30px);display:grid;gap:16px;align-content:start;background:var(--ink-2)}
+.tool h3{font:900 italic 1.9rem/1 var(--f-bill);color:var(--yellow)}
+.tool p{color:var(--on-ink-3);max-width:62ch}
+.tool .eyebrow{color:var(--on-ink)}
+.t-mia{grid-column:span 12}
+.t-app{grid-column:span 7}
+.t-media{grid-column:span 5}
+@media (max-width:980px){.t-app,.t-media{grid-column:span 12}}
+.mia-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+.mia-grid img{aspect-ratio:2/3;object-fit:cover;width:100%;border:2px solid #000}
+@media (max-width:860px){.mia-grid{grid-template-columns:repeat(4,1fr)}}
+.recipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;margin:0;padding:0;list-style:none;counter-reset:step}
+.recipe li{border-top:2px solid var(--yellow);padding-top:10px;font-size:.92rem;color:var(--on-ink);counter-increment:step}
+.recipe li::before{content:"Step " counter(step);display:block;font:600 .68rem/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:4px}
+.recipe li small{display:block;color:var(--on-ink-3);margin-top:4px;font-size:.82rem}
+.pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0;padding:0;list-style:none}
+.pipe li{font:600 .82rem/1.25 var(--f-body);padding:9px 12px;border:1.5px solid var(--line-ink);border-radius:8px;background:#1d1a15}
+.pipe li.key{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.pipe li.arrow{border:0;background:none;padding:0;color:var(--on-ink-3)}
+.loop{font:500 .78rem/1.4 var(--f-mono);color:var(--on-ink-3)}
+.tbl-wrap{overflow-x:auto}
+table.cost{border-collapse:collapse;width:100%;font-size:.86rem;min-width:340px}
+table.cost th,table.cost td{text-align:left;padding:8px 10px 8px 0;border-bottom:1px solid var(--line-ink)}
+table.cost th{font:600 .68rem/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-3)}
+table.cost td:last-child{font-variant-numeric:tabular-nums;color:var(--yellow);white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font:500 .75rem/1 var(--f-mono);padding:7px 10px;border:1px solid var(--line-ink);border-radius:999px;color:var(--on-ink)}
+
+/* ---------- index ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{font:600 .85rem/1 var(--f-body);padding:.6em 1em;border:2px solid var(--ink);border-radius:999px;background:transparent;cursor:pointer;color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--yellow)}
+.idx{border-top:2px solid var(--ink)}
+.idx-row{display:grid;grid-template-columns:2.2fr 1.4fr 3fr auto;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.idx-row > *{min-width:0}
+.idx-row .n{font:900 italic 1.45rem/1.05 var(--f-bill)}
+.idx-row .n button{all:unset;cursor:pointer}
+.idx-row .n button:hover{text-decoration:underline;text-decoration-thickness:2px}
+.idx-row .n button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.idx-row .p{font:500 .78rem/1.4 var(--f-mono);letter-spacing:.04em;color:var(--fg-3);text-transform:uppercase}
+.idx-row .w{color:var(--fg-2);font-size:.95rem}
+.idx-row .l a{font:600 .85rem/1 var(--f-body);white-space:nowrap}
+@media (max-width:760px){.idx-row{grid-template-columns:1fr auto}.idx-row .p{grid-column:1/-1;order:3}.idx-row .w{grid-column:1/-1;order:4}}
+
+/* ---------- counter / contact ---------- */
+.counter{background:var(--yellow);border-top:2px solid var(--ink)}
+.counter .wrap{padding-block:clamp(56px,8vw,96px);display:grid;gap:26px}
+.counter h2{font-size:var(--s4)}
+.counter-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:16px}
+.slip{border:2px solid var(--ink);background:var(--cream);padding:18px;display:grid;gap:8px}
+.slip .v{font:700 1.25rem/1.2 var(--f-body);user-select:all;word-break:break-word}
+.slip .row{display:flex;gap:8px;flex-wrap:wrap}
+.slip button,.slip a.mini{font:600 .8rem/1 var(--f-body);padding:.55em .9em;border:2px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--yellow);cursor:pointer;text-decoration:none}
+.slip a.mini.ghost{background:transparent;color:var(--ink)}
+.foot{background:var(--ink);color:var(--on-ink-3);font:500 .75rem/1.5 var(--f-mono);letter-spacing:.04em}
+.foot .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* ---------- case file dialog ---------- */
+dialog.case{width:min(1080px,100vw - 24px);max-height:calc(100dvh - 24px);border:3px solid var(--ink);padding:0;background:var(--cream);color:var(--ink);box-shadow:10px 10px 0 var(--ink)}
+dialog.case::backdrop{background:rgba(10,10,10,.72)}
+.case-top{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:var(--case-sign,#222);color:var(--case-fg,#fff);border-bottom:3px solid var(--ink)}
+.case-top .nm{font-family:var(--case-font,var(--f-bill));font-size:clamp(1.5rem,4vw,2.3rem);line-height:1.05}
+.case-top button{font:700 .8rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:.6em .9em;border:2px solid currentColor;background:transparent;color:inherit;border-radius:999px;cursor:pointer;flex:none}
+.case-body{padding:clamp(16px,3vw,32px);display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(18px,3vw,36px)}
+.case-body > *{min-width:0}
+@media (max-width:820px){.case-body{grid-template-columns:1fr}}
+.case-meta{display:flex;flex-wrap:wrap;gap:6px 14px;font:500 .74rem/1.4 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--fg-3)}
+.case-copy{display:grid;gap:18px;align-content:start}
+.case-copy h3{font:900 italic 1.6rem/1.05 var(--f-bill)}
+.case-copy .brief{font-size:1.08rem;color:var(--fg-2);max-width:60ch}
+.case-copy ul{margin:0;padding-left:1.1em;display:grid;gap:6px;color:var(--fg-2)}
+.results{display:flex;flex-wrap:wrap;gap:10px}
+.results div{border:2px solid var(--ink);background:var(--yellow);padding:10px 14px;min-width:0}
+.results b{display:block;font:900 italic 1.7rem/1 var(--f-bill);font-variant-numeric:tabular-nums}
+.results span{font:500 .7rem/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+.case-media{display:grid;gap:14px;align-content:start}
+.case-media .duo{display:grid;grid-template-columns:3fr 1fr;gap:12px;align-items:start}
+.case-media .duo > *{min-width:0}
+.case-media img,.case-media video{border:2px solid var(--ink);width:100%}
+.case-media .ph{border-radius:14px;border-width:3px}
+.case-media video{aspect-ratio:9/16;object-fit:cover;max-height:520px;width:auto;margin-inline:auto;border-radius:14px}
+.case-links{display:flex;flex-wrap:wrap;gap:10px}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <img src="img/logo.png" alt="" width="34" height="34">
+      <span>Rahul Sakharkar<small>Gully Brands · Ulhasnagar</small></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#street">The street</a>
+      <a href="#wall">Ad wall</a>
+      <a href="#workshop">Workshop</a>
+      <a href="#index" class="keep">Index</a>
+      <a href="#counter" class="keep">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Portfolio of Rahul Sakharkar · founder, Gully Brands · Ulhasnagar, Maharashtra</p>
+    <h1 class="bill">Walk the <span class="u">gully.</span></h1>
+    <p class="lede">Every shop on this street is one I built. Websites, brand kits, ad campaigns, reels, apps, and the AI pipeline that makes the pictures. Scroll down and the lane moves sideways. Tap any shop window to step inside.</p>
+    <div class="row">
+      <a class="btn" href="#street">Start walking ↓</a>
+      <a class="btn ghost" href="#index">Skip to the full index</a>
+    </div>
+    <div class="ledger" aria-label="At a glance">
+      <div><b>12</b><span>client builds</span></div>
+      <div><b>6</b><span>own products live</span></div>
+      <div><b>3</b><span>countries · IN · ES · PL</span></div>
+      <div><b>54</b><span>AI model photos shipped</span></div>
+    </div>
+  </div>
+  <div class="stamp" aria-hidden="true"><span>Est.<b>2026</b>Small brands. Made loud.</span></div>
+</section>
+
+<section class="street on-ink" id="street" aria-labelledby="street-h">
+  <div class="wrap street-head">
+    <h2 id="street-h" class="bill">The street. <em>Twelve clients,</em> six of my own.</h2>
+    <p>Jewellers, a pet clinic, a juice stall, a carpenter in Madrid, a nail studio in Poland. Each signboard is set in the client's own brand.</p>
+  </div>
+  <div class="lane-viewport" id="laneView" tabindex="0" aria-label="Shopfronts, scroll sideways">
+    <div class="lane" id="lane"></div>
+  </div>
+  <div class="road" aria-hidden="true"></div>
+  <div class="wrap street-foot">
+    <span id="laneHint">← Swipe the street →</span>
+    <span>Live links open in a new tab · <a href="#index">see it as a list</a></span>
+  </div>
+</section>
+
+<section class="wall sec" id="wall" aria-labelledby="wall-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Ad wall · Nakoda Gold, Dussehra–Diwali 2026</p>
+      <h2 id="wall-h" class="bill">Posters on the wall.</h2>
+      <p>The October campaign for Nakoda Gold: ten designs, each cut to square, tall and wide for Meta and Google placements. Gold rate offers, BIS hallmark, exchange, Google reviews, and a Marathi version for the local crowd.</p>
+    </div>
+    <div class="posters" id="posters"></div>
+    <div class="reels">
+      <figure class="reel"><video src="video/festival-campaigns.mp4" muted loop playsinline autoplay preload="metadata"></video><figcaption><span>Reel</span>Festival campaigns</figcaption></figure>
+      <figure class="reel"><video src="video/shop-board.mp4" muted loop playsinline autoplay preload="metadata"></video><figcaption><span>Reel</span>Hand-painted shop board</figcaption></figure>
+      <figure class="reel"><video src="video/instagram-suck.mp4" muted loop playsinline autoplay preload="metadata"></video><figcaption><span>Reel</span>The bazaar, on your phone</figcaption></figure>
+      <figure class="reel"><video src="video/himalayan-squad.mp4" muted loop playsinline autoplay preload="metadata"></video><figcaption><span>Reel · client</span>The Himalayan Squad</figcaption></figure>
+    </div>
+    <p class="wall-note">All reels and posters made in-house with my own image and video pipeline (see the workshop below).</p>
+  </div>
+</section>
+
+<section class="shopfloor sec on-ink" id="workshop" aria-labelledby="ws-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The workshop out back</p>
+      <h2 id="ws-h" class="bill">The machines that <em>make the pictures.</em></h2>
+      <p>Behind the shopfronts is the tooling: an AI fashion model, a photo-to-post app, and a GPU media factory that only bills while it works.</p>
+    </div>
+    <div class="bench">
+      <article class="tool t-mia">
+        <p class="eyebrow">AI influencer model · for Gully Brands Clothing</p>
+        <h3>Meet Mia.</h3>
+        <p>Mia is an AI influencer model I made for work. She wears every crop top in the Gully Brands store: one studio shot per colour and one lifestyle shot per design, 54 photos across 12 designs. The print on her top is the real product, placed exactly.</p>
+        <div class="mia-grid" id="miaGrid"></div>
+        <ol class="recipe">
+          <li>Train her identity<small>A custom LoRA on Krea 2, built from a curated dataset, so she stays the same person in a café, on a beach or in a studio.</small></li>
+          <li>Pose the shot<small>Krea 2 + the Mia LoRA set the scene, lighting and pose per design's vibe.</small></li>
+          <li>Dress her for real<small>Qwen-Image edit puts the exact product photo on her, so print, colour and placement match what ships.</small></li>
+          <li>QC every frame<small>Spelling and placement of the print, colour, face in frame, nothing covering the graphic.</small></li>
+        </ol>
+      </article>
+      <article class="tool t-app">
+        <p class="eyebrow">SaaS · app.gullybrands.in</p>
+        <h3>Shop photo in. Brand post out.</h3>
+        <p>A shopkeeper photographs stock on the counter and gets back a finished Instagram post, poster or reel with the price, offer, shop name and logo set into the picture. The product itself is never redrawn.</p>
+        <ol class="pipe" aria-label="How a post is made">
+          <li>Phone photo</li><li class="arrow" aria-hidden="true">→</li>
+          <li>Photo check: can we see the goods?</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="key">Art director: one vision call plans the shot</li><li class="arrow" aria-hidden="true">→</li>
+          <li>Render</li><li class="arrow" aria-hidden="true">→</li>
+          <li class="key">Reviewer compares it with the real product</li><li class="arrow" aria-hidden="true">→</li>
+          <li>Finished post</li>
+        </ol>
+        <p class="loop">Up to two automatic remakes if the reviewer spots a mismatch. Reels animate a checked opening frame with Veo.</p>
+        <div class="chips"><span>Next.js 16</span><span>Supabase</span><span>Vertex AI · Veo</span><span>Dodo Payments</span><span>Google Play Billing</span><span>Atomic credit ledger</span></div>
+      </article>
+      <article class="tool t-media">
+        <p class="eyebrow">Infrastructure · Gully Media on Modal</p>
+        <h3>A media factory with zero idle cost.</h3>
+        <p>Open-weight image, video and music models on GPUs that boot on demand and shut down five minutes after the last job.</p>
+        <div class="tbl-wrap">
+          <table class="cost">
+            <thead><tr><th>Job</th><th>Model</th><th>Per job</th></tr></thead>
+            <tbody>
+              <tr><td>Draft image</td><td>Z-Image Turbo</td><td>~$0.01</td></tr>
+              <tr><td>Product edit</td><td>Qwen-Image Edit</td><td>~$0.02</td></tr>
+              <tr><td>Hero image</td><td>FLUX.2 [dev]</td><td>~$0.04</td></tr>
+              <tr><td>Video</td><td>Wan 2.2</td><td>$0.05–0.20</td></tr>
+              <tr><td>Video + sound</td><td>MiniMax H3</td><td>~$0.15</td></tr>
+              <tr><td>Music</td><td>ACE-Step 1.5</td><td>~$0.02</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Squeezed MiniMax H3 from four H200s (123.6 GB) onto one H100 (55.9 GB) using the official fp8 and int8 builds.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="index" aria-labelledby="idx-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">For people in a hurry</p>
+      <h2 id="idx-h" class="bill">The full index.</h2>
+      <p>Everything on the street, as a plain list.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter the index" id="filters">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+      <button type="button" id="f-site" data-f="site" aria-pressed="false">Websites</button>
+      <button type="button" id="f-brand" data-f="brand" aria-pressed="false">Brand &amp; ads</button>
+      <button type="button" id="f-own" data-f="own" aria-pressed="false">Own products</button>
+      <button type="button" id="f-ai" data-f="ai" aria-pressed="false">AI</button>
+    </div>
+    <div class="idx" id="idx"></div>
+  </div>
+</section>
+
+<section class="counter" id="counter" aria-labelledby="ct-h">
+  <div class="wrap">
+    <p class="eyebrow">The counter · end of the street</p>
+    <h2 id="ct-h" class="bill">Your shop next?</h2>
+    <div class="counter-top">
+      <div class="slip">
+        <span class="eyebrow">WhatsApp</span>
+        <span class="v" id="wa">+91 86687 15250</span>
+        <div class="row"><button type="button" id="copyWa">Copy number</button><a class="mini ghost" href="https://wa.me/918668715250" target="_blank" rel="noopener">Open WhatsApp</a></div>
+      </div>
+      <div class="slip">
+        <span class="eyebrow">Instagram</span>
+        <span class="v">@gullybrands.in</span>
+        <div class="row"><a class="mini" href="https://www.instagram.com/gullybrands.in/" target="_blank" rel="noopener">Open profile</a></div>
+      </div>
+      <div class="slip">
+        <span class="eyebrow">Agency</span>
+        <span class="v">gullybrands.in</span>
+        <div class="row"><a class="mini" href="https://gullybrands.in" target="_blank" rel="noopener">Visit</a><a class="mini ghost" href="https://gullybrands.in/book.html" target="_blank" rel="noopener">Book a 20-min call</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap"><span>© 2026 Rahul Sakharkar · Gully Brands</span><span>Small brands. Made loud.</span></div></footer>
+
+<dialog class="case" id="case" aria-labelledby="caseName">
+  <div class="case-top"><span class="nm" id="caseName"></span><button type="button" id="caseClose">Close ✕</button></div>
+  <div class="case-body">
+    <div class="case-copy">
+      <div class="case-meta" id="caseMeta"></div>
+      <p class="brief" id="caseBrief"></p>
+      <div><h3>What I made</h3></div>
+      <ul id="caseMade"></ul>
+      <div class="results" id="caseResults"></div>
+      <div class="case-links" id="caseLinks"></div>
+    </div>
+    <div class="case-media" id="caseMedia"></div>
+  </div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+const F = {
+  cormorant:"'Cormorant Garamond',Georgia,serif",
+  baloo:"'Baloo 2','Inter',system-ui,sans-serif",
+  arcade:"'Rubik Mono One','Inter',system-ui,sans-serif",
+  mono:"'Space Mono',ui-monospace,monospace",
+  bill:"'Fraunces Billboard',Georgia,serif",
+  inter:"'Inter',system-ui,sans-serif"
+};
+/* kind: site | brand | own | ai  (a work can carry several) */
+const WORK = [
+ {id:'nakoda-gold', name:'Nakoda Gold', sub:'Jewellers · Ambernath · since 1999', trade:'Jeweller', place:'Ambernath, India', no:'01', live:true,
+  url:'https://nakodagold.com', shot:'nakoda-gold', kinds:['site','brand'], sign:'#0F3B2C', fg:'#E2C27A', a1:'#E2C27A', a2:'#0F3B2C', font:F.cormorant,
+  tags:['Website','Shop','Local SEO','Ads'], video:'nakoda-gold',
+  brief:'A 27-year-old gold jeweller on Station Road with 207 Google reviews and no real web presence. The job: a site that sells trust first, then the jewellery, and shows up when someone in Thane district searches for a jeweller.',
+  made:['Full multi-page site with a scroll-video hero and shop catalogue (36+ new 22K and rose-gold pieces in October alone)','Around 20 local landing pages, one per nearby town, plus gold-rate and gold-exchange pages','28 custom share cards so every page previews properly on WhatsApp','Dussehra–Diwali ad campaign: 10 poster designs in 3 sizes, offer landing page, Google Ads call and WhatsApp conversion tracking','Google Merchant product feed and Google Business Profile care: 108 review replies posted','4:5 Instagram posts and a 12-day social calendar'],
+  results:[['108','review replies'],['28','share cards'],['12d','social calendar']]},
+ {id:'nakoda-silver', name:'Nakoda Silver', sub:'92.5 silver · freshwater pearls', trade:'D2C jewellery', place:'Ambernath, India', no:'02', live:true,
+  url:'https://nakodasilver.com', shot:'nakoda-silver', kinds:['site','brand'], sign:'#EDE7DD', fg:'#1F1B16', a1:'#C9C2B6', a2:'#EDE7DD', font:F.cormorant,
+  tags:['Brand kit','Shopify theme','E-commerce'],
+  brief:'A new online sister brand: ten pieces of 925 sterling silver with real freshwater pearls, sold across India from Ambernath.',
+  made:['Brand kit and logo system for a quieter, editorial sister brand','Custom Shopify theme, iterated from v1 to v5 and published live','Catalogue of 10 pieces priced in tiers, free shipping, 7-day exchange','Removed a third-party cart drawer that made checkout look cheap'],
+  results:[['10','pieces live'],['v5','theme shipped']]},
+ {id:'emonfer', name:'Emonfer', sub:'Ebanistería · Madrid', trade:'Carpenter', place:'Madrid, Spain', no:'03', live:true,
+  url:'https://emonfer.es', shot:'emonfer', kinds:['site','brand','ai'], sign:'#2B1D14', fg:'#E9D8B8', a1:'#8A5A35', a2:'#2B1D14', font:F.cormorant,
+  tags:['Rebrand','Website','AI chatbot','Spanish'],
+  brief:'A Madrid cabinet-maker with 35 years at the bench, rebranded from "Carpintería Emonfer" to "Emonfer Ebanistería", kept the line "Calidad que perdura", and finally got a site as good as his work.',
+  made:['12-page site written in Peninsular Spanish: services, filterable project gallery with lightbox, blog, contact','Before/after restoration slider (a 1950s radio brought back to life)','Gemini chatbot that quotes his real prices, with a rule-based fallback if the API is down','Portfolio curated from his Instagram, plus a workshop photo graded from one of his videos','GSAP and Lenis motion, Schema.org Carpenter data, cookie-free, LSSI/RGPD legal pages'],
+  results:[['12','pages'],['0','cookies'],['ES','es-ES only']]},
+ {id:'pets', name:'Shree Swami Samarth', sub:'Pets shop · clinic · grooming', trade:'Pet shop & vet', place:'Ulhasnagar & Ambernath', no:'04', live:true,
+  url:'https://shreeswamisamarthpetshop.in', shot:'pets', kinds:['site','brand'], sign:'#0E4D57', fg:'#FFFFFF', a1:'#F2A93B', a2:'#0E4D57', font:F.baloo,
+  tags:['Website','Google Business','Instagram'],
+  brief:'Two branches, an in-store vet and 10am–10pm hours, but an Instagram bio full of addresses and Google services with no descriptions. The job: make the shop as findable as it is trusted.',
+  made:['Website with its own domain, plus an interactive "see your business live" showcase','Services page with 23 written service descriptions, also published to Google Business','46 of 47 Google reviews answered and 11 product photos corrected','Review and menu QR cards for the counter, Instagram profile rewrite, Meta ad targeting plan'],
+  results:[['46/47','reviews answered'],['23','services written']]},
+ {id:'sai', name:'Sai Healthy Corner', sub:'Juices · soups · healthy chaat', trade:'Juice stall', place:'Ulhasnagar, India', no:'05', live:true,
+  url:'https://saihealthycorner.in', shot:'sai', kinds:['site','brand'], sign:'#2F5D34', fg:'#FFF6E2', a1:'#E8853D', a2:'#FFF6E2', font:F.baloo,
+  tags:['Website','Menu','Google reviews','QR cards'],
+  brief:'A morning juice stall run by Coach Anita on Netaji Road. People pre-book on WhatsApp by 9pm and pick up at 8am, so the site has to make that loop easy.',
+  made:['Website with the pre-order flow front and centre','84-item menu page with photos and structured data, linked from Google Business','Review-request WhatsApp broadcast and printable menu and review QR cards','Showcase deck for the owner'],
+  results:[['0→4','reviews in one day'],['84','menu items online']]},
+ {id:'bellmarcq', name:'Bellmarcq', sub:'Weaving excellence · est. 1989', trade:'Textile mill', place:'Bhiwandi, India', no:'06', live:true,
+  url:'https://bellmarcq.surge.sh', shot:'bellmarcq', kinds:['site','brand'], sign:'#16110D', fg:'#E8DCC4', a1:'#6B4F37', a2:'#16110D', font:F.cormorant,
+  tags:['B2B website','Proposal','Brand kit'],
+  brief:'A 37-year heritage fabric mill supplying shirting, suiting and kurta fabric to garment makers. Buyers needed to see the cloth and price a bulk order without a phone call.',
+  made:['Cinematic B2B site featuring the Leno Jacquard cotton-linen collection','B2B order estimator for bulk fabric','Brand kit and written proposal'],
+  results:[['37 yrs','heritage told'],['B2B','order estimator']]},
+ {id:'nails', name:'Nails Anamur', sub:'Stylizacja paznokci', trade:'Nail studio', place:'Strzelce Opolskie, Poland', no:'07', live:true,
+  url:'https://nails-anamur.surge.sh', shot:'nails', kinds:['site','brand','ai'], sign:'#3A1F1C', fg:'#F3D9CF', a1:'#C98B7B', a2:'#3A1F1C', font:F.cormorant,
+  tags:['Website','Polish','Scroll video'],
+  brief:'A one-chair luxury nail studio in Poland. The site had to feel as precise and sterile as the work, in Polish.',
+  made:['Polish-language site with a scroll-driven video hero (a bottle morph made with Veo)','Services and pricing laid out as "rituals"','Brand kit, with desktop and mobile QA passes'],
+  results:[['PL','fully in Polish'],['1','scroll film']]},
+ {id:'laptop-guru', name:'Laptop Guru', sub:'Refurbished laptops · repair', trade:'Laptop shop', place:'Ulhasnagar, India', no:'08', live:false,
+  url:'https://laptop-guru.surge.sh', shot:'laptop-guru', kinds:['site','brand','ai'], sign:'#111111', fg:'#F4830D', a1:'#F4830D', a2:'#111111', font:F.mono,
+  tags:['Pitch site','Brand kit','Scroll video'],
+  brief:'A refurbished laptop shop with 162 Google reviews. I pitched with a finished site instead of a deck: "Every laptop has a history. We tell you it."',
+  made:['Dark grid storefront in Space Grotesk and Space Mono','Scroll-scrubbed video hero generated from real shop photos with Wan 2.2, compressed to 1 MB','Voice-of-customer analysis of their reviews, brand kit ("Guru Orange" #F4830D), local SEO plan'],
+  results:[['1 MB','hero video'],['162','reviews mined']]},
+ {id:'mad-arcade', name:'Mad Arcade', sub:'Máquinas arcade · Madrid', trade:'Arcade machines', place:'Madrid, Spain', no:'09', live:false,
+  url:'https://mad-arcade-demo.surge.sh', shot:'mad-arcade', kinds:['site'], sign:'#0B0F2A', fg:'#22E3FF', a1:'#FF2E88', a2:'#0B0F2A', font:F.arcade,
+  tags:['Pitch site','Spanish','Configurator'],
+  brief:'A Madrid workshop that builds and restores arcade and virtual pinball machines. Pitch demo in Spanish with an arcade-cabinet video hero.',
+  made:['Spanish site with a video hero, machine roster and a "configure your machine" builder','Neon arcade identity applied across the page'],
+  results:[['ES','in Spanish'],['1','machine configurator']]},
+ {id:'himalayan', name:'The Himalayan Squad', sub:'Expedition specialists', trade:'Tour operator', place:'Himalaya, India', no:'10', live:true,
+  url:'https://himalayan-squad.surge.sh', shot:'himalayan', kinds:['site','brand'], sign:'#0D1B2A', fg:'#E7B45A', a1:'#E7B45A', a2:'#0D1B2A', font:F.cormorant,
+  tags:['Booking site','Proposal','Reels'], video:'himalayan-squad',
+  brief:'An adventure operator that was invisible online. "Where the road ends, we begin."',
+  made:['High-converting single-page booking site','An elite 12-page proposal','Cinematic video reels'],
+  results:[['2.4×','bookings'],['12','page proposal']]},
+ {id:'luna', name:'Luna Hooks', sub:'Handmade crochet · Dehradun', trade:'Crochet maker', place:'Dehradun, India', no:'11', live:true,
+  url:'https://luna-hooks.surge.sh', shot:'luna', kinds:['site','brand'], sign:'#F6EFE6', fg:'#2F5FA8', a1:'#E8698E', a2:'#F6EFE6', font:F.cormorant,
+  tags:['Brand kit','Lookbook','WhatsApp orders'], video:'luna-hooks',
+  brief:'A handmade slow-fashion crochet side hustle. "Worn with whimsy."',
+  made:['Vibrant, nature-inspired "Maker\'s Palette" brand kit','Looping-video "Whimsy Lookbook" and yarn palette customiser','Bio funnel rebuilt for friction-free WhatsApp ordering'],
+  results:[['100%','sold out'],['1','brand kit']]},
+ {id:'nut', name:'The Nut Atelier', sub:'Double-crafted walnuts', trade:'Gourmet food', place:'India', no:'12', live:true,
+  url:'https://the-nut-atelier.surge.sh', shot:'nut', kinds:['site','brand'], sign:'#3A2E24', fg:'#E4C66B', a1:'#E4C66B', a2:'#3A2E24', font:F.cormorant,
+  tags:['Identity','Luxury site','Copy'], video:'the-nut-atelier',
+  brief:'Premium walnuts, tannin-neutralised so there is no bitter taste. "Where health meets elegance."',
+  made:['Premium identity showcase','Full-bleed luxury website with cinematic flavour loops','Social copy built around the tannin-neutral health benefits'],
+  results:[['3.5×','clicks'],['1','luxe site']]},
+ /* ---- own products ---- */
+ {id:'gb-app', own:true, name:'Gully Brands App', sub:'Shop photo in · brand post out', trade:'SaaS', place:'app.gullybrands.in', no:'A', live:true,
+  url:'https://app.gullybrands.in', shot:'gb-app', kinds:['own','ai'], sign:'#FFC72C', fg:'#0A0A0A', a1:'#FFC72C', a2:'#0A0A0A', font:F.bill,
+  tags:['SaaS','AI','Payments'],
+  brief:'An app for small Indian shops: photograph stock on the counter, get back a finished post, poster or reel with your price and name set in. Five free posts, no card.',
+  made:['Art-director step: one vision call plans each shot; a reviewer checks the render against the real product and remakes it up to twice','Templates per trade (jewellery, fashion, restaurant and more) or generated by the shop itself','Credits ledger with atomic spends and exactly-once refunds; Dodo Payments on web, Google Play Billing on Android','Next.js 16, Supabase, Vertex AI and Veo, hosted on Vercel in Mumbai'],
+  results:[['5','free posts to start'],['2','auto remakes max']]},
+ {id:'gb-shop', own:true, name:'Gully Brands', sub:'Baddie era · made loud', trade:'Fashion D2C', place:'shop.gullybrands.in', no:'B', live:true,
+  url:'https://shop.gullybrands.in', shot:'gb-shop', kinds:['own','site','ai'], sign:'#0A0A0A', fg:'#FF4FA3', a1:'#FF4FA3', a2:'#0A0A0A', font:F.bill,
+  tags:['Headless Shopify','Mia','Meta ads'],
+  brief:'My own Y2K crop-top label for baddies and it girls: 12 designs at ₹499, printed on demand. Every photo is of Mia, the AI model I made for it.',
+  made:['Custom headless storefront on the Shopify Storefront API, one real page per product','54 Mia product photos: studio per colour, lifestyle per design','Google Shopping feed (one item per colour and size), Search Console, Product rich results','Meta pixel events, ad campaign, and 12 Instagram carousels'],
+  results:[['12','rich results'],['54','Mia photos'],['₹499','every top']]},
+ {id:'rethink', own:true, name:'Re-Think Studio', sub:'AI image & video studio', trade:'SaaS', place:'rethink-studio.vercel.app', no:'C', live:true,
+  url:'https://rethink-studio.vercel.app', shot:'rethink', kinds:['own','ai'], sign:'#F7F7F5', fg:'#5B3DF5', a1:'#5B3DF5', a2:'#F7F7F5', font:F.inter,
+  tags:['SaaS','Text to image','Image to video'],
+  brief:'The earlier studio the Gully Brands app grew out of: text to image, photo to photo, still to motion, "without a house style".',
+  made:['Three studios sharing one library','Free-credit onboarding, no card needed'],
+  results:[['3','studios']]},
+ {id:'ghoul-vault', own:true, name:'Ghoul Vault', sub:'Monster High collector dolls', trade:'E-commerce', place:'Worldwide shipping', no:'D', live:true,
+  url:'https://monster-high-store.vercel.app', shot:'ghoul-vault', kinds:['own','site'], sign:'#16081F', fg:'#FF3DAA', a1:'#FF3DAA', a2:'#16081F', font:F.bill,
+  tags:['Next.js','Supabase','PayPal + Razorpay'],
+  brief:'A store for authentic Monster High dolls, shipped worldwide with tracking.',
+  made:['Next.js storefront with a Supabase catalogue and order log','PayPal Business and Razorpay checkout for cards, netbanking and UPI','Google Merchant Center and Google Ads purchase tracking'],
+  results:[['2','payment rails']]},
+ {id:'ghoul-crypt', own:true, name:'Ghoul Crypt', sub:'Printable colouring books', trade:'Digital products', place:'Instant PDF delivery', no:'E', live:true,
+  url:'https://ghoul-crypt.vercel.app', shot:'ghoul-crypt', kinds:['own','site'], sign:'#12061C', fg:'#C77DFF', a1:'#C77DFF', a2:'#12061C', font:F.bill,
+  tags:['Digital store','Instant delivery'],
+  brief:'Spooky colouring and drawing books as PDFs, delivered straight to the inbox. Card and Apple Pay checkout.',
+  made:['Digital storefront with instant PDF delivery and order tracking'],
+  results:[['PDF','instant delivery']]},
+ {id:'gb-agency', own:true, name:'Gully Brands', sub:'Agency · small brands made loud', trade:'Agency site', place:'gullybrands.in', no:'F', live:true,
+  url:'https://gullybrands.in', shot:'gb-agency', kinds:['own','site','brand'], sign:'#FFC72C', fg:'#0A0A0A', a1:'#0A0A0A', a2:'#FFC72C', font:F.bill,
+  tags:['Design system','Agency site','Pricing'],
+  brief:'The agency itself: marketing for the corner shops of Ulhasnagar. Taxi yellow, jet black and cream, borrowed from Mumbai shop boards and auto-rickshaws.',
+  made:['Three-colour design system with Fraunces Billboard, Inter and JetBrains Mono','One-page site with case studies, rupee-first pricing, services and pricing PDFs, and a booking page'],
+  results:[['3','brand colours, no more']]}
+];
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---- the street ---- */
+function shopHTML(w){
+  return `<article class="shop${w.own?' own':''}" style="--sign:${w.sign};--signfg:${w.fg};--a1:${w.a1};--a2:${w.a2};--sign-font:${w.font}">
+    <div class="sign"><span class="nm">${esc(w.name)}</span><span class="sub">${esc(w.sub)}</span></div>
+    <div class="awning" aria-hidden="true"></div>
+    <div class="front">
+      <button class="window" type="button" data-open="${w.id}" aria-label="Open the ${esc(w.name)} case file">
+        <img src="img/shots/${w.shot}-d.jpg" alt="${esc(w.name)} website" loading="lazy" width="1200" height="750">
+        <span class="peek">Step inside</span>
+      </button>
+      <div class="door" aria-hidden="true"><span>NO.<br>${w.no}</span><i></i><span>${w.own?'MINE':'OPEN'}</span></div>
+    </div>
+    <div class="board"><span>${esc(w.trade)} · ${esc(w.place)}</span><span class="open${w.live?' live':''}">${w.live?'● Live':'Pitch demo'}</span></div>
+    <div class="tags">${w.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
+  </article>`;
+}
+const clients = WORK.filter(w=>!w.own), own = WORK.filter(w=>w.own);
+$('#lane').innerHTML = clients.map(shopHTML).join('') + `<div class="lane-label" aria-hidden="true">My own shops</div>` + own.map(shopHTML).join('');
+
+/* ---- posters + mia ---- */
+const POSTERS = ['01-name','02-offer','03-dhanteras','04-hallmark','05-exchange','06-reviews','07-products','08-marathi','09-silver-banner','10-mangalsutra'];
+const ALTS = ['Nakoda Gold name poster','Jitna sona, utna chandi offer','Dhanteras pre-booking','BIS hallmarked with HUID','Zero melting loss exchange','Rated 4.7 on Google','New in the case','Marathi poster','Festive silver banner','Mangalsutras under ₹60,000'];
+$('#posters').innerHTML = POSTERS.map((p,i)=>`<figure class="poster" style="--r:${[-2.5,1.5,-1,2.2,-1.8,1,-2,2.6,-1.2,1.8][i]}deg;margin:0"><img src="img/posters/nakoda-${p}-square.jpg" alt="${ALTS[i]}" loading="lazy" width="640" height="640"></figure>`).join('');
+$('#miaGrid').innerHTML = Array.from({length:8},(_,i)=>`<img src="img/mia/mia-${i+1}.jpg" alt="Mia, the AI model, wearing a Gully Brands crop top" loading="lazy" width="427" height="640">`).join('');
+
+/* ---- index ---- */
+function renderIndex(f){
+  const rows = WORK.filter(w => f==='all' || w.kinds.includes(f));
+  $('#idx').innerHTML = rows.map(w=>`<div class="idx-row">
+    <div class="n"><button type="button" data-open="${w.id}">${esc(w.name)}</button></div>
+    <div class="p">${esc(w.trade)} · ${esc(w.place)}</div>
+    <div class="w">${esc(w.tags.join(' · '))}</div>
+    <div class="l"><a href="${w.url}" target="_blank" rel="noopener">${w.live?'Live site ↗':'Demo ↗'}</a></div>
+  </div>`).join('');
+}
+renderIndex('all');
+$('#filters').addEventListener('click', e=>{
+  const b = e.target.closest('button[data-f]'); if(!b) return;
+  document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed', x===b?'true':'false'));
+  renderIndex(b.dataset.f);
+});
+
+/* ---- case file ---- */
+const dlg = $('#case');
+function openCase(id, push=true){
+  const w = WORK.find(x=>x.id===id); if(!w) return;
+  dlg.style.setProperty('--case-sign', w.sign); dlg.style.setProperty('--case-fg', w.fg); dlg.style.setProperty('--case-font', w.font);
+  $('#caseName').textContent = w.name;
+  $('#caseMeta').innerHTML = [w.trade, w.place, w.live?'Live':'Pitch demo', '2026'].map(m=>`<span>${esc(m)}</span>`).join('');
+  $('#caseBrief').textContent = w.brief;
+  $('#caseMade').innerHTML = w.made.map(m=>`<li>${esc(m)}</li>`).join('');
+  $('#caseResults').innerHTML = w.results.map(([b,s])=>`<div><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join('');
+  $('#caseLinks').innerHTML = `<a class="btn" href="${w.url}" target="_blank" rel="noopener">${w.live?'Visit the live site ↗':'Open the demo ↗'}</a>`;
+  $('#caseMedia').innerHTML = `<div class="duo"><img src="img/shots/${w.shot}-d.jpg" alt="${esc(w.name)} on desktop" width="1200" height="750"><img class="ph" src="img/shots/${w.shot}-m.jpg" alt="${esc(w.name)} on a phone" width="420"></div>`
+    + (w.video?`<video src="video/${w.video}.mp4" muted loop playsinline autoplay preload="metadata" aria-label="${esc(w.name)} reel"></video>`:'');
+  if(!dlg.open) dlg.showModal();
+  dlg.scrollTop = 0;
+  if(push) try{ history.replaceState(null,'','#'+id) }catch(e){}
+}
+function closeCase(){ dlg.close() }
+dlg.addEventListener('close', ()=>{ $('#caseMedia').innerHTML=''; if(WORK.some(w=>'#'+w.id===location.hash)) try{ history.replaceState(null,'',location.pathname+location.search) }catch(e){} });
+$('#caseClose').addEventListener('click', closeCase);
+dlg.addEventListener('click', e=>{ if(e.target===dlg) closeCase() });
+document.addEventListener('click', e=>{ const t = e.target.closest('[data-open]'); if(t) openCase(t.dataset.open) });
+if(location.hash && WORK.some(w=>'#'+w.id===location.hash)) openCase(location.hash.slice(1), false);
+
+/* ---- copy number ---- */
+$('#copyWa').addEventListener('click', async e=>{
+  const b = e.currentTarget, num = '+918668715250';
+  try{ await navigator.clipboard.writeText(num); b.textContent='Copied' }
+  catch(err){ const r=document.createRange(); r.selectNodeContents($('#wa')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent='Selected, press copy' }
+  setTimeout(()=>b.textContent='Copy number',1800);
+});
+
+/* ---- pinned sideways street (desktop, motion allowed) ---- */
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce || !window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  const view = $('#laneView'), lane = $('#lane');
+  ScrollTrigger.matchMedia({
+    '(min-width: 900px)': function(){
+      view.classList.add('pinned'); view.scrollLeft = 0;
+      $('#laneHint').textContent = '↓ Keep scrolling to walk the street';
+      const dist = () => Math.max(0, lane.scrollWidth - view.clientWidth);
+      const tw = gsap.to(lane, {x: () => -dist(), ease:'none',
+        scrollTrigger:{trigger:'#street', start:'top top+=58', end: () => '+=' + dist(), pin:true, scrub:0.6, invalidateOnRefresh:true, anticipatePin:1}});
+      return () => { view.classList.remove('pinned'); gsap.set(lane,{x:0}); $('#laneHint').textContent='← Swipe the street →'; tw.kill() };
+    }
+  });
+  addEventListener('load', ()=>ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
