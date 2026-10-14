@@ -1,0 +1,1326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rahul Sakharkar</title>
+<meta name="description" content="Rahul Sakharkar: films, brand kits, websites and AI for small businesses in India, Spain and Poland. Opens with Ishq, a film for Nakoda Silver starring Mia, an AI model he created.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Ccircle cx=%278%27 cy=%278%27 r=%275%27 fill=%27%23EDE7DD%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: two layers. On top, the intro: Mia floats in black space while the Ishq song builds, the
+   film plays on the beat at 70% size, an end card, then the window blurs and closes like a shutter.
+   Underneath, the portfolio in the monopo.vn manner: a liquid gold-and-sage hero with a glass sphere,
+   a cycling headline, then selected work as a filterable grid of project cards (each opens a project window), clients,
+   manifesto, Mia, and contact. One look: black, pearl, warm gold. No light theme. */
+:root{
+  color-scheme:dark;
+  --void:#000000;
+  --ink:#070707;
+  --pearl:#EDE7DD;
+  --pearl-dim:rgba(237,231,221,.58);
+  --pearl-mute:rgba(237,231,221,.55);
+  --pearl-faint:rgba(237,231,221,.16);
+  --gold:#C8A06A;
+  --f-sans:"Instrument Sans","Helvetica Neue",Arial,system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --edge:clamp(16px,4.2vw,64px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--pearl);font:400 16px/1.5 var(--f-sans);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+body.intro-on{overflow:hidden;height:100%}
+body.intro-on .nav{opacity:0}
+@media (hover:hover) and (pointer:fine){body,button,a{cursor:none}}
+dialog,dialog *{cursor:auto!important}dialog button,dialog a,dialog [data-adk]{cursor:pointer!important}
+body:has(dialog[open]) .cursor{display:none!important}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+i{font-style:italic}
+.mono{font:400 11px/1.6 var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button:focus-visible,a:focus-visible{outline:1px solid var(--pearl);outline-offset:4px;border-radius:4px}
+
+/* =========================================================================================
+   PORTFOLIO
+   ========================================================================================= */
+.site{position:relative;transform:scale(1.035);filter:brightness(.6);transition:transform 1.6s cubic-bezier(.2,.7,.2,1),filter 1.6s ease}
+body.revealing .site,body.intro-done .site{transform:none;filter:none}
+.wrap{padding-inline:var(--edge)}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:30;transition:opacity .8s ease;display:flex;justify-content:space-between;align-items:flex-start;padding:calc(var(--edge) * .55 + env(safe-area-inset-top,0px)) var(--edge) 0;pointer-events:none;text-shadow:0 1px 12px rgba(0,0,0,.55)}
+.nav > *{pointer-events:auto}
+.logo{font:500 15px/1 var(--f-sans);letter-spacing:-.01em;text-decoration:none;color:var(--pearl)}
+.logo span{font-weight:400;color:var(--pearl-dim)}
+.nav ul{list-style:none;margin:0;padding:0;display:grid;gap:0;text-align:right}
+.nav ul a{display:inline-block;padding:4px 0}
+.nav ul a{font:400 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--pearl);transition:color .3s}
+.nav ul a:hover{color:var(--gold)}
+.nav{visibility:visible}
+body.scrolled .nav{opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s linear .3s}
+.navbar{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:var(--edge);right:var(--edge);z-index:31;display:flex;justify-content:space-between;align-items:center;gap:12px;pointer-events:none;opacity:0;visibility:hidden;transform:translate3d(0,-12px,0);transition:opacity .3s ease,transform .45s cubic-bezier(.2,.7,.2,1),visibility 0s linear .45s}
+body.scrolled .navbar{opacity:1;visibility:visible;transform:none;transition:opacity .35s ease .05s,transform .5s cubic-bezier(.2,.7,.2,1),visibility 0s}
+body.intro-on .navbar{opacity:0!important;visibility:hidden!important}
+.navbar > *{pointer-events:auto;background:rgba(8,8,8,.72);border:1px solid var(--pearl-faint);border-radius:999px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.navbar .logo{padding:11px 16px}
+.navbar ul{list-style:none;margin:0;padding:11px 18px;display:flex;gap:20px}
+.navbar ul a{font:400 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--pearl);transition:color .3s}
+.navbar ul a:hover{color:var(--gold)}
+@media (max-width:760px){.navbar{justify-content:center}.navbar .logo{display:none}.navbar ul{gap:13px;padding:10px 14px}.navbar ul a{font-size:10px;letter-spacing:.08em}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:var(--void)}
+#heroGl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-fade{position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(transparent,var(--ink));pointer-events:none}
+.hero-copy{position:relative;z-index:2;text-align:center;padding:0 var(--edge);display:grid;gap:22px;justify-items:center}
+.hero .line{position:relative;height:1.2em;width:min(92vw,980px);font:400 clamp(26px,4.6vw,70px)/1.15 var(--f-sans);letter-spacing:-.025em}
+.hero .line .w{left:0;right:0;text-align:center}
+.hero-sub{max-width:44ch;color:var(--pearl-dim);font-size:15px}
+.hero-sub b{font-weight:500;color:var(--pearl)}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;font:400 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pearl);background:rgba(0,0,0,.28);border:1px solid var(--pearl-faint);border-radius:999px;padding:12px 16px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hero-cta:hover{border-color:var(--pearl)}
+.tri{width:0;height:0;border-left:8px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent}
+.scroll-badge{position:absolute;left:var(--edge);bottom:calc(var(--edge) * .6);z-index:2;width:88px;height:88px;color:var(--pearl)}
+.scroll-badge svg{width:100%;height:100%;animation:spin 18s linear infinite}
+.scroll-badge text{font:400 8.4px var(--f-mono);fill:var(--pearl)}
+.scroll-badge .arrow{position:absolute;inset:0;margin:auto;width:9px;height:9px;border-right:1px solid var(--pearl);border-bottom:1px solid var(--pearl);transform:translateY(-2px) rotate(45deg)}
+
+/* rotating word lines (shared by hero and intro) */
+.line .w{position:absolute;top:0;white-space:nowrap;opacity:0;filter:blur(8px);transform:translateY(.25em);transition:opacity 1.1s ease,filter 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.line .w.on{opacity:1;filter:blur(0);transform:none}
+.line .w.off{opacity:0;filter:blur(8px);transform:translateY(-.25em)}
+.line i{font-style:italic;font-weight:400}
+
+/* sections */
+.sec{padding-block:clamp(72px,11vw,150px) 0}
+.label{display:flex;align-items:center;gap:10px;color:var(--pearl-dim);margin-bottom:clamp(26px,4vw,44px)}
+#work .label{scroll-margin-top:104px}
+#work .label:focus{outline:none}
+.label::before{content:"";width:14px;height:1px;background:currentColor}
+
+/* selected work: filters + project grid */
+.work-head{display:flex;justify-content:space-between;align-items:end;gap:20px 32px;flex-wrap:wrap;margin-bottom:clamp(22px,3vw,34px)}
+.work-head h2{font:400 clamp(34px,5vw,72px)/1 var(--f-sans);letter-spacing:-.035em;margin:0}
+.work-head h2 i{color:var(--gold)}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl-dim);background:none;border:1px solid var(--pearl-faint);border-radius:999px;padding:11px 14px;cursor:pointer;transition:color .25s,border-color .25s,background .25s}
+.filters button sup{font-size:9px;margin-left:5px;color:var(--pearl-mute);vertical-align:.35em}
+.filters button:hover{color:var(--pearl);border-color:rgba(237,231,221,.4)}
+.filters button[aria-pressed="true"]{background:var(--pearl);color:#000;border-color:var(--pearl)}
+.filters button[aria-pressed="true"] sup{color:rgba(0,0,0,.55)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)}
+.card{display:flex;flex-direction:column;gap:14px;color:var(--pearl);text-decoration:none;min-width:0;animation:cardIn .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card[hidden]{display:none}
+.card.big{grid-column:1/-1}
+.card.big .card-media{aspect-ratio:21/9}
+.card-media{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#0d0d0d;border:1px solid var(--pearl-faint);isolation:isolate}
+.card-media video,.card-media img,.card-media .scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.card:hover .card-media video,.card:hover .card-media img,.card:focus-visible .card-media video{transform:scale(1.035)}
+.card-media .open{position:absolute;right:12px;bottom:12px;z-index:2;font:400 10px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#000;background:var(--pearl);border-radius:999px;padding:9px 12px;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.card:hover .open,.card:focus-visible .open{opacity:1;transform:none}
+.card-media .pill{position:absolute;left:12px;top:12px;z-index:2;font:400 10px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pearl);background:rgba(0,0,0,.55);border:1px solid rgba(237,231,221,.18);border-radius:999px;padding:7px 10px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.card-media .pill.ads{left:auto;right:12px}
+.card-info{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.card-info h3{font:400 clamp(20px,1.7vw,26px)/1.15 var(--f-sans);letter-spacing:-.02em;margin:0}
+.card.big .card-info h3{font-size:clamp(24px,2.4vw,36px)}
+.card-info .meta{font:400 10.5px/1.5 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl-mute);text-align:right;white-space:nowrap}
+.card-sub{font-size:14px;color:var(--pearl-dim);margin:-8px 0 0}
+.card-media .mia4{display:grid;grid-template-columns:repeat(4,1fr);position:absolute;inset:0}
+.card-media .mia4 img{position:static;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}.card.big .card-media{aspect-ratio:16/10}.card-info{flex-direction:column;gap:4px}.card-info .meta{text-align:left}.card-media .open{opacity:1;transform:none}}
+@media (hover:none){.card-media .open{opacity:1;transform:none}}
+/* résumé page inside the project window */
+.cv-page{clear:both;padding:clamp(56px,6vw,84px) clamp(20px,5vw,72px) clamp(36px,5vw,64px);display:grid;gap:clamp(28px,4vw,48px)}
+.cv-page[hidden]{display:none}
+.cv-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:end;border-bottom:1px solid var(--pearl-faint);padding-bottom:clamp(24px,3vw,36px)}
+.cv-top h2{font:400 clamp(40px,6vw,88px)/.95 var(--f-sans);letter-spacing:-.04em;margin:0}
+.cv-top .role{color:var(--gold);margin:14px 0 0}
+.cv-top .where{color:var(--pearl-dim);margin:8px 0 0;font-size:15px}
+.cv-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.cv-links a{font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl);text-decoration:none;border:1px solid var(--pearl-faint);border-radius:999px;padding:12px 15px;white-space:nowrap}
+.cv-links a.dl{background:var(--pearl);color:#000;border-color:var(--pearl)}
+.cv-links a:hover{border-color:var(--gold)}.cv-links a.dl:hover{background:var(--gold);border-color:var(--gold)}
+.cv-sum{font:400 clamp(18px,1.7vw,24px)/1.45 var(--f-sans);letter-spacing:-.01em;color:var(--pearl);max-width:62ch;margin:0}
+.cv-nums{display:flex;flex-wrap:wrap;gap:14px 44px}
+.cv-nums b{display:block;font:400 clamp(30px,3vw,44px)/1 var(--f-sans);letter-spacing:-.03em}
+.cv-nums span{color:var(--pearl-mute);display:block;margin-top:6px}
+.cv-cols{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(28px,5vw,72px)}
+.cv-cols > *{min-width:0}
+.cv-h{color:var(--pearl-mute);margin:0 0 18px!important;display:flex;align-items:center;gap:10px}
+.cv-h::before{content:"";width:14px;height:1px;background:currentColor}
+.cv-job{position:relative;padding:0 0 26px 22px;border-left:1px solid var(--pearl-faint)}
+.cv-job:last-child{padding-bottom:0}
+.cv-job::before{content:"";position:absolute;left:-4px;top:7px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.cv-job h4{font:500 17px/1.3 var(--f-sans);margin:0}
+.cv-job .co{color:var(--pearl-dim);font-size:14px;margin:4px 0 0}
+.cv-job .when{color:var(--gold);margin:6px 0 10px}
+.cv-job ul{margin:0;padding:0 0 0 16px;display:grid;gap:6px;color:var(--pearl-dim);font-size:14.5px;line-height:1.5}
+.cv-job ul li::marker{color:var(--gold)}
+.cv-side{display:grid;gap:30px;align-content:start}
+.cv-side p:not(.cv-h){margin:0;color:var(--pearl-dim);font-size:14.5px;line-height:1.55}
+.cv-side p b{color:var(--pearl);font-weight:500;display:block;margin-bottom:2px}
+.cv-tags{display:flex;flex-wrap:wrap;gap:6px}
+.cv-tags span{font:400 10.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--pearl-faint);border-radius:999px;padding:8px 10px;color:var(--pearl-dim)}
+.cv-proj{display:grid;gap:14px}
+.cv-proj div{border:1px solid var(--pearl-faint);border-radius:12px;padding:16px 18px}
+.cv-proj h5{font:500 15px/1.35 var(--f-sans);margin:0 0 6px}
+.cv-proj p{margin:0;color:var(--pearl-dim);font-size:14px;line-height:1.5}
+@media (max-width:860px){.cv-nums{display:grid;grid-template-columns:1fr 1fr;gap:22px 20px}.cv-top{grid-template-columns:1fr}.cv-links{justify-content:flex-start}.cv-cols{grid-template-columns:1fr}}
+/* mini scenes: Claude Code terminal and Hermes chat (hover preview, touch thumbs, case pop-up) */
+.scene{position:relative;overflow:hidden;background:radial-gradient(120% 100% at 30% 0%,#1b1710,#050505 70%);font:400 13px/1.5 var(--f-mono);color:var(--pearl)}
+.scene .sl{position:absolute;left:7%;right:7%;opacity:0;transform:translateY(8px);animation:sl 7s cubic-bezier(.2,.7,.2,1) infinite}
+@keyframes sl{0%{opacity:0;transform:translateY(8px)}6%,82%{opacity:1;transform:none}92%,100%{opacity:0;transform:none}}
+.scene.term .bar{position:absolute;left:0;right:0;top:0;height:11%;display:flex;gap:6px;align-items:center;padding:0 5%;border-bottom:1px solid rgba(237,231,221,.08)}
+.scene.term .bar i{width:8px;height:8px;border-radius:50%;background:#3a352c}
+.scene.term .sl{font-size:clamp(9px,1.05vw,14px)}
+.scene.term .ok{color:#9fc48f}.scene.term .dim{color:var(--pearl-mute)}.scene.term .g{color:var(--gold)}
+.scene.chat .sl{max-width:72%;padding:.55em .85em;border-radius:14px;font:400 clamp(9px,1vw,13px)/1.35 var(--f-sans)}
+.scene.chat .me{left:auto;right:6%;background:#2f3d2c;border-bottom-right-radius:4px}
+.scene.chat .bot{background:#1e1c18;border:1px solid rgba(237,231,221,.1);border-bottom-left-radius:4px}
+.scene.chat .bot b{display:block;font:400 .8em/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.scene.etsy{background:radial-gradient(90% 120% at 20% 0%,#3b1440,#120612 60%,#050505);font-family:var(--f-sans)}
+.scene.etsy .eb{position:absolute;left:8%;top:14%;font:400 clamp(8px,.8vw,11px)/1 var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:#f08bd0}
+.scene.etsy .et{position:absolute;left:8%;top:28%;font:italic 400 clamp(18px,2.4vw,40px)/1 var(--f-sans);letter-spacing:-.02em;color:var(--pearl)}
+.scene.etsy .es{position:absolute;left:8%;top:calc(28% + clamp(24px,3vw,50px));font:400 clamp(8px,.8vw,11px)/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--pearl-dim)}
+.scene.etsy .ec{position:absolute;bottom:-12%;width:22%;aspect-ratio:3/4;border-radius:10px;background:linear-gradient(160deg,#ff9bd8,#7b2a8c 55%,#1b0b20);box-shadow:0 18px 40px rgba(0,0,0,.5);animation:ecf 6s ease-in-out infinite}
+.scene.etsy .c1{right:40%;transform:rotate(-8deg);animation-delay:-1s;background:linear-gradient(160deg,#9be7ff,#2a5f8c 55%,#0b1420)}
+.scene.etsy .c2{right:22%;transform:rotate(3deg);bottom:-6%;animation-delay:-3s}
+.scene.etsy .c3{right:5%;transform:rotate(10deg);animation-delay:-4.5s;background:linear-gradient(160deg,#c8ff9b,#3f8c2a 55%,#0f200b)}
+@keyframes ecf{0%,100%{translate:0 0}50%{translate:0 -10%}}
+.scene.etsy .ek{position:absolute;color:#f08bd0;font-style:normal;font-size:clamp(9px,1vw,14px);animation:ekt 3.2s ease-in-out infinite}
+.scene.etsy .k1{left:62%;top:16%}.scene.etsy .k2{left:84%;top:30%;animation-delay:-1.1s}.scene.etsy .k3{left:72%;top:46%;animation-delay:-2.2s}
+@keyframes ekt{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}
+/* case-study pop-up */
+dialog.case{width:min(1160px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--pearl-faint);border-radius:18px;background:#050505;color:var(--pearl);overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:rgba(237,231,221,.25) transparent}
+dialog.case[open]{animation:caseIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes caseIn{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+dialog.case::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.case-media{position:relative;width:100%;aspect-ratio:16/10;max-height:min(62vh,700px);background:#000;overflow:hidden}
+.case-media video,.case-media .scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.case-media .scene.chat .sl{max-width:min(70%,460px);font-size:clamp(12px,1.25vw,16px)}
+.case-media .scene.chat .bot{left:max(7%,calc(50% - 300px))}.case-media .scene.chat .me{right:max(6%,calc(50% - 300px))}
+.case-media .scene.term .sl{font-size:clamp(11px,1.2vw,16px);left:max(7%,calc(50% - 330px))}
+.case-media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(transparent,#050505);pointer-events:none}
+.case-body[hidden],.case-media[hidden]{display:none!important}
+.case-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);padding:clamp(20px,3vw,40px) clamp(20px,3.4vw,48px) clamp(24px,3vw,40px);margin-top:-48px;position:relative}
+.case-body > *{min-width:0}
+.case-lead{display:grid;gap:16px;align-content:start}
+.case-body .k{color:var(--gold)}
+.case-body h2{font:400 clamp(32px,4.2vw,60px)/1 var(--f-sans);letter-spacing:-.035em;margin:0}
+.case-body p{color:var(--pearl-dim);margin:0;max-width:54ch}
+.case-made{display:grid;gap:18px;align-content:start}
+.case-body ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.case-body li{position:relative;padding-left:22px;color:var(--pearl);font-size:15px;line-height:1.45}
+.case-body li::before{content:"✦";position:absolute;left:0;top:.1em;color:var(--gold);font-size:11px}
+.case-stats{display:flex;flex-wrap:wrap;gap:12px 32px;border-top:1px solid var(--pearl-faint)}
+.case-stats div{padding-top:14px;max-width:16ch}
+.case-stats b{display:block;font:400 32px/1 var(--f-sans);letter-spacing:-.02em}
+.case-stats span{color:var(--pearl-mute);display:block;margin-top:6px}
+.case-acts{display:flex;gap:10px;flex-wrap:wrap;padding-top:6px}
+.case-acts a,.case-acts button{font:400 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pearl);background:none;border:1px solid var(--pearl-faint);border-radius:999px;padding:14px 18px;text-decoration:none;cursor:pointer}
+.case-acts a{background:var(--pearl);color:#000;border-color:var(--pearl)}
+.case-acts .primary{background:var(--gold);color:#000;border-color:var(--gold)}
+.case-stats[hidden]{display:none}
+.case-acts a:hover{background:var(--gold);border-color:var(--gold)}
+.case-acts button:hover{border-color:var(--pearl)}
+.case-ads{padding:0 clamp(20px,3.4vw,48px) clamp(28px,3.4vw,48px)}
+.case-ads[hidden]{display:none}
+.case-ads .mono{color:var(--pearl-mute);margin:0 0 14px;display:flex;justify-content:space-between;gap:12px}
+.ads-strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:10px;scrollbar-width:thin;scrollbar-color:rgba(237,231,221,.25) transparent;overscroll-behavior-x:contain}
+.ad-tile{position:relative;flex:0 0 auto;height:clamp(220px,32vh,320px);aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:#111;border:1px solid var(--pearl-faint);padding:0;cursor:pointer;scroll-snap-align:start;color:var(--pearl);text-align:left}
+.ad-tile.w{aspect-ratio:16/9}.ad-tile.p{aspect-ratio:4/5}
+.ad-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ad-tile:hover img,.ad-tile:focus-visible img{transform:scale(1.04)}
+.ad-tile span{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;font:400 10px/1.35 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+.ad-tile .pl{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ad-tile .pl::before{content:"";border-left:9px solid var(--pearl);border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:3px}
+.case-nav{position:sticky;top:12px;float:left;margin:12px 0 -52px 12px;z-index:3;display:flex;align-items:center;gap:4px;background:rgba(0,0,0,.6);border:1px solid var(--pearl-faint);border-radius:999px;padding:3px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.case-nav button{width:34px;height:34px;border-radius:50%;border:0;background:none;color:var(--pearl);font-size:16px;cursor:pointer}
+.case-nav button:hover{background:rgba(237,231,221,.12)}
+.case-nav span{font:400 10px/1 var(--f-mono);letter-spacing:.12em;color:var(--pearl-dim);min-width:58px;text-align:center}
+.case-media .mia4{display:grid;grid-template-columns:repeat(4,1fr);position:absolute;inset:0}.case-media .mia4 img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+.case-x{position:sticky;top:12px;float:right;margin:12px 12px -52px 0;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--pearl-faint);background:rgba(0,0,0,.6);color:var(--pearl);font-size:18px;line-height:1;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+dialog.lb{max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--pearl-faint);border-radius:14px;background:#000;color:var(--pearl);overflow:hidden}
+dialog.lb::backdrop{background:rgba(0,0,0,.9)}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px 10px 16px;color:var(--pearl-dim)}
+.lb-top button{font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl);background:none;border:1px solid var(--pearl-faint);border-radius:999px;padding:8px 12px;cursor:pointer}
+.lb-media video,.lb-media img{display:block;max-width:calc(100vw - 26px);max-height:calc(100dvh - 84px);width:auto;height:auto;margin:0 auto;background:#000}
+@media (max-width:760px){
+  .case-body{grid-template-columns:1fr;gap:26px;margin-top:-28px}
+  .case-media{aspect-ratio:16/10;max-height:none}
+  .case-media .scene{top:0}
+  .ad-tile{height:240px}
+}
+@media (max-width:760px){
+  .row{grid-template-columns:96px minmax(0,1fr);gap:14px 16px}
+  .thumb-blank{display:flex!important}
+  .row .thumb{display:block;grid-row:span 2;width:96px;height:72px;object-fit:cover;border-radius:6px;background:#111}
+  .row .meta{display:none}
+}
+.work-note{margin-top:22px;color:var(--pearl-mute)}
+
+/* clients */
+.trust{font:400 clamp(24px,3.4vw,46px)/1.35 var(--f-sans);letter-spacing:-.02em;color:var(--pearl-mute);max-width:1200px}
+.trust span{transition:color .3s;white-space:nowrap}
+.trust span:hover{color:var(--pearl)}
+.trust .sep{color:var(--gold);margin:0 .35em;font-size:.6em;vertical-align:middle}
+
+/* manifesto */
+.manifesto{font:400 clamp(30px,5vw,76px)/1.1 var(--f-sans);letter-spacing:-.03em;max-width:15em}
+.manifesto em{font-style:normal;color:var(--pearl-mute)}
+.caps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;margin-top:clamp(48px,7vw,90px);border-top:1px solid var(--pearl-faint);padding-top:28px}
+.caps > *{min-width:0}
+.caps h3{font:400 20px/1.2 var(--f-sans);margin-bottom:12px}
+.caps ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;color:var(--pearl-dim);font-size:14px}
+@media (max-width:900px){.caps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Mia */
+.mia-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:end}
+.mia-head > *{min-width:0}
+.mia-head h2{font:400 clamp(40px,6vw,96px)/1 var(--f-sans);letter-spacing:-.035em}
+.mia-head p{color:var(--pearl-dim);max-width:44ch}
+.mia-stats{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap}
+.mia-stats b{display:block;font:400 34px/1 var(--f-sans);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.mia-stats span{color:var(--pearl-mute)}
+.mia-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:clamp(36px,5vw,64px)}
+.mia-grid figure{margin:0;position:relative;border-radius:8px;overflow:hidden}
+.mia-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.mia-grid figure:hover img{transform:scale(1.04)}
+.mia-grid figcaption{position:absolute;left:10px;bottom:10px;color:var(--pearl);background:rgba(0,0,0,.45);padding:5px 8px;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@media (max-width:860px){.mia-head{grid-template-columns:1fr}.mia-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* contact */
+.contact h2{font:400 clamp(48px,10vw,160px)/.95 var(--f-sans);letter-spacing:-.045em}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:24px;margin-top:clamp(36px,5vw,60px);border-top:1px solid var(--pearl-faint);padding-top:26px}
+.contact-grid > div{display:grid;gap:8px;min-width:0}
+.contact-grid .v{font-size:18px;word-break:break-word}
+.contact-grid a{text-decoration:none;border-bottom:1px solid var(--pearl-faint);padding-bottom:2px;justify-self:start;transition:border-color .3s}
+.contact-grid a:hover{border-color:var(--pearl)}
+.copy-btn{justify-self:start;font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl-dim);background:none;border:1px solid var(--pearl-faint);border-radius:999px;padding:7px 11px}
+.copy-btn:hover{color:var(--pearl);border-color:var(--pearl)}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:clamp(60px,9vw,120px) var(--edge) calc(28px + env(safe-area-inset-bottom,0px));color:var(--pearl-mute)}
+footer button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--pearl-dim);background:none;border:0;padding:12px 0;margin:-12px 0}
+html{overflow-x:clip}
+body.intro-on{overflow:hidden}
+footer button:hover{color:var(--pearl)}
+
+.rv{transition:opacity 1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv.pre{opacity:0;transform:translateY(28px)}
+
+/* full ad */
+dialog.ad{width:min(1100px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--pearl-faint);border-radius:14px;background:var(--void);color:var(--pearl);overflow:hidden}
+dialog.ad::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.ad-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;color:var(--pearl-dim)}
+.ad-top button{font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl);background:none;border:1px solid var(--pearl-faint);border-radius:999px;padding:8px 12px}
+.ad video{width:100%;aspect-ratio:16/9;max-height:calc(100dvh - 90px);object-fit:contain;background:var(--void);display:block}
+
+/* =========================================================================================
+   INTRO
+   ========================================================================================= */
+.intro{position:fixed;inset:0;z-index:40;background:var(--void);overflow:hidden;clip-path:inset(0 0 0 0);transition:clip-path 1.35s cubic-bezier(.75,0,.2,1),filter 1s ease}
+body.revealing .intro{clip-path:inset(50% 0 50% 0);filter:blur(22px)}
+body.intro-done .intro{display:none}
+#glow{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 2.4s ease}
+#glow.on{opacity:1}
+.drift{position:absolute;inset:0;animation:drift 18s ease-in-out infinite;mix-blend-mode:screen}
+@keyframes drift{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(-.6%,-1.1%,0) rotate(-.6deg)}}
+.mia{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;opacity:0;
+  --base:translateX(9%);transform:var(--base) scale(1.02);
+  transition:opacity 2.4s ease .3s,transform 9s cubic-bezier(.2,.7,.2,1),filter 1.4s ease}
+.mia.on{opacity:1;transform:var(--base) scale(1)}
+.mia.push{opacity:0;transform:var(--base) translate(-6%,2%) scale(1.9);filter:blur(10px);
+  transition:transform 1.5s cubic-bezier(.55,0,.25,1),opacity .9s ease .6s,filter 1s ease .45s}
+@media (max-aspect-ratio:1/1){.mia{object-fit:contain;--base:translateY(-14%) scale(1.6)}}
+.vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.75))}
+.stage{position:absolute;inset:0}
+.stage.leaving #glow{opacity:0;transition:opacity 1.2s ease}
+
+.chrome{position:absolute;inset:0;padding:calc(var(--edge) * .6 + env(safe-area-inset-top,0px)) var(--edge) calc(var(--edge) * .6 + env(safe-area-inset-bottom,0px));display:grid;grid-template-rows:auto 1fr auto;pointer-events:none;transition:opacity .8s ease;z-index:9}
+.chrome > *{pointer-events:auto}
+.stage.leaving .chrome{opacity:0}
+.stage.leaving .chrome > *{pointer-events:none}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.chrome .meta{color:var(--pearl-dim);text-align:right;margin-right:150px}
+.chrome .meta b{font-weight:400;color:var(--pearl)}
+.prompt{align-self:center;max-width:min(560px,86vw);display:grid;gap:18px}
+.prompt .line{position:relative;height:1.15em;font:400 clamp(30px,4.4vw,64px)/1.1 var(--f-sans);letter-spacing:-.025em}
+.prompt .line .w{left:0}
+.prompt .sub{font-size:13px;line-height:1.55;color:var(--pearl-dim);max-width:34ch}
+.prompt .sub em{font-style:normal;color:var(--pearl)}
+.bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.badge{position:relative;width:96px;height:96px;border:0;background:none;padding:0;color:var(--pearl)}
+.badge svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.badge .ring{animation:spin 16s linear infinite;transform-origin:50% 50%}
+.badge text{font:400 8.6px var(--f-mono);fill:var(--pearl)}
+.badge .track{fill:none;stroke:var(--pearl-faint);stroke-width:1}
+.badge .fill{fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
+.badge .dot{position:absolute;inset:0;margin:auto;width:8px;height:8px;border-radius:50%;background:var(--pearl)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.skip-intro{font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl-dim);background:none;border:1px solid var(--pearl-faint);border-radius:999px;padding:9px 13px}
+.skip-intro:hover{color:var(--pearl);border-color:var(--pearl)}
+
+.film-wrap{position:absolute;inset:0;background:var(--void);opacity:0;pointer-events:none;z-index:6;transition:opacity .5s ease}
+.film-wrap.open{opacity:1;pointer-events:auto}
+.film{position:absolute;left:15%;top:15%;width:70%;height:70%;object-fit:contain;background:var(--void);opacity:0;transform:scale(1.06);transition:opacity .45s ease,transform 2.4s cubic-bezier(.2,.7,.2,1)}
+.film-wrap.rolling .film{opacity:1;transform:scale(1)}
+.film-wrap.ending .film{opacity:0;transition:opacity 1.1s ease}
+.title{position:absolute;left:var(--edge);bottom:calc(var(--edge) * .7 + env(safe-area-inset-bottom,0px));display:grid;gap:6px;pointer-events:none}
+.title .k{color:var(--pearl-dim)}
+.title .v{font:400 italic clamp(40px,6vw,88px)/1 var(--f-sans);letter-spacing:-.03em;text-shadow:0 2px 30px rgba(0,0,0,.5)}
+.title > *{opacity:0;filter:blur(8px);transform:translateY(12px);transition:opacity .9s ease,filter .9s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.title.on > *{opacity:1;filter:none;transform:none}
+.title.on .k{transition-delay:.15s}
+.film-skip{position:absolute;right:var(--edge);bottom:calc(var(--edge) * .7 + env(safe-area-inset-bottom,0px));opacity:0;transition:opacity .6s ease}
+.film-wrap.rolling .film-skip{opacity:1;transition-delay:2s}
+.film-wrap.ending .film-skip{opacity:0;transition-delay:0s}
+
+.end{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;gap:20px;padding:var(--edge);opacity:0;pointer-events:none;transition:opacity .9s ease}
+.film-wrap.done .end{opacity:1;pointer-events:auto;transition-delay:.2s}
+.end .k{color:var(--gold)}
+.end .v{font:400 clamp(26px,3.6vw,50px)/1.12 var(--f-sans);letter-spacing:-.025em;max-width:22ch}
+.end .s{color:var(--pearl-dim);max-width:46ch;font-size:15px}
+.end .row2{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+.pill{display:inline-flex;align-items:center;gap:10px;font:400 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pearl);background:none;border:1px solid var(--pearl-faint);border-radius:999px;padding:12px 16px}
+.pill:hover{border-color:var(--pearl)}
+.pill.solid{background:var(--pearl);color:var(--void);border-color:var(--pearl)}
+.end .bar{width:min(220px,50vw);height:1px;background:var(--pearl-faint);position:relative;overflow:hidden;margin-top:8px}
+.end .bar i{position:absolute;inset:0;background:var(--pearl);transform:scaleX(0);transform-origin:left}
+.film-wrap.done .end .bar i{transform:scaleX(1);transition:transform 5.2s linear .2s}
+
+/* ---------- global bits ---------- */
+.snd{position:fixed;top:calc(var(--edge) * .6 + env(safe-area-inset-top,0px));right:var(--edge);z-index:50;display:flex;align-items:center;gap:9px;font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl);background:rgba(0,0,0,.35);border:1px solid var(--pearl-faint);border-radius:999px;padding:8px 12px 8px 10px;transition:opacity .6s ease}
+.snd:hover{border-color:var(--pearl)}
+body.intro-on .snd.live{opacity:0;pointer-events:none}
+body.intro-done .snd{display:none}
+/* music player, after nakodasilver.com: a round pill that opens to prev / play / next and the track */
+.np{position:fixed;right:var(--edge);bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:55;display:flex;align-items:center;transition:opacity .3s,transform .3s}
+.np[hidden]{display:none}
+.np-shell{display:flex;align-items:center;height:42px;width:42px;padding:0;background:rgba(14,13,12,.72);border:1px solid var(--pearl-faint);border-radius:100px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 8px 30px -10px rgba(0,0,0,.8);overflow:hidden;position:relative;transition:width .45s cubic-bezier(.22,1,.36,1),padding .45s cubic-bezier(.22,1,.36,1),border-color .3s}
+.np.open .np-shell{width:312px;padding:0 6px 0 10px;border-color:rgba(237,231,221,.3)}
+.np-badge{flex:0 0 42px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;transition:flex-basis .45s cubic-bezier(.22,1,.36,1),width .45s cubic-bezier(.22,1,.36,1)}
+.np.open .np-badge{flex-basis:0;width:0;overflow:hidden}
+.np-eq{display:flex;align-items:flex-end;gap:2.2px;height:12px}
+.np-eq i{display:block;width:2.2px;height:3.5px;background:var(--pearl);border-radius:1px}
+.np.playing .np-eq i{animation:npbob .9s ease-in-out infinite}
+.np.playing .np-eq i:nth-child(2){animation-delay:.16s}
+.np.playing .np-eq i:nth-child(3){animation-delay:.33s}
+@keyframes npbob{0%,100%{height:3.5px}50%{height:12px}}
+.np:not(.playing) .np-eq{display:none}
+.np-tri{display:none;width:0;height:0;border-left:8px solid var(--pearl);border-top:5.5px solid transparent;border-bottom:5.5px solid transparent;margin-left:2px}
+.np:not(.playing) .np-tri{display:block}
+.np.waiting .np-shell::before{content:"";position:absolute;left:0;top:0;width:42px;height:42px;border-radius:50%;border:1px solid rgba(237,231,221,.55);animation:npring 2.6s ease-out infinite}
+@keyframes npring{0%{transform:scale(1);opacity:.6}70%{transform:scale(1.6);opacity:0}100%{opacity:0}}
+.np-inner{display:flex;align-items:center;gap:2px;opacity:0;transform:translateX(-6px);white-space:nowrap;pointer-events:none;transition:opacity .22s ease .12s,transform .3s cubic-bezier(.22,1,.36,1) .1s}
+.np.open .np-inner{opacity:1;transform:none;pointer-events:auto}
+.np-btn{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border:0;background:none;padding:0;color:var(--pearl);border-radius:50%;opacity:.7;transition:background .16s,opacity .16s}
+.np-btn:hover{background:rgba(237,231,221,.1);opacity:1}
+.np-btn svg{width:12px;height:12px;fill:currentColor;display:block}
+.np-btn.main{opacity:1}
+.np-btn.main svg{width:14px;height:14px}
+.np-meta{display:flex;flex-direction:column;margin-left:8px;min-width:0;overflow:hidden}
+.np-t{font:500 10px/1.35 var(--f-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--pearl);overflow:hidden;text-overflow:ellipsis;max-width:196px}
+.np-a{font:400 8.5px/1.35 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--pearl-mute);overflow:hidden;text-overflow:ellipsis;max-width:196px}
+@media (prefers-reduced-motion:reduce){.np-shell,.np-badge,.np-inner{transition-duration:.01ms}.np-eq i{animation:none}.np.waiting .np-shell::before{animation:none}}
+.eq{display:flex;align-items:flex-end;gap:2px;height:11px}
+.eq i{width:2px;height:3px;background:var(--pearl);display:block}
+.snd.live .eq i{animation:eq 1.94s ease-in-out infinite}
+.snd.live .eq i:nth-child(2){animation-delay:-.48s}
+.snd.live .eq i:nth-child(3){animation-delay:-.97s}
+.snd.live .eq i:nth-child(4){animation-delay:-1.45s}
+@keyframes eq{0%,100%{height:3px}25%{height:11px}50%{height:5px}75%{height:9px}}
+
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;opacity:.1;mix-blend-mode:overlay;z-index:60;will-change:transform;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1s steps(6) infinite}
+@media (hover:none){.grain{animation:none!important;opacity:.07}}
+body.scrolling .grain{animation-play-state:paused}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
+
+.cursor{position:fixed;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--pearl);pointer-events:none;z-index:70;mix-blend-mode:difference;transition:width .35s cubic-bezier(.2,.7,.2,1),height .35s cubic-bezier(.2,.7,.2,1),margin .35s cubic-bezier(.2,.7,.2,1);display:none;align-items:center;justify-content:center;font:400 9px/1 var(--f-mono);letter-spacing:.14em;color:#000}
+.cursor.big{width:76px;height:76px;margin:-38px 0 0 -38px}
+.cursor span{opacity:0;transition:opacity .2s}
+.cursor.big span{opacity:1}
+@media (hover:hover) and (pointer:fine){.cursor{display:flex}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .grain,.badge .ring,.drift,.snd.live .eq i,.scroll-badge svg{animation:none}
+  .scene .sl{animation:none;opacity:1;transform:none}
+  .scene.etsy .ec,.scene.etsy .ek{animation:none}
+  .mia,.mia.push,.line .w,.film,.site,.intro,.rv{transition-duration:.01s!important;transition-delay:0s!important}
+}
+@media (max-aspect-ratio:1/1){
+  .film{left:4%;width:92%;top:15%;height:70%}
+  .prompt{align-self:end;margin-bottom:26px}.chrome .meta{display:none}
+}
+</style>
+</head>
+<body class="intro-on">
+
+<!-- ======================= PORTFOLIO ======================= -->
+<div class="site" id="site">
+
+  <main>
+    <section class="hero" id="top">
+      <canvas id="heroGl" aria-hidden="true"></canvas>
+      <div class="hero-fade" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <h1 class="sr">Rahul Sakharkar: films, brands, websites and AI for small businesses.</h1>
+        <div class="line" id="heroLine" aria-hidden="true"></div>
+        <p class="hero-sub"><b>Rahul Sakharkar</b> makes films, brand kits, websites and AI models for small businesses, from Ulhasnagar to Madrid.</p>
+        <button type="button" class="hero-cta" data-ad><span class="tri" aria-hidden="true"></span>Watch Ishq, the full ad</button>
+      </div>
+      <a class="scroll-badge" href="#work" aria-label="Scroll to selected work">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="sPath" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+          <text><textPath href="#sPath" textLength="236" lengthAdjust="spacing">SCROLL DOWN · SCROLL DOWN · </textPath></text></svg>
+        <span class="arrow" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <section class="sec wrap" id="work">
+      <p class="label mono">Selected work</p>
+      <div class="work-head">
+        <h2>Everything I<i>’</i>ve made.</h2>
+        <div class="filters" id="filters" role="group" aria-label="Filter the work"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="sec wrap" id="clients">
+      <p class="label mono">They trust me</p>
+      <p class="trust" id="trust"></p>
+    </section>
+
+    <section class="sec wrap" id="manifesto">
+      <p class="label mono">Manifesto</p>
+      <h2 class="manifesto rv">Small brands deserve <i>big</i> pictures. <em>I make films, sites and brand kits for shops that never had an agency, with AI doing the heavy lifting and taste doing the rest.</em></h2>
+      <div class="caps">
+        <div class="rv"><h3>Films &amp; ads</h3><ul><li>Brand films cut to the beat</li><li>Reels and festival campaigns</li><li>Poster and ad systems</li><li>Meta and Google ad sets</li></ul></div>
+        <div class="rv"><h3>AI models &amp; media</h3><ul><li>Custom AI models like Mia</li><li>Product-true photo shoots</li><li>Image, video and music on my own GPUs</li></ul></div>
+        <div class="rv"><h3>Websites &amp; stores</h3><ul><li>Fast static sites and Shopify themes</li><li>Headless stores and checkouts</li><li>Chatbots that know your prices</li></ul></div>
+        <div class="rv"><h3>Brand &amp; Google</h3><ul><li>Brand kits and logo systems</li><li>Local SEO and area pages</li><li>Google Business and reviews</li><li>Merchant Center feeds</li></ul></div>
+      </div>
+    </section>
+
+
+    <section class="sec wrap contact" id="contact">
+      <p class="label mono">Contact</p>
+      <h2 class="rv">Your brand<i>,</i> next.</h2>
+      <div class="contact-grid">
+        <div><span class="mono" style="color:var(--pearl-mute)">WhatsApp</span><span class="v" id="wa">+91 86687 15250</span><button type="button" class="copy-btn" id="copyWa">Copy number</button></div>
+        <div><span class="mono" style="color:var(--pearl-mute)">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/rahul-sakharkar-a75b43177" target="_blank" rel="noopener">Rahul Sakharkar</a></div>
+        <div><span class="mono" style="color:var(--pearl-mute)">Instagram</span><a class="v" href="https://www.instagram.com/gullybrands.in/" target="_blank" rel="noopener">@gullybrands.in</a></div>
+        <div><span class="mono" style="color:var(--pearl-mute)">Studio</span><a class="v" href="https://gullybrands.in" target="_blank" rel="noopener">gullybrands.in</a></div>
+        <div><span class="mono" style="color:var(--pearl-mute)">Book a call</span><a class="v" href="https://gullybrands.in/book.html" target="_blank" rel="noopener">20 minutes, free</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mono"><span>© 2026 Rahul Sakharkar · Ulhasnagar, India</span><button type="button" id="replayIntro">Replay the intro</button></footer>
+</div>
+  <div class="navbar" inert>
+    <a class="logo" href="#top">rahul sakharkar <span>studio</span></a>
+    <nav aria-label="Sections"><ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#manifesto">Manifesto</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+  <header class="nav">
+    <a class="logo" href="#top">rahul sakharkar <span>studio</span></a>
+    <nav aria-label="Sections"><ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#manifesto">Manifesto</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </header>
+
+<!-- ======================= INTRO ======================= -->
+<div class="intro" id="intro">
+  <div class="stage" id="stage">
+    <canvas id="glow" aria-hidden="true"></canvas>
+    <div class="drift" aria-hidden="true">
+      <video class="mia" id="miaFloat" poster="media/mia-float-poster.jpg" muted loop playsinline autoplay preload="auto">
+        <source src="media/mia-float.webm" type="video/webm">
+        <source src="media/mia-float.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="chrome">
+      <div class="top">
+        <span class="logo">rahul sakharkar <span>studio</span></span>
+        <div class="meta mono">Films · Brands · Sites · AI<br><b>Ulhasnagar, IN</b></div>
+      </div>
+      <div class="prompt">
+        <div class="line" id="line" aria-hidden="true"></div>
+        <p class="sub">Mia, in <em>Ishq</em>, a film for Nakoda Silver. It starts on the beat.</p>
+      </div>
+      <div class="bottom">
+        <button class="badge" id="badge" type="button" aria-label="Turn sound on">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="track" cx="50" cy="50" r="47"/>
+            <circle class="fill" id="countdown" cx="50" cy="50" r="47" stroke-dasharray="295.3" stroke-dashoffset="295.3"/>
+          </svg>
+          <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+            <defs><path id="ringPath" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs>
+            <text><textPath href="#ringPath" textLength="224" lengthAdjust="spacing">SOUND ON · WAIT FOR THE BEAT · </textPath></text>
+          </svg>
+          <span class="dot" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="skip-intro" data-skip>Skip intro</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="film-wrap" id="filmWrap">
+    <video class="film" id="film" muted playsinline preload="auto">
+      <source src="media/ishq-film.webm" type="video/webm">
+      <source src="media/ishq-film.mp4" type="video/mp4">
+    </video>
+    <div class="title" id="title"><span class="v">Ishq</span><span class="k mono">A film for Nakoda Silver · 2026</span></div>
+    <button type="button" class="skip-intro film-skip" data-skip>Skip</button>
+    <div class="end">
+      <span class="k mono">Made for Nakoda Silver · Ambernath · 2026</span>
+      <p class="v"><i>Ishq.</i> A jewellery film, directed, generated and cut by Rahul Sakharkar.</p>
+      <p class="s">Starring Mia, an AI model I created. Every piece she wears is real 92.5 silver with freshwater pearls.</p>
+      <div class="row2">
+        <button type="button" class="pill solid" data-ad><span class="tri" aria-hidden="true"></span>Watch the full ad</button>
+        <button type="button" class="pill" data-skip data-to-work>Enter the site</button>
+      </div>
+      <div class="bar" aria-hidden="true"><i></i></div>
+    </div>
+  </div>
+</div>
+
+<dialog class="case" id="case" aria-labelledby="caseT">
+  <button type="button" class="case-x" id="caseX" aria-label="Close">✕</button>
+  <div class="case-nav" aria-label="Browse projects"><button type="button" id="casePrev" aria-label="Previous project">‹</button><span id="caseN"></span><button type="button" id="caseNext" aria-label="Next project">›</button></div>
+  <div class="case-media" id="caseMedia"></div>
+  <div class="case-body">
+    <div class="case-lead">
+      <p class="mono k" id="caseK"></p>
+      <h2 id="caseT"></h2>
+      <p id="caseP"></p>
+      <div class="case-acts" id="caseA"></div>
+    </div>
+    <div class="case-made">
+      <p class="mono" style="color:var(--pearl-mute);margin:0">What I made</p>
+      <ul id="caseL"></ul>
+      <div class="case-stats" id="caseS"></div>
+    </div>
+  </div>
+  <article class="cv-page" id="cvPage" hidden aria-label="Résumé">
+    <header class="cv-top">
+      <div>
+        <h2>Rahul Sakharkar</h2>
+        <p class="mono role">AI workflow automation · Learning &amp; development · Insurance operations</p>
+        <p class="where">Mumbai, India · Founder of Gully Brands · Open to international relocation</p>
+      </div>
+      <div class="cv-links">
+        <a class="dl" href="media/Rahul_Sakharkar_CV.pdf" download="Rahul_Sakharkar_CV.pdf">Download PDF ↓</a>
+        <a href="https://www.linkedin.com/in/rahul-sakharkar-a75b43177" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="mailto:rishabhsakharkar@gmail.com">Email</a>
+        <a href="https://wa.me/918668715250" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </header>
+    <p class="cv-sum">Five years at InsuranceMarket.ae in Dubai, promoted through four roles: policy operations, sales advisory, quality auditing and corporate training. Now the founder of Gully Brands, an AI-first marketing studio. Regulated-industry rigour, with hands-on AI engineering.</p>
+    <div class="cv-nums">
+      <div><b>10,000+</b><span class="mono">policies issued</span></div>
+      <div><b>95%</b><span class="mono">client retention</span></div>
+      <div><b>4</b><span class="mono">roles in 5 years</span></div>
+      <div><b>4</b><span class="mono">AI agents in production</span></div>
+    </div>
+    <div class="cv-cols">
+      <section>
+        <p class="mono cv-h">Experience</p>
+        <div class="cv-job"><h4>Founder</h4><p class="co">Gully Brands · Mumbai</p><p class="mono when">May 2026 – Present</p><ul><li>Founded an AI-first marketing studio for local businesses: identity, Instagram content engines and websites.</li><li>Built the studio’s AI production stack: multi-agent automation for research, content and client deliverables, so one person delivers end to end.</li></ul></div>
+        <div class="cv-job"><h4>Learning &amp; Development Executive</h4><p class="co">InsuranceMarket.ae (AFIA Insurance Brokerage) · Dubai, remote</p><p class="mono when">Sep 2025 – Apr 2026</p><ul><li>Designed training content, e-learning modules and assessments across several lines of business.</li><li>Ran onboarding and process training for new-hire cohorts, ready and compliant from day one.</li><li>Turned audit findings into targeted training with the Quality and Operations leads; tracked training effectiveness.</li></ul></div>
+        <div class="cv-job"><h4>Production Approver &amp; Policy Quality Auditor</h4><p class="co">InsuranceMarket.ae</p><p class="mono when">May 2023 – Aug 2025</p><ul><li>Final pre-issuance control: approved up to 100 policies a day against underwriting guidelines and verified customer documents.</li><li>Approved and issued 10,000+ motor, health and travel policies, auditing quality across insurer portals on same-day timelines.</li><li>Flagged non-compliant or suspect documents before issuance, cutting rework and compliance risk.</li></ul></div>
+        <div class="cv-job"><h4>Motor Insurance Advisor, Renewals &amp; New Business</h4><p class="co">InsuranceMarket.ae</p><p class="mono when">Mar 2022 – Apr 2023</p><ul><li>Advised a multinational client base; personal renewal consultations kept retention up to 95%.</li><li>Moved from renewals into new business and regularly beat monthly targets; mentored new hires and interns.</li></ul></div>
+        <div class="cv-job"><h4>Operations Executive, Motor</h4><p class="co">InsuranceMarket.ae</p><p class="mono when">Apr 2021 – Feb 2022</p><ul><li>Prepared competitive quotations, drafted final terms and conditions and issued policies for assigned advisors.</li></ul></div>
+        <div class="cv-job"><h4>Lead Verification Specialist</h4><p class="co">Zocdoc (USA) · remote contract</p><p class="mono when">Sep 2020 – Jan 2021</p><ul><li>Verified US private-practice provider data by phone and research; kept records in Salesforce and Truly.</li></ul></div>
+        <div class="cv-job"><h4>Review Auditor</h4><p class="co">RedQuanta (India) · freelance</p><ul><li>Audited customer reviews for authenticity, sentiment and guideline compliance.</li></ul></div>
+      </section>
+      <aside class="cv-side">
+        <div><p class="mono cv-h">AI &amp; automation projects</p><div class="cv-proj">
+          <div><h5>Self-hosted multi-agent platform</h5><p>Four specialised agents on Hermes and OpenClaw behind Telegram, with LiteLLM routing, scheduled automations and a shared knowledge vault.</p></div>
+          <div><h5>Browser automation agent</h5><p>Playwright and DevTools control that reads documents and completes long multi-step web forms end to end, logging every run.</p></div>
+          <div><h5>Character-consistent video pipeline</h5><p>FLUX LoRA training on RunPod and Modal, voice-clone TTS and lip-synced video, at under $4 per 30-second video.</p></div>
+        </div></div>
+        <div><p class="mono cv-h">Skills</p><div class="cv-tags"><span>LLM agents</span><span>Claude · Gemini · Llama</span><span>Hermes · OpenClaw</span><span>LiteLLM</span><span>Playwright</span><span>ComfyUI · FLUX LoRA</span><span>Prompt engineering</span><span>REST APIs</span><span>Python</span><span>Policy issuance</span><span>Underwriting compliance</span><span>Quality auditing</span><span>E-learning design</span><span>Onboarding</span><span>Salesforce</span><span>INSLY</span><span>Excel</span><span>Photoshop</span><span>Premiere · DaVinci · Final Cut</span></div></div>
+        <div><p class="mono cv-h">Education</p>
+          <p><b>M.A., Entertainment, Media &amp; Advertising</b>University of Mumbai (R.D. National College) · 2021 – 2023</p>
+          <p style="margin-top:12px"><b>B.A., Mass Media</b>University of Mumbai (S.K. Somaiya College) · 2018 – 2021</p>
+          <p style="margin-top:12px"><b>Google Digital Unlocked</b>SEO &amp; digital marketing fundamentals · 2020</p></div>
+        <div><p class="mono cv-h">Languages</p><p>English (fluent) · Hindi and Marathi (native) · Spanish (basic)</p></div>
+      </aside>
+    </div>
+  </article>
+  <section class="case-ads" id="caseAds" hidden><p class="mono"><span>Ads &amp; content</span><span id="caseAdsN"></span></p><div class="ads-strip" id="caseAdsList"></div></section>
+</dialog>
+<dialog class="lb" id="lb" aria-labelledby="lbT">
+  <div class="lb-top"><span class="mono" id="lbT"></span><button type="button" id="lbX">Close</button></div>
+  <div class="lb-media" id="lbMedia"></div>
+</dialog>
+<dialog class="ad" id="ad" aria-label="Ishq, the full ad">
+  <div class="ad-top"><span class="mono">Ishq · Nakoda Silver · 1:33</span><button type="button" id="adClose">Close</button></div>
+  <video id="adVideo" controls playsinline preload="none" poster="media/ishq-full-poster.jpg"><source src="media/ishq-full.webm" type="video/webm"><source src="media/ishq-full.mp4" type="video/mp4"></video>
+</dialog>
+
+<button class="snd" id="snd" type="button" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sndLabel">Tap for sound</span></button>
+<audio id="song" src="media/ishq-song.mp3" preload="auto"></audio>
+<div class="np" id="np" hidden>
+  <div class="np-shell" id="npShell" role="group" aria-label="Background music">
+    <div class="np-badge"><div class="np-eq" aria-hidden="true"><i></i><i></i><i></i></div><div class="np-tri" aria-hidden="true"></div></div>
+    <div class="np-inner">
+      <button class="np-btn" id="npPrev" type="button" aria-label="Previous track"><svg viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9.5 12z"/></svg></button>
+      <button class="np-btn main" id="npPlay" type="button" aria-label="Play">
+        <svg id="npIcPlay" viewBox="0 0 24 24"><path d="M7 4.5v15L20 12z"/></svg>
+        <svg id="npIcPause" viewBox="0 0 24 24" style="display:none"><path d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z"/></svg>
+      </button>
+      <button class="np-btn" id="npNext" type="button" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M15.5 5H18v14h-2.5zM4 5v14l10.5-7z"/></svg></button>
+      <div class="np-meta"><div class="np-t" id="npT">&mdash;</div><div class="np-a" id="npA"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span id="curLabel"></span></div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const touch = matchMedia('(hover: none), (pointer: coarse)').matches;
+  // the site behind the intro stays out of the tab order until the shutter opens
+  $('#site').inert = true; $('header.nav').inert = true;
+  const body = document.body;
+  const stage = $('#stage'), mia = $('#miaFloat'), wrap = $('#filmWrap'), film = $('#film'), song = $('#song');
+
+  /* ======================= shared: rotating lines ======================= */
+  function rotator(el, initial, align){
+    let lines = null, wi = 0;
+    function set(list){
+      if (lines === list) return;
+      lines = list; wi = 0;
+      el.innerHTML = list.map(l => `<span class="w">${l}</span>`).join('');
+      requestAnimationFrame(() => el.children[0] && el.children[0].classList.add('on'));
+    }
+    set(initial);
+    if (!reduce) setInterval(() => {
+      const w = el.children; if (w.length < 2) return;
+      const cur = w[wi]; cur.classList.remove('on'); cur.classList.add('off');
+      setTimeout(() => cur.classList.remove('off'), 1100);
+      wi = (wi + 1) % w.length; w[wi].classList.add('on');
+    }, 3200);
+    return { set };
+  }
+
+  /* ======================= shared: WebGL liquid field ======================= */
+  function liquid(canvas, opts){
+    const gl = canvas.getContext('webgl', { premultipliedAlpha: false, antialias: false, powerPreference: 'high-performance' });
+    if (!gl) return null;
+    const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    const fs = `#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+      uniform vec2 r;uniform float t;uniform vec2 m;uniform float mode;
+      // sin-free hash and quintic value noise: no grid seams, stable at low precision
+      float h(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}
+      float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*f*(f*(f*6.-15.)+10.);
+        return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+      float fbm(vec2 p){float v=0.,a=.5;mat2 R=mat2(.8,.6,-.6,.8);for(int i=0;i<4;i++){v+=a*n(p);p=R*p*2.02+vec2(1.7,9.2);a*=.5;}return v;}
+      float flow(vec2 q,float tt){
+        vec2 w=vec2(fbm(q*.9+vec2(tt,-tt*.7)),fbm(q*.9+vec2(-tt*.8,tt)+5.2));
+        return fbm(q*.75+w*1.9+(m-.5)*.3);
+      }
+      vec3 paint(float f){
+        vec3 c=mix(vec3(.004,.006,.004),vec3(.09,.13,.09),smoothstep(.36,.56,f));
+        c=mix(c,vec3(.21,.27,.17),smoothstep(.54,.66,f));
+        float rib=smoothstep(.62,.69,f)*(1.-smoothstep(.71,.82,f));
+        c=mix(c,vec3(.66,.46,.25),rib*.85);
+        c=mix(c,vec3(.92,.78,.56),smoothstep(.67,.70,f)*(1.-smoothstep(.70,.73,f))*.3);
+        c=mix(c,vec3(.03,.05,.03),smoothstep(.8,.92,f)*.7);
+        return c;
+      }
+      void main(){
+        vec2 uv=gl_FragCoord.xy/r.xy; float asp=r.x/r.y; vec2 p=uv; p.x*=asp;
+        float tt=t*.022;
+        float g=h(gl_FragCoord.xy+fract(t*7.)*91.)-.5;
+        if(mode<.5){
+          vec3 col=paint(flow(p*1.2,tt));
+          vec2 cc=uv-vec2(.5,.5); cc.x*=asp;
+          col*=smoothstep(.18,.8,length(cc))*.5;
+          gl_FragColor=vec4(col+g*(1.5/255.),1.);
+          return;
+        }
+        vec2 c=vec2(asp*.72,.64); float R=.66;
+        vec2 dv=(p-c)/R; float d=length(dv);
+        float px=1.6/(r.y*R);
+        float inside=1.-smoothstep(1.-px,1.+px,d);
+        float k=sqrt(max(0.,1.-d*d));
+        vec2 lens=c+(p-c)*(.68+.32*d*d)+vec2(.10,-.06)*k;
+        float fo=flow(p,tt), fi=flow(lens,tt+.35);
+        vec3 out_=paint(fo), in_=paint(fi)*.96;
+        // chromatic fringe just inside the glass edge
+        float fr=smoothstep(.82,1.,d)*inside;
+        in_+=vec3(.05,-.01,-.04)*fr;
+        vec3 col=mix(out_,in_,inside);
+        float rim=exp(-pow((d-1.)/(px*1.2+.004),2.));
+        float lit=.55+.45*dot(normalize(dv+1e-4),normalize(vec2(-.7,.7)));
+        col+=vec3(.98,.9,.74)*rim*.65*lit;
+        col+=vec3(.9,.78,.58)*pow(smoothstep(.7,1.,d),4.)*inside*.22*lit;
+        col*=1.-.35*exp(-pow((d-1.035)/.03,2.))*(1.-inside);
+        col*=smoothstep(0.,.32,uv.y);
+        col+=g*(10./255.);
+        gl_FragColor=vec4(col,1.);
+      }`;
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+    const pr = gl.createProgram();
+    gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr);
+    if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) return null;
+    gl.useProgram(pr);
+    const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const u = n => gl.getUniformLocation(pr, n);
+    const uR = u('r'), uT = u('t'), uM = u('m'), uMode = u('mode');
+    gl.uniform1f(uMode, opts.mode);
+    let mx = .5, my = .5, tx = .5, ty = .5, running = false, raf = 0;
+    addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = 1 - e.clientY / innerHeight; }, { passive: true });
+    // sharp on retina, capped by a pixel budget; drops resolution only if frames run slow
+    let q = 1;
+    const size = () => { const r = canvas.getBoundingClientRect(); let d = Math.min(devicePixelRatio || 1, 2); const cap = Math.sqrt(2.6e6 / Math.max(1, r.width * r.height)); d = Math.min(d, cap) * q; canvas.width = Math.max(2, Math.round(r.width * d)); canvas.height = Math.max(2, Math.round(r.height * d)); gl.viewport(0, 0, canvas.width, canvas.height); };
+    size(); addEventListener('resize', () => { size(); if (running && reduce) requestAnimationFrame(frame); });
+    const t0 = performance.now();
+    let last = 0, slow = 0, fast = 0;
+    function frame(now){
+      if (!running) return;
+      if (last) { const dt = now - last; if (dt > 26 && dt < 200) { slow++; fast = 0; } else if (dt < 18) { fast++; slow = 0; } }
+      last = now;
+      if (slow > 40 && q > .5) { q *= .8; slow = 0; size(); }
+      mx += (tx - mx) * .03; my += (ty - my) * .03;
+      gl.uniform2f(uR, canvas.width, canvas.height); gl.uniform1f(uT, reduce ? 20 : (now - t0) / 1000); gl.uniform2f(uM, mx, my);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      if (!reduce) raf = requestAnimationFrame(frame);
+    }
+    return {
+      start(){ if (running) return; running = true; last = 0; size(); raf = requestAnimationFrame(frame); canvas.classList.add('on'); },
+      stop(){ running = false; cancelAnimationFrame(raf); }
+    };
+  }
+
+  /* ======================= cursor ======================= */
+  const cur = $('#cursor'), curLabel = $('#curLabel');
+  let cx = innerWidth / 2, cy = innerHeight / 2, px = cx, py = cy;
+  addEventListener('pointermove', e => { px = e.clientX; py = e.clientY; }, { passive: true });
+  if (!touch) (function loop(){ cx += (px - cx) * .18; cy += (py - cy) * .18; cur.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
+  const bigCursor = label => { curLabel.textContent = label || ''; cur.classList.toggle('big', !!label); };
+
+  /* =========================================================================
+     INTRO
+     ========================================================================= */
+  const PUSH_AT = 13.5, FILM_AT = 15.008, FILM_END = 49.0, CLOSE_DELAY = 5400;
+  const introLine = rotator($('#line'), []);
+  const OFF = touch ? ['T<i>a</i>p for s<i>o</i>und', 'आवाज़ के लिए छुएँ', 'T<i>o</i>ca para o<i>í</i>r']
+                    : ['Cl<i>i</i>ck for s<i>o</i>und', 'Turn the s<i>o</i>und <i>o</i>n', 'Haz cl<i>i</i>c para o<i>í</i>r'];
+  const ON = ['W<i>a</i>it for the be<i>a</i>t', '<i>I</i>shq, for Nakoda S<i>i</i>lver'];
+  introLine.set(OFF);
+
+  const showMia = () => mia.classList.add('on');
+  if (mia.readyState >= 2) showMia(); else mia.addEventListener('loadeddata', showMia, { once: true });
+  setTimeout(showMia, 2500);
+  const introGlow = liquid($('#glow'), { mode: 0 }); introGlow && introGlow.start();
+
+  let started = false, silentT0 = 0, silentBase = 0, audible = false, introOver = false;
+  function pos(){
+    if (!started) return 0;
+    if (introOver) return FILM_END + 10;
+    if (audible && !song.paused) return song.currentTime;
+    return silentBase + (performance.now() - silentT0) / 1000;
+  }
+  function soundUI(){
+    const live = introOver ? siteLive() : audible;
+    const b = $('#snd'); b.classList.toggle('live', live); b.setAttribute('aria-pressed', String(live));
+    $('#sndLabel').textContent = introOver ? (live ? 'Sound on' : 'Sound off') : (live ? 'Sound on' : 'Tap for sound');
+    $('#badge').setAttribute('aria-label', audible ? 'Sound is on' : 'Turn sound on');
+    if (!filmOn && !introOver) introLine.set(audible ? ON : OFF);
+  }
+  function tryAudio(){
+    const p = pos();
+    if (p >= FILM_END + 1 || introOver) return;
+    if (song.readyState >= 1) song.currentTime = Math.max(0, p);
+    const r = song.play();
+    if (r && r.then) r.then(() => {
+      const target = silentBase + (performance.now() - silentT0) / 1000;
+      if (Math.abs(song.currentTime - target) > .3) song.currentTime = Math.max(0, target);
+      audible = true; soundUI();
+    }, () => { audible = false; soundUI(); });
+  }
+  function start(){
+    if (started) return; started = true;
+    silentT0 = performance.now(); silentBase = 0;
+    song.currentTime = 0;
+    film.play().then(() => { if (!filmOn) { film.pause(); film.currentTime = 0; } }, () => {});
+    tryAudio();
+    requestAnimationFrame(tick);
+  }
+  function soundOn(){
+    if (introOver) { siteSoundOn(); return; }
+    if (!started) { start(); soundUI(); return; }
+    if (!audible || song.paused) { silentBase = pos(); silentT0 = performance.now(); tryAudio(); }
+    soundUI();
+  }
+  let lastFirst = 0;
+  const first = e => {
+    if (e.type === 'pointerdown' && e.pointerType !== 'mouse') return;   // touch pointerdown can't unlock media; touchend can
+    const now = performance.now(); if (now - lastFirst < 350) return; lastFirst = now;
+    if (!introOver && !audible) soundOn();
+    if (!introOver && filmOn && film.paused && !ended) film.play().catch(() => {});
+    if (introOver) siteUnlock();
+  };
+  ['pointerdown', 'keydown', 'touchend', 'click'].forEach(t => addEventListener(t, first, true));
+  $('#badge').addEventListener('click', e => { e.stopPropagation(); soundOn(); });
+  if (song.readyState >= 2) start(); else song.addEventListener('canplay', start, { once: true });
+  setTimeout(start, 4000);
+
+  const cd = $('#countdown');
+  let filmOn = false, pushed = false, ended = false, titleShown = false, lastSync = 0, closeTimer = 0;
+  function push(){ pushed = true; stage.classList.add('leaving'); mia.classList.add('push'); }
+  function rollFilm(p){
+    filmOn = true; wrap.classList.add('open', 'rolling');
+    film.currentTime = Math.max(0, p - FILM_AT); film.play().catch(() => {});
+    setTimeout(() => mia.pause(), 800);
+    setTimeout(() => { if (!introOver && !ended && film.paused) film.play().catch(() => endFilm()); }, 1800);
+  }
+  function endFilm(){
+    if (ended) return;
+    ended = true; $('#title').classList.remove('on'); wrap.classList.add('ending');
+    setTimeout(() => { film.pause(); wrap.classList.add('done'); closeTimer = setTimeout(() => closeIntro(false, true), CLOSE_DELAY); }, 1100);
+  }
+  function tick(now){
+    if (introOver) return;
+    const p = pos();
+    cd.style.strokeDashoffset = String(295.3 * (1 - Math.min(1, p / FILM_AT)));
+    if (!pushed && p >= PUSH_AT) push();
+    if (!filmOn && p >= FILM_AT) rollFilm(p);
+    if (filmOn && !ended) {
+      const want = p - FILM_AT;
+      if (!titleShown && want >= 0.9) { titleShown = true; $('#title').classList.add('on'); setTimeout(() => $('#title').classList.remove('on'), 3600); }
+      if (film.paused && !film.ended && want < film.duration - .3 && film.readyState >= 2) film.play().catch(() => {});
+      if (now - lastSync > 700 && !film.paused && !film.seeking && film.readyState >= 3) {
+        lastSync = now;
+        const drift = film.currentTime - want;
+        if (Math.abs(drift) > .35) { film.currentTime = want; lastSync = now + 1200; }
+        else film.playbackRate = Math.abs(drift) > .04 ? (drift > 0 ? .97 : 1.03) : 1;
+      }
+      if (p >= FILM_END) endFilm();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* blur the window and close it like a shutter, revealing the portfolio */
+  function glideTo(el){
+    const html = document.documentElement;
+    const y0 = scrollY, y1 = el.getBoundingClientRect().top + scrollY - 20, d = reduce ? 1 : 1800, t0 = performance.now();
+    let stop = false;
+    const cancel = () => { stop = true; };
+    const evs = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+    evs.forEach(t => addEventListener(t, cancel, { once: true, passive: true }));
+    html.style.scrollBehavior = 'auto';                 // CSS smooth-scroll would fight the per-frame scroll
+    (function f(now){
+      const k = Math.min(1, (now - t0) / d), e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+      if (!stop) window.scrollTo({ top: y0 + (y1 - y0) * e, behavior: 'instant' });
+      if (k < 1 && !stop) requestAnimationFrame(f);
+      else { html.style.scrollBehavior = ''; evs.forEach(t => removeEventListener(t, cancel)); }
+    })(t0);
+  }
+  function closeIntro(fast, toWork){
+    if (introOver) return;
+    introOver = true; clearTimeout(closeTimer);
+    heroGlow && heroGlow.start(); heroLineStart();
+    body.classList.add('revealing');
+    setTimeout(() => {
+      body.classList.remove('intro-on', 'revealing'); body.classList.add('intro-done');
+      $('#site').inert = false; if (!body.classList.contains('scrolled')) $('header.nav').inert = false;
+      const lab = $('#work .label'); lab.tabIndex = -1; lab.focus({ preventScroll: true });
+      film.pause(); mia.pause(); introGlow && introGlow.stop();
+      window.scrollTo({ top: 0, behavior: 'instant' }); revealSetup();
+      if (toWork) setTimeout(() => { document.documentElement.style.scrollBehavior = ''; $('#work .label').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }, 700);
+      startSiteMusic();
+      soundUI();
+    }, 1400);
+  }
+  $$('[data-skip]').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); closeIntro(true, b.hasAttribute('data-to-work')); }));
+
+  /* =========================================================================
+     SITE MUSIC — the player, after nakodasilver.com. Plays once the intro closes.
+     A pause holds for this visit only (sessionStorage), never forever.
+     ========================================================================= */
+  const TRACKS = [
+    { src: 'media/hotstepper.mp3', title: 'Here Comes the Hotstepper', artist: 'Ini Kamoze · Heartical Mix' }
+  ];
+  // Same <audio> element as the intro song: phones only let an element play if the visitor's tap
+  // already started it, so a second element would stay silent on iPhone and iPad.
+  const np = $('#np'), npShell = $('#npShell'), au = song;
+  const npPlay = $('#npPlay'), icP = $('#npIcPlay'), icU = $('#npIcPause');
+  let curT = 0, adOpen = false, wasPlaying = false, npClose = 0, fadeT = 0;
+  const store = (k, v) => { try { sessionStorage.setItem(k, v); } catch (e) {} };
+  const read = k => { try { return sessionStorage.getItem(k); } catch (e) { return null; } };
+  function loadTrack(i){ curT = (i + TRACKS.length) % TRACKS.length; au.loop = TRACKS.length === 1; au.src = TRACKS[curT].src; $('#npT').textContent = TRACKS[curT].title; $('#npA').textContent = TRACKS[curT].artist; }
+  function fadeIn(){ clearInterval(fadeT); au.volume = 0; fadeT = setInterval(() => { au.volume = Math.min(.85, au.volume + .05); if (au.volume >= .85) clearInterval(fadeT); }, 110); }
+  function npState(){
+    const on = !au.paused && !au.muted;
+    np.classList.toggle('playing', on);
+    np.classList.toggle('waiting', !au.paused && au.muted);
+    icP.style.display = on ? 'none' : 'block'; icU.style.display = on ? 'block' : 'none';
+    npPlay.setAttribute('aria-label', on ? 'Pause' : 'Play');
+    npShell.setAttribute('aria-label', !au.paused && au.muted ? 'Tap anywhere for sound' : 'Background music');
+  }
+  function npGo(){
+    const r = au.play();
+    if (r && r.then) r.then(() => { fadeIn(); npState(); }, () => {
+      au.muted = true;                                       // the browser wants a tap first: run silently, ring the button
+      au.play().then(npState, npState);
+    });
+  }
+  let siteOn = false;
+  function startSiteMusic(){
+    np.hidden = false; siteOn = true;
+    const go = () => {
+      au.pause(); loadTrack(0); au.volume = 1;
+      if (adOpen) { wasPlaying = read('rs_paused') !== '1'; npState(); return; }
+      if (read('rs_paused') === '1') { npState(); return; }
+      npGo();
+    };
+    // fade the Ishq tail out on the same element, then switch to the Hotstepper
+    if (!au.paused && !au.muted) {
+      clearInterval(fadeT);
+      fadeT = setInterval(() => { au.volume = Math.max(0, au.volume - .08); if (au.volume <= .02) { clearInterval(fadeT); go(); } }, 50);
+      setTimeout(() => { if (au.src.indexOf('hotstepper') < 0) { clearInterval(fadeT); go(); } }, 900);   // iOS ignores volume
+    } else go();
+  }
+  function siteUnlock(){ if (read('rs_paused') === '1' || adOpen || !siteOn) return; if (au.muted) { au.muted = false; fadeIn(); } if (au.paused) au.play().then(fadeIn, () => {}); npState(); }
+  function siteLive(){ return !au.paused && !au.muted; }
+  function siteSoundOn(){ store('rs_paused', '0'); au.muted = false; if (au.paused) npGo(); else fadeIn(); npState(); }
+  function pauseForAd(){ wasPlaying = !au.paused; au.pause(); npState(); }
+  function resumeAfterAd(){ if (wasPlaying && read('rs_paused') !== '1') { au.play().then(fadeIn, () => {}); } npState(); }
+  ['play', 'pause', 'volumechange'].forEach(t => au.addEventListener(t, () => { if (siteOn) npState(); }));
+  au.addEventListener('ended', () => { if (siteOn && TRACKS.length > 1) { loadTrack(curT + 1); au.play().catch(() => {}); } });
+  npPlay.addEventListener('click', e => {
+    e.stopPropagation();
+    if (au.paused || au.muted) { siteSoundOn(); }
+    else { au.pause(); store('rs_paused', '1'); }
+  });
+  $('#npPrev').addEventListener('click', e => { e.stopPropagation(); au.currentTime = 0; siteSoundOn(); });
+  $('#npNext').addEventListener('click', e => { e.stopPropagation(); if (TRACKS.length > 1) loadTrack(curT + 1); else au.currentTime = 0; siteSoundOn(); });
+  const npOpen = () => { np.classList.add('open'); clearTimeout(npClose); };
+  const npLater = ms => { clearTimeout(npClose); npClose = setTimeout(() => np.classList.remove('open'), ms); };
+  npShell.addEventListener('mouseenter', () => { if (!touch) npOpen(); });
+  np.addEventListener('mouseleave', () => { if (!touch) npLater(1200); });
+  np.addEventListener('focusin', npOpen); np.addEventListener('focusout', () => npLater(1200));
+  npShell.addEventListener('click', e => { if (touch && !np.classList.contains('open')) { e.stopPropagation(); npOpen(); npLater(4500); } });
+  addEventListener('click', e => { if (touch && !np.contains(e.target)) np.classList.remove('open'); });
+  $('#snd').addEventListener('click', e => { e.stopPropagation(); soundOn(); });
+
+  /* =========================================================================
+     FULL AD
+     ========================================================================= */
+  const ad = $('#ad'), adVideo = $('#adVideo');
+  function openAd(){
+    adOpen = true; pauseForAd();
+    if (!ad.open) ad.showModal();                    // top layer: sits above the intro too
+    adVideo.currentTime = 0; adVideo.play().catch(() => {});   // inside the click, so sound is allowed
+    if (!introOver) closeIntro(true);
+    soundUI();
+  }
+  function closeAd(){ adVideo.pause(); if (ad.open) ad.close(); }
+  ad.addEventListener('close', () => { adVideo.pause(); adOpen = false; resumeAfterAd(); soundUI(); });
+  $('#adClose').addEventListener('click', closeAd);
+  ad.addEventListener('click', e => { if (e.target === ad) closeAd(); });
+  $$('[data-ad]').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); openAd(); }));
+
+  /* =========================================================================
+     PORTFOLIO
+     ========================================================================= */
+  const navEl = $('header.nav'), navBar = $('.navbar');
+  let navS = null;
+  const navSolid = () => { const on = scrollY > innerHeight * .6; if (on === navS) return; navS = on; body.classList.toggle('scrolled', on); navBar.inert = !on; navEl.inert = on; };
+  addEventListener('scroll', navSolid, { passive: true }); navSolid();
+  const heroGlow = liquid($('#heroGl'), { mode: 1 });
+  if (heroGlow && 'IntersectionObserver' in window) {
+    new IntersectionObserver(es => es.forEach(e => { if (!introOver) return; e.isIntersecting ? heroGlow.start() : heroGlow.stop(); }), { threshold: 0 }).observe($('#top'));
+  }
+  let scT = 0;
+  addEventListener('scroll', () => { body.classList.add('scrolling'); clearTimeout(scT); scT = setTimeout(() => body.classList.remove('scrolling'), 160); }, { passive: true });
+  const heroRot = rotator($('#heroLine'), []);
+  function heroLineStart(){
+    heroRot.set(['Sm<i>a</i>ll brands, b<i>i</i>g pictures', 'छोटे ब्रांड, बड़ी कहानियाँ', 'F<i>i</i>lms, s<i>i</i>tes <i>a</i>nd AI', 'Ulhasn<i>a</i>gar to M<i>a</i>drid']);
+  }
+
+  // every project: one card, one project window. cat drives the filters.
+  const CATS = [['all', 'All'], ['web', 'Websites'], ['store', 'Online stores'], ['ads', 'Ads & films'], ['ai', 'AI & tools'], ['own', 'My own brands'], ['about', 'Résumé']];
+  const WORK = [
+    { k: 'ishq', n: 'Ishq · Nakoda Silver', sub: 'A brand film made entirely with AI', m: 'Film · 2026', cat: ['ads', 'ai'], img: 'ishq', big: true },
+    { k: 'nakoda-gold', n: 'Nakoda Gold', sub: 'Website, local SEO, ads and posters', m: 'Ambernath', cat: ['web', 'ads'], img: 'nakoda-gold', url: 'https://nakodagold.com' },
+    { k: 'nakoda-silver', n: 'Nakoda Silver', sub: 'Brand kit, Shopify store and ad films', m: 'Ambernath', cat: ['store', 'ads'], img: 'nakoda-silver', url: 'https://nakodasilver.com' },
+    { k: 'gb-shop', n: 'Gully Brands Clothing', sub: 'My Y2K label: headless store, modelled by Mia', m: 'India', cat: ['store', 'own'], img: 'gb-shop', url: 'https://shop.gullybrands.in' },
+    { k: 'gb-app', n: 'Gully Brands App', sub: 'One shop photo in, a finished post out', m: 'India', cat: ['ai', 'own'], img: 'gb-app', url: 'https://app.gullybrands.in' },
+    { k: 'mia', n: 'Mia', sub: 'The AI model I made for UGC and content', m: 'AI model', cat: ['ai', 'ads'], mia: true },
+    { k: 'emonfer', n: 'Emonfer Ebanistería', sub: 'Rebrand and a Spanish site that wins local search', m: 'Madrid', cat: ['web'], img: 'emonfer', url: 'https://emonfer.es' },
+    { k: 'pets', n: 'Shree Swami Samarth Pets', sub: 'Website, Google profile and festival ads', m: 'Ulhasnagar', cat: ['web', 'ads'], img: 'pets', url: 'https://shreeswamisamarthpetshop.in' },
+    { k: 'sai', n: 'Sai Healthy Corner', sub: 'Menu site with WhatsApp pre-booking', m: 'Ulhasnagar', cat: ['web'], img: 'sai', url: 'https://saihealthycorner.in' },
+    { k: 'menu', n: 'Tomorrow’s Menu maker', sub: 'Anita’s nightly WhatsApp story tool', m: 'Ulhasnagar', cat: ['ai'], img: 'menu-maker', url: 'https://sai-healthy-corner.surge.sh' },
+    { k: 'hermes', n: 'Leah & Mia · Hermes agents', sub: 'My AI team on Telegram', m: 'Studio', cat: ['ai'], card: 'hermes' },
+    { k: 'claude', n: 'Built with Claude Code', sub: 'How every project here ships', m: 'Studio', cat: ['ai'], card: 'claude' },
+    { k: 'bellmarcq', n: 'Bellmarcq', sub: 'B2B fabric site with a scroll film', m: 'Bhiwandi', cat: ['web'], img: 'bellmarcq', url: 'https://bellmarcq.surge.sh' },
+    { k: 'mad-arcade', n: 'Mad Arcade', sub: 'Arcade cabinets, 11 pages, scroll film', m: 'Madrid', cat: ['web'], img: 'mad-arcade', url: 'https://mad-arcade-demo.surge.sh' },
+    { k: 'nails', n: 'Nails Anamur', sub: 'Nail studio site with a scroll film', m: 'Poland', cat: ['web'], img: 'nails', url: 'https://nails-anamur.surge.sh' },
+    { k: 'nut', n: 'The Nut Atelier', sub: 'Luxury walnut brand: identity, site, copy', m: 'India', cat: ['web'], img: 'nut', url: 'https://the-nut-atelier.surge.sh' },
+    { k: 'luna', n: 'Luna Hooks', sub: 'Crochet lookbook with a yarn customizer', m: 'Dehradun', cat: ['web'], img: 'luna', url: 'https://luna-hooks.surge.sh' },
+    { k: 'himalayan', n: 'The Himalayan Squad', sub: 'Expedition booking site and reels', m: 'Himalaya', cat: ['web'], img: 'himalayan', url: 'https://himalayan-squad.surge.sh' },
+    { k: 'laptop-guru', n: 'Laptop Guru', sub: 'Pitch site with a scroll video', m: 'Ulhasnagar', cat: ['web'], img: 'laptop-guru', url: 'https://laptop-guru.surge.sh' },
+    { k: 'etsy', n: 'MyMonsterGirl on Etsy', sub: 'My own collector doll shop', m: 'Worldwide', cat: ['own', 'store'], card: 'etsy', url: 'https://www.etsy.com/in-en/shop/MyMonsterGirl' },
+    { k: 'cv', n: 'Résumé', sub: 'Five years in insurance ops and L&D, now building with AI', m: 'Rahul Sakharkar', cat: ['about'], still: 'media/work/cv.jpg', cv: true }
+  ];
+  const line = (h, d, top, cls = '') => `<span class="sl ${cls}" style="top:${top}%;animation-delay:${d}s">${h}</span>`;
+  const SCENES = {
+    claude: { cls: 'term', html: '<span class="bar"><i></i><i></i><i></i></span>' +
+      line('<span class="g">›</span> make Anita a menu maker for WhatsApp', 0, 16) +
+      line('<span class="dim">reading menu.json · 84 items</span>', .7, 29) +
+      line('<span class="ok">✓</span> 84 cards rendered', 1.4, 40) +
+      line('<span class="ok">✓</span> tested at 390px, share sheet works', 2.1, 51) +
+      line('<span class="ok">✓</span> deployed · sai-healthy-corner.surge.sh', 2.8, 62) +
+      line('<span class="ok">✓</span> logged in HANDOFF.md', 3.5, 73) },
+    etsy: { cls: 'etsy', html: '<span class="eb">Etsy shop</span><span class="et">MyMonsterGirl</span><span class="es">Collector dolls · ships worldwide</span>' +
+      '<i class="ec c1"></i><i class="ec c2"></i><i class="ec c3"></i><i class="ek k1">✦</i><i class="ek k2">✦</i><i class="ek k3">✦</i>' },
+    hermes: { cls: 'chat', html:
+      line('Leah, ad for the pet shop’s August offer?', 0, 10, 'me') +
+      line('<b>Leah</b>20% off graphic, caption and reel script are ready.', .9, 27, 'bot') +
+      line('Mia, try-on shoot for the new crop top', 2, 50, 'me') +
+      line('<b>Mia</b>On it. Studio + lifestyle, every colour ✦', 2.9, 67, 'bot') }
+  };
+  const CASES = {
+    menu: { k: "Sai Healthy Corner · Coach Anita", t: "Tomorrow's Menu", media: 'menu-maker',
+      p: "Every night Anita posts tomorrow's menu to her WhatsApp Status. It used to be a photo of a paper card on a different background each night. Now she taps what she's making and gets finished, on-brand story cards in seconds.",
+      l: ['84 branded menu cards, one for every item she makes', 'One page she saves to her home screen: no install, no login', 'Tap to pick, tap again for LIMITED · PRE-BOOK', 'A “Kal kya hai” summary card built live for each night', 'A caption written in her own Hinglish voice', 'One Share tap sends it all straight to WhatsApp Status'],
+      s: [['84', 'menu cards'], ['1 tap', 'to WhatsApp'], ['0', 'installs']] },
+    hermes: { k: 'My AI team · Hermes Agent', t: 'Leah & Mia', scene: 'hermes',
+      p: "I run the studio with AI agents built on Nous Research's open-source Hermes Agent. They live in Telegram, each with its own memory, skills and scheduled jobs, and they share one work log with Claude Code.",
+      l: ['Leah runs day-to-day ops: ad graphics, captions and reel scripts, the client wiki, and a job queue for Claude Code', 'Mia runs content for Mia, my AI model: studio shots, try-ons and product ads', 'Both plug into my own GPU media lab on Modal: images, edits, video, music and Hindi voice from open models', 'I squeezed the MiniMax H3 video model from four GPUs onto one (123 GB down to 56 GB)', 'Skills are shared with Claude Code, so a skill added once works everywhere'],
+      s: [['2', 'agents on Telegram'], ['4 → 1', 'GPUs for H3 video'], ['₹0', 'when idle']] },
+    claude: { k: 'How everything here ships', t: 'Built with Claude Code', scene: 'claude',
+      p: "Every site, store and tool on this page was built with Claude Code, Anthropic's coding agent, with me directing. I bring the brief, the taste and the rules; it writes the code, tests it in a real browser and deploys.",
+      l: ['Client websites, a headless Shopify store, a Next.js SaaS app and this portfolio', 'One shared HANDOFF log, so every session picks up exactly where the last one stopped', 'Skills and MCP servers wired in once: Shopify, Meta Ads, Canva, Higgsfield, ComfyUI on GPUs', 'Real-browser QA before anything ships: phone widths, checkout, schema, speed', 'Cloud sessions I run from my phone'],
+      s: [['166', 'logged sessions in 8 weeks'], ['17', 'projects on this page'], ['24/7', 'from my phone']] },
+    'gb-shop': { k: 'My own label · Y2K crop tops', t: 'Gully Brands Clothing', media: 'gb-shop',
+      p: 'Crop tops for baddies and it girls, cinematic and a little dark. A headless Shopify store on my own domain, modelled entirely by Mia.',
+      l: ['Storefront on GitHub Pages with live products, stock and checkout from Shopify', '54 product photos of Mia: a studio shot per colour, a lifestyle shot per design', 'A real page and Google Shopping feed entry for every colour and size', 'Meta pixel and ads, Merchant Center, Search Console with Product rich results', '12 Instagram carousels for launch'],
+      s: [['12', 'designs'], ['54', 'Mia photos'], ['₹499', 'a top']] },
+    'gb-app': { k: 'SaaS for small shops', t: 'Gully Brands App', media: 'gb-app',
+      p: 'A shop takes one phone photo of what it sells and gets back a finished post or reel: styled, lit, with its headline, offer, name and logo set into the picture, and the product itself unchanged.',
+      l: ['Posts, posters, reels and free-form edits from one photo', 'Ready trades (jewellery, fashion, restaurant and more), or a shop makes its own', 'An “art director” step that plans each shot before anything is generated', 'A photo check that stops a shop before it pays if the product is too small to copy', 'Razorpay payments, live since August 2026', 'A 28-second launch video'],
+      s: [['1', 'photo in'], ['4', 'kinds of output'], ['Live', 'payments']],
+      ads: [['app-launch', 'Launch film', 'w']] },
+    'nakoda-gold': { k: 'Jeweller · Ambernath', t: 'Nakoda Gold', media: 'nakoda-gold',
+      p: 'Nakoda already had a Google profile with 200+ reviews, 8,500 Instagram followers, a digital-gold app and a catalogue, but no hub. The website became the centre of all of it.',
+      l: ['Website with a live, auto-updating gold rate', 'Google Business profile and local SEO pack', 'The Dussehra–Diwali offer page for the ad campaign', 'October campaign creative: posters, testimonial videos and AI video ads', 'Google Ads conversion tracking on every page'],
+      s: [['4.7★', '204 Google reviews'], ['6', 'channels, one hub'], ['Live', 'gold rate']],
+      ads: [['ng-tv', 'TV ad · jewellery pop-up', 'v'], ['ng-teacher', 'Teacher ad', 'v'], ['ng-ambernath', 'Sab Ambernath kyu ja rahe?', 'v'], ['ng-jhumka', 'Jhumka reel', 'v'],
+        ['ng-w01', 'Real diamonds from ₹5,000', 'p'], ['ng-w02', 'Jitna sona, utna chandi free', 'p'], ['ng-w04', 'Purana sona, poora daam', 'p'], ['ng-w06', 'Bridal rani haar', 'p'],
+        ['ng-w09', 'Karwa Chauth', 'p'], ['ng-w10', 'Dhanteras pre-booking', 'p'], ['ng-w15', 'Maharashtrian dulhan', 'p'], ['ng-w20', 'Deepavali & Lakshmi Pujan', 'p']] },
+    'nakoda-silver': { k: 'Sterling silver · Ambernath', t: 'Nakoda Silver', media: 'nakoda-silver',
+      p: 'A 92.5 sterling silver label with freshwater pearls. I made the brand, the store and the films, with Mia as its face.',
+      l: ['Brand kit and a custom Shopify theme', 'Ishq, a 93-second brand film starring Mia', 'The Shuffle ad and product reels for Instagram', 'A music player on the store, like the one on this site'],
+      s: [['92.5', 'sterling silver'], ['4', 'ad films'], ['1', 'face: Mia']],
+      ads: [['ishq-full', 'Ishq · brand film', 'w'], ['ns-shuffle', 'The Shuffle ad', 'w'], ['ns-catalogue', 'Catalogue reel', 'v'], ['ns-sets', 'Sets reel', 'v']] },
+    pets: { k: 'Pet shop & vet · Ulhasnagar', t: 'Shree Swami Samarth Pets', media: 'pets',
+      p: 'Fourteen years on the same street, with a vet in the shop. I built the website, run the Google profile and make the festival ads.',
+      l: ['Website with services, products and the in-store vet', 'Google Business profile: every review answered', 'Ganpati festival ad and chant reel', 'August offer poster: 20% off everything', 'QR cards for reviews and bookings'],
+      s: [['47/47', 'reviews answered'], ['14', 'years on the street'], ['2', 'branches']],
+      ads: [['pet-modak', 'Ganpati modak ad', 'v'], ['pet-chant', 'Ganpati chant reel', 'v'], ['pet-20off', '20% off · August', 'p']] },
+    emonfer: { k: 'Custom carpentry · Madrid', t: 'Emonfer Ebanistería', media: 'emonfer',
+      p: "Emilio has made custom furniture east of Madrid since 1990. I rebuilt the brand and wrote a Spanish site that wins local searches, with an assistant that answers customers.",
+      l: ['New brand and a Spanish website', '11 service-area pages and a hub, with prices and reviews on the page', 'A chat assistant on the site that answers customer questions', 'Schema, Search Console, Bing and IndexNow set up'],
+      s: [['#1', 'local pack, “carpintería a medida Villalbilla”'], ['4.9★', '16 Google reviews'], ['12', 'pages indexed']] },
+    ishq: { k: 'Brand film · Nakoda Silver', t: 'Ishq', media: 'ishq', film: true,
+      p: 'A 93-second brand film for Nakoda Silver, with Mia as its face. I wrote, directed and edited it, and made every shot on my own AI pipeline.',
+      l: ['Concept, storyboard and direction', 'Every shot made with Mia, my AI model, on my own GPUs', 'Edit and grade, cut to the Ishq song', 'A reel cut for Instagram'],
+      s: [['1:33', 'running time'], ['1', 'face: Mia'], ['0', 'cameras']],
+      ads: [['ishq-full', 'Ishq · the full film', 'w']] },
+    mia: { k: 'AI model · UGC & content', t: 'Mia', mia: true,
+      p: 'Mia is an AI model I created and trained for UGC and content creation. The same face in every frame: selfies, try-ons, product shots, reels and brand films.',
+      l: ['Her own trained face model, so she looks like herself in every shot', '54 studio and lifestyle photos for Gully Brands Clothing', 'The face of Nakoda Silver’s Ishq film and reels', 'Festival ads, like the pet shop’s Ganpati modak film'],
+      s: [['54', 'store photos'], ['1', 'face, every shot']],
+      ads: [['mia-5', 'Sunny day', 'p'], ['mia-6', 'Selfie at home', 'p'], ['mia-7', 'Night out', 'p'], ['mia-8', 'Desert story', 'p'], ['ishq-full', 'Ishq · Nakoda Silver', 'w'], ['ns-sets', 'Nakoda Silver reel', 'v'], ['pet-modak', 'Ganpati modak ad', 'v']] },
+    sai: { k: 'Healthy food stall · Ulhasnagar', t: 'Sai Healthy Corner', media: 'sai',
+      p: 'A morning juice and soup stall run by Coach Anita. People pre-book on WhatsApp by 9 pm and pick up at 8 am, so the site makes that loop easy.',
+      l: ['Website with the full menu of 84 items', 'Pre-booking straight into WhatsApp', 'Coach Anita’s page, health tips and a reel gallery', 'Google profile, map and local SEO', 'The Tomorrow’s Menu maker for her nightly stories'],
+      s: [['84', 'menu items'], ['9 pm', 'pre-book by'], ['8 am', 'ready by']] },
+    bellmarcq: { k: 'Fabric maker · Bhiwandi', t: 'Bellmarcq', media: 'bellmarcq',
+      p: 'Shirting, suiting and kurta fabrics, supplied to garment makers since 1989. A B2B site that opens with a scroll film into the weave.',
+      l: ['Brand kit and B2B website', 'Scroll film hero that zooms into the fabric', 'Leno Jacquard collection', 'Sourcing calculator and WhatsApp enquiries'],
+      s: [['1989', 'established'], ['B2B', 'for garment makers']] },
+    nails: { k: 'Nail studio · Poland', t: 'Nails Anamur', media: 'nails',
+      p: 'A nail artist in Poland. The site is a scroll film: the polish bottle opens as you scroll, then come the work and the prices.',
+      l: ['Website in Polish', 'Scroll film hero', 'Portfolio and price list', 'Booking through Instagram DM'] },
+    'mad-arcade': { k: 'Arcade machines · Madrid', t: 'Mad Arcade', media: 'mad-arcade',
+      p: 'Custom arcade cabinets and pinballs, built and restored in Madrid. A Spanish multi-page site led by a scroll film of a real cabinet.',
+      l: ['11-page website in Spanish', 'Scroll film hero made from 120 rendered frames', 'Machine catalogue, pinballs and a configurator', 'Repair workshop and warranty pages'],
+      s: [['11', 'pages'], ['120', 'frame scroll film']] },
+    himalayan: { k: 'Trek expeditions · Himalaya', t: 'The Himalayan Squad', media: 'himalayan',
+      p: 'Small-group expeditions to Spiti and Ladakh. A booking site with every trip, a proposal and reels.',
+      l: ['Booking website with every expedition', 'Trip pages like the Ladakh Circuit and Winter Spiti', 'A pitch proposal', 'Reels for Instagram'] },
+    luna: { k: 'Handmade crochet · Dehradun', t: 'Luna Hooks', media: 'luna',
+      p: 'Slow-fashion crochet, designed and stitched by hand in Dehradun. A brand kit and a lookbook site with a yarn customizer.',
+      l: ['Brand kit', 'Lookbook website with video', 'Yarn and colour customizer', 'Orders on WhatsApp'] },
+    nut: { k: 'Gourmet walnuts · India', t: 'The Nut Atelier', media: 'nut',
+      p: 'Premium double-crafted walnuts, baked with zero oil. A luxury identity, the website and every word of copy.',
+      l: ['Identity and look', 'Luxury website with a film for every flavour', 'All the copy', 'Gifting and orders on WhatsApp'],
+      s: [['4', 'flavours'], ['0', 'oil']] },
+    'laptop-guru': { k: 'Laptop shop · Ulhasnagar', t: 'Laptop Guru', media: 'laptop-guru',
+      p: 'A laptop repair, buy and sell shop on Main Bazar. A pitch site that walks you into the shop with a scroll video.',
+      l: ['Research and an SEO plan', 'Pitch website with a scroll video', 'Pages for laptops, repair, selling and exchange', 'Call and WhatsApp on every page'] },
+    etsy: { k: 'My own shop · Etsy', t: 'MyMonsterGirl', scene: 'etsy',
+      p: 'My own collector doll shop on Etsy, shipping worldwide.',
+      l: ['Shop branding and listings', 'Listing photos and copy', 'Worldwide shipping'] },
+    cv: { k: 'About me', t: 'Résumé' }
+  };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const EXT = document.createElement('video').canPlayType('video/mp4; codecs="avc1.4D401F"') ? 'mp4' : 'webm';
+  const clip = k => `media/work/${k}.${EXT}`;
+  const MIA4 = '<div class="mia4">' + [1, 2, 3, 4].map(i => `<img src="media/mia4/mia-${i}.jpg" alt="" loading="lazy">`).join('') + '</div>';
+  const media = w => w.img ? `<video muted loop playsinline preload="none" disableremoteplayback poster="media/work/${w.img}.jpg" data-src="${clip(w.img)}" aria-hidden="true"></video>`
+    : w.mia ? MIA4 : w.still ? `<img src="${w.still}" alt="" loading="lazy">` : `<div class="scene ${SCENES[w.card].cls}" aria-hidden="true">${SCENES[w.card].html}</div>`;
+  const grid = $('#grid');
+  grid.innerHTML = WORK.map((w, i) => {
+    const c = CASES[w.k], n = (c && c.ads || []).length;
+    const label = { web: 'Website', store: 'Online store', ads: 'Ads & film', ai: 'AI & tools', own: 'My own brand', about: 'About me' }[w.cat[0]];
+    return `<a class="card${w.big ? ' big' : ''}" href="#${w.k}" role="button" data-i="${i}" aria-label="Open ${esc(w.n)}">
+      <div class="card-media">${media(w)}<span class="pill">${esc(label)}</span>${n ? `<span class="pill ads">${n} ad${n > 1 ? 's' : ''}</span>` : ''}<span class="open">${w.cv ? 'Open résumé' : 'Open project'}</span></div>
+      <div class="card-info"><h3>${esc(w.n)}</h3><span class="meta">${esc(w.m)}</span></div>
+      <p class="card-sub">${esc(w.sub)}</p></a>`;
+  }).join('');
+  const cards = $$('#grid .card');
+  // filters with counts
+  let filt = 'all';
+  $('#filters').innerHTML = CATS.map(([k, l]) => `<button type="button" data-f="${k}" aria-pressed="${k === 'all'}">${l}<sup>${k === 'all' ? WORK.length : WORK.filter(w => w.cat.includes(k)).length}</sup></button>`).join('');
+  $('#filters').addEventListener('click', e => {
+    const b = e.target.closest('[data-f]'); if (!b) return;
+    filt = b.dataset.f;
+    $$('#filters button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    cards.forEach((c, i) => { const on = filt === 'all' || WORK[i].cat.includes(filt); c.hidden = !on; c.classList.toggle('big', on && filt === 'all' && !!WORK[i].big); if (on) { c.style.animation = 'none'; void c.offsetWidth; c.style.animation = ''; } });
+    playVisible();
+  });
+  const visibleList = () => cards.map((c, i) => i).filter(i => !cards[i].hidden);
+
+  // previews: load a clip the first time it is needed; desktop plays on hover, touch plays what is on screen
+  const vidOf = c => c.querySelector('video');
+  const load = v => { if (v && !v.src) v.src = v.dataset.src; };
+  const play = v => { if (!v) return; load(v); v.play().catch(() => {}); };
+  const stop = v => { if (v && !v.paused) v.pause(); };
+  let inView = new Set();
+  const playVisible = () => { if (!touch) return; cards.forEach(c => { const v = vidOf(c); if (!v) return; inView.has(c) && !c.hidden ? play(v) : stop(v); }); };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      const v = vidOf(e.target);
+      if (e.isIntersecting) { inView.add(e.target); if (v && !v.src) { v.preload = 'auto'; load(v); } } else { inView.delete(e.target); stop(v); }
+      if (touch) { if (e.isIntersecting && e.intersectionRatio > .55) play(v); else stop(v); }
+    }), { rootMargin: '200px 0px', threshold: [0, .6] });
+    cards.forEach(c => io.observe(c));
+  }
+  if (!touch) {
+    grid.addEventListener('pointerover', e => { const c = e.target.closest('.card'); if (c) { play(vidOf(c)); bigCursor('OPEN'); } });
+    grid.addEventListener('pointerout', e => { const c = e.target.closest('.card'); if (c && !c.contains(e.relatedTarget)) { stop(vidOf(c)); bigCursor(''); } });
+  }
+  grid.addEventListener('click', e => { const c = e.target.closest('.card'); if (!c) return; e.preventDefault(); openCase(+c.dataset.i); });
+
+  const caseDlg = $('#case'), lb = $('#lb');
+  const AD_SRC = k => k === 'ishq-full' ? { v: 'media/ishq-full.mp4', img: 'media/ishq-full-poster.jpg' } : k.startsWith('mia-') ? { img: `media/mia4/${k}.jpg` } : { v: `media/ads/${k}.mp4`, img: `media/ads/${k}.jpg` };
+  let caseI = -1;
+  function openCase(i){
+    const w = WORK[i], c = CASES[w.k]; if (!c) return;
+    caseI = i;
+    const cvMode = !!w.cv;
+    $('#cvPage').hidden = !cvMode; $('#caseMedia').hidden = cvMode; $('.case-body').hidden = cvMode;
+    if (cvMode) { $('#caseAds').hidden = true; $('#caseMedia').innerHTML = ''; const list = visibleList(); $('#caseN').textContent = `${String(list.indexOf(i) + 1).padStart(2, '0')} / ${String(list.length).padStart(2, '0')}`; if (!caseDlg.open) caseDlg.showModal(); caseDlg.scrollTop = 0; bigCursor(''); return; }
+    const list = visibleList(), pos = list.indexOf(i);
+    $('#caseN').textContent = `${String(pos + 1).padStart(2, '0')} / ${String(list.length).padStart(2, '0')}`;
+    $('#caseK').textContent = c.k; $('#caseT').textContent = c.t; $('#caseP').textContent = c.p;
+    $('#caseL').innerHTML = c.l.map(x => `<li>${esc(x)}</li>`).join('');
+    $('#caseS').innerHTML = (c.s || []).map(([b, t]) => `<div><b>${esc(b)}</b><span class="mono">${esc(t)}</span></div>`).join('');
+    $('#caseS').hidden = !(c.s && c.s.length);
+    $('#caseA').innerHTML = (c.film ? '<button type="button" class="primary" data-film>Watch the full film ▶</button>' : '') + (w.url ? `<a href="${w.url}" target="_blank" rel="noopener">${w.k === 'etsy' ? 'Visit the shop' : 'Visit live site'} ↗</a>` : '') + '<button type="button" data-close>Back to work</button>';
+    $('#caseMedia').innerHTML = c.mia ? MIA4 : c.media
+      ? `<video muted loop playsinline autoplay preload="auto" poster="media/work/${c.media}.jpg" src="${clip(c.media)}"></video>`
+      : `<div class="scene ${SCENES[c.scene].cls}" style="font-size:16px">${SCENES[c.scene].html}</div>`;
+    const ads = c.ads || [];
+    $('#caseAds').hidden = !ads.length;
+    $('#caseAdsN').textContent = ads.length ? `${ads.length} piece${ads.length > 1 ? 's' : ''}` : '';
+    $('#caseAdsList').innerHTML = ads.map(([k, cap, sh]) => {
+      const vid = sh !== 'p';
+      return `<button type="button" class="ad-tile${sh === 'w' ? ' w' : sh === 'p' ? ' p' : ''}" data-adk="${k}" data-vid="${vid ? 1 : ''}" aria-label="${esc((vid ? 'Play ' : 'View ') + cap)}"><img src="${AD_SRC(k).img}" alt="" loading="lazy">${vid ? '<i class="pl" aria-hidden="true"></i>' : ''}<span>${esc(cap)}</span></button>`;
+    }).join('');
+    const v = $('#caseMedia video'); if (v) v.play().catch(() => {});
+    if (!caseDlg.open) caseDlg.showModal();
+    caseDlg.scrollTop = 0; $('#caseAdsList').scrollLeft = 0;
+    bigCursor('');
+  }
+  const step = d => { const list = visibleList(); if (!list.length) return; const pos = list.indexOf(caseI); openCase(list[(pos + d + list.length) % list.length]); };
+  $('#casePrev').addEventListener('click', () => step(-1));
+  $('#caseNext').addEventListener('click', () => step(1));
+  caseDlg.addEventListener('keydown', e => { if (lb.open) return; if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
+  const closeCase = () => { if (caseDlg.open) caseDlg.close(); };
+  caseDlg.addEventListener('close', () => { const v = $('#caseMedia video'); if (v) v.pause(); $('#caseMedia').innerHTML = ''; });
+  $('#caseX').addEventListener('click', closeCase);
+  caseDlg.addEventListener('click', e => {
+    const t = e.target.closest('[data-adk]');
+    if (t) { openLb(t.dataset.adk, t.querySelector('span').textContent, !!t.dataset.vid); return; }
+    if (e.target.closest('[data-film]')) { openAd(); return; }
+    if (e.target === caseDlg || e.target.closest('[data-close]')) closeCase();
+  });
+  // lightbox for a single ad: the film plays with sound, the site music steps aside
+  function openLb(k, title, vid){
+    const src = AD_SRC(k);
+    $('#lbT').textContent = title;
+    $('#lbMedia').innerHTML = vid ? `<video controls playsinline preload="auto" poster="${src.img}" src="${src.v}"></video>` : `<img src="${src.img}" alt="${esc(title)}">`;
+    if (vid) { adOpen = true; pauseForAd(); }
+    lb.showModal();
+    const v = $('#lbMedia video'); if (v) v.play().catch(() => {});
+  }
+  lb.addEventListener('close', () => { const v = $('#lbMedia video'); if (v) { v.pause(); adOpen = false; resumeAfterAd(); soundUI(); } $('#lbMedia').innerHTML = ''; });
+  $('#lbX').addEventListener('click', () => lb.close());
+  lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+
+  const CLIENTS = ['Nakoda Gold', 'Nakoda Silver', 'Emonfer Ebanistería', 'Shree Swami Samarth', 'Sai Healthy Corner', 'Bellmarcq', 'Nails Anamur', 'Mad Arcade', 'The Himalayan Squad', 'Luna Hooks', 'The Nut Atelier', 'Laptop Guru'];
+  $('#trust').innerHTML = CLIENTS.map(c => `<span>${esc(c)}</span>`).join('<span class="sep" aria-hidden="true">✦</span> ');
+
+  function revealSetup(){
+    if (reduce || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    $$('.rv').forEach(el => { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('pre'); io.observe(el); } });
+  }
+
+  $('#copyWa').addEventListener('click', async e => {
+    const b = e.currentTarget;
+    try { await navigator.clipboard.writeText('+918668715250'); b.textContent = 'Copied'; }
+    catch (err) { const r = document.createRange(); r.selectNodeContents($('#wa')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected'; }
+    setTimeout(() => b.textContent = 'Copy number', 1800);
+  });
+  $('#replayIntro').addEventListener('click', () => location.reload());
+  addEventListener('pointerover', e => { if (!introOver || e.target.closest('.card')) return; const a = e.target.closest('a,button'); if (!a) bigCursor(''); }, { passive: true });
+})();
+</script>
+</body>
+</html>
