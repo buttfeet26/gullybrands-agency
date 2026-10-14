@@ -258,6 +258,13 @@ dialog.lb{max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:0;
 dialog.lb::backdrop{background:rgba(0,0,0,.9)}
 .lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px 10px 16px;color:var(--pearl-dim)}
 .lb-top button{font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl);background:none;border:1px solid var(--pearl-faint);border-radius:999px;padding:8px 12px;cursor:pointer}
+.lb-side{animation:none}
+.lb-side.prev{left:var(--lbl,24px);right:auto}
+.lb-side.next{left:auto;right:var(--lbr,24px)}
+.lb-side[hidden]{display:none}
+#lbN{color:var(--pearl-mute);margin-left:10px;white-space:nowrap}
+body:has(#lb[open]) #case > .case-side,body:has(#ad[open]) #case > .case-side{visibility:hidden}
+@media (max-width:899px){.lb-side{top:50%;bottom:auto;margin-top:-22px;width:44px;height:44px;background:rgba(10,10,10,.62)}.lb-side.prev{left:10px}.lb-side.next{right:10px}}
 .lb-media video,.lb-media img{display:block;max-width:calc(100vw - 26px);max-height:calc(100dvh - 84px);width:auto;height:auto;margin:0 auto;background:#000}
 @media (max-width:760px){
   .case-body{grid-template-columns:1fr;gap:26px;margin-top:-28px}
@@ -399,7 +406,7 @@ body.intro-done .intro{display:none}
 .pill.solid{background:var(--pearl);color:var(--void);border-color:var(--pearl)}
 .end .bar{width:min(220px,50vw);height:1px;background:var(--pearl-faint);position:relative;overflow:hidden;margin-top:8px}
 .end .bar i{position:absolute;inset:0;background:var(--pearl);transform:scaleX(0);transform-origin:left}
-.film-wrap.done .end .bar i{transform:scaleX(1);transition:transform 5.2s linear .2s}
+.film-wrap.done .end .bar i{transform:scaleX(1);transition:transform 7.8s linear .2s}
 
 /* ---------- global bits ---------- */
 .snd{position:fixed;top:calc(var(--edge) * .6 + env(safe-area-inset-top,0px));right:var(--edge);z-index:50;display:flex;align-items:center;gap:9px;font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl);background:rgba(0,0,0,.35);border:1px solid var(--pearl-faint);border-radius:999px;padding:8px 12px 8px 10px;transition:opacity .6s ease}
@@ -443,11 +450,11 @@ body.intro-done .snd{display:none}
 .snd.live .eq i:nth-child(4){animation-delay:-1.45s}
 @keyframes eq{0%,100%{height:3px}25%{height:11px}50%{height:5px}75%{height:9px}}
 
-.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;opacity:.1;mix-blend-mode:overlay;z-index:60;will-change:transform;
+.grain{position:fixed;inset:-10%;width:120%;height:120%;contain:strict;pointer-events:none;opacity:.1;mix-blend-mode:overlay;z-index:60;will-change:transform;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation:grain 1s steps(6) infinite}
-@media (hover:none){.grain{animation:none!important;opacity:.07}}
-body.scrolling .grain{animation-play-state:paused}
+@media (hover:none){.grain{animation:none!important;opacity:.05;mix-blend-mode:normal;will-change:auto}}
+body.scrolling .grain,body:has(dialog[open]) .grain{animation-play-state:paused}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
 
 .cursor{position:fixed;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--pearl);pointer-events:none;z-index:70;mix-blend-mode:difference;transition:width .35s cubic-bezier(.2,.7,.2,1),height .35s cubic-bezier(.2,.7,.2,1),margin .35s cubic-bezier(.2,.7,.2,1);display:none;align-items:center;justify-content:center;font:400 9px/1 var(--f-mono);letter-spacing:.14em;color:#000}
@@ -678,8 +685,10 @@ body.scrolling .grain{animation-play-state:paused}
   <div class="case-fade" aria-hidden="true"></div>
 </dialog>
 <dialog class="lb" id="lb" aria-labelledby="lbT">
-  <div class="lb-top"><span class="mono" id="lbT"></span><button type="button" id="lbX">Close</button></div>
+  <div class="lb-top"><span class="mono"><span id="lbT"></span><span id="lbN"></span></span><button type="button" id="lbX">Close</button></div>
   <div class="lb-media" id="lbMedia"></div>
+  <button type="button" class="case-side lb-side prev" id="lbPrev" aria-label="Previous piece"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button type="button" class="case-side lb-side next" id="lbNext" aria-label="Next piece"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </dialog>
 <dialog class="ad" id="ad" aria-label="Ishq, the full ad">
   <div class="ad-top"><span class="mono">Ishq · Nakoda Silver · 1:33</span><button type="button" id="adClose">Close</button></div>
@@ -717,21 +726,24 @@ body.scrolling .grain{animation-play-state:paused}
   const stage = $('#stage'), mia = $('#miaFloat'), wrap = $('#filmWrap'), film = $('#film'), song = $('#song');
 
   /* ======================= shared: rotating lines ======================= */
+  const ROT_MS = 3200;
   function rotator(el, initial, align){
     let lines = null, wi = 0;
+    let timer = 0;
     function set(list){
       if (lines === list) return;
       lines = list; wi = 0;
       el.innerHTML = list.map(l => `<span class="w">${l}</span>`).join('');
       requestAnimationFrame(() => el.children[0] && el.children[0].classList.add('on'));
+      clearInterval(timer); if (!reduce) timer = setInterval(next, ROT_MS);
     }
-    set(initial);
-    if (!reduce) setInterval(() => {
+    const next = () => {
       const w = el.children; if (w.length < 2) return;
       const cur = w[wi]; cur.classList.remove('on'); cur.classList.add('off');
       setTimeout(() => cur.classList.remove('off'), 1100);
       wi = (wi + 1) % w.length; w[wi].classList.add('on');
-    }, 3200);
+    };
+    set(initial);
     return { set };
   }
 
@@ -834,14 +846,18 @@ precision mediump float;
   /* ======================= cursor ======================= */
   const cur = $('#cursor'), curLabel = $('#curLabel');
   let cx = innerWidth / 2, cy = innerHeight / 2, px = cx, py = cy;
-  addEventListener('pointermove', e => { px = e.clientX; py = e.clientY; }, { passive: true });
-  if (!touch) (function loop(){ cx += (px - cx) * .18; cy += (py - cy) * .18; cur.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
+  let curRaf = 0;
+  function curLoop(){
+    cx += (px - cx) * .18; cy += (py - cy) * .18; cur.style.transform = `translate(${cx}px,${cy}px)`;
+    curRaf = Math.abs(px - cx) + Math.abs(py - cy) > .3 ? requestAnimationFrame(curLoop) : 0;   // sleep once it has caught up
+  }
+  addEventListener('pointermove', e => { px = e.clientX; py = e.clientY; if (!touch && !curRaf) curRaf = requestAnimationFrame(curLoop); }, { passive: true });
   const bigCursor = label => { curLabel.textContent = label || ''; cur.classList.toggle('big', !!label); };
 
   /* =========================================================================
      INTRO
      ========================================================================= */
-  const PUSH_AT = 13.5, FILM_AT = 15.008, FILM_END = 49.0, CLOSE_DELAY = 5400;
+  const PUSH_AT = 13.5, FILM_AT = 15.008, FILM_END = 49.0, CLOSE_DELAY = 8000;
   const introLine = rotator($('#line'), []);
   const OFF = touch ? ['T<i>a</i>p for s<i>o</i>und', 'आवाज़ के लिए छुएँ', 'T<i>o</i>ca para o<i>í</i>r']
                     : ['Cl<i>i</i>ck for s<i>o</i>und', 'Turn the s<i>o</i>und <i>o</i>n', 'Haz cl<i>i</i>c para o<i>í</i>r'];
@@ -941,9 +957,9 @@ precision mediump float;
   }
 
   /* blur the window and close it like a shutter, revealing the portfolio */
-  function glideTo(el){
+  function glideTo(el, dur = 1800){
     const html = document.documentElement;
-    const y0 = scrollY, y1 = el.getBoundingClientRect().top + scrollY - 20, d = reduce ? 1 : 1800, t0 = performance.now();
+    const y0 = scrollY, y1 = el.getBoundingClientRect().top + scrollY - 20, d = reduce ? 1 : dur, t0 = performance.now();
     let stop = false;
     const cancel = () => { stop = true; };
     const evs = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
@@ -958,7 +974,8 @@ precision mediump float;
   }
   function closeIntro(fast, toWork){
     if (introOver) return;
-    introOver = true; clearTimeout(closeTimer);
+    introOver = true; clearTimeout(closeTimer); loadPosters();
+    introGlow && introGlow.stop();                       // one WebGL field at a time: the intro's stops as the hero's starts
     heroGlow && heroGlow.start(); heroLineStart();
     body.classList.add('revealing');
     setTimeout(() => {
@@ -967,7 +984,16 @@ precision mediump float;
       const lab = $('#work .label'); lab.tabIndex = -1; lab.focus({ preventScroll: true });
       film.pause(); mia.pause(); introGlow && introGlow.stop();
       window.scrollTo({ top: 0, behavior: 'instant' }); revealSetup();
-      if (toWork) setTimeout(() => { document.documentElement.style.scrollBehavior = ''; $('#work .label').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }, 700);
+      if (toWork && fast) setTimeout(() => glideTo($('#work .label')), 600);
+      // after the film ends on its own: hold on the hero until every line has had its turn
+      // (the Hindi one included), then glide to the work. Any scroll, tap or key cancels it.
+      if (toWork && !fast) {
+        const hold = (heroLines.length - 1) * ROT_MS + 1800 - 1400;   // last line up for ~1.8 s
+        const t = setTimeout(() => { off(); if (scrollY < innerHeight * .3) glideTo($('#work .label'), 2400); }, hold);
+        const evs = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+        const off = () => { clearTimeout(t); evs.forEach(e => removeEventListener(e, off, true)); };
+        evs.forEach(e => addEventListener(e, off, { capture: true, passive: true }));
+      }
       startSiteMusic();
       soundUI();
     }, 1400);
@@ -988,7 +1014,7 @@ precision mediump float;
   let curT = 0, adOpen = false, wasPlaying = false, npClose = 0, fadeT = 0;
   const store = (k, v) => { try { sessionStorage.setItem(k, v); } catch (e) {} };
   const read = k => { try { return sessionStorage.getItem(k); } catch (e) { return null; } };
-  function loadTrack(i){ curT = (i + TRACKS.length) % TRACKS.length; au.loop = TRACKS.length === 1; au.src = TRACKS[curT].src; $('#npT').textContent = TRACKS[curT].title; $('#npA').textContent = TRACKS[curT].artist; }
+  function loadTrack(i){ curT = (i + TRACKS.length) % TRACKS.length; au.loop = TRACKS.length === 1; au.preload = 'metadata'; au.src = TRACKS[curT].src; $('#npT').textContent = TRACKS[curT].title; $('#npA').textContent = TRACKS[curT].artist; }
   function fadeIn(){ clearInterval(fadeT); au.volume = 0; fadeT = setInterval(() => { au.volume = Math.min(.85, au.volume + .05); if (au.volume >= .85) clearInterval(fadeT); }, 110); }
   function npState(){
     const on = !au.paused && !au.muted;
@@ -1069,15 +1095,16 @@ precision mediump float;
   const navSolid = () => { const on = scrollY > innerHeight * .6; if (on === navS) return; navS = on; body.classList.toggle('scrolled', on); navBar.inert = !on; navEl.inert = on; };
   addEventListener('scroll', navSolid, { passive: true }); navSolid();
   const heroGlow = liquid($('#heroGl'), { mode: 1 });
+  let heroSeen = true;
+  const dlgs = $$('dialog'), anyDlg = () => dlgs.some(d => d.open);
   if (heroGlow && 'IntersectionObserver' in window) {
-    new IntersectionObserver(es => es.forEach(e => { if (!introOver) return; e.isIntersecting ? heroGlow.start() : heroGlow.stop(); }), { threshold: 0 }).observe($('#top'));
+    new IntersectionObserver(es => es.forEach(e => { heroSeen = e.isIntersecting; if (!introOver || anyDlg()) return; e.isIntersecting ? heroGlow.start() : heroGlow.stop(); }), { threshold: 0 }).observe($('#top'));
   }
   let scT = 0;
   addEventListener('scroll', () => { body.classList.add('scrolling'); clearTimeout(scT); scT = setTimeout(() => body.classList.remove('scrolling'), 160); }, { passive: true });
   const heroRot = rotator($('#heroLine'), []);
-  function heroLineStart(){
-    heroRot.set(['Sm<i>a</i>ll brands, b<i>i</i>g pictures', 'छोटे ब्रांड, बड़ी कहानियाँ', 'F<i>i</i>lms, s<i>i</i>tes <i>a</i>nd AI', 'Ulhasn<i>a</i>gar to M<i>a</i>drid']);
-  }
+  const heroLines = ['Sm<i>a</i>ll brands, b<i>i</i>g pictures', 'छोटे ब्रांड, बड़ी कहानियाँ', 'F<i>i</i>lms, s<i>i</i>tes <i>a</i>nd AI', 'Ulhasn<i>a</i>gar to M<i>a</i>drid'];
+  function heroLineStart(){ heroRot.set(heroLines); }
 
   // every project: one card, one project window. cat drives the filters.
   const CATS = [['all', 'All'], ['web', 'Websites'], ['store', 'Online stores'], ['ads', 'Ads & films'], ['ai', 'AI & tools'], ['own', 'My own brands'], ['about', 'Résumé']];
@@ -1211,7 +1238,7 @@ precision mediump float;
   const EXT = document.createElement('video').canPlayType('video/mp4; codecs="avc1.4D401F"') ? 'mp4' : 'webm';
   const clip = k => `media/work/${k}.${EXT}`;
   const MIA4 = '<div class="mia4">' + [1, 2, 3, 4].map(i => `<img src="media/mia4/mia-${i}.jpg" alt="" loading="lazy">`).join('') + '</div>';
-  const media = w => w.img ? `<video muted loop playsinline preload="none" disableremoteplayback poster="media/work/${w.img}.jpg" data-src="${clip(w.img)}" aria-hidden="true"></video>`
+  const media = w => w.img ? `<video muted loop playsinline preload="none" disableremoteplayback data-poster="media/work/${w.img}.jpg" data-src="${clip(w.img)}" aria-hidden="true"></video>`
     : w.mia ? MIA4 : w.still ? `<img src="${w.still}" alt="" loading="lazy">` : `<div class="scene ${SCENES[w.card].cls}" aria-hidden="true">${SCENES[w.card].html}</div>`;
   const grid = $('#grid');
   grid.innerHTML = WORK.map((w, i) => {
@@ -1250,6 +1277,19 @@ precision mediump float;
     }), { rootMargin: '200px 0px', threshold: [0, .6] });
     cards.forEach(c => io.observe(c));
   }
+
+  // nothing animates behind an open window: the hero glow and any hovered preview pause, then resume
+  const dlgMo = new MutationObserver(() => {
+    const o = anyDlg();
+    if (heroGlow && introOver) { if (o) heroGlow.stop(); else if (heroSeen) heroGlow.start(); }
+    if (o) $$('#grid video').forEach(v => v.pause()); else playVisible();
+  });
+  dlgs.forEach(d => dlgMo.observe(d, { attributes: true, attributeFilter: ['open'] }));
+  // card thumbnails wait until the intro film has buffered, so the film gets the bandwidth first
+  let postersOn = false;
+  const loadPosters = () => { if (postersOn) return; postersOn = true; $$('#grid video[data-poster]').forEach(v => { v.poster = v.dataset.poster; }); };
+  if (film.readyState >= 4) loadPosters(); else film.addEventListener('canplaythrough', loadPosters, { once: true });
+  setTimeout(loadPosters, 9000);
   if (!touch) {
     grid.addEventListener('pointerover', e => { const c = e.target.closest('.card'); if (c) { play(vidOf(c)); bigCursor('OPEN'); } });
     grid.addEventListener('pointerout', e => { const c = e.target.closest('.card'); if (c && !c.contains(e.relatedTarget)) { stop(vidOf(c)); bigCursor(''); } });
@@ -1296,19 +1336,42 @@ precision mediump float;
   $('#caseX').addEventListener('click', closeCase);
   caseDlg.addEventListener('click', e => {
     const t = e.target.closest('[data-adk]');
-    if (t) { openLb(t.dataset.adk, t.querySelector('span').textContent, !!t.dataset.vid); return; }
+    if (t) { lbList = $$('#caseAds [data-adk]'); lbI = lbList.indexOf(t); lbShow(); return; }
     if (e.target.closest('[data-film]')) { openAd(); return; }
     if (e.target === caseDlg || e.target.closest('[data-close]')) closeCase();
   });
   // lightbox for a single ad: the film plays with sound, the site music steps aside
+  // the ad lightbox browses every piece in the open project, like the project window browses projects
+  let lbList = [], lbI = 0;
+  function lbShow(){
+    const t = lbList[lbI], many = lbList.length > 1;
+    $('#lbPrev').hidden = $('#lbNext').hidden = !many;
+    $('#lbN').textContent = many ? `${lbI + 1} / ${lbList.length}` : '';
+    openLb(t.dataset.adk, t.querySelector('span').textContent, !!t.dataset.vid);
+  }
+  const lbStep = d => { if (lbList.length < 2) return; lbI = (lbI + d + lbList.length) % lbList.length; lbShow(); };
+  function lbPlace(){
+    if (!lb.open || innerWidth < 900) return;
+    const r = lb.getBoundingClientRect();
+    lb.style.setProperty('--lbl', Math.max(12, r.left - 76) + 'px');
+    lb.style.setProperty('--lbr', Math.max(12, innerWidth - r.right - 76) + 'px');
+  }
   function openLb(k, title, vid){
-    const src = AD_SRC(k);
+    const src = AD_SRC(k), old = $('#lbMedia video');
+    if (old) old.pause();
     $('#lbT').textContent = title;
     $('#lbMedia').innerHTML = vid ? `<video controls playsinline preload="auto" poster="${src.img}" src="${src.v}"></video>` : `<img src="${src.img}" alt="${esc(title)}">`;
-    if (vid) { adOpen = true; pauseForAd(); }
-    lb.showModal();
-    const v = $('#lbMedia video'); if (v) v.play().catch(() => {});
+    if (vid && !adOpen) { adOpen = true; pauseForAd(); }
+    else if (!vid && adOpen) { adOpen = false; resumeAfterAd(); soundUI(); }
+    if (!lb.open) lb.showModal();
+    const m = $('#lbMedia').firstElementChild;
+    m.addEventListener(vid ? 'loadedmetadata' : 'load', lbPlace, { once: true }); lbPlace();
+    if (vid) m.play().catch(() => {});
   }
+  $('#lbPrev').addEventListener('click', () => lbStep(-1));
+  $('#lbNext').addEventListener('click', () => lbStep(1));
+  lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') lbStep(1); if (e.key === 'ArrowLeft') lbStep(-1); });
+  addEventListener('resize', lbPlace, { passive: true });
   lb.addEventListener('close', () => { const v = $('#lbMedia video'); if (v) { v.pause(); adOpen = false; resumeAfterAd(); soundUI(); } $('#lbMedia').innerHTML = ''; });
   $('#lbX').addEventListener('click', () => lb.close());
   lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
