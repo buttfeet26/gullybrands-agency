@@ -406,7 +406,7 @@ body.intro-done .intro{display:none}
 .pill.solid{background:var(--pearl);color:var(--void);border-color:var(--pearl)}
 .end .bar{width:min(220px,50vw);height:1px;background:var(--pearl-faint);position:relative;overflow:hidden;margin-top:8px}
 .end .bar i{position:absolute;inset:0;background:var(--pearl);transform:scaleX(0);transform-origin:left}
-.film-wrap.done .end .bar i{transform:scaleX(1);transition:transform 7.8s linear .2s}
+.film-wrap.done .end .bar i{transform:scaleX(1);transition:transform 4s linear 0s}
 
 /* ---------- global bits ---------- */
 .snd{position:fixed;top:calc(var(--edge) * .6 + env(safe-area-inset-top,0px));right:var(--edge);z-index:50;display:flex;align-items:center;gap:9px;font:400 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pearl);background:rgba(0,0,0,.35);border:1px solid var(--pearl-faint);border-radius:999px;padding:8px 12px 8px 10px;transition:opacity .6s ease}
@@ -859,7 +859,8 @@ precision mediump float;
   /* =========================================================================
      INTRO
      ========================================================================= */
-  const PUSH_AT = 13.5, FILM_AT = 15.008, FILM_END = 49.0, CLOSE_DELAY = 8000;
+  // the end card closes with the song: the last note fades out at 55.5 s, and the shutter (1.35 s) lands on it
+  const PUSH_AT = 13.5, FILM_AT = 15.008, FILM_END = 49.0, SONG_END = 55.5, SHUTTER = 1.35;
   const introLine = rotator($('#line'), []);
   const OFF = touch ? ['T<i>a</i>p for s<i>o</i>und', 'आवाज़ के लिए छुएँ', 'T<i>o</i>ca para o<i>í</i>r']
                     : ['Cl<i>i</i>ck for s<i>o</i>und', 'Turn the s<i>o</i>und <i>o</i>n', 'Haz cl<i>i</i>c para o<i>í</i>r'];
@@ -935,7 +936,13 @@ precision mediump float;
   function endFilm(){
     if (ended) return;
     ended = true; $('#title').classList.remove('on'); wrap.classList.add('ending');
-    setTimeout(() => { film.pause(); wrap.classList.add('done'); closeTimer = setTimeout(() => closeIntro(false, true), CLOSE_DELAY); }, 1100);
+    setTimeout(() => {
+      film.pause();
+      const left = Math.max(1.5, SONG_END - SHUTTER - pos());          // seconds until the shutter starts
+      $('.end .bar i').style.transitionDuration = left + 's';
+      wrap.classList.add('done');
+      closeTimer = setTimeout(() => closeIntro(false, true), (left + 1.5) * 1000);   // fallback if the clock stalls
+    }, 1100);
   }
   function tick(now){
     if (introOver) return;
@@ -955,6 +962,7 @@ precision mediump float;
       }
       if (p >= FILM_END) endFilm();
     }
+    if (ended && p >= SONG_END - SHUTTER) { closeIntro(false, true); return; }
     requestAnimationFrame(tick);
   }
 
