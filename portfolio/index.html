@@ -242,9 +242,16 @@ dialog.case::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(12px);-web
 .ad-tile .pl{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .ad-tile .pl::before{content:"";border-left:9px solid var(--pearl);border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:3px}
 .case-nav{position:sticky;top:12px;float:left;margin:12px 0 -52px 12px;z-index:3;display:flex;align-items:center;gap:4px;background:rgba(0,0,0,.6);border:1px solid var(--pearl-faint);border-radius:999px;padding:3px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.case-nav button{width:34px;height:34px;border-radius:50%;border:0;background:none;color:var(--pearl);font-size:16px;cursor:pointer}
-.case-nav button:hover{background:rgba(237,231,221,.12)}
-.case-nav span{font:400 10px/1 var(--f-mono);letter-spacing:.12em;color:var(--pearl-dim);min-width:58px;text-align:center}
+.case-nav span{font:400 10px/1 var(--f-mono);letter-spacing:.12em;color:var(--pearl-dim);min-width:58px;text-align:center;padding:12px 10px}
+.case-side{position:fixed;top:50%;z-index:5;width:60px;height:60px;margin-top:-30px;padding:0;border-radius:50%;border:1px solid rgba(237,231,221,.3);background:rgba(18,18,18,.78);color:var(--pearl);display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .2s,color .2s,transform .2s;animation:sideIn .35s .5s both}
+.case-side span{position:absolute;top:calc(100% + 10px);font:400 10px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--pearl-mute)}
+.case-side:hover,.case-side:focus-visible{background:var(--pearl);color:#050505;transform:scale(1.07)}
+.case-side.prev{left:max(12px,calc(50vw - min(580px,50vw - 92px) - 76px))}
+.case-side.next{right:max(12px,calc(50vw - min(580px,50vw - 92px) - 76px))}
+@keyframes sideIn{from{opacity:0}to{opacity:1}}
+@media (min-width:900px){dialog.case{width:min(1160px,calc(100vw - 184px))}}
+.case-fade{display:none}
+@media (max-width:899px){.case-side{top:auto;bottom:max(20px,env(safe-area-inset-bottom));margin:0;width:50px;height:50px;box-shadow:0 6px 24px rgba(0,0,0,.6)}.case-side span{display:none}.case-side.prev{left:24px}.case-side.next{right:24px}dialog.case::after{content:"";display:block;height:40px}.case-fade{display:block;position:sticky;bottom:0;height:96px;margin-top:-96px;background:linear-gradient(rgba(5,5,5,0),#050505 62%);pointer-events:none;z-index:4}.case-side{background:#141414;border-color:rgba(237,231,221,.38)}}
 .case-media .mia4{display:grid;grid-template-columns:repeat(4,1fr);position:absolute;inset:0}.case-media .mia4 img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
 .case-x{position:sticky;top:12px;float:right;margin:12px 12px -52px 0;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--pearl-faint);background:rgba(0,0,0,.6);color:var(--pearl);font-size:18px;line-height:1;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 dialog.lb{max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--pearl-faint);border-radius:14px;background:#000;color:var(--pearl);overflow:hidden}
@@ -603,7 +610,9 @@ body.scrolling .grain{animation-play-state:paused}
 
 <dialog class="case" id="case" aria-labelledby="caseT">
   <button type="button" class="case-x" id="caseX" aria-label="Close">✕</button>
-  <div class="case-nav" aria-label="Browse projects"><button type="button" id="casePrev" aria-label="Previous project">‹</button><span id="caseN"></span><button type="button" id="caseNext" aria-label="Next project">›</button></div>
+  <div class="case-nav"><span id="caseN"></span></div>
+  <button type="button" class="case-side prev" id="casePrev" aria-label="Previous project"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prev</span></button>
+  <button type="button" class="case-side next" id="caseNext" aria-label="Next project"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Next</span></button>
   <div class="case-media" id="caseMedia"></div>
   <div class="case-body">
     <div class="case-lead">
@@ -666,6 +675,7 @@ body.scrolling .grain{animation-play-state:paused}
     </div>
   </article>
   <section class="case-ads" id="caseAds" hidden><p class="mono"><span>Ads &amp; content</span><span id="caseAdsN"></span></p><div class="ads-strip" id="caseAdsList"></div></section>
+  <div class="case-fade" aria-hidden="true"></div>
 </dialog>
 <dialog class="lb" id="lb" aria-labelledby="lbT">
   <div class="lb-top"><span class="mono" id="lbT"></span><button type="button" id="lbX">Close</button></div>
