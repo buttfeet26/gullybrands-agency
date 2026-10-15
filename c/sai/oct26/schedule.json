@@ -1,0 +1,197 @@
+{
+ "client": "Sai Healthy Corner",
+ "instagram_composio_account": "instagram_fast-orchat (@sai_healthy_corner) - ALWAYS pass explicitly, the default IG account is another client",
+ "ig_user_id": "me",
+ "facebook_page_id": "1245872831938496",
+ "how": {
+  "carousel": "IG: one INSTAGRAM_POST_IG_USER_MEDIA per slide with is_carousel_item=true (in order), then parent INSTAGRAM_POST_IG_USER_MEDIA media_type CAROUSEL children=[ids] caption, then INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH. FB: FACEBOOK_CREATE_MULTI_PHOTO_POST page_id, photo_urls in order, message=caption.",
+  "reel": "IG: INSTAGRAM_POST_IG_USER_MEDIA media_type REELS video_url, cover_url, share_to_feed true, caption; then INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH max_wait_seconds 180. FB: already natively scheduled for the same time; only verify it published, else post it with FACEBOOK_CREATE_VIDEO_POST.",
+  "after": "INSTAGRAM_GET_IG_MEDIA for permalink; retry once on HTTP 500; tell the user in one line with links or the exact failure."
+ },
+ "posts": [
+  {
+   "date": 16,
+   "utc": "2026-10-16T02:00:00Z",
+   "epoch": 1792116000,
+   "type": "carousel",
+   "title": "Eat the season, not the freezer",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/p16-1.jpg",
+    "https://gullybrands.in/c/sai/oct26/p16-2.jpg",
+    "https://gullybrands.in/c/sai/oct26/p16-3.jpg",
+    "https://gullybrands.in/c/sai/oct26/p16-4.jpg",
+    "https://gullybrands.in/c/sai/oct26/p16-5.jpg",
+    "https://gullybrands.in/c/sai/oct26/p16-6.jpg",
+    "https://gullybrands.in/c/sai/oct26/p16-7.jpg"
+   ],
+   "caption": "World Food Day pe ek simple rule: jo season mein hai, wahi khao. 🍈\nSitaphal, amla, shakarkandi, peru aur kaddu: October brings all five, and you'll find every one on our menu.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #worldfoodday #seasonaleating #sitaphal #amla"
+  },
+  {
+   "date": 17,
+   "utc": "2026-10-17T02:00:00Z",
+   "epoch": 1792202400,
+   "type": "reel",
+   "title": "Vrat mein energy low?",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/r17.mp4",
+    "https://gullybrands.in/c/sai/oct26/r17_cover.jpg"
+   ],
+   "caption": "Navratri vrat mein energy low lagti hai? 🥥\nNariyal pani, makhana chaat aur shakarkandi: light, filling, made fresh that morning. Apne vrat ke rules check kar lena.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #navratri #vratfood #navratrifasting"
+  },
+  {
+   "date": 19,
+   "utc": "2026-10-19T02:00:00Z",
+   "epoch": 1792375200,
+   "type": "carousel",
+   "title": "ABC Juice, explained",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/p19-1.jpg",
+    "https://gullybrands.in/c/sai/oct26/p19-2.jpg",
+    "https://gullybrands.in/c/sai/oct26/p19-3.jpg",
+    "https://gullybrands.in/c/sai/oct26/p19-4.jpg",
+    "https://gullybrands.in/c/sai/oct26/p19-5.jpg"
+   ],
+   "caption": "Amla season shuru. 🥕\nA for Amla, B for Beetroot, C for Carrot. Pressed fresh every morning, with no sugar and no water added.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #abcjuice #amla #coldpressedjuice #morningdrink"
+  },
+  {
+   "date": 20,
+   "utc": "2026-10-20T02:00:00Z",
+   "epoch": 1792461600,
+   "type": "reel",
+   "title": "Karela, neem, haldi",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/r20.mp4",
+    "https://gullybrands.in/c/sai/oct26/r20_cover.jpg"
+   ],
+   "caption": "Happy Dussehra from Sai Healthy Corner. 🌼\nKarela, neem and haldi in one bitter morning shot. Kadwa hai, par kaam ka hai.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #dussehra #happydussehra #morningshot"
+  },
+  {
+   "date": 21,
+   "utc": "2026-10-21T02:00:00Z",
+   "epoch": 1792548000,
+   "type": "carousel",
+   "title": "Packet soup vs fresh soup",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/p21-1.jpg",
+    "https://gullybrands.in/c/sai/oct26/p21-2.jpg",
+    "https://gullybrands.in/c/sai/oct26/p21-3.jpg",
+    "https://gullybrands.in/c/sai/oct26/p21-4.jpg"
+   ],
+   "caption": "Label padha hai kabhi? 🍅\nOur tomato soup is real tomatoes, cooked down slow. No packet, no powder, no cornflour.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #tomatosoup #freshsoup #mythvsfact"
+  },
+  {
+   "date": 22,
+   "utc": "2026-10-22T02:00:00Z",
+   "epoch": 1792634400,
+   "type": "reel",
+   "title": "Sitaphal: saal mein sirf ek baar",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/r22.mp4",
+    "https://gullybrands.in/c/sai/oct26/r22_cover.jpg"
+   ],
+   "caption": "Sitaphal season is short. 🍈 August to November, then gone till next year.\nOur sitaphal smoothie is deseeded by hand every morning, so it's limited.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #sitaphal #custardapple #seasonalfruit #smoothie"
+  },
+  {
+   "date": 23,
+   "utc": "2026-10-23T02:00:00Z",
+   "epoch": 1792720800,
+   "type": "carousel",
+   "title": "Acidity? Try these three",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/p23-1.jpg",
+    "https://gullybrands.in/c/sai/oct26/p23-2.jpg",
+    "https://gullybrands.in/c/sai/oct26/p23-3.jpg",
+    "https://gullybrands.in/c/sai/oct26/p23-4.jpg",
+    "https://gullybrands.in/c/sai/oct26/p23-5.jpg"
+   ],
+   "caption": "Festive season means late dinners, and more acidity. 🥒\nThree gentle things for the morning: ash gourd soup, nariyal pani and lauki soup. Save this for later.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #acidity #guthealth #ashgourd #lauki"
+  },
+  {
+   "date": 24,
+   "utc": "2026-10-24T02:00:00Z",
+   "epoch": 1792807200,
+   "type": "reel",
+   "title": "Soup at night, not a heavy dinner",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/r24.mp4",
+    "https://gullybrands.in/c/sai/oct26/r24_cover.jpg"
+   ],
+   "caption": "Raat ko heavy khana, subah heavy feel. 🎃\nPick up our pumpkin soup in the morning, warm it up at night. Naturally sweet, nothing added.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #pumpkinsoup #lightdinner #soup"
+  },
+  {
+   "date": 25,
+   "utc": "2026-10-25T02:00:00Z",
+   "epoch": 1792893600,
+   "type": "carousel",
+   "title": "Poora chand, thandi thandai",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/p26-1.jpg",
+    "https://gullybrands.in/c/sai/oct26/p26-2.jpg",
+    "https://gullybrands.in/c/sai/oct26/p26-3.jpg"
+   ],
+   "caption": "Sharad Purnima ki raat, thandai ke saath. 🌕\nOurs is badam, saunf, elaichi and kali mirch, ground the same morning. Never out of a bottle.\nPre-book tonight for tomorrow's full moon.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #sharadpurnima #thandai #fullmoon"
+  },
+  {
+   "date": 27,
+   "utc": "2026-10-27T02:00:00Z",
+   "epoch": 1793066400,
+   "type": "carousel",
+   "title": "Vrat se pehle, yeh lo",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/p27-1.jpg",
+    "https://gullybrands.in/c/sai/oct26/p27-2.jpg",
+    "https://gullybrands.in/c/sai/oct26/p27-3.jpg"
+   ],
+   "caption": "Karva Chauth is on Thursday. 🌙\nEat well on Wednesday so the fast feels easier: sprouts salad, a dates-red banana-makhana smoothie, nariyal pani and fruit salad.\nPre-book tonight, pick up Wednesday 8 am.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #karvachauth #karwachauth #vrat"
+  },
+  {
+   "date": 28,
+   "utc": "2026-10-28T02:00:00Z",
+   "epoch": 1793152800,
+   "type": "reel",
+   "title": "Veg ho? Protein kahan se?",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/r27.mp4",
+    "https://gullybrands.in/c/sai/oct26/r27_cover.jpg"
+   ],
+   "caption": "Protein sirf paneer se nahi aata. 🌱\nOur sabut dal soup and sprouts salad are made fresh every morning. Sprouted at home, over two days.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #vegetarianprotein #sprouts #dal"
+  },
+  {
+   "date": 29,
+   "utc": "2026-10-29T02:00:00Z",
+   "epoch": 1793239200,
+   "type": "reel",
+   "title": "Fast todne ka sahi tareeka",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/r29.mp4",
+    "https://gullybrands.in/c/sai/oct26/r29_cover.jpg"
+   ],
+   "caption": "Happy Karva Chauth to everyone fasting today. 🌙\nBreak your fast gently: water or nariyal pani first, then a little fruit, then your meal.\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #karvachauth #happykarwachauth"
+  },
+  {
+   "date": 30,
+   "utc": "2026-10-30T02:00:00Z",
+   "epoch": 1793325600,
+   "type": "carousel",
+   "title": "Mithai shaam ko, subah halki",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/p30-1.jpg",
+    "https://gullybrands.in/c/sai/oct26/p30-2.jpg",
+    "https://gullybrands.in/c/sai/oct26/p30-3.jpg"
+   ],
+   "caption": "Diwali mein mithai toh banti hai. 🪔\nJust keep your mornings light: a fresh green juice, raw, with the fibre left in.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #diwali #festiveseason #greenjuice"
+  },
+  {
+   "date": 31,
+   "utc": "2026-10-31T02:00:00Z",
+   "epoch": 1793412000,
+   "type": "reel",
+   "title": "4 pm mithai craving?",
+   "files": [
+    "https://gullybrands.in/c/sai/oct26/r31.mp4",
+    "https://gullybrands.in/c/sai/oct26/r31_cover.jpg"
+   ],
+   "caption": "4 baje meetha khaane ka mann? 🍠\nOur shakarkandi dessert is naturally sweet, with no refined sugar. Festive season ka halka meetha.\n\nPre-book on WhatsApp by 9 pm · 98234 72929\nPickup from 8 am · Bhatia Chowk, Ulhasnagar 5\n\n#ulhasnagar #ulhasnagarfood #kalyan #thanefood #healthyfoodmumbai #sweetpotato #healthydessert #shakarkandi"
+  }
+ ]
+}
