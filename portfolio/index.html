@@ -76,6 +76,12 @@ body.intro-on .navbar{opacity:0!important;visibility:hidden!important}
 /* hero */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:var(--void)}
 #heroGl{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* phones get a pre-rendered frame of the glow: no live shader, no GPU quirks, no battery */
+.hero-still{position:absolute;inset:0;display:none;overflow:hidden}
+.hero-still img{width:100%;height:100%;object-fit:cover;animation:heroDrift 36s ease-in-out infinite alternate}
+@keyframes heroDrift{from{transform:scale(1.05) translate(-1%,0)}to{transform:scale(1.12) translate(1%,-1.5%)}}
+@media (hover:none){.hero-still{display:block}#heroGl{display:none}}
+.broken{display:none!important}
 .hero-fade{position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(transparent,var(--ink));pointer-events:none}
 .hero-copy{position:relative;z-index:2;text-align:center;padding:0 var(--edge);display:grid;gap:22px;justify-items:center}
 .hero .line{position:relative;height:1.2em;width:min(92vw,980px);font:400 clamp(26px,4.6vw,70px)/1.15 var(--f-sans);letter-spacing:-.025em}
@@ -484,6 +490,7 @@ html:has(dialog[open]){overflow:hidden}
 
   <main>
     <section class="hero" id="top">
+      <picture class="hero-still" aria-hidden="true"><source media="(orientation: landscape)" srcset="media/hero-landscape.jpg"><img src="media/hero-portrait.jpg" alt="" decoding="async"></picture>
       <canvas id="heroGl" aria-hidden="true"></canvas>
       <div class="hero-fade" aria-hidden="true"></div>
       <div class="hero-copy">
@@ -828,7 +835,18 @@ precision mediump float;
     size(); addEventListener('resize', () => { size(); if (running && reduce) requestAnimationFrame(frame); });
     canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); running = false; cancelAnimationFrame(raf); canvas.classList.remove('on'); });
     const t0 = performance.now();
-    let last = 0, slow = 0, fast = 0;
+    let last = 0, slow = 0, fast = 0, checked = 0, broken = false;
+    // the fields are dark by design; a bright or blank render means the GPU got the maths wrong
+    function sane(){
+      try {
+        const px = new Uint8Array(4); let sum = 0, n = 0, hot = 0;
+        for (let i = 0; i < 5; i++) for (let j = 0; j < 5; j++) {
+          gl.readPixels(Math.floor((i + .5) / 5 * canvas.width), Math.floor((j + .5) / 5 * canvas.height), 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+          const l = (px[0] * .3 + px[1] * .59 + px[2] * .11) / 255; if (l !== l) return false; sum += l; n++; if (l > .9) hot++;
+        }
+        return n > 0 && sum / n < .6 && hot / n < .4;
+      } catch (e) { return true; }
+    }
     function frame(now){
       if (!running) return;
       if (last) { const dt = now - last; if (dt > 26 && dt < 200) { slow++; fast = 0; } else if (dt < 18) { fast++; slow = 0; } }
@@ -837,10 +855,11 @@ precision mediump float;
       mx += (tx - mx) * .03; my += (ty - my) * .03;
       gl.uniform2f(uR, canvas.width, canvas.height); gl.uniform1f(uT, reduce ? 20 : (now - t0) / 1000); gl.uniform2f(uM, mx, my);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      if (checked < 3 && ++checked === 3 && !sane()) { broken = true; running = false; canvas.classList.remove('on'); canvas.classList.add('broken'); return; }
       if (!reduce) raf = requestAnimationFrame(frame);
     }
     return {
-      start(){ if (running) return; running = true; last = 0; size(); raf = requestAnimationFrame(frame); canvas.classList.add('on'); },
+      start(){ if (running || broken) return; running = true; last = 0; size(); raf = requestAnimationFrame(frame); canvas.classList.add('on'); },
       stop(){ running = false; cancelAnimationFrame(raf); }
     };
   }
@@ -1105,7 +1124,7 @@ precision mediump float;
   let navS = null;
   const navSolid = () => { const on = scrollY > innerHeight * .6; if (on === navS) return; navS = on; body.classList.toggle('scrolled', on); navBar.inert = !on || !introOver; navEl.inert = on || !introOver; };
   addEventListener('scroll', navSolid, { passive: true }); navSolid();
-  const heroGlow = liquid($('#heroGl'), { mode: 1 });
+  const heroGlow = touch ? null : liquid($('#heroGl'), { mode: 1 });   // touch screens use the still above
   let heroSeen = true;
   const dlgs = $$('dialog'), anyDlg = () => dlgs.some(d => d.open);
   if (heroGlow && 'IntersectionObserver' in window) {
@@ -1407,6 +1426,9 @@ precision mediump float;
   });
   $('#replayIntro').addEventListener('click', () => location.reload());
   addEventListener('pointerover', e => { if (!introOver || e.target.closest('.card')) return; const a = e.target.closest('a,button'); if (!a) bigCursor(''); }, { passive: true });
+  // deep link from the main site: #<project key> skips the intro and opens that case
+  const deepK = decodeURIComponent(location.hash.slice(1)), deepI = WORK.findIndex(w => w.k === deepK);
+  if (deepI >= 0) { closeIntro(true, false); setTimeout(() => { $('#work').scrollIntoView({ block: 'start', behavior: 'instant' }); openCase(deepI); }, 1500); }
 })();
 </script>
 </body>
