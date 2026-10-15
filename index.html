@@ -1,51 +1,615 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gully Brands — Small brands. Made loud.</title>
-  <link rel="stylesheet" href="site_v6.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gully Brands — Small brands. Made loud.</title>
+<meta name="description" content="Gully Brands is an independent studio in Ulhasnagar making films, websites, online stores and brand kits for small businesses across India, Spain and Poland. Retainers from ₹2,999 a month.">
+<link rel="canonical" href="https://gullybrands.in/">
+<meta name="theme-color" content="#FFC72C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gully Brands — Small brands. Made loud.">
+<meta property="og:description" content="Films, websites, stores and brand kits for small businesses. Studio in Ulhasnagar, clients from Ambernath to Madrid.">
+<meta property="og:url" content="https://gullybrands.in/">
+<meta property="og:image" content="https://gullybrands.in/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="preload" href="fonts/Fraunces-72pt-SuperSoft-BlackItalic.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Gully Brands","url":"https://gullybrands.in/","image":"https://gullybrands.in/assets/og.jpg","logo":"https://gullybrands.in/assets/logo-square-yellow.png","description":"Independent studio making films, websites, online stores and brand kits for small businesses.","telephone":"+918668715250","email":"gullybrands.in@gmail.com","priceRange":"₹2,999+","address":{"@type":"PostalAddress","addressLocality":"Ulhasnagar","addressRegion":"Maharashtra","postalCode":"421005","addressCountry":"IN"},"areaServed":["IN","ES","PL"],"founder":{"@type":"Person","name":"Rahul Sakharkar","sameAs":"https://www.linkedin.com/in/rahul-sakharkar-a75b43177"},"sameAs":["https://www.instagram.com/gullybrands.in/","https://gullybrands.in/portfolio/"],"openingHours":"Mo-Sa 10:00-20:00"}
+</script>
+<style>
+@font-face{font-family:"Fraunces Billboard";src:url("fonts/Fraunces-72pt-SuperSoft-BlackItalic.ttf") format("truetype");font-weight:900;font-style:italic;font-display:swap}
+:root{
+  --yellow:#FFC72C;--yellow-deep:#E8AE15;--tint:#FFE38C;--ink:#0A0A0A;--cream:#F4ECD8;--paper:#FBF6E9;
+  --fg2:#2B2418;--fg3:#6B5F4A;--line:rgba(10,10,10,.14);--line-ink:#0A0A0A;
+  --on-ink:#F4ECD8;--on-ink-dim:rgba(244,236,216,.66);--on-ink-mute:rgba(244,236,216,.42);--line-on-ink:rgba(244,236,216,.16);
+  --shadow:5px 5px 0 var(--ink);--shadow-sm:3px 3px 0 var(--ink);--shadow-lg:8px 8px 0 var(--ink);
+  --f-display:"Fraunces Billboard",Georgia,"Times New Roman",serif;--f-sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --r:14px;--edge:clamp(18px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.55 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4,p{margin:0}
+.wrap{width:min(1200px,100% - var(--edge) * 2);margin-inline:auto}
+.display{font:900 italic 1em/1 var(--f-display);letter-spacing:-.02em}
+.mono{font:500 11px/1.4 var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--fg3);margin-bottom:18px}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor}
+.dark .eyebrow{color:var(--yellow)}
+h2.t{font:900 italic clamp(36px,5vw,64px)/1 var(--f-display);letter-spacing:-.02em;max-width:16ch}
+h2.t em,.hero h1 em{font-style:inherit;color:var(--yellow);-webkit-text-stroke:1.5px var(--ink);paint-order:stroke fill}
+.lede{font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:var(--fg2);max-width:58ch;margin-top:18px}
+.dark .lede{color:var(--on-ink-dim)}
+.sec{padding:clamp(72px,9vw,128px) 0}
+.sec-head{display:grid;gap:8px;margin-bottom:clamp(32px,4vw,56px)}
+.sec-head .row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:12px;border:2px solid var(--ink);background:var(--yellow);color:var(--ink);font:600 15px/1 var(--f-sans);text-decoration:none;box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;white-space:nowrap}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow)}
+.btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
+.btn.ghost{background:transparent}
+.btn.ink{background:var(--ink);color:var(--yellow);box-shadow:3px 3px 0 var(--yellow-deep)}
+.btn.ink:hover{box-shadow:5px 5px 0 var(--yellow-deep)}
+.dark .btn.ghost{color:var(--on-ink);border-color:var(--on-ink);box-shadow:3px 3px 0 var(--yellow)}
+.btn svg{width:16px;height:16px;flex:none}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:40;background:rgba(244,236,216,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:2px solid var(--ink)}
+.nav .wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:40px;height:40px;border-radius:10px;border:2px solid var(--ink)}
+.logo b{font:900 italic 22px/1 var(--f-display);letter-spacing:-.02em}
+.nav nav{display:flex;align-items:center;gap:6px}
+.nav nav a{text-decoration:none;font:600 14px/1 var(--f-sans);padding:10px 14px;border-radius:999px;border:2px solid transparent;transition:border-color .15s,background .15s}
+.nav nav a:hover{border-color:var(--ink)}
+.nav nav a.cta{background:var(--ink);color:var(--yellow);border-color:var(--ink);margin-left:8px}
+.nav nav a.cta:hover{background:#222}
+.burger{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:10px;background:var(--yellow);box-shadow:var(--shadow-sm);cursor:pointer;place-items:center}
+.burger i{display:block;width:18px;height:2px;background:var(--ink);box-shadow:0 -6px 0 var(--ink),0 6px 0 var(--ink)}
+@media (max-width:860px){
+  .nav nav{position:absolute;left:0;right:0;top:68px;background:var(--cream);border-bottom:2px solid var(--ink);flex-direction:column;align-items:stretch;padding:12px var(--edge) 18px;gap:4px;display:none}
+  .nav nav.open{display:flex}
+  .nav nav a{padding:14px 12px;font-size:17px;border-radius:10px}
+  .nav nav a.cta{margin:8px 0 0;text-align:center}
+  .burger{display:grid}
+}
+
+/* hero */
+.hero{background:var(--yellow);border-bottom:2px solid var(--ink);overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:center;min-height:min(82svh,760px);padding:clamp(48px,7vw,96px) 0}
+.hero .eyebrow{color:var(--ink)}
+.hero h1{font:900 italic clamp(56px,9.4vw,136px)/.92 var(--f-display);letter-spacing:-.03em}
+.hero h1 em{color:var(--cream)}
+.hero .sub{font:600 clamp(19px,1.8vw,24px)/1.3 var(--f-sans);margin-top:26px;max-width:24ch;letter-spacing:-.01em}
+.hero .lede{color:var(--ink);max-width:52ch;margin-top:16px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero .ctas .btn{background:var(--cream)}
+.mosaic{position:relative;height:clamp(380px,46vw,560px)}
+.poster{position:absolute;border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;background:var(--ink);box-shadow:var(--shadow-lg)}
+.poster video,.poster img{width:100%;height:100%;object-fit:cover}
+.poster .tag{position:absolute;left:10px;bottom:10px;background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:6px 10px;font:600 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+.poster.p1{width:72%;aspect-ratio:16/10;left:0;top:6%;transform:rotate(-3deg);z-index:2}
+.poster.p2{width:46%;aspect-ratio:4/5;right:0;top:0;transform:rotate(4deg);z-index:1}
+.poster.p3{width:52%;aspect-ratio:16/10;right:4%;bottom:0;transform:rotate(-1.5deg);z-index:3}
+.stats{border-top:2px solid var(--ink);background:var(--yellow)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats div{padding:22px 0;border-right:2px solid var(--ink);padding-right:18px}
+.stats div+div{padding-left:22px}
+.stats div:last-child{border:0}
+.stats b{display:block;font:900 italic clamp(30px,3.6vw,48px)/1 var(--f-display);letter-spacing:-.02em}
+.stats span{display:block;margin-top:6px;color:var(--fg2)}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;min-height:0}
+  .mosaic{height:auto;aspect-ratio:16/10;max-width:560px}
+  .poster.p1{width:100%;left:0;top:0;transform:rotate(-1.5deg)}
+  .poster.p2,.poster.p3{display:none}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .stats div{padding:16px 12px 16px 0}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(3){padding-left:0;border-top:2px solid var(--ink)}
+  .stats div:nth-child(4){border-top:2px solid var(--ink)}
+  .stats div+div{padding-left:14px}
+  .stats div:nth-child(3){padding-left:0}
+}
+
+/* marquee */
+.marq{border-bottom:2px solid var(--ink);background:var(--cream);overflow:hidden;padding:18px 0}
+.marq .track{display:flex;gap:0;width:max-content;animation:marq 48s linear infinite}
+.marq span{font:900 italic 26px/1 var(--f-display);letter-spacing:-.01em;padding:0 22px;white-space:nowrap;display:flex;align-items:center;gap:22px}
+.marq span::after{content:"✦";font:400 14px var(--f-sans);color:var(--fg3)}
+@keyframes marq{to{transform:translateX(-50%)}}
+.marq:hover .track{animation-play-state:paused}
+
+/* film */
+.dark{background:var(--ink);color:var(--on-ink)}
+.film .frame{position:relative;border:2px solid var(--on-ink);border-radius:var(--r);overflow:hidden;box-shadow:8px 8px 0 var(--yellow);aspect-ratio:21/9;background:#000;cursor:pointer}
+.film .frame video,.film .frame img{width:100%;height:100%;object-fit:cover;opacity:.92}
+.film .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.film .play span{display:inline-flex;align-items:center;gap:14px;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:14px 22px 14px 16px;font:700 15px/1 var(--f-sans);box-shadow:var(--shadow-sm);transition:transform .2s}
+.film .frame:hover .play span{transform:scale(1.04)}
+.film .play i{width:36px;height:36px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.film .play i::after{content:"";border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent var(--yellow);margin-left:3px}
+.film .cap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:22px;color:var(--on-ink-dim)}
+.film .cap b{color:var(--on-ink);font-weight:600}
+@media (max-width:700px){.film .frame{aspect-ratio:16/10}}
+
+/* work */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:10px 16px;border-radius:999px;border:2px solid var(--ink);background:transparent;font:600 13px/1 var(--f-sans);cursor:pointer;transition:background .15s,color .15s}
+.chip:hover{background:var(--tint)}
+.chip.on{background:var(--ink);color:var(--yellow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-lg)}
+.card[hidden]{display:none}
+.card .media{position:relative;aspect-ratio:16/10;background:#111;border-bottom:2px solid var(--ink);overflow:hidden}
+.card .media img,.card .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .media video{opacity:0;transition:opacity .3s}
+.card .media video.on{opacity:1}
+.stamp{position:absolute;top:10px;left:10px;background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:6px 10px;font:600 10px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.stamp.res{left:auto;right:10px;background:var(--yellow);font-weight:700}
+.card .body{padding:18px 18px 16px;display:grid;gap:6px;flex:1}
+.card h3{font:900 italic 24px/1.05 var(--f-display);letter-spacing:-.015em}
+.card .where{color:var(--fg3);font:500 11px/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+.card p{color:var(--fg2);font-size:15px;line-height:1.5}
+.card .links{display:flex;gap:16px;margin-top:auto;padding-top:12px;font:600 14px/1 var(--f-sans)}
+.card .links a{text-decoration:none;border-bottom:2px solid var(--ink);padding:8px 0 4px;display:inline-block}
+.card .links a:hover{color:var(--fg3);border-color:var(--fg3)}
+.more{display:flex;justify-content:center;margin-top:40px}
+.more .btn{white-space:normal;text-align:center;line-height:1.3}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.svc article{background:var(--paper);border:2px solid var(--ink);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);display:grid;gap:12px;align-content:start}
+.svc article.hi{background:var(--yellow)}
+.svc .n{font:700 12px/1 var(--f-mono);letter-spacing:.12em;color:var(--fg3)}
+.svc h3{font:900 italic 28px/1.05 var(--f-display);letter-spacing:-.015em}
+.svc ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;color:var(--fg2);font-size:15px}
+.svc li{padding-left:18px;position:relative}
+.svc li::before{content:"✦";position:absolute;left:0;top:0;font-size:11px;color:var(--ink)}
+.svc .from{margin-top:6px;padding-top:12px;border-top:2px solid var(--ink);font:600 14px/1 var(--f-sans);display:flex;justify-content:space-between;align-items:center}
+.svc .from span{color:var(--fg3);font:500 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;background:var(--paper);box-shadow:var(--shadow)}
+.steps div{padding:26px 22px;border-right:2px solid var(--ink)}
+.steps div:last-child{border-right:0}
+.steps b{display:block;font:900 italic 44px/1 var(--f-display);color:var(--yellow);-webkit-text-stroke:1.5px var(--ink);paint-order:stroke fill;margin-bottom:12px}
+.steps h3{font:700 18px/1.25 var(--f-sans);margin-bottom:8px}
+.steps p{color:var(--fg2);font-size:15px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}.steps div:nth-child(2){border-right:0}.steps div:nth-child(n+3){border-top:2px solid var(--ink)}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.steps div{border-right:0!important}.steps div+div{border-top:2px solid var(--ink)}}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.plan{position:relative;border:2px solid var(--on-ink);border-radius:var(--r);padding:26px 24px;display:grid;gap:16px;align-content:start;background:transparent}
+.plan.hi{background:var(--yellow);color:var(--ink);border-color:var(--ink);box-shadow:8px 8px 0 var(--on-ink)}
+.plan .pick{position:absolute;top:-14px;left:22px;background:var(--ink);color:var(--yellow);border:2px solid var(--yellow);border-radius:999px;padding:6px 10px;font:700 10px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.plan .name{font:500 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--on-ink-dim)}
+.plan.hi .name{color:var(--fg3)}
+.plan .price{font:900 italic 48px/1 var(--f-display);letter-spacing:-.02em}
+.plan .price small{font:500 15px/1 var(--f-sans);letter-spacing:0;margin-left:4px;opacity:.75}
+.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:9px;font-size:15px;color:var(--on-ink-dim)}
+.plan.hi ul{color:var(--fg2)}
+.plan li{padding-left:18px;position:relative}
+.plan li::before{content:"→";position:absolute;left:0;top:0;font-weight:700;color:var(--yellow)}
+.plan.hi li::before{color:var(--ink)}
+.plan .btn{justify-content:center;margin-top:6px}
+.plan:not(.hi) .btn{box-shadow:3px 3px 0 var(--on-ink)}
+.plan .who{color:var(--on-ink-mute);font-size:13.5px;line-height:1.5}
+.plan.hi .who{color:var(--fg3)}
+.once{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px}
+.once article{border:2px solid var(--line-on-ink);border-radius:var(--r);padding:20px;display:grid;gap:8px;align-content:start}
+.once .name{font:500 10px/1.4 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--on-ink-dim)}
+.once .price{font:900 italic 32px/1 var(--f-display)}
+.once p{color:var(--on-ink-dim);font-size:14px}
+.once a{color:var(--yellow);font:600 14px/1 var(--f-sans);text-decoration:none;border-bottom:2px solid var(--yellow);padding:8px 0 4px;justify-self:start;margin-top:2px}
+.note{margin-top:28px;color:var(--on-ink-dim);font-size:15px;max-width:70ch}
+.note a{color:var(--yellow)}
+@media (max-width:980px){.plans{grid-template-columns:1fr}.once{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.once{grid-template-columns:1fr}}
+
+/* studio */
+.studio{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:start}
+.studio .copy p{color:var(--fg2);margin-top:14px;max-width:56ch}
+.studio .copy p:first-of-type{margin-top:0}
+.studio .links{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.facts div{border:2px solid var(--ink);border-radius:12px;padding:14px;background:var(--paper)}
+.facts b{display:block;font:900 italic 30px/1 var(--f-display)}
+.facts span{display:block;color:var(--fg3);font:500 10px/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.mia{border:2px solid var(--ink);border-radius:var(--r);background:var(--ink);color:var(--on-ink);padding:22px;box-shadow:var(--shadow-lg)}
+.mia .pics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mia .pics img{aspect-ratio:4/5;object-fit:cover;border-radius:8px;width:100%}
+.mia h3{font:900 italic 30px/1 var(--f-display);margin-top:18px}
+.mia p{color:var(--on-ink-dim);font-size:15px;margin-top:10px}
+.mia .row{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap}
+.mia .row a{color:var(--yellow);font:600 14px/1 var(--f-sans);text-decoration:none;border-bottom:2px solid var(--yellow);padding:8px 0 4px;display:inline-block}
+.stack{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.stack span{border:2px solid var(--ink);border-radius:999px;padding:8px 12px;font:600 12px/1 var(--f-sans);background:var(--paper)}
+@media (max-width:900px){.studio{grid-template-columns:1fr}}
+
+/* contact */
+.yellow{background:var(--yellow);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,56px);align-items:start}
+form{background:var(--cream);border:2px solid var(--ink);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);display:grid;gap:16px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:6px;font:600 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg3)}
+input,select,textarea{width:100%;border:2px solid var(--ink);border-radius:10px;background:#fff;padding:12px 14px;font:400 16px/1.4 var(--f-sans);color:var(--ink)}
+textarea{resize:vertical;min-height:110px}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--yellow);outline-offset:1px}
+.aside{display:grid;gap:14px}
+.aside a,.aside div.c{display:flex;align-items:center;gap:14px;background:var(--cream);border:2px solid var(--ink);border-radius:12px;padding:14px 16px;text-decoration:none;box-shadow:var(--shadow-sm)}
+.aside .ic{width:40px;height:40px;border-radius:10px;background:var(--ink);color:var(--yellow);display:grid;place-items:center;flex:none}
+.aside .ic svg{width:20px;height:20px}
+.aside b{display:block;font-weight:700}
+.aside small{color:var(--fg3)}
+@media (max-width:860px){.contact{grid-template-columns:1fr}.f2{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--ink);color:var(--on-ink);padding:clamp(56px,7vw,96px) 0 32px}
+footer .big{font:900 italic clamp(40px,6.4vw,88px)/.95 var(--f-display);letter-spacing:-.025em;color:var(--yellow);max-width:14ch}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-top:48px;padding-top:36px;border-top:2px solid var(--line-on-ink)}
+footer h5{margin:0 0 14px;font:500 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--on-ink-mute)}
+footer a{display:block;color:var(--on-ink);text-decoration:none;padding:4px 0;font-size:15px}
+footer a:hover{color:var(--yellow)}
+footer p{color:var(--on-ink-dim);font-size:15px;max-width:40ch;margin-top:12px}
+footer .base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:2px solid var(--line-on-ink);color:var(--on-ink-mute)}
+@media (max-width:760px){footer .cols{grid-template-columns:1fr 1fr}}
+
+/* film dialog */
+dialog.lb{max-width:min(1200px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:2px solid var(--on-ink);border-radius:var(--r);background:#000;color:var(--on-ink);overflow:hidden}
+dialog.lb::backdrop{background:rgba(10,10,10,.9)}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px 12px 18px}
+.lb-top button{font:600 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--yellow);border:2px solid var(--yellow);border-radius:999px;padding:9px 14px;cursor:pointer}
+dialog.lb video{width:min(1200px,calc(100vw - 28px));max-height:calc(100dvh - 90px);aspect-ratio:16/9;background:#000}
+html:has(dialog[open]){overflow:hidden}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.marq .track{animation:none}html{scroll-behavior:auto}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
 </head>
 <body>
-  <div id="root"></div>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Gully Brands, home"><img src="assets/logo-square-yellow.png" alt="" width="40" height="40"><b>Gully Brands</b></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i></button>
+    <nav id="menu" aria-label="Site">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#studio">Studio</a><a href="#contact">Contact</a>
+      <a class="cta" href="https://wa.me/918668715250?text=Hi%20Gully%20Brands%2C%20I%27d%20like%20to%20book%20a%2020-minute%20call." target="_blank" rel="noopener">WhatsApp ↗</a>
+    </nav>
+  </div>
+</header>
 
-  <script type="text/babel" src="components.jsx"></script>
-  <script type="text/babel">
-    const { useState } = React;
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow mono">Ulhasnagar · Mumbai · Clients in India, Spain &amp; Poland</p>
+      <h1>Small brands.<br>Made <em>loud.</em></h1>
+      <p class="sub">Films, websites, stores and brand kits for businesses that never had an agency.</p>
+      <p class="lede">An independent studio that does the whole job: the brand, the site, the shoot, the ads and the Google profile. Priced in plain rupees, shipped in weeks, and built to look like it cost far more than it did.</p>
+      <div class="ctas">
+        <a class="btn" href="#work">See the work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ink" href="https://wa.me/918668715250?text=Hi%20Gully%20Brands%2C%20I%27d%20like%20to%20book%20a%2020-minute%20call." target="_blank" rel="noopener">Book a 20-min call</a>
+      </div>
+    </div>
+    <div class="mosaic" aria-hidden="true">
+      <div class="poster p1"><video muted loop playsinline autoplay preload="auto" poster="portfolio/media/work/ishq.jpg"><source src="portfolio/media/work/ishq.mp4" type="video/mp4"></video><span class="tag">Ishq · brand film</span></div>
+      <div class="poster p2"><img src="portfolio/media/ads/ng-w01.jpg" alt="" loading="lazy"><span class="tag">Nakoda Gold</span></div>
+      <div class="poster p3"><video muted loop playsinline autoplay preload="metadata" poster="portfolio/media/work/pets.jpg"><source src="portfolio/media/work/pets.mp4" type="video/mp4"></video><span class="tag">Pet shop site</span></div>
+    </div>
+  </div>
+  <div class="stats"><div class="wrap">
+    <div><b>21</b><span>projects shipped in 2026</span></div>
+    <div><b>12</b><span>businesses, 3 countries</span></div>
+    <div><b>2–6</b><span>weeks from call to launch</span></div>
+    <div><b>₹2,999</b><span>is where it starts</span></div>
+  </div></div>
+</section>
 
-    function App() {
-      const [active, setActive] = useState("work");
-      const onNav = (k) => {
-        setActive(k);
-        const el = document.getElementById(k === "home" ? "" : k);
-        if (el) {
-          const top = el.getBoundingClientRect().top + window.scrollY - 80;
-          window.scrollTo({ top, behavior: "smooth" });
-        } else if (k === "home") {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-      };
-      return (
-        <React.Fragment>
-          <Header active={active} onNav={onNav} />
-          <main>
-            <Hero />
-            <WhatIDo />
-            <Work />
-            <Pricing />
-            <About />
-            <Contact />
-          </main>
-          <Footer />
-        </React.Fragment>
-      );
-    }
+<div class="marq" aria-hidden="true"><div class="track" id="marq"></div></div>
 
-    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-  </script>
+<section class="sec dark film" id="film">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow mono">Showreel</p>
+      <h2 class="t">A jewellery film with <em>no</em> camera crew.</h2>
+      <p class="lede">Ishq is a 93-second brand film for Nakoda Silver. Written, directed and cut in the studio, with Mia, our own AI model, as its face. Every piece she wears is the real 92.5 silver.</p>
+    </div>
+    <div class="frame rv" id="playFilm" role="button" tabindex="0" aria-label="Play Ishq, the full film">
+      <video muted loop playsinline autoplay preload="metadata" poster="portfolio/media/work/ishq.jpg"><source src="portfolio/media/work/ishq.mp4" type="video/mp4"></video>
+      <div class="play"><span><i></i>Watch the film · 1:33</span></div>
+    </div>
+    <div class="cap rv"><div><b>Ishq</b> · Nakoda Silver · 2026</div><div>Made entirely in the studio: concept, storyboard, every shot, edit and grade.</div></div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow mono">Selected work</p>
+      <div class="row">
+        <h2 class="t">Real shops. Real <em>results.</em></h2>
+        <div class="filters" id="filters" role="group" aria-label="Filter the work"></div>
+      </div>
+      <p class="lede">Every photo and clip here is the actual business, not a stock library. Hover a card to see the site in use; open the case study for the full story.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="more rv"><a class="btn ghost" href="portfolio/">Full portfolio, case studies &amp; ads ↗</a></div>
+  </div>
+</section>
+
+<section class="sec" id="services" style="background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow mono">What we do</p>
+      <h2 class="t">One studio for the <em>whole</em> job.</h2>
+      <p class="lede">Most small businesses need five vendors to look like a brand. Here it is one call. Pick a piece, or hand over the lot.</p>
+    </div>
+    <div class="svc">
+      <article class="rv"><span class="n">01</span><h3>Websites &amp; online stores</h3><ul><li>Fast sites on your own domain, built to win local searches</li><li>Shopify stores and headless storefronts with live stock and checkout</li><li>Menus, catalogues and booking that open straight into WhatsApp</li></ul><div class="from">From ₹4,999<span>mini-site · ₹9,999 full site</span></div></article>
+      <article class="rv hi"><span class="n">02</span><h3>Films, reels &amp; ads</h3><ul><li>Brand films cut to the beat, like Ishq</li><li>Festival campaigns: posters, reels and Meta &amp; Google ad sets</li><li>Product shoots with Mia, our AI model, with your product kept exactly as it is</li></ul><div class="from">Quoted per project<span>reels inside every plan</span></div></article>
+      <article class="rv"><span class="n">03</span><h3>Brand kits &amp; identity</h3><ul><li>Logo, colour and type rules you can hand to any printer</li><li>Signage, packaging, menus and poster systems</li><li>Print-ready files, every time</li></ul><div class="from">From ₹2,999<span>logo &amp; brand board</span></div></article>
+      <article class="rv"><span class="n">04</span><h3>Instagram, run for you</h3><ul><li>A monthly shoot at your shop, or clips you send on WhatsApp</li><li>8 to 16 posts and reels a month, captions and local hashtags written</li><li>A bio-link page that books or sells in one tap</li></ul><div class="from">From ₹2,999 / month<span>cancel any month</span></div></article>
+      <article class="rv"><span class="n">05</span><h3>Google &amp; local search</h3><ul><li>Google Business profile set up, verified and kept alive</li><li>Reviews answered, a QR stand for the counter, geotagged photos</li><li>Area pages and Merchant Center feeds for shops that sell online</li></ul><div class="from">From ₹1,999<span>maps optimisation</span></div></article>
+      <article class="rv"><span class="n">06</span><h3>AI tools for your shop</h3><ul><li>WhatsApp assistants that know your prices and hours</li><li>Tools like Tomorrow’s Menu, built for one business and its routine</li><li>The Gully Brands App: one product photo in, a finished post out</li></ul><div class="from">Scoped on the call<span>app.gullybrands.in</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow mono">How it works</p>
+      <h2 class="t">Twenty minutes to a <em>plan.</em></h2>
+    </div>
+    <div class="steps rv">
+      <div><b>1</b><h3>A 20-minute call</h3><p>On WhatsApp or in person. You talk about the business; we work out what would move the needle first.</p></div>
+      <div><b>2</b><h3>A scope in rupees</h3><p>One message with what you get, what it costs and when it ships. No decks, no retainers you can’t explain.</p></div>
+      <div><b>3</b><h3>Built in two to six weeks</h3><p>You see it as it comes together and change what you like. Monthly plans start with a shoot in month one.</p></div>
+      <div><b>4</b><h3>Live, and handed over</h3><p>Your domain, your accounts, your files. Stay on a plan for the monthly work, or take it from here.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" id="pricing">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow mono">Pricing</p>
+      <h2 class="t">No asterisks. Rupees <em>up front.</em></h2>
+      <p class="lede">Twelve clients at a time, so every one gets the founder. Every plan can be cancelled any month.</p>
+    </div>
+    <div class="plans">
+      <article class="plan rv">
+        <span class="name">Starter</span><div class="price">₹2,999<small>/ month</small></div>
+        <ul><li>8 posts a month: photos and carousels</li><li>Google Business profile set up and optimised</li><li>One kickoff shoot in month one</li><li>Captions and local hashtags written for you</li><li>From month two you send phone clips on WhatsApp</li><li>Cancel any month</li></ul>
+        <a class="btn" href="https://wa.me/918668715250?text=Hi%20Gully%20Brands%2C%20I%27d%20like%20to%20start%20the%20Starter%20plan%20(%E2%82%B92%2C999%2Fmonth)." target="_blank" rel="noopener">Start on Starter</a>
+        <p class="who">For a shop posting for the first time, at less than ₹100 a day.</p>
+      </article>
+      <article class="plan hi rv">
+        <span class="pick">Most picked</span>
+        <span class="name">Growth</span><div class="price">₹5,999<small>/ month</small></div>
+        <ul><li>Everything in Starter</li><li>A one-hour shoot at your shop every month</li><li>12 posts or reels a month, three a week</li><li>Google profile run for you: reviews, updates, geotagged photos</li><li>A bio-link booking page with a WhatsApp form</li><li>A review QR stand for your counter</li></ul>
+        <a class="btn ink" href="https://wa.me/918668715250?text=Hi%20Gully%20Brands%2C%20I%27d%20like%20to%20start%20the%20Growth%20plan%20(%E2%82%B95%2C999%2Fmonth)." target="_blank" rel="noopener">Start on Growth</a>
+        <p class="who">Replaces a part-time marketing hire and keeps the neighbourhood walking in.</p>
+      </article>
+      <article class="plan rv">
+        <span class="name">Premium</span><div class="price">₹9,999<small>/ month</small></div>
+        <ul><li>Everything in Growth</li><li>Two shoots a month</li><li>16 reels a month, four a week</li><li>Meta and Google ads set up, with local targeting and creatives</li><li>WhatsApp Business catalogue and greeting</li><li>Local SEO with review replies handled</li></ul>
+        <a class="btn" href="https://wa.me/918668715250?text=Hi%20Gully%20Brands%2C%20I%27d%20like%20to%20start%20the%20Premium%20plan%20(%E2%82%B99%2C999%2Fmonth)." target="_blank" rel="noopener">Start on Premium</a>
+        <p class="who">For showrooms and stores ready to put money behind ads and see it back in sales.</p>
+      </article>
+    </div>
+    <p class="eyebrow mono rv" style="margin-top:56px">One-time jobs</p>
+    <div class="once">
+      <article class="rv"><span class="name">Logo &amp; brand board</span><div class="price">₹2,999</div><p>Logo, colour palette and type rules, with print-ready files for signboards and stickers.</p><a href="https://wa.me/918668715250?text=Hi%20Gully%20Brands%2C%20I%27d%20like%20a%20logo%20and%20brand%20board%20(%E2%82%B92%2C999)." target="_blank" rel="noopener">Book it →</a></article>
+      <article class="rv"><span class="name">Brand website</span><div class="price">₹9,999</div><p>A multi-section site on your domain: copy, catalogue, booking and search set up.</p><a href="https://wa.me/918668715250?text=Hi%20Gully%20Brands%2C%20I%27d%20like%20a%20brand%20website%20(%E2%82%B99%2C999)." target="_blank" rel="noopener">Book it →</a></article>
+      <article class="rv"><span class="name">WhatsApp booking mini-site</span><div class="price">₹4,999</div><p>A one-page site whose form opens a pre-filled WhatsApp chat. Ideal as a bio link.</p><a href="https://wa.me/918668715250?text=Hi%20Gully%20Brands%2C%20I%27d%20like%20a%20WhatsApp%20booking%20mini-site%20(%E2%82%B94%2C999)." target="_blank" rel="noopener">Book it →</a></article>
+      <article class="rv"><span class="name">Google Maps optimisation</span><div class="price">₹1,999</div><p>Profile set up and verified, keywords, a review QR stand and a guide to ranking for “near me”.</p><a href="https://wa.me/918668715250?text=Hi%20Gully%20Brands%2C%20I%27d%20like%20Google%20Maps%20optimisation%20(%E2%82%B91%2C999)." target="_blank" rel="noopener">Book it →</a></article>
+    </div>
+    <p class="note rv">Films, ad campaigns and AI product shoots are quoted per project after the call. Working outside India? The same work ships to Madrid and Poland; ask for a quote in euros.</p>
+  </div>
+</section>
+
+<section class="sec" id="studio">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow mono">The studio</p>
+      <h2 class="t">One founder, an AI team, and <em>taste.</em></h2>
+    </div>
+    <div class="studio">
+      <div class="copy rv">
+        <p><strong>Rahul Sakharkar</strong> started Gully Brands in 2026 after five years at InsuranceMarket.ae in Dubai, where he was promoted through four roles, from policy operations to running the training department. He came home to Ulhasnagar to make the kind of work small businesses are usually priced out of.</p>
+        <p>The studio is one person plus a set of AI agents he built himself. They do the heavy lifting: research, first drafts, image and video generation on the studio’s own GPUs, and the testing before anything goes live. He directs, decides, writes and shoots. That is how a one-person studio ships websites, films and campaigns in weeks, at prices a neighbourhood shop can afford.</p>
+        <p>Everything here was made with that setup, from the Ishq film to a menu tool a food stall uses every night.</p>
+        <div class="facts">
+          <div><b>21</b><span>projects in 2026</span></div>
+          <div><b>3</b><span>countries</span></div>
+          <div><b>5 yrs</b><span>in a regulated industry first</span></div>
+        </div>
+        <div class="stack" aria-label="Tools"><span>Shopify</span><span>Meta &amp; Google Ads</span><span>Google Business</span><span>Claude Code</span><span>Hermes agents</span><span>Own GPU media lab</span></div>
+        <div class="links">
+          <a class="btn ghost" href="portfolio/">Founder’s portfolio ↗</a>
+          <a class="btn ghost" href="portfolio/media/Rahul_Sakharkar_CV.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/rahul-sakharkar-a75b43177" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+      <aside class="mia rv">
+        <div class="pics">
+          <img src="portfolio/media/mia4/mia-1.jpg" alt="Mia, the studio’s AI model, portrait" loading="lazy">
+          <img src="portfolio/media/mia4/mia-2.jpg" alt="Mia by a window" loading="lazy">
+          <img src="portfolio/media/mia4/mia-3.jpg" alt="Mia in a garden at golden hour" loading="lazy">
+          <img src="portfolio/media/mia4/mia-4.jpg" alt="Mia on a bench" loading="lazy">
+        </div>
+        <h3>Meet Mia.</h3>
+        <p>Mia is the studio’s own AI model. She is the face of Ishq, of every product photo on the Gully Brands Clothing store and of the ad reels in between. She can wear your jewellery, hold your product or sit in your shop, and the product stays exactly as photographed. No casting, no studio day, no reshoots.</p>
+        <div class="row"><a href="portfolio/#mia">Her work ↗</a><a href="https://shop.gullybrands.in" target="_blank" rel="noopener">54 photos on the store ↗</a></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec yellow" id="contact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow mono" style="color:var(--ink)">Say hello</p>
+      <h2 class="t">Tell us about your <em>business.</em></h2>
+      <p class="lede" style="color:var(--ink)">Every message is read by the founder. Replies the same day, or the next morning after a shoot.</p>
+    </div>
+    <div class="contact">
+      <form id="form" class="rv" novalidate>
+        <div class="f2">
+          <label>Your name<input name="name" autocomplete="name" placeholder="Nishit, Anita, Emilio…" required></label>
+          <label>Business<input name="biz" autocomplete="organization" placeholder="Shop, brand, clinic, café"></label>
+        </div>
+        <div class="f2">
+          <label>Phone / WhatsApp<input name="phone" type="tel" autocomplete="tel" placeholder="+91"></label>
+          <label>What are you after?<select name="plan"><option>A 20-minute call first</option><option>Starter plan · ₹2,999/mo</option><option>Growth plan · ₹5,999/mo</option><option>Premium plan · ₹9,999/mo</option><option>A website or store</option><option>A logo &amp; brand board</option><option>A film, reels or ads</option><option>Google Maps &amp; reviews</option><option>Something else</option></select></label>
+        </div>
+        <label>Tell us a little<textarea name="msg" placeholder="What you sell, where you are, what you’d like to change first"></textarea></label>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><button class="btn ink" type="submit">Send on WhatsApp</button><span style="color:var(--fg3);font-size:14px">Opens WhatsApp with your message filled in. Nothing is stored here.</span></div>
+      </form>
+      <div class="aside rv">
+        <a href="https://wa.me/918668715250" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg></span><div><b>+91 86687 15250</b><small>WhatsApp or call · 10am–8pm IST</small></div></a>
+        <a href="https://www.instagram.com/gullybrands.in/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span><div><b>@gullybrands.in</b><small>Messages open</small></div></a>
+        <a href="mailto:gullybrands.in@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><b>gullybrands.in@gmail.com</b><small>For briefs and files</small></div></a>
+        <div class="c"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><b>Ulhasnagar 421005</b><small>Visits by appointment · shoots across Mumbai</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="big">Make your brand impossible to miss.</p>
+    <div class="cols">
+      <div><a class="logo" href="#top" style="color:var(--on-ink)"><img src="assets/logo-square-yellow.png" alt="" width="40" height="40"><b>Gully Brands</b></a><p>An independent studio for small businesses. Based in Ulhasnagar, working across Mumbai and, by WhatsApp, anywhere.</p></div>
+      <div><h5>Studio</h5><a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="portfolio/">Portfolio &amp; case studies</a></div>
+      <div><h5>Our own</h5><a href="https://shop.gullybrands.in" target="_blank" rel="noopener">Gully Brands Clothing</a><a href="https://app.gullybrands.in" target="_blank" rel="noopener">Gully Brands App</a><a href="portfolio/#mia">Mia</a></div>
+      <div><h5>Reach</h5><a href="https://wa.me/918668715250" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/gullybrands.in/" target="_blank" rel="noopener">Instagram</a><a href="mailto:gullybrands.in@gmail.com">Email</a><a href="https://www.linkedin.com/in/rahul-sakharkar-a75b43177" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="base mono"><span>© 2026 Gully Brands · Ulhasnagar, India</span><span>Small brands · Made loud</span></div>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Ishq, the full film">
+  <div class="lb-top"><span class="mono">Ishq · Nakoda Silver · 1:33</span><button type="button" id="lbX">Close</button></div>
+  <video id="lbV" controls playsinline preload="none" poster="portfolio/media/ishq-full-poster.jpg"><source src="portfolio/media/ishq-full.webm" type="video/webm"><source src="portfolio/media/ishq-full.mp4" type="video/mp4"></video>
+</dialog>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const touch = matchMedia('(hover: none)').matches, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const P = 'portfolio/';
+
+  // ---- nav
+  const burger = $('#burger'), menu = $('#menu');
+  burger.addEventListener('click', () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', String(o)); });
+  menu.addEventListener('click', e => { if (e.target.tagName === 'A') { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); } });
+
+  // ---- clients marquee
+  const CLIENTS = ['Nakoda Gold', 'Nakoda Silver', 'Emonfer Ebanistería', 'Shree Swami Samarth Pets', 'Sai Healthy Corner', 'Bellmarcq', 'Nails Anamur', 'Mad Arcade', 'The Himalayan Squad', 'Luna Hooks', 'The Nut Atelier', 'Laptop Guru'];
+  $('#marq').innerHTML = [...CLIENTS, ...CLIENTS].map(c => `<span>${c}</span>`).join('');
+
+  // ---- work. Media comes from the portfolio in this same repo; keys match its case studies.
+  const WORK = [
+    { k: 'nakoda-gold', n: 'Nakoda Gold', w: 'Jeweller · Ambernath', d: 'A website with a live gold rate at the centre of six channels, the Diwali campaign, posters, TV and video ads.', r: ['4.7★', '204 Google reviews'], c: ['web', 'ads', 'local'], url: 'https://nakodagold.com' },
+    { k: 'nakoda-silver', n: 'Nakoda Silver', w: 'Sterling silver · Ambernath', d: 'Brand kit, a Shopify store and four films, Ishq among them, with Mia as the face of the label.', r: ['4', 'ad films'], c: ['store', 'ads', 'brand'], url: 'https://nakodasilver.com' },
+    { k: 'pets', n: 'Shree Swami Samarth Pets', w: 'Pet shop & vet · Ulhasnagar', d: 'Website, a Google profile with every review answered, and the festival reels, including the account’s best post ever.', r: ['285', 'likes on one reel'], c: ['web', 'ads', 'local'], url: 'https://shreeswamisamarthpetshop.in' },
+    { k: 'emonfer', n: 'Emonfer Ebanistería', w: 'Custom carpentry · Madrid', d: 'A rebrand and a Spanish site with eleven area pages that now ranks first for custom carpentry in its town.', r: ['#1', 'local pack'], c: ['web', 'brand', 'local'], url: 'https://emonfer.es' },
+    { k: 'sai', n: 'Sai Healthy Corner', w: 'Healthy food stall · Ulhasnagar', d: 'A menu site where customers pre-book tomorrow’s meal on WhatsApp by 9 pm and collect at 8 am.', r: ['84', 'menu items'], c: ['web'], url: 'https://saihealthycorner.in' },
+    { k: 'menu-maker', n: 'Tomorrow’s Menu maker', w: 'AI tool · for the same stall', d: 'Anita taps what she is cooking and gets finished, on-brand WhatsApp Status cards in seconds, caption included.', r: ['1 tap', 'to WhatsApp'], c: ['ai'], url: 'https://sai-healthy-corner.surge.sh', case: 'menu' },
+    { k: 'gb-app', n: 'Gully Brands App', w: 'Our own product · SaaS', d: 'A shop uploads one phone photo of what it sells and gets back a finished post, poster or reel with the product untouched.', r: ['Live', 'payments'], c: ['ai', 'own'], url: 'https://app.gullybrands.in' },
+    { k: 'gb-shop', n: 'Gully Brands Clothing', w: 'Our own label · headless store', d: 'A Y2K crop-top label on a headless Shopify store, with 54 product photos of Mia and a Google Shopping feed for every size.', r: ['54', 'product photos'], c: ['store', 'own'], url: 'https://shop.gullybrands.in' },
+    { k: 'bellmarcq', n: 'Bellmarcq', w: 'Fabric maker · Bhiwandi', d: 'A B2B site for a mill established in 1989, opening on a scroll-driven film of the fabric.', r: ['1989', 'established'], c: ['web'], url: 'https://bellmarcq.surge.sh' },
+    { k: 'mad-arcade', n: 'Mad Arcade', w: 'Arcade cabinets · Madrid', d: 'Eleven pages and a configurator for custom arcade machines, with a 120-frame scroll film.', r: ['11', 'pages'], c: ['web'], url: 'https://mad-arcade-demo.surge.sh' },
+    { k: 'nut', n: 'The Nut Atelier', w: 'Gourmet walnuts · India', d: 'Identity, site and copy for a luxury walnut brand, with cinematic flavour loops.', r: ['4', 'flavours'], c: ['web', 'brand'], url: 'https://the-nut-atelier.surge.sh' },
+    { k: 'nails', n: 'Nails Anamur', w: 'Nail studio · Poland', d: 'A studio site in Polish with a scroll film and one-tap booking.', c: ['web'], url: 'https://nails-anamur.surge.sh' },
+    { k: 'luna', n: 'Luna Hooks', w: 'Handmade crochet · Dehradun', d: 'A looping lookbook with a yarn customizer and friction-free WhatsApp ordering.', c: ['web', 'store'], url: 'https://luna-hooks.surge.sh' },
+    { k: 'himalayan', n: 'The Himalayan Squad', w: 'Trek expeditions · Himalaya', d: 'A booking site for expeditions, with a proposal deck and cinematic reels.', c: ['web', 'ads'], url: 'https://himalayan-squad.surge.sh' },
+    { k: 'laptop-guru', n: 'Laptop Guru', w: 'Laptop shop · Ulhasnagar', d: 'A pitch site for repairs and refurbished laptops, with a scroll video.', c: ['web'], url: 'https://laptop-guru.surge.sh' },
+  ];
+  const CATS = [['all', 'All'], ['web', 'Websites'], ['store', 'Stores'], ['ads', 'Films & ads'], ['brand', 'Brand'], ['local', 'Google & local'], ['ai', 'AI tools'], ['own', 'Our own']];
+  const LABEL = { web: 'Website', store: 'Online store', ads: 'Film & ads', brand: 'Brand', local: 'Local search', ai: 'AI tool', own: 'Our own' };
+  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const grid = $('#grid');
+  grid.innerHTML = WORK.map(w => `<article class="card rv" data-c="${w.c.join(' ')}">
+    <div class="media"><img src="${P}media/work/${w.k}.jpg" alt="" loading="lazy" width="800" height="500"><video muted loop playsinline preload="none" disableremoteplayback data-src="${P}media/work/${w.k}.mp4" aria-hidden="true"></video>
+      <span class="stamp">${LABEL[w.c[0]]}</span>${w.r ? `<span class="stamp res">${esc(w.r[0])} · ${esc(w.r[1])}</span>` : ''}</div>
+    <div class="body"><h3>${esc(w.n)}</h3><span class="where">${esc(w.w)}</span><p>${esc(w.d)}</p>
+      <div class="links"><a href="${w.url}" target="_blank" rel="noopener">Visit site ↗</a><a href="${P}#${w.case || w.k}">Case study →</a></div></div>
+  </article>`).join('');
+  const cards = $$('#grid .card');
+  $('#filters').innerHTML = CATS.map(([k, l], i) => `<button type="button" class="chip${i ? '' : ' on'}" data-f="${k}" aria-pressed="${i ? 'false' : 'true'}">${l}</button>`).join('');
+  $('#filters').addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    $$('.chip').forEach(c => { c.classList.toggle('on', c === b); c.setAttribute('aria-pressed', String(c === b)); });
+    const f = b.dataset.f;
+    cards.forEach(c => { c.hidden = f !== 'all' && !c.dataset.c.split(' ').includes(f); if (!c.hidden) c.classList.add('in'); });
+    playVisible();
+  });
+  // previews: a clip loads the first time it is needed; desktop plays on hover, touch plays what is on screen
+  const vidOf = c => c.querySelector('video');
+  const play = v => { if (!v) return; if (!v.src) v.src = v.dataset.src; v.play().then(() => v.classList.add('on'), () => {}); };
+  const stop = v => { if (v && !v.paused) { v.pause(); v.classList.remove('on'); } };
+  const seen = new Set();
+  const playVisible = () => { if (!touch) return; cards.forEach(c => { const v = vidOf(c); seen.has(c) && !c.hidden ? play(v) : stop(v); }); };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio > .55) seen.add(e.target); else seen.delete(e.target);
+      if (touch) { if (seen.has(e.target) && !e.target.hidden) play(vidOf(e.target)); else stop(vidOf(e.target)); }
+    }), { threshold: [0, .6] });
+    cards.forEach(c => io.observe(c));
+  }
+  if (!touch) {
+    grid.addEventListener('pointerover', e => { const c = e.target.closest('.card'); if (c) play(vidOf(c)); });
+    grid.addEventListener('pointerout', e => { const c = e.target.closest('.card'); if (c && !c.contains(e.relatedTarget)) stop(vidOf(c)); });
+  }
+
+  // ---- hero and showreel loops: play once they have data, never fight the network
+  $$('.hero video, .film video').forEach(v => { v.play().catch(() => {}); v.addEventListener('canplay', () => v.play().catch(() => {}), { once: true }); });
+
+  // ---- the full film
+  const lb = $('#lb'), lbV = $('#lbV');
+  const openFilm = () => { lb.showModal(); lbV.currentTime = 0; lbV.play().catch(() => {}); };
+  $('#playFilm').addEventListener('click', openFilm);
+  $('#playFilm').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openFilm(); } });
+  $('#lbX').addEventListener('click', () => lb.close());
+  lb.addEventListener('click', e => { const r = lb.getBoundingClientRect(); if (e.target === lb && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) lb.close(); });
+  lb.addEventListener('close', () => lbV.pause());
+
+  // ---- contact form → WhatsApp
+  $('#form').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = new FormData(e.target), g = k => (f.get(k) || '').toString().trim();
+    if (!g('name')) { e.target.name.focus(); return; }
+    const lines = [`Hi Gully Brands, I'm ${g('name')}${g('biz') ? ` from ${g('biz')}` : ''}.`, `Looking for: ${g('plan')}.`];
+    if (g('msg')) lines.push(g('msg'));
+    if (g('phone')) lines.push(`Reach me on ${g('phone')}.`);
+    window.open('https://wa.me/918668715250?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  });
+
+  // ---- reveal on scroll
+  if (!reduce && 'IntersectionObserver' in window) {
+    const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    $$('.rv').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); else ro.observe(el); });
+  } else $$('.rv').forEach(el => el.classList.add('in'));
+})();
+</script>
 </body>
 </html>

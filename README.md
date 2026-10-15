@@ -1,24 +1,10 @@
-# Marketing Site — UI Kit
+# gullybrands.in
 
-A clickable, full-fidelity recreation of Gully Brands' public one-pager. Built from the brief and the brand mark (no codebase or Figma was provided).
+Static site on GitHub Pages (`master`, CNAME `gullybrands.in`).
 
-## Files
+- `index.html` — the main site, one self-contained page (no build step). Work previews, the Ishq film and Mia's photos are served from `portfolio/media/`.
+- `portfolio/` — Rahul Sakharkar's portfolio (source lives in the `mia-intro` project; copy `index.html` and `media/` here to deploy). `portfolio/#<project>` opens that case study directly.
+- `pricing.html`, `services.html` — printable guides; `book.html` redirects to `/#contact`.
+- `fonts/` — Fraunces 72pt SuperSoft Black Italic, the only display cut we ship.
 
-| File | What's in it |
-| --- | --- |
-| `index.html` | The full one-page site. Open this. |
-| `components.jsx` | All the reusable components — `Header`, `Hero`, `CaseStudy`, `Pricing`, `ContactForm`, `Footer`, `Sticker`, `Stamp`, `Button`. |
-
-## What it covers
-
-- Sticky top nav with the square yellow mark
-- Yellow-bleed hero with the *Small brands. Made loud.* lockup
-- "What I do" strip — three sticker cards
-- Work grid — case-study tiles with stamps + thumbnails
-- Pricing block — rupee-first, no-nonsense
-- "Say hello" form (live, fake submit)
-- Ink-black footer with phone, Instagram, and the Ulhasnagar pin
-
-## How to use
-
-Open `index.html` directly, or lift any component out of `components.jsx`. All styles come from the root design system (`../../colors_and_type.css`).
+Brand: taxi yellow `#FFC72C`, ink `#0A0A0A`, cream `#F4ECD8`. Tagline: *Small brands. Made loud.*
