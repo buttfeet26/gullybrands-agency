@@ -1,0 +1,179 @@
+{
+ "client": "Shree Swami Samarth Pets",
+ "instagram_composio_account": "instagram_maidy-filosa (@swami_samarth_pet_shop) - ALWAYS pass explicitly",
+ "ig_user_id": "me",
+ "facebook": "none - Instagram only",
+ "how": {
+  "carousel": "One INSTAGRAM_POST_IG_USER_MEDIA per slide with is_carousel_item=true (in order), then parent INSTAGRAM_POST_IG_USER_MEDIA media_type CAROUSEL children=[ids] caption, then INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH.",
+  "reel": "INSTAGRAM_POST_IG_USER_MEDIA media_type REELS video_url, cover_url, share_to_feed true, caption; then INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH max_wait_seconds 180.",
+  "after": "INSTAGRAM_GET_IG_MEDIA for permalink; retry once on HTTP 500; tell the user in one line with the link or the exact failure."
+ },
+ "posts": [
+  {
+   "date": 16,
+   "utc": "2026-10-16T14:00:00Z",
+   "type": "carousel",
+   "title": "Scratching more since the rains?",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/p16-1.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p16-2.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p16-3.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p16-4.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p16-5.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p16-6.jpg"
+   ],
+   "caption": "Scratching more since the rains? 🐾\nThe monsoon leaves damp coats, humid air and peak tick season behind. Here's the two-minute skin check we do at the clinic: ears, under the collar, armpits, belly and paws. Do it once a week.\nIf the scratching has gone on more than a few days, let Dr. Sunil take a look.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #dogcare #skincare"
+  },
+  {
+   "date": 17,
+   "utc": "2026-10-17T14:00:00Z",
+   "type": "reel",
+   "title": "5 places ticks hide on your dog",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/r17.mp4",
+    "https://gullybrands.in/c/ssp/oct26/r17_cover.jpg"
+   ],
+   "caption": "Ticks don't sit where you can see them. 🔍\nEars, under the collar, around the eyes, between the toes and under the tail: check these five every week after the monsoon.\nFound one? Don't pull it out with your fingers. Bring them in and we'll remove it safely.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #ticks #dogcare"
+  },
+  {
+   "date": 19,
+   "utc": "2026-10-19T14:00:00Z",
+   "type": "carousel",
+   "title": "Dr. Sunil Y. Patil",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/p19-1.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p19-2.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p19-3.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p19-4.jpg"
+   ],
+   "caption": "Meet Dr. Sunil Y. Patil. 🩺\nFourteen years on Netaji Chowk, with his clinic inside our shop. Check-ups, vaccination, diagnosis and treatment, diet advice, and home visits when your pet is too unwell to travel.\nOne trip, not two.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #veterinary #petclinic"
+  },
+  {
+   "date": 20,
+   "utc": "2026-10-20T14:00:00Z",
+   "type": "reel",
+   "title": "Your puppy's first year of vaccines",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/r20.mp4",
+    "https://gullybrands.in/c/ssp/oct26/r20_cover.jpg"
+   ],
+   "caption": "New puppy at home? 🐶\nThe first year of vaccines sets them up for life: three rounds in the early weeks, rabies, then a booster every year.\nEvery puppy is different, so Dr. Sunil plans the right schedule and keeps the record for you.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #puppy #puppyvaccination"
+  },
+  {
+   "date": 21,
+   "utc": "2026-10-21T14:00:00Z",
+   "type": "carousel",
+   "title": "Share the joy, not the mithai",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/p21-1.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p21-2.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p21-3.jpg"
+   ],
+   "caption": "Share the joy. Not the mithai. 🪔\nChocolate, raisins, sugar-free sweets, onion and garlic, rich fried snacks and alcohol can all make dogs and cats seriously ill.\nIf they've eaten something, don't wait for symptoms. Call us.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #diwali #petsafety"
+  },
+  {
+   "date": 22,
+   "utc": "2026-10-22T14:00:00Z",
+   "type": "reel",
+   "title": "What a proper groom looks like",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/r22.mp4",
+    "https://gullybrands.in/c/ssp/oct26/r22_cover.jpg"
+   ],
+   "caption": "What a proper groom looks like. ✂️\nFace and eyes trimmed by hand, legs and paws shaped to the coat, bathed and dried properly, then checked over. With a doctor in the room.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #doggrooming #petgrooming"
+  },
+  {
+   "date": 23,
+   "utc": "2026-10-23T14:00:00Z",
+   "type": "carousel",
+   "title": "How long is too long?",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/p23-1.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p23-2.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p23-3.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p23-4.jpg"
+   ],
+   "caption": "How long is too long? 🐾\nHear nails clicking on the floor? They need a trim. Healthy ears don't smell. And the hair between paw pads should be kept short.\nThe three places owners miss, and what to look for.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #doggrooming #dogcare"
+  },
+  {
+   "date": 24,
+   "utc": "2026-10-24T14:00:00Z",
+   "type": "reel",
+   "title": "Is your pet scared of crackers?",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/r24.mp4",
+    "https://gullybrands.in/c/ssp/oct26/r24_cover.jpg"
+   ],
+   "caption": "Is your pet scared of crackers? 🎆\nTrembling, hiding, pacing, panting: fear looks different in every pet. A quiet room, their own bed and your calm help.\nIf they panic badly every year, talk to Dr. Sunil before Diwali, not on the night. Never give human sedatives.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #diwali #petanxiety"
+  },
+  {
+   "date": 26,
+   "utc": "2026-10-26T14:00:00Z",
+   "type": "carousel",
+   "title": "Build a safe room",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/p26-1.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p26-2.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p26-3.jpg"
+   ],
+   "caption": "Build a safe room before Diwali. 🏠\nAn inner room, curtains closed, their own bed, music to mask the bangs and fresh water. Walk them early and keep their ID tag on.\nSave this for the festival week.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #diwali #petsafety"
+  },
+  {
+   "date": 27,
+   "utc": "2026-10-27T14:00:00Z",
+   "type": "reel",
+   "title": "4 signs your pet is getting older",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/r27.mp4",
+    "https://gullybrands.in/c/ssp/oct26/r27_cover.jpg"
+   ],
+   "caption": "Is your pet getting older? 🐕\nSleeping more, eating or drinking differently, changes in weight or coat, bad breath: small signs worth noticing.\nPast age 7, a check-up twice a year catches most problems early.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #seniordog #seniorcat"
+  },
+  {
+   "date": 28,
+   "utc": "2026-10-28T14:00:00Z",
+   "type": "carousel",
+   "title": "Read the label, not the bag",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/p28-1.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p28-2.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p28-3.jpg"
+   ],
+   "caption": "Read the label, not the bag. 🥣\nA named meat first, protein and fat that suit their activity, \"complete and balanced\" for their life stage, and a feeding guide by weight.\nSwitching food? Take a week, not a day.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #petnutrition #dogfood"
+  },
+  {
+   "date": 29,
+   "utc": "2026-10-29T14:00:00Z",
+   "type": "reel",
+   "title": "Home visits",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/r29.mp4",
+    "https://gullybrands.in/c/ssp/oct26/r29_cover.jpg"
+   ],
+   "caption": "When your pet can't come to us, Dr. Sunil comes to you. 🏡\nToo unwell, too old, or too anxious to travel: check-up, treatment and advice at home, in Ulhasnagar and Ambernath.\nCall Dr. Sunil directly: 95187 78108\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #homevisit #veterinary"
+  },
+  {
+   "date": 30,
+   "utc": "2026-10-30T14:00:00Z",
+   "type": "carousel",
+   "title": "Diwali night checklist",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/p30-1.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p30-2.jpg",
+    "https://gullybrands.in/c/ssp/oct26/p30-3.jpg"
+   ],
+   "caption": "A Diwali night checklist for pet parents. 🪔\nPets indoors before the crackers start, diyas out of reach, rangoli swept up, sweets off low tables, ID tag on, and our number saved.\nHappy Diwali to every pet family.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #diwali #happydiwali"
+  },
+  {
+   "date": 31,
+   "utc": "2026-10-31T14:00:00Z",
+   "type": "reel",
+   "title": "What a full groom includes",
+   "files": [
+    "https://gullybrands.in/c/ssp/oct26/r31.mp4",
+    "https://gullybrands.in/c/ssp/oct26/r31_cover.jpg"
+   ],
+   "caption": "What a full groom includes. ✨\nA bath with the right shampoo, a proper brush-out, a trim that suits the coat, nails and a gentle clean around the eyes.\nFestive season fills up fast, so book their groom early.\n\n📞 086520 73366 · Dr. Sunil direct: 95187 78108\n📍 Netaji Chowk, Ulhasnagar · Palegaon Road, Ambernath\n\n#ulhasnagar #ambernath #petsofulhasnagar #kalyan #petcare #doggrooming #diwali"
+  }
+ ]
+}
