@@ -881,7 +881,7 @@ precision mediump float;
   // the end card closes with the song: the last note fades out at 55.5 s, and the shutter (1.35 s) lands on it
   const PUSH_AT = 13.5, FILM_AT = 15.008, FILM_END = 49.0, SONG_END = 55.5, SHUTTER = 1.35;
   const introLine = rotator($('#line'), []);
-  const OFF = touch ? ['T<i>a</i>p for s<i>o</i>und', 'आवाज़ के लिए छुएँ', 'T<i>o</i>ca para o<i>í</i>r']
+  const OFF = touch ? ['T<i>o</i>uch for s<i>o</i>und', 'आवाज़ के लिए छुएँ', 'T<i>o</i>ca para o<i>í</i>r']
                     : ['Cl<i>i</i>ck for s<i>o</i>und', 'Turn the s<i>o</i>und <i>o</i>n', 'Haz cl<i>i</i>c para o<i>í</i>r'];
   const ON = ['W<i>a</i>it for the be<i>a</i>t', '<i>I</i>shq, for Nakoda S<i>i</i>lver'];
   introLine.set(OFF);
@@ -901,7 +901,7 @@ precision mediump float;
   function soundUI(){
     const live = introOver ? siteLive() : audible;
     const b = $('#snd'); b.classList.toggle('live', live); b.setAttribute('aria-pressed', String(live));
-    $('#sndLabel').textContent = introOver ? (live ? 'Sound on' : 'Sound off') : (live ? 'Sound on' : 'Tap for sound');
+    $('#sndLabel').textContent = introOver ? (live ? 'Sound on' : 'Sound off') : (live ? 'Sound on' : touch ? 'Touch for sound' : 'Click for sound');
     $('#badge').setAttribute('aria-label', audible ? 'Sound is on' : 'Turn sound on');
     if (!filmOn && !introOver) introLine.set(audible ? ON : OFF);
   }
@@ -931,14 +931,18 @@ precision mediump float;
     soundUI();
   }
   let lastFirst = 0;
+  // Sound starts on the first thing the visitor does: a tap, the touch that begins a scroll, a drag,
+  // a wheel, a key. Browsers decide which of these count as a real interaction; where the browser
+  // can tell us (navigator.userActivation) we only try when it says yes, otherwise we try and let play() fail quietly.
+  const ua = navigator.userActivation;
   const first = e => {
-    if (e.type === 'pointerdown' && e.pointerType !== 'mouse') return;   // touch pointerdown can't unlock media; touchend can
-    const now = performance.now(); if (now - lastFirst < 350) return; lastFirst = now;
+    if (ua ? !ua.isActive : (e.type === 'pointerdown' && e.pointerType !== 'mouse') || e.type === 'touchmove' || e.type === 'wheel' || e.type === 'scroll') return;
+    const now = performance.now(); if (now - lastFirst < 250) return; lastFirst = now;
     if (!introOver && !audible) soundOn();
     if (!introOver && filmOn && film.paused && !ended) film.play().catch(() => {});
     if (introOver) siteUnlock();
   };
-  ['pointerdown', 'keydown', 'touchend', 'click'].forEach(t => addEventListener(t, first, true));
+  ['pointerdown', 'pointerup', 'touchstart', 'touchmove', 'touchend', 'keydown', 'click', 'wheel', 'scroll'].forEach(t => addEventListener(t, first, { capture: true, passive: true }));
   $('#badge').addEventListener('click', e => { e.stopPropagation(); soundOn(); });
   if (song.readyState >= 2) start(); else song.addEventListener('canplay', start, { once: true });
   setTimeout(start, 4000);
