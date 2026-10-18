@@ -958,12 +958,14 @@ precision mediump float;
   // a wheel, a key. Browsers decide which of these count as a real interaction; where the browser
   // can tell us (navigator.userActivation) we only try when it says yes, otherwise we try and let play() fail quietly.
   const ua = navigator.userActivation;
+  // Chrome allows sound for the rest of the visit once the page has had one real tap or swipe (sticky activation),
+  // so a later scroll may start it; a scroll on its own never counts, which no page can change.
   const first = e => {
-    if (ua ? !ua.isActive : (e.type === 'pointerdown' && e.pointerType !== 'mouse') || e.type === 'touchmove' || e.type === 'wheel' || e.type === 'scroll') return;
+    if (ua ? !(ua.isActive || ua.hasBeenActive) : (e.type === 'pointerdown' && e.pointerType !== 'mouse') || e.type === 'touchmove' || e.type === 'wheel' || e.type === 'scroll') return;
     const now = performance.now(); if (now - lastFirst < 250) return; lastFirst = now;
     if (!introOver && !audible) soundOn();
     if (!introOver && filmOn && film.paused && !ended) film.play().catch(() => {});
-    if (introOver) { siteUnlock(); if (siteOn && !au.paused && !au.muted) ['touchmove', 'wheel', 'scroll'].forEach(t => removeEventListener(t, first, { capture: true })); }
+    if (introOver) { siteUnlock(); if (siteOn && !au.paused && !au.muted && au.src.indexOf('hotstepper') >= 0) ['touchmove', 'wheel', 'scroll'].forEach(t => removeEventListener(t, first, { capture: true })); }
   };
   ['pointerdown', 'pointerup', 'touchstart', 'touchmove', 'touchend', 'keydown', 'click', 'wheel', 'scroll'].forEach(t => addEventListener(t, first, { capture: true, passive: true }));
   $('#badge').addEventListener('click', e => { e.stopPropagation(); soundOn(); });
@@ -1084,7 +1086,8 @@ precision mediump float;
   }
   function npGo(){
     const r = au.play();
-    if (r && r.then) r.then(() => { fadeIn(); npState(); }, () => {
+    if (r && r.then) r.then(() => { fadeIn(); npState(); }, err => {
+      if (err && err.name === 'AbortError' && !npGo.retried) { npGo.retried = true; setTimeout(npGo, 250); return; }   // load interrupted, not refused
       au.muted = true;                                       // the browser wants a tap first: run silently, ring the button
       au.play().then(npState, npState);
     });
@@ -1105,7 +1108,16 @@ precision mediump float;
       setTimeout(() => { if (au.src.indexOf('hotstepper') < 0) { clearInterval(fadeT); go(); } }, 900);   // iOS ignores volume
     } else go();
   }
-  function siteUnlock(){ if (read('rs_paused') === '1' || adOpen || !siteOn) return; if (navigator.userActivation && !navigator.userActivation.isActive) return; if (au.muted) { au.muted = false; fadeIn(); } if (au.paused) au.play().then(fadeIn, () => {}); npState(); }
+  function siteUnlock(){
+    if (read('rs_paused') === '1' || adOpen || !siteOn) return;
+    const ua_ = navigator.userActivation; if (ua_ && !ua_.isActive && !ua_.hasBeenActive) return;
+    if (au.muted) {
+      au.muted = false; fadeIn();
+      setTimeout(() => { if (au.paused && read('rs_paused') !== '1') { au.muted = true; au.play().catch(() => {}); npState(); } }, 300);   // not allowed yet: keep the silent loop and the tap hint
+    }
+    if (au.paused) au.play().then(fadeIn, () => {});
+    npState();
+  }
   function siteLive(){ return !au.paused && !au.muted; }
   function siteSoundOn(){ store('rs_paused', '0'); au.muted = false; if (au.paused) npGo(); else fadeIn(); npState(); }
   function pauseForAd(){ wasPlaying = !au.paused; au.pause(); npState(); }
