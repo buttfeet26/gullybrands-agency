@@ -38,6 +38,7 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--ink);color:var(--pearl);font:400 16px/1.5 var(--f-sans);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
 body.intro-on{overflow:hidden;height:100%}
+html:has(body.intro-on){overflow:hidden}
 body.intro-on .nav{opacity:0}
 @media (hover:hover) and (pointer:fine){body,button,a{cursor:none}}
 dialog,dialog *{cursor:auto!important}dialog button,dialog a,dialog [data-adk]{cursor:pointer!important}
@@ -736,6 +737,13 @@ html:has(dialog[open]){overflow:hidden}
   // the site behind the intro stays out of the tab order until the shutter opens
   $('#site').inert = true; $('header.nav').inert = true;
   const body = document.body;
+  // the intro always opens, and closes, on the hero: no scroll position restored from a reload,
+  // and no page scrolling behind the film (iPhone Safari lets swipes scroll past overflow:hidden)
+  try { history.scrollRestoration = 'manual'; } catch (e) {}
+  const toTop = () => window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  toTop();
+  const pinTop = () => { if (scrollY && body.classList.contains('intro-on')) toTop(); };
+  addEventListener('scroll', pinTop, { passive: true });
   const stage = $('#stage'), mia = $('#miaFloat'), wrap = $('#filmWrap'), film = $('#film'), song = $('#song');
 
   /* ======================= shared: rotating lines ======================= */
@@ -1016,6 +1024,7 @@ precision mediump float;
   function closeIntro(fast, toWork){
     if (introOver) return;
     introOver = true; clearTimeout(closeTimer); loadPosters();
+    removeEventListener('scroll', pinTop); toTop();      // reveal the hero, never wherever the page sat behind the film
     introGlow && introGlow.stop();                       // one WebGL field at a time: the intro's stops as the hero's starts
     if (heroGlow && !anyDlg()) heroGlow.start(); heroLineStart();
     body.classList.add('revealing');
