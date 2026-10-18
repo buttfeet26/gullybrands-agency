@@ -1323,12 +1323,21 @@ precision mediump float;
   const play = v => { if (!v) return; load(v); v.play().catch(() => {}); };
   const stop = v => { if (v && !v.paused) v.pause(); };
   let inView = new Set();
-  const playVisible = () => { if (!touch) return; cards.forEach(c => { const v = vidOf(c); if (!v) return; inView.has(c) && !c.hidden ? play(v) : stop(v); }); };
+  // touch: one clip at a time, the card most on screen, started once the scroll settles (starting decoders mid-swipe stutters)
+  let pickT = 0;
+  const pick = () => {
+    if (!touch || anyDlg()) return;
+    let best = null, bestR = .55;
+    inView.forEach(c => { if (c.hidden) return; const r = c.getBoundingClientRect(); const vis = Math.max(0, Math.min(r.bottom, innerHeight) - Math.max(r.top, 0)) / Math.max(1, Math.min(r.height, innerHeight)); if (vis > bestR) { bestR = vis; best = c; } });
+    cards.forEach(c => { const v = vidOf(c); if (v) c === best ? play(v) : stop(v); });
+  };
+  const playVisible = () => { if (!touch) return; clearTimeout(pickT); pickT = setTimeout(pick, 140); };
+  if (touch) addEventListener('scroll', playVisible, { passive: true });
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(es => es.forEach(e => {
       const v = vidOf(e.target);
       if (e.isIntersecting) { inView.add(e.target); if (v && !v.src) { v.preload = 'auto'; load(v); } } else { inView.delete(e.target); stop(v); }
-      if (touch) { if (e.isIntersecting && e.intersectionRatio > .55 && !anyDlg()) play(v); else stop(v); }
+      if (touch) playVisible();
     }), { rootMargin: '200px 0px', threshold: [0, .6] });
     cards.forEach(c => io.observe(c));
   }
