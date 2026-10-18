@@ -39,6 +39,9 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--ink);color:var(--pearl);font:400 16px/1.5 var(--f-sans);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
 body.intro-on{overflow:hidden;height:100%}
 html:has(body.intro-on){overflow:hidden}
+/* nothing scrolls during the intro, so swipes are not handed to the browser as a scroll: the finger lifting
+   then counts as a real tap, which is what phones need before they allow sound */
+html:has(body.intro-on),body.intro-on{touch-action:none}
 body.intro-on .nav{opacity:0}
 @media (hover:hover) and (pointer:fine){body,button,a{cursor:none}}
 dialog,dialog *{cursor:auto!important}dialog button,dialog a,dialog [data-adk]{cursor:pointer!important}
@@ -441,6 +444,10 @@ body.intro-done .snd{display:none}
 .np:not(.playing) .np-eq{display:none}
 .np-tri{display:none;width:0;height:0;border-left:8px solid var(--pearl);border-top:5.5px solid transparent;border-bottom:5.5px solid transparent;margin-left:2px}
 .np:not(.playing) .np-tri{display:block}
+.np.waiting::before{content:"Tap for sound";position:absolute;right:52px;top:50%;transform:translateY(-50%);white-space:nowrap;font:400 10px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pearl);background:rgba(10,10,10,.85);border:1px solid var(--pearl-faint);border-radius:999px;padding:9px 12px;pointer-events:none;animation:npnudge 2.6s ease-in-out infinite}
+@media (hover:hover) and (pointer:fine){.np.waiting::before{content:"Click for sound"}}
+.np.open::before{display:none}
+@keyframes npnudge{0%,100%{opacity:.75}50%{opacity:1}}
 .np.waiting .np-shell::before{content:"";position:absolute;left:0;top:0;width:42px;height:42px;border-radius:50%;border:1px solid rgba(237,231,221,.55);animation:npring 2.6s ease-out infinite}
 @keyframes npring{0%{transform:scale(1);opacity:.6}70%{transform:scale(1.6);opacity:0}100%{opacity:0}}
 .np-inner{display:flex;align-items:center;gap:2px;opacity:0;transform:translateX(-6px);white-space:nowrap;pointer-events:none;transition:opacity .22s ease .12s,transform .3s cubic-bezier(.22,1,.36,1) .1s}
