@@ -464,7 +464,7 @@ body.intro-done .snd{display:none}
 .grain{position:fixed;inset:-10%;width:120%;height:120%;contain:strict;pointer-events:none;opacity:.1;mix-blend-mode:overlay;z-index:60;will-change:transform;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation:grain 1s steps(6) infinite}
-@media (hover:none){.grain{animation:none!important;opacity:.05;mix-blend-mode:normal;will-change:auto}}
+@media (hover:none){.grain{display:none!important}.navbar > *,.np-shell{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(10,10,10,.92)!important}}
 body.scrolling .grain,body:has(dialog[open]) .grain{animation-play-state:paused}
 html:has(dialog[open]){overflow:hidden}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
@@ -836,11 +836,11 @@ precision mediump float;
     addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = 1 - e.clientY / innerHeight; }, { passive: true });
     // sharp on retina, capped by a pixel budget; drops resolution only if frames run slow
     let q = 1;
-    const size = () => { const r = canvas.getBoundingClientRect(); let d = Math.min(devicePixelRatio || 1, 2); const cap = Math.sqrt(2.6e6 / Math.max(1, r.width * r.height)); d = Math.min(d, cap) * q; canvas.width = Math.max(2, Math.round(r.width * d)); canvas.height = Math.max(2, Math.round(r.height * d)); gl.viewport(0, 0, canvas.width, canvas.height); };
+    const size = () => { const r = canvas.getBoundingClientRect(); let d = Math.min(devicePixelRatio || 1, 2); const cap = Math.sqrt(2e6 / Math.max(1, r.width * r.height)); d = Math.min(d, cap) * q; canvas.width = Math.max(2, Math.round(r.width * d)); canvas.height = Math.max(2, Math.round(r.height * d)); gl.viewport(0, 0, canvas.width, canvas.height); };
     size(); addEventListener('resize', () => { size(); if (running && reduce) requestAnimationFrame(frame); });
     canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); running = false; cancelAnimationFrame(raf); canvas.classList.remove('on'); });
     const t0 = performance.now();
-    let last = 0, slow = 0, fast = 0, checked = 0, broken = false;
+    let last = 0, slow = 0, fast = 0, checked = 0, broken = false, drawn = 0;
     // the fields are dark by design; a bright or blank render means the GPU got the maths wrong
     function sane(){
       try {
@@ -856,8 +856,11 @@ precision mediump float;
       if (!running) return;
       if (last) { const dt = now - last; if (dt > 26 && dt < 200) { slow++; fast = 0; } else if (dt < 18) { fast++; slow = 0; } }
       last = now;
-      if (slow > 40 && q > .5) { q *= .8; slow = 0; size(); }
+      if (slow > 24 && q > .5) { q *= .8; slow = 0; size(); }
       mx += (tx - mx) * .03; my += (ty - my) * .03;
+      // the field drifts slowly: 30 fps looks identical and halves the GPU work; hold still while the page is being scrolled
+      if (!reduce && checked >= 3 && ((now - drawn < 30) || document.body.classList.contains('scrolling'))) { raf = requestAnimationFrame(frame); return; }
+      drawn = now;
       gl.uniform2f(uR, canvas.width, canvas.height); gl.uniform1f(uT, reduce ? 20 : (now - t0) / 1000); gl.uniform2f(uM, mx, my);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       if (checked < 3 && ++checked === 3 && !sane()) { broken = true; running = false; canvas.classList.remove('on'); canvas.classList.add('broken'); return; }
@@ -945,7 +948,7 @@ precision mediump float;
     const now = performance.now(); if (now - lastFirst < 250) return; lastFirst = now;
     if (!introOver && !audible) soundOn();
     if (!introOver && filmOn && film.paused && !ended) film.play().catch(() => {});
-    if (introOver) siteUnlock();
+    if (introOver) { siteUnlock(); if (siteOn && !au.paused && !au.muted) ['touchmove', 'wheel', 'scroll'].forEach(t => removeEventListener(t, first, { capture: true })); }
   };
   ['pointerdown', 'pointerup', 'touchstart', 'touchmove', 'touchend', 'keydown', 'click', 'wheel', 'scroll'].forEach(t => addEventListener(t, first, { capture: true, passive: true }));
   $('#badge').addEventListener('click', e => { e.stopPropagation(); soundOn(); });
@@ -1018,7 +1021,7 @@ precision mediump float;
     body.classList.add('revealing');
     setTimeout(() => {
       body.classList.remove('intro-on', 'revealing'); body.classList.add('intro-done');
-      $('#site').inert = false; if (!body.classList.contains('scrolled')) $('header.nav').inert = false;
+      $('#site').inert = false; navS = null; navSolid();
       const lab = $('#work .label'); lab.tabIndex = -1; lab.focus({ preventScroll: true });
       film.pause(); mia.pause(); introGlow && introGlow.stop();
       try { const g = $('#glow').getContext('webgl'); g && g.getExtension('WEBGL_lose_context')?.loseContext(); } catch (e) {}
@@ -1132,7 +1135,14 @@ precision mediump float;
   const navEl = $('header.nav'), navBar = $('.navbar');
   let navS = null;
   const navSolid = () => { const on = scrollY > innerHeight * .6; if (on === navS) return; navS = on; body.classList.toggle('scrolled', on); navBar.inert = !on || !introOver; navEl.inert = on || !introOver; };
-  addEventListener('scroll', navSolid, { passive: true }); navSolid();
+  if ('IntersectionObserver' in window) {
+    // a 60vh marker at the top of the page: once it has scrolled out, the floating nav takes over
+    const mark = document.createElement('div'); mark.setAttribute('aria-hidden', 'true');
+    mark.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:60vh;pointer-events:none;visibility:hidden';
+    body.prepend(mark);
+    new IntersectionObserver(() => navSolid(), { threshold: [0, 1] }).observe(mark);
+  } else addEventListener('scroll', navSolid, { passive: true });
+  navSolid();
   const heroGlow = touch ? null : liquid($('#heroGl'), { mode: 1 });   // touch screens use the still above
   let heroSeen = true;
   const dlgs = $$('dialog'), anyDlg = () => dlgs.some(d => d.open);
@@ -1140,7 +1150,7 @@ precision mediump float;
     new IntersectionObserver(es => es.forEach(e => { heroSeen = e.isIntersecting; if (!introOver || anyDlg()) return; e.isIntersecting ? heroGlow.start() : heroGlow.stop(); }), { threshold: 0 }).observe($('#top'));
   }
   let scT = 0;
-  addEventListener('scroll', () => { body.classList.add('scrolling'); clearTimeout(scT); scT = setTimeout(() => body.classList.remove('scrolling'), 160); }, { passive: true });
+  if (!touch) { let scOn = false; addEventListener('scroll', () => { if (!scOn) { scOn = true; body.classList.add('scrolling'); } clearTimeout(scT); scT = setTimeout(() => { scOn = false; body.classList.remove('scrolling'); }, 160); }, { passive: true }); }
   const heroRot = rotator($('#heroLine'), []);
   const heroLines = ['Sm<i>a</i>ll brands, b<i>i</i>g pictures', 'छोटे ब्रांड, बड़ी कहानियाँ', 'F<i>i</i>lms, s<i>i</i>tes <i>a</i>nd AI', 'M<i>u</i>mbai to M<i>a</i>drid'];
   function heroLineStart(){ heroRot.set(heroLines); }

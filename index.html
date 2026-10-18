@@ -66,7 +66,7 @@ h2.t em,.hero h1 em{font-style:inherit;color:var(--yellow);-webkit-text-stroke:1
 .btn svg{width:16px;height:16px;flex:none}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:40;background:rgba(244,236,216,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:2px solid var(--ink)}
+.nav{position:sticky;top:0;z-index:40;background:rgba(244,236,216,.97);border-bottom:2px solid var(--ink)}
 .nav .wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .logo img{width:40px;height:40px;border-radius:10px;border:2px solid var(--ink)}
@@ -319,7 +319,7 @@ html:has(dialog[open]){overflow:hidden}
     </div>
     <div class="mosaic" aria-hidden="true">
       <div class="poster p1"><video muted loop playsinline autoplay preload="auto" poster="portfolio/media/work/ishq.jpg"><source src="portfolio/media/work/ishq.mp4" type="video/mp4"></video><span class="tag">Ishq · brand film</span></div>
-      <div class="poster p2"><img src="portfolio/media/ads/ng-w01.jpg" alt="" loading="lazy"><span class="tag">Nakoda Gold</span></div>
+      <div class="poster p2"><img src="portfolio/media/ads/ng-w01.jpg" alt="" decoding="async"><span class="tag">Nakoda Gold</span></div>
       <div class="poster p3"><video muted loop playsinline autoplay preload="metadata" poster="portfolio/media/work/pets.jpg"><source src="portfolio/media/work/pets.mp4" type="video/mp4"></video><span class="tag">Pet shop site</span></div>
     </div>
   </div>
@@ -341,7 +341,7 @@ html:has(dialog[open]){overflow:hidden}
       <p class="lede">Ishq is a 93-second brand film for Nakoda Silver. Written, directed and cut in the studio, with Mia, our own AI model, as its face. Every piece she wears is the real 92.5 silver.</p>
     </div>
     <div class="frame rv" id="playFilm" role="button" tabindex="0" aria-label="Play Ishq, the full film">
-      <video muted loop playsinline autoplay preload="metadata" poster="portfolio/media/work/ishq.jpg"><source src="portfolio/media/work/ishq.mp4" type="video/mp4"></video>
+      <video muted loop playsinline preload="none" poster="portfolio/media/work/ishq.jpg"><source src="portfolio/media/work/ishq.mp4" type="video/mp4"></video>
       <div class="play"><span><i></i>Watch the film · 1:33</span></div>
     </div>
     <div class="cap rv"><div><b>Ishq</b> · Nakoda Silver · 2026</div><div>Made entirely in the studio: concept, storyboard, every shot, edit and grade.</div></div>
@@ -610,7 +610,12 @@ html:has(dialog[open]){overflow:hidden}
   }
 
   // ---- hero and showreel loops: play once they have data, never fight the network
-  $$('.hero video, .film video').forEach(v => { v.play().catch(() => {}); v.addEventListener('canplay', () => v.play().catch(() => {}), { once: true }); });
+  // only while they are on screen, so phones are not decoding three clips the whole way down the page
+  const loops = $$('.hero video, .film video');
+  if ('IntersectionObserver' in window) {
+    const lo = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting) { v.play().catch(() => {}); } else if (!v.paused) v.pause(); }), { rootMargin: '400px 0px' });
+    loops.forEach(v => { lo.observe(v); v.addEventListener('canplay', () => { const r = v.getBoundingClientRect(); if (r.bottom > -400 && r.top < innerHeight + 400) v.play().catch(() => {}); }, { once: true }); });
+  } else loops.forEach(v => { v.play().catch(() => {}); v.addEventListener('canplay', () => v.play().catch(() => {}), { once: true }); });
 
   // ---- the full film
   const lb = $('#lb'), lbV = $('#lbV');
