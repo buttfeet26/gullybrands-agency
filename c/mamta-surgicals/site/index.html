@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mamta Surgicals · Ulhasnagar's oldest surgical shop</title>
+<meta name="description" content="Hospital beds, wheelchairs, walkers, commodes, BP monitors, oximeters and hearing aids. Buy or rent. Shop 602, Baba Dholuram Darbar Road, Ulhasnagar 1. Since 1984.">
+<meta property="og:title" content="Mamta Surgicals · Since 1984, Ulhasnagar">
+<meta property="og:description" content="Everything from a syringe to a hospital bed. Buy or rent. Ulhasnagar 1.">
+<meta property="og:image" content="img/care.jpg">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,700;0,800;0,900;1,700;1,800;1,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Mamta Surgicals brand: royal blue MS monogram on white */
+  --teal:#0036D4; --teal-deep:#021A6B; --mint:#E6ECFF; --bone:#F5F7FC; --paper:#FFFFFF;
+  --ink:#0B1030; --mute:#55608A; --saffron:#0101EF; --line:rgba(0,54,212,.16);
+  --serif:"Archivo",system-ui,sans-serif; --sans:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto}
+body{font-family:var(--sans);background:var(--bone);color:var(--ink);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:800;letter-spacing:-.035em;line-height:.98}
+em{font-style:italic;font-weight:900}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+@media(max-width:640px){.wrap{width:calc(100% - 32px)}}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--teal);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:15px;border:1.5px solid var(--teal);color:var(--teal);transition:transform .25s,background .25s,color .25s;will-change:transform}
+.btn:hover{transform:translateY(-2px)}
+.btn.fill{background:var(--teal);color:#fff}
+.btn.wa{background:#25D366;border-color:#25D366;color:#fff}
+.btn svg{width:18px;height:18px}
+
+/* loader */
+#loader{position:fixed;inset:0;background:var(--teal);z-index:100;display:flex;align-items:center;justify-content:center;color:var(--bone)}
+#loader{flex-direction:column;gap:18px}
+#loader .lg{width:clamp(72px,12vw,120px);transform:scale(0)}
+#loader .l{font-family:var(--serif);font-weight:900;font-style:italic;font-size:clamp(40px,8vw,96px);display:flex;overflow:hidden;letter-spacing:-.03em}
+#loader .l span{display:inline-block;transform:translateY(110%)}
+#loader small{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);letter-spacing:.3em;font-size:11px;text-transform:uppercase;opacity:.7}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 0;transition:background .3s,backdrop-filter .3s}
+nav.solid{background:rgba(246,242,234,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:900;font-style:italic;font-size:21px;letter-spacing:-.02em;color:var(--teal);text-transform:uppercase}
+.logo img{width:38px;height:38px;border-radius:50%;background:#fff}
+nav:not(.solid) .logo{color:#fff}
+nav ul{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:600}
+nav ul a{position:relative}
+nav ul a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--teal);transition:width .3s}
+nav ul a:hover::after{width:100%}
+@media(max-width:860px){nav ul{display:none}}
+@media(max-width:640px){.logo{font-size:15px;white-space:nowrap}.logo img{width:32px;height:32px}nav .btn{padding:9px 13px;font-size:12px}}
+nav .btn{padding:10px 16px;font-size:13px}
+
+/* hero */
+.hero{min-height:100svh;position:relative;display:grid;align-items:end;padding:120px 0 40px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,26,107,.35),rgba(2,26,107,.15) 40%,rgba(2,26,107,.9))}
+.hero .wrap{position:relative;z-index:1;color:var(--bone)}
+.hero .eyebrow{color:#fff}
+.hero .eyebrow::before{background:#fff}
+.hero h1{font-size:clamp(46px,8.4vw,124px);margin:18px 0 22px;max-width:14ch}
+.hero h1 em{font-style:italic;color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:.08em;text-decoration-thickness:.04em}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
+.hero h1 .w span{display:inline-block;transform:translateY(110%)}
+.hero p{max-width:46ch;font-size:clamp(16px,1.6vw,19px);opacity:.92}
+.hero .row{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;align-items:center}
+.hero .btn{border-color:#fff;color:#fff}
+.hero .btn.wa{border-color:#25D366}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chip{font-size:12px;font-weight:700;letter-spacing:.04em;padding:8px 14px;border-radius:999px;border:1px solid rgba(246,242,234,.4);backdrop-filter:blur(6px);background:rgba(246,242,234,.08)}
+.chip b{color:#fff;background:var(--saffron);padding:1px 6px;border-radius:4px}
+.scrollcue{position:absolute;right:28px;bottom:40px;z-index:2;color:var(--bone);font-size:11px;letter-spacing:.3em;text-transform:uppercase;writing-mode:vertical-rl;opacity:.7}
+@media(max-width:640px){.scrollcue{display:none}}
+
+/* marquee */
+.marq{background:var(--teal);color:var(--bone);overflow:hidden;padding:16px 0;border-top:1px solid rgba(255,255,255,.08)}
+.marq .track{display:flex;gap:48px;white-space:nowrap;font-family:var(--serif);font-size:clamp(20px,2.6vw,32px);will-change:transform}
+.marq .track span{display:flex;align-items:center;gap:48px}
+.marq .track i{font-style:normal;color:#8FA6FF}
+
+/* sections */
+section{padding:clamp(80px,10vw,140px) 0}
+.sec-head{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end;margin-bottom:56px}
+.sec-head h2{font-size:clamp(38px,5.6vw,76px);margin-top:16px}
+.sec-head h2 em{font-style:italic;color:var(--teal)}
+.sec-head p{color:var(--mute);font-size:17px;max-width:44ch}
+@media(max-width:860px){.sec-head{grid-template-columns:1fr;gap:16px}}
+
+/* rent: pinned horizontal */
+.rent{background:var(--paper);padding-bottom:0}
+.rent .pin{height:100svh;display:flex;align-items:center;overflow:hidden}
+.rent .rail{display:flex;gap:24px;padding-left:max(20px,(100vw - 1200px)/2);padding-right:20vw;will-change:transform}
+.rcard{flex:0 0 min(78vw,420px);background:var(--bone);border:1px solid var(--line);border-radius:28px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.rcard .ph{aspect-ratio:4/5;overflow:hidden;background:var(--mint)}
+.rcard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.rcard:hover .ph img{transform:scale(1.06)}
+.rcard .tx{padding:22px 24px 26px}
+.rcard h3{font-size:30px;margin-bottom:6px}
+.rcard p{color:var(--mute);font-size:14.5px}
+.rcard .tag{display:inline-block;margin-top:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--teal);background:var(--mint);padding:6px 10px;border-radius:6px}
+.rcard.intro{background:var(--teal);color:var(--bone);border:0;padding:36px;display:flex;flex-direction:column;justify-content:space-between}
+.rcard.intro h3{font-size:clamp(38px,4vw,56px);color:var(--bone)}
+.rcard.intro h3 em{color:#8FA6FF;font-style:italic}
+.rcard.intro p{color:rgba(246,242,234,.8);font-size:16px}
+.rcard.intro .n{font-family:var(--serif);font-size:120px;line-height:.8;color:#fff;opacity:.18}
+.rent .steps{padding:clamp(60px,8vw,100px) 0;border-top:1px solid var(--line)}
+.steps .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative}
+.steps .line{position:absolute;left:0;right:0;top:34px;height:1px;background:var(--line)}
+.steps .line i{display:block;height:100%;width:0;background:var(--teal)}
+.step{position:relative;padding-top:60px}
+.step .n{position:absolute;top:0;left:0;width:68px;height:68px;border-radius:50%;background:var(--bone);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--serif);font-size:28px;color:var(--teal)}
+.step h3{font-size:28px;margin-bottom:8px}
+.step p{color:var(--mute);font-size:15px}
+@media(max-width:760px){.steps .grid{grid-template-columns:1fr;gap:36px}.steps .line{display:none}}
+
+/* products grid */
+.products{background:var(--bone)}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pcard{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--mint);cursor:pointer}
+.pcard img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.pcard:hover img{transform:scale(1.07)}
+.pcard .lab{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(0deg,rgba(2,26,107,.88),transparent);color:var(--bone)}
+.pcard .lab h3{font-size:26px}
+.pcard .lab small{font-size:12px;opacity:.85}
+.pcard.big{grid-column:span 2}
+.pcard.text{background:var(--teal);color:var(--bone);padding:28px;display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:auto}
+.pcard.text h3{font-size:34px}
+.pcard.text p{opacity:.8;font-size:14.5px}
+.pcard.text ul{list-style:none;columns:2;gap:16px;font-size:13.5px;font-weight:600;margin-top:16px}
+.pcard.text li{padding:4px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+@media(max-width:960px){.pgrid{grid-template-columns:repeat(2,1fr)}.pcard.big{grid-column:span 2}}
+@media(max-width:520px){.pcard.text ul{columns:1}}
+
+/* story */
+.story{background:var(--teal-deep);color:var(--bone);position:relative;overflow:hidden}
+.story .eyebrow{color:#8FA6FF}
+.story .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.story h2{font-size:clamp(40px,5.6vw,80px);margin:16px 0 22px}
+.story h2 em{font-style:italic;color:#8FA6FF}
+.story p{opacity:.85;font-size:17px;max-width:48ch;margin-bottom:16px}
+.story .ph{border-radius:28px;overflow:hidden;aspect-ratio:4/5;clip-path:inset(0 0 100% 0 round 28px)}
+.story .ph img{width:100%;height:120%;object-fit:cover;margin-top:-10%}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;border-top:1px solid rgba(255,255,255,.14);padding-top:28px}
+.stat b{display:block;font-family:var(--serif);font-size:clamp(44px,5vw,68px);color:#fff;line-height:1}
+.stat span{font-size:13px;opacity:.75;letter-spacing:.04em}
+.yr{position:absolute;right:-2vw;bottom:-4vw;font-family:var(--serif);font-size:30vw;line-height:1;color:rgba(246,242,234,.04);pointer-events:none}
+@media(max-width:860px){.story .grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}
+
+/* reviews */
+.reviews{background:var(--paper)}
+.rv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.q{background:var(--bone);border:1px solid var(--line);border-radius:24px;padding:28px;position:relative}
+.q .stars{color:var(--teal);letter-spacing:2px;font-size:14px;margin-bottom:14px}
+.q p{font-family:var(--serif);font-size:24px;line-height:1.25}
+.q small{display:block;margin-top:18px;color:var(--mute);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+.q.g{background:var(--teal);color:var(--bone);border:0}
+.q.g small{color:rgba(246,242,234,.7)}
+.q.g b{font-family:var(--serif);font-size:72px;line-height:1;display:block}
+@media(max-width:860px){.rv{grid-template-columns:1fr}}
+
+/* visit */
+.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+.visit .card{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:22px}
+.visit h2{font-size:clamp(38px,5vw,64px)}
+.visit h2 em{font-style:italic;color:var(--teal)}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:6px 16px;font-size:15px}
+.kv dt{color:var(--mute);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
+.kv dd{font-weight:600}
+.visit iframe{width:100%;height:100%;min-height:420px;border:0;border-radius:28px;filter:saturate(.85)}
+@media(max-width:860px){.visit .grid{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--teal-deep);color:var(--bone);padding:60px 0 40px}
+footer .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:30px;margin-bottom:24px}
+footer .logo{color:#fff}
+footer p{opacity:.7;font-size:14px;max-width:40ch}
+footer ul{list-style:none;display:flex;gap:22px;font-size:13px;font-weight:600;flex-wrap:wrap}
+footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;opacity:.6}
+
+/* sticky WA */
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.25);transform:scale(0)}
+.fab svg{width:28px;height:28px}
+
+/* reveal helpers */
+.rv-up{opacity:0;transform:translateY(40px)}
+.lines .ln{display:block;overflow:hidden}
+.lines .ln span{display:block;transform:translateY(110%)}
+</style>
+</head>
+<body>
+
+<div id="loader"><img src="img/logo.png" alt="" class="lg"><div class="l"><span>M</span><span>A</span><span>M</span><span>T</span><span>A</span></div><small>Surgicals · Ulhasnagar · Since 1984</small></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#"><img src="img/logo.png" alt="MS">Mamta Surgicals</a>
+    <ul>
+      <li><a href="#rent">Rent</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#story">Since 1984</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="btn wa" href="https://wa.me/919420299555?text=Hi%20Mamta%20Surgicals%2C%20I%20need%20" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="bg"><img src="img/hero.jpg" alt="Inside Mamta Surgicals, Ulhasnagar"></div>
+  <div class="wrap">
+    <div class="eyebrow">Ulhasnagar's oldest surgical shop</div>
+    <h1 id="h1"></h1>
+    <p>Hospital beds, wheelchairs, walkers, commodes, monitors and hearing aids. Buy it or rent it. Someone who knows the product will set it up for you.</p>
+    <div class="row">
+      <a class="btn wa" href="https://wa.me/919420299555?text=Hi%20Mamta%20Surgicals%2C%20I%20need%20a%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6-.1 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Message on WhatsApp</a>
+      <a class="btn" href="tel:+919420299555">Call 94202 99555</a>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>★ 4.5</b> on Google</span>
+      <span class="chip">Since <b>1984</b></span>
+      <span class="chip">Buy <b>or rent</b></span>
+      <span class="chip">Mon–Sat <b>11–9:30</b></span>
+    </div>
+  </div>
+  <div class="scrollcue">scroll</div>
+</header>
+
+<div class="marq"><div class="track" id="marq"></div></div>
+
+<section class="rent" id="rent">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Rent, don't buy</div><h2>Recovery at home,<br><em>without buying a hospital.</em></h2></div>
+      <p>Most families need a bed or a wheelchair for a few weeks, not forever. Rent it from us, we deliver and set it up in Ulhasnagar, Ambernath and Kalyan, and collect it when you're done.</p>
+    </div>
+  </div>
+  <div class="pin">
+    <div class="rail" id="rail">
+      <div class="rcard intro"><div><h3>On rent,<br><em>delivered</em><br>to your door.</h3><p style="margin-top:14px">Same-day in most of Ulhasnagar. Message us a photo of the prescription and we'll tell you what you actually need.</p></div><div class="n">01</div></div>
+      <div class="rcard"><div class="ph"><img src="img/bed.jpg" alt="Hospital bed set up in a living room"></div><div class="tx"><h3>Hospital beds</h3><p>Manual and motorised, with side rails and mattress. Fits through a normal door.</p><span class="tag">Rent · Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img src="img/wheelchair.jpg" alt="Folding wheelchair"></div><div class="tx"><h3>Wheelchairs</h3><p>Folding, lightweight and commode-type. We check the width for your home before sending.</p><span class="tag">Rent · Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img src="img/commode.jpg" alt="Commode chair"></div><div class="tx"><h3>Commode chairs</h3><p>Steady, padded, easy to clean. The one product every family thanks us for later.</p><span class="tag">Rent · Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img src="img/suction.jpg" alt="Suction machine and nebuliser"></div><div class="tx"><h3>Suction &amp; nebulisers</h3><p>Portable suction pumps and nebulisers for home care. We show you how to use them.</p><span class="tag">Rent · Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img src="img/walker.jpg" alt="Adjustable walker"></div><div class="tx"><h3>Walkers &amp; supports</h3><p>Adjustable walkers, crutches, knee and back supports, sized in the shop.</p><span class="tag">Buy</span></div></div>
+    </div>
+  </div>
+  <div class="steps"><div class="wrap">
+    <div class="grid"><div class="line"><i id="stepline"></i></div>
+      <div class="step"><div class="n">1</div><h3>Message us</h3><p>Send the prescription or just tell us what happened. We reply with what you need and what you don't.</p></div>
+      <div class="step"><div class="n">2</div><h3>We deliver &amp; set up</h3><p>Our person brings it home, assembles it and shows the family how to use it. No YouTube needed.</p></div>
+      <div class="step"><div class="n">3</div><h3>We collect</h3><p>When recovery is done, one message and we pick it up. Refundable deposit, no paperwork drama.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<section class="products" id="shop">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">In the shop</div><h2>From a syringe<br>to a <em>hospital bed.</em></h2></div>
+      <p>Forty years of knowing which brand lasts and which one comes back in a month. Ask, and you'll get an honest answer, not the most expensive box.</p>
+    </div>
+    <div class="pgrid">
+      <div class="pcard big"><img src="img/demo.jpg" alt="Demonstrating a BP monitor at the counter"><div class="lab"><h3>We demo before you buy</h3><small>Every monitor, every machine, on the counter</small></div></div>
+      <div class="pcard"><img src="img/bp.jpg" alt="Digital BP monitor"><div class="lab"><h3>BP monitors</h3><small>Upper-arm &amp; wrist</small></div></div>
+      <div class="pcard"><img src="img/oximeter.jpg" alt="Pulse oximeter"><div class="lab"><h3>Oximeters</h3><small>Fingertip &amp; paediatric</small></div></div>
+      <div class="pcard"><img src="img/hearing.jpg" alt="Hearing aid"><div class="lab"><h3>Hearing aids</h3><small>Fitted &amp; tuned in-store</small></div></div>
+      <div class="pcard"><img src="img/walker.jpg" alt="Walker"><div class="lab"><h3>Ortho supports</h3><small>Belts, braces, walkers</small></div></div>
+      <div class="pcard text big"><div><h3>And the everyday things</h3><p>The stuff clinics, nurses and families come to us for every week.</p></div>
+        <ul><li>Adult diapers &amp; underpads</li><li>Syringes &amp; needles</li><li>Stethoscopes</li><li>Thermometers</li><li>Glucometers &amp; strips</li><li>Hot-water bags &amp; ice packs</li><li>Cervical collars</li><li>Air &amp; water mattresses</li><li>Dental &amp; surgical instruments</li><li>Hospital furniture</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="yr">1984</div>
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Since 1984</div>
+      <h2 class="lines"><span class="ln"><span>The first surgical</span></span><span class="ln"><span>shop in Ulhasnagar.</span></span><span class="ln"><span><em>Still here.</em></span></span></h2>
+      <p>Mamta Surgicals opened opposite the Shiv Mandir on Baba Dholuram Darbar Road when there was nowhere else in town to buy a wheelchair. Two generations later, the counter is the same, the range is ten times bigger, and most customers were sent by someone we helped before.</p>
+      <p>We don't sell what you don't need. If a rental makes more sense than buying, we'll say so.</p>
+      <div class="stats">
+        <div class="stat"><b data-count="42">0</b><span>years on the same street</span></div>
+        <div class="stat"><b data-count="4.5" data-dec="1">0</b><span>★ Google rating</span></div>
+        <div class="stat"><b data-count="1000" data-suffix="+">0</b><span>products in stock</span></div>
+      </div>
+    </div>
+    <div class="ph"><img src="img/care.jpg" alt="Family at home with a rented hospital bed"></div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">What Ulhasnagar says</div><h2>In their <em>own words.</em></h2></div>
+      <p>Real reviews, left on Google by people who walked in off the street.</p>
+    </div>
+    <div class="rv">
+      <div class="q g"><b>4.5</b><small>★ on Google · Justdial 4.4 · Verified business</small></div>
+      <div class="q"><div class="stars">★★★★★</div><p>"Value for money. Every surgical product genuine, at a reasonable price."</p><small>Google review</small></div>
+      <div class="q"><div class="stars">★★★★★</div><p>"First time at this shop and satisfied with the products and service. The owner was very polite and guided us properly."</p><small>Google review</small></div>
+      <div class="q"><div class="stars">★★★★★</div><p>"Full variety at a reasonable rate, with a demonstration of the tech products."</p><small>Google review</small></div>
+      <div class="q"><div class="stars">★★★★★</div><p>"Everything from spirometers to wheelchairs, to forceps and dental instruments. The owner was very polite."</p><small>Google review</small></div>
+      <div class="q"><div class="stars">★★★★★</div><p>"Best shop for your healthcare requirements. Very cooperative and helpful. 100% will recommend."</p><small>Google review</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap grid">
+    <div class="card">
+      <div class="eyebrow">Visit</div>
+      <h2>Opposite Shiv Mandir,<br><em>next to Satyam Medical.</em></h2>
+      <dl class="kv">
+        <dt>Address</dt><dd>Shop 602, Baba Dholuram Darbar Road, near Fish Market, Ulhasnagar 1, 421002</dd>
+        <dt>Hours</dt><dd>Mon–Sat 11:00 am – 9:30 pm · Sunday closed</dd>
+        <dt>Phone</dt><dd><a href="tel:+919420299555">+91 94202 99555</a></dd>
+        <dt>Pay</dt><dd>UPI · Cards · Cash</dd>
+      </dl>
+      <div class="row" style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn wa" href="https://wa.me/919420299555" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" href="https://maps.google.com/maps?cid=400186720367743956" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+    </div>
+    <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=19.238356,73.165146(Mamta+Surgicals)&z=17&output=embed" title="Map to Mamta Surgicals"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div><a class="logo" href="#"><img src="img/logo.png" alt="MS">Mamta Surgicals</a><p style="margin-top:12px">Ulhasnagar's oldest surgical and patient-care shop. Buy or rent. Delivery in Ulhasnagar, Ambernath and Kalyan.</p></div>
+      <ul><li><a href="#rent">Rent</a></li><li><a href="#shop">Shop</a></li><li><a href="#story">Story</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#visit">Visit</a></li><li><a href="https://www.instagram.com/mamtasurgical/" target="_blank" rel="noopener">Instagram</a></li></ul>
+    </div>
+    <div class="bot"><span>© Mamta Surgicals, Ulhasnagar · Since 1984</span><span>GSTIN 27AFTPC4265R1ZM</span></div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/919420299555" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6-.1 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* smooth scroll */
+let lenis;
+if(!reduce){
+  lenis = new Lenis({lerp:.1, smoothWheel:true});
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){e.preventDefault();lenis.scrollTo(id,{offset:-70});}}));
+}
+
+/* hero headline words */
+const H = 'Ulhasnagar’s oldest surgical shop. Still the most <em>trusted.</em>';
+document.getElementById('h1').innerHTML = H.split(' ').map(w=>`<span class="w"><span>${w}</span></span>`).join(' ');
+
+/* marquee */
+const items = ['Hospital beds','Wheelchairs','Walkers','Commode chairs','BP monitors','Oximeters','Hearing aids','Nebulisers','Adult diapers','Ortho supports','On rent','Home delivery'];
+const marq = document.getElementById('marq');
+const seg = items.map(i=>`${i}<i>✦</i>`).join('');
+marq.innerHTML = `<span>${seg}</span><span>${seg}</span>`;
+gsap.to(marq,{xPercent:-50,duration:28,ease:'none',repeat:-1});
+
+/* loader -> hero */
+const tl = gsap.timeline();
+tl.to('#loader .lg',{scale:1,duration:.7,ease:'back.out(1.6)'}).to('#loader .l span',{y:0,duration:.9,stagger:.06,ease:'power4.out'},'-=.3')
+  .to('#loader',{yPercent:-100,duration:.9,ease:'power4.inOut',delay:.3})
+  .from('.hero .bg img',{scale:1.3,duration:1.6,ease:'power3.out'},'-=.9')
+  .to('#h1 .w span',{y:0,duration:1,stagger:.05,ease:'power4.out'},'-=1.2')
+  .from('.hero p, .hero .row, .hero .chips',{y:30,opacity:0,duration:.8,stagger:.12,ease:'power3.out'},'-=.6')
+  .to('.fab',{scale:1,duration:.5,ease:'back.out(2)'},'-=.3');
+
+/* hero parallax */
+gsap.to('.hero .bg img',{yPercent:18,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+/* nav */
+ScrollTrigger.create({start:'top -60',onUpdate:s=>document.querySelector('nav').classList.toggle('solid',s.scroll()>60)});
+
+/* generic reveals */
+gsap.utils.toArray('.sec-head, .q, .step, .visit .card, .visit iframe').forEach(el=>{
+  gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});
+});
+gsap.utils.toArray('.pcard').forEach((el,i)=>{
+  gsap.from(el,{y:60,opacity:0,duration:.9,delay:(i%4)*.08,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}});
+});
+
+/* horizontal rail */
+const rail = document.getElementById('rail');
+const mm = gsap.matchMedia();
+mm.add('(min-width: 761px)',()=>{
+  const dist = ()=> rail.scrollWidth - innerWidth;
+  gsap.to(rail,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'.rent .pin',start:'top top',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true,anticipatePin:1}});
+});
+mm.add('(max-width: 760px)',()=>{
+  // on phones the rail becomes a native swipe strip
+  rail.style.overflowX='auto'; rail.style.paddingLeft='16px'; rail.style.paddingRight='16px';
+  document.querySelector('.rent .pin').style.height='auto';
+});
+
+/* steps line */
+gsap.to('#stepline',{width:'100%',ease:'none',scrollTrigger:{trigger:'.steps',start:'top 70%',end:'bottom 70%',scrub:true}});
+
+/* story */
+gsap.to('.story .ph',{clipPath:'inset(0 0 0% 0 round 28px)',duration:1.4,ease:'power4.inOut',scrollTrigger:{trigger:'.story',start:'top 70%'}});
+gsap.to('.story .ph img',{yPercent:8,ease:'none',scrollTrigger:{trigger:'.story',start:'top bottom',end:'bottom top',scrub:true}});
+gsap.to('.story .lines .ln span',{y:0,duration:1,stagger:.12,ease:'power4.out',scrollTrigger:{trigger:'.story',start:'top 70%'}});
+gsap.from('.story p, .story .stats',{y:30,opacity:0,duration:.9,stagger:.15,ease:'power3.out',scrollTrigger:{trigger:'.story',start:'top 60%'}});
+gsap.to('.yr',{xPercent:-10,ease:'none',scrollTrigger:{trigger:'.story',start:'top bottom',end:'bottom top',scrub:true}});
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const end=parseFloat(el.dataset.count), dec=+(el.dataset.dec||0), suf=el.dataset.suffix||'';
+  const o={v:0};
+  gsap.to(o,{v:end,duration:2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'},onUpdate:()=>el.textContent=o.v.toFixed(dec)+suf});
+});
+
+/* cursor tilt on product cards */
+if(matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.pcard').forEach(c=>{
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;gsap.to(c,{rotateY:x*8,rotateX:-y*8,transformPerspective:800,duration:.5});});
+    c.addEventListener('mouseleave',()=>gsap.to(c,{rotateX:0,rotateY:0,duration:.6}));
+  });
+}
+addEventListener('load',()=>ScrollTrigger.refresh());
+</script>
+</body>
+</html>
