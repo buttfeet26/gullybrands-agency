@@ -8,14 +8,15 @@
 <link rel="icon" type="image/png" href="img/logo.webp">
 <link rel="preload" as="image" href="img/shop-night-wide.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,900&family=Archivo:ital,wght@0,700;0,900;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,900;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:"Fraunces Billboard";src:url("fonts/Fraunces-72pt-SuperSoft-BlackItalic.ttf") format("truetype");font-weight:900;font-style:italic;font-display:swap}
 :root{
   /* Gully Brands */
   --yellow:#FFC72C; --yellow-deep:#E8AE15; --ink:#0A0A0A; --cream:#F4ECD8; --paper:#FBF6E9; --tint:#FFE38C;
   /* Mamta Surgical */
   --ms:#0036D4; --ms-bright:#0101EF; --ms-deep:#021A6B; --ms-ice:#E6ECFF;
-  --gb:"Fraunces",Georgia,serif; --ms-font:"Archivo",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
+  --gb:"Fraunces Billboard",Georgia,serif; --ms-font:"Archivo",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--body);background:var(--ink);color:var(--cream);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -27,8 +28,8 @@ a{color:inherit;text-decoration:none}
 .slide.cover{min-height:100svh;padding-top:110px}
 .num{font-family:var(--body);font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:800;color:var(--yellow);display:flex;gap:12px;align-items:center;margin-bottom:22px}
 .num::before{content:"";width:34px;height:2px;background:var(--yellow)}
-h1,h2{font-family:var(--gb);font-weight:300;line-height:.98;letter-spacing:-.02em}
-h1 em,h2 em{font-style:italic;font-weight:900;color:var(--yellow)}
+h1,h2{font-family:var(--gb);font-weight:900;font-style:italic;line-height:.96;letter-spacing:-.02em}
+h1 em,h2 em{font-style:inherit;font-weight:900;color:var(--yellow)}
 h2{font-size:clamp(38px,6vw,84px);margin-bottom:26px}
 .lead{font-size:clamp(17px,1.5vw,20px);max-width:58ch;opacity:.85}
 .grid{display:grid;gap:18px}
@@ -37,7 +38,7 @@ h2{font-size:clamp(38px,6vw,84px);margin-bottom:26px}
 @media(max-width:900px){.grid [style*="span 3"],.grid [style*="span 2"]{grid-column:span 2!important}}
 @media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}.grid [style*="span"]{grid-column:span 1!important}}
 .card{background:#141414;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:26px}
-.card h3{font-family:var(--gb);font-weight:600;font-size:26px;margin-bottom:8px;line-height:1.05}
+.card h3{font-family:var(--gb);font-weight:900;font-style:italic;font-size:24px;margin-bottom:8px;line-height:1.05;letter-spacing:-.01em}
 .card p{font-size:14.5px;opacity:.78}
 .card .big{font-family:var(--gb);font-weight:900;font-size:clamp(40px,5vw,64px);line-height:1;color:var(--yellow);margin-bottom:8px}
 .card.ms{background:var(--ms);border-color:transparent;color:#fff}
@@ -57,7 +58,8 @@ h2{font-size:clamp(38px,6vw,84px);margin-bottom:26px}
 nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 0;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px}
 .brands{display:flex;align-items:center;gap:12px;font-weight:800;font-size:14px;white-space:nowrap}
-.brands .gbm{font-family:var(--gb);font-weight:900;font-style:italic;color:var(--yellow);font-size:18px}
+.brands .gbm{font-family:var(--gb);font-weight:900;font-style:italic;color:var(--yellow);font-size:18px;display:flex;align-items:center;gap:8px}
+.brands .gbm img{width:26px;height:26px;border-radius:7px}
 .brands .x{opacity:.4}
 .brands img{width:28px;height:28px;border-radius:50%}
 .brands .msm{font-family:var(--ms-font);font-weight:900;font-style:italic;color:#fff;text-transform:uppercase;letter-spacing:-.02em}
@@ -77,7 +79,8 @@ nav .steps a.on{opacity:1;color:var(--yellow)}
 .cover .wrap{position:relative;z-index:1}
 .cover .logos{display:flex;align-items:center;gap:18px;margin-bottom:40px}
 .cover .logos img{width:72px;height:72px;border-radius:50%;background:#fff}
-.cover .logos .gbm{font-family:var(--gb);font-weight:900;font-style:italic;font-size:30px;color:var(--yellow)}
+.cover .logos .gbm{font-family:var(--gb);font-weight:900;font-style:italic;font-size:30px;color:var(--yellow);display:flex;align-items:center;gap:12px}
+.cover .logos .gbm img{width:56px;height:56px;border-radius:12px;background:var(--yellow)}
 .cover .logos .x{font-family:var(--gb);font-size:30px;opacity:.5}
 .cover h1{font-size:clamp(46px,8vw,118px);max-width:12ch}
 .cover h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.08em .06em .22em;margin:-.08em -.06em -.22em}.cover h1 .w span{display:inline-block;transform:translateY(110%)}
@@ -129,7 +132,7 @@ td small{display:block;opacity:.6;font-size:12.5px;margin-top:4px}
 .tl .grid{position:relative}
 .tl .m{padding-top:60px;position:relative}
 .tl .m::before{content:attr(data-m);position:absolute;top:0;left:0;width:60px;height:60px;border-radius:50%;background:var(--ink);border:2px solid var(--yellow);color:var(--yellow);display:grid;place-items:center;font-family:var(--gb);font-weight:900;font-size:22px}
-.tl .m h3{font-family:var(--gb);font-weight:600;font-size:26px;margin-bottom:10px}
+.tl .m h3{font-family:var(--gb);font-weight:900;font-style:italic;font-size:26px;margin-bottom:10px}
 .tl .m ul{list-style:none;font-size:14.5px;opacity:.85}
 .tl .m li{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08)}
 .tl .m li::before{content:"→ ";color:var(--yellow)}
@@ -157,7 +160,7 @@ img.fx.fx.ld{opacity:1;filter:blur(0)}
 <body>
 <div class="prog" id="prog"></div>
 <nav><div class="wrap">
-  <div class="brands"><span class="gbm">Gully Brands</span><span class="x">×</span><img src="img/logo.webp" alt=""><span class="msm">Mamta Surgical</span></div>
+  <div class="brands"><span class="gbm"><img src="img/gb-logo.webp" alt="">Gully Brands</span><span class="x">×</span><img src="img/logo.webp" alt=""><span class="msm">Mamta Surgical</span></div>
   <div class="steps"><a href="#s1">01 Facts</a><a href="#s2">02 Rank</a><a href="#s3">03 Rivals</a><a href="#s4">04 Demo</a><a href="#s5">05 Plan</a><a href="#s6">06 Next</a></div>
   <a class="cta" href="#s4">See the demo</a>
 </div></nav>
@@ -165,7 +168,7 @@ img.fx.fx.ld{opacity:1;filter:blur(0)}
 <section class="slide cover" id="s0">
   <div class="bg"></div>
   <div class="wrap">
-    <div class="logos"><span class="gbm">Gully Brands</span><span class="x">×</span><img src="img/logo.webp" alt="Mamta Surgical"></div>
+    <div class="logos"><span class="gbm"><img src="img/gb-logo.webp" alt="">Gully Brands</span><span class="x">×</span><img src="img/logo.webp" alt="Mamta Surgical"></div>
     <div class="num" style="color:#fff">Proposal · October 2026</div>
     <h1 id="h1"></h1>
     <p class="lead" style="margin-top:24px">Forty-two years on Baba Dholuram Darbar Road. The best-rated surgical shop in Ulhasnagar. And a shop with three Google reviews outranks you on the search that brings in rentals. Here's how we fix that in ninety days.</p>

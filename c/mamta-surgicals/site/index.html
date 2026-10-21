@@ -9,7 +9,7 @@
 <meta property="og:description" content="Everything from a syringe to a hospital bed. Buy or rent. Ulhasnagar 1.">
 <meta property="og:image" content="img/care.webp">
 <link rel="icon" type="image/png" href="img/favicon.png">
-<link rel="preload" as="image" href="img/shop-night-wide.webp">
+<link rel="preload" as="image" href="img/hero.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,700;0,800;0,900;1,700;1,800;1,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -66,8 +66,9 @@ nav .btn{padding:10px 16px;font-size:13px}
 /* hero */
 .hero{min-height:100svh;position:relative;display:grid;align-items:end;padding:120px 0 40px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
-.hero .bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,26,107,.55),rgba(2,26,107,.35) 45%,rgba(2,26,107,.92))}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:70% 50%;transform:scale(1.15)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,26,107,.94) 0%,rgba(2,26,107,.82) 40%,rgba(2,26,107,.45) 100%),linear-gradient(180deg,rgba(2,26,107,.2),rgba(2,26,107,0) 40%,rgba(2,26,107,.85))}
+@media(max-width:640px){.hero .bg::after{background:linear-gradient(180deg,rgba(2,26,107,.7),rgba(2,26,107,.85) 60%,rgba(2,26,107,.96))}}
 .hero .wrap{position:relative;z-index:1;color:var(--bone)}
 .hero .eyebrow{color:var(--amber)}
 .hero .eyebrow::before{background:var(--amber)}
@@ -237,7 +238,7 @@ img.fx.fx.ld{opacity:1;filter:blur(0)}
 </nav>
 
 <header class="hero">
-  <div class="bg"><img src="img/shop-night-wide.webp" alt="Mamta Surgical shop front at night, Baba Dholuram Darbar Road, Ulhasnagar"></div>
+  <div class="bg"><img src="img/hero.webp" alt="Inside Mamta Surgical: wheelchairs, walkers and a hospital bed on the shop floor"></div>
   <div class="wrap">
     <div class="eyebrow">Ulhasnagar's oldest surgical shop</div>
     <h1 id="h1"></h1>
