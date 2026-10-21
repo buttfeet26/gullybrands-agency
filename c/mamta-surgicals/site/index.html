@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mamta Surgicals · Ulhasnagar's oldest surgical shop</title>
+<title>Mamta Surgical · Ulhasnagar's oldest surgical shop</title>
 <meta name="description" content="Hospital beds, wheelchairs, walkers, commodes, BP monitors, oximeters and hearing aids. Buy or rent. Shop 602, Baba Dholuram Darbar Road, Ulhasnagar 1. Since 1984.">
-<meta property="og:title" content="Mamta Surgicals · Since 1984, Ulhasnagar">
+<meta property="og:title" content="Mamta Surgical · Since 1984, Ulhasnagar">
 <meta property="og:description" content="Everything from a syringe to a hospital bed. Buy or rent. Ulhasnagar 1.">
-<meta property="og:image" content="img/care.jpg">
+<meta property="og:image" content="img/care.webp">
 <link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preload" as="image" href="img/shop-night-wide.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,700;0,800;0,900;1,700;1,800;1,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Mamta Surgicals brand: royal blue MS monogram on white */
+  /* Mamta Surgical brand: royal blue MS monogram on white */
   --teal:#0036D4; --teal-deep:#021A6B; --mint:#E6ECFF; --bone:#F5F7FC; --paper:#FFFFFF;
   --ink:#0B1030; --mute:#55608A; --saffron:#0101EF; --amber:#F7A823; --line:rgba(0,54,212,.16);
   --serif:"Archivo",system-ui,sans-serif; --sans:"Manrope",system-ui,sans-serif;
@@ -211,15 +212,19 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
 .rv-up{opacity:0;transform:translateY(40px)}
 .lines .ln{display:block;overflow:hidden;padding:.06em 0 .16em;margin:-.06em 0 -.16em}
 .lines .ln span{display:block;transform:translateY(110%)}
+
+/* image load: soft blur-in */
+img.fx.fx{opacity:0;filter:blur(12px);transition:opacity .9s ease,filter .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+img.fx.fx.ld{opacity:1;filter:blur(0)}
 </style>
 </head>
 <body>
 
-<div id="loader"><img src="img/logo.png" alt="" class="lg"><div class="l"><span>M</span><span>a</span><span>m</span><span>t</span><span>a</span><span class="sp"></span><span>S</span><span>u</span><span>r</span><span>g</span><span>i</span><span>c</span><span>a</span><span>l</span><span>s</span></div><small>Ulhasnagar · Since 1984</small></div>
+<div id="loader"><img src="img/logo.webp" alt="" class="lg"><div class="l"><span>M</span><span>a</span><span>m</span><span>t</span><span>a</span><span class="sp"></span><span>S</span><span>u</span><span>r</span><span>g</span><span>i</span><span>c</span><span>a</span><span>l</span><span>s</span></div><small>Ulhasnagar · Since 1984</small></div>
 
 <nav>
   <div class="wrap">
-    <a class="logo" href="#"><img src="img/logo.png" alt="MS">Mamta Surgicals</a>
+    <a class="logo" href="#"><img src="img/logo.webp" alt="MS">Mamta Surgical</a>
     <ul>
       <li><a href="#rent">Rent</a></li>
       <li><a href="#shop">Shop</a></li>
@@ -227,18 +232,18 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#visit">Visit</a></li>
     </ul>
-    <a class="btn wa" href="https://wa.me/919420299555?text=Hi%20Mamta%20Surgicals%2C%20I%20need%20" target="_blank" rel="noopener">WhatsApp us</a>
+    <a class="btn wa" href="https://wa.me/919420299555?text=Hi%20Mamta%20Surgical%2C%20I%20need%20" target="_blank" rel="noopener">WhatsApp us</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="bg"><img src="img/shop-night-wide.jpg" alt="Mamta Surgical shop front at night, Baba Dholuram Darbar Road, Ulhasnagar"></div>
+  <div class="bg"><img src="img/shop-night-wide.webp" alt="Mamta Surgical shop front at night, Baba Dholuram Darbar Road, Ulhasnagar"></div>
   <div class="wrap">
     <div class="eyebrow">Ulhasnagar's oldest surgical shop</div>
     <h1 id="h1"></h1>
     <p>Hospital beds, wheelchairs, walkers, commodes, monitors and hearing aids. Buy it or rent it. Someone who knows the product will set it up for you.</p>
     <div class="row">
-      <a class="btn wa" href="https://wa.me/919420299555?text=Hi%20Mamta%20Surgicals%2C%20I%20need%20a%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6-.1 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Message on WhatsApp</a>
+      <a class="btn wa" href="https://wa.me/919420299555?text=Hi%20Mamta%20Surgical%2C%20I%20need%20a%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6-.1 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Message on WhatsApp</a>
       <a class="btn" href="tel:+919420299555">Call 94202 99555</a>
     </div>
     <div class="chips">
@@ -263,11 +268,11 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
   <div class="pin">
     <div class="rail" id="rail">
       <div class="rcard intro"><div><h3>On rent,<br><em>delivered</em><br>to your door.</h3><p style="margin-top:14px">Same-day in most of Ulhasnagar. Message us a photo of the prescription and we'll tell you what you actually need.</p></div><div class="n">01</div></div>
-      <div class="rcard"><div class="ph"><img src="img/bed-real.jpg" alt="A Mamta Surgicals hospital bed set up in a customer's home in Ulhasnagar"></div><div class="tx"><h3>Hospital beds</h3><p>Manual and motorised, with side rails and mattress. This one is in a customer's living room in Ulhasnagar.</p><span class="tag">Rent · Buy</span></div></div>
-      <div class="rcard"><div class="ph"><img src="img/wheelchair.jpg" alt="Folding wheelchair"></div><div class="tx"><h3>Wheelchairs</h3><p>Folding, lightweight and commode-type. We check the width for your home before sending.</p><span class="tag">Rent · Buy</span></div></div>
-      <div class="rcard"><div class="ph"><img src="img/commode.jpg" alt="Commode chair"></div><div class="tx"><h3>Commode chairs</h3><p>Steady, padded, easy to clean. The one product every family thanks us for later.</p><span class="tag">Rent · Buy</span></div></div>
-      <div class="rcard"><div class="ph"><img src="img/suction.jpg" alt="Suction machine and nebuliser"></div><div class="tx"><h3>Suction &amp; nebulisers</h3><p>Portable suction pumps and nebulisers for home care. We show you how to use them.</p><span class="tag">Rent · Buy</span></div></div>
-      <div class="rcard"><div class="ph"><img src="img/walker.jpg" alt="Adjustable walker"></div><div class="tx"><h3>Walkers &amp; supports</h3><p>Adjustable walkers, crutches, knee and back supports, sized in the shop.</p><span class="tag">Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img class="fx" loading="lazy" decoding="async" src="img/bed-real.webp" alt="A Mamta Surgical hospital bed set up in a customer's home in Ulhasnagar"></div><div class="tx"><h3>Hospital beds</h3><p>Manual and motorised, with side rails and mattress. This one is in a customer's living room in Ulhasnagar.</p><span class="tag">Rent · Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img class="fx" loading="lazy" decoding="async" src="img/wheelchair.webp" alt="Folding wheelchair"></div><div class="tx"><h3>Wheelchairs</h3><p>Folding, lightweight and commode-type. We check the width for your home before sending.</p><span class="tag">Rent · Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img class="fx" loading="lazy" decoding="async" src="img/commode.webp" alt="Commode chair"></div><div class="tx"><h3>Commode chairs</h3><p>Steady, padded, easy to clean. The one product every family thanks us for later.</p><span class="tag">Rent · Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img class="fx" loading="lazy" decoding="async" src="img/suction.webp" alt="Suction machine and nebuliser"></div><div class="tx"><h3>Suction &amp; nebulisers</h3><p>Portable suction pumps and nebulisers for home care. We show you how to use them.</p><span class="tag">Rent · Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img class="fx" loading="lazy" decoding="async" src="img/walker.webp" alt="Adjustable walker"></div><div class="tx"><h3>Walkers &amp; supports</h3><p>Adjustable walkers, crutches, knee and back supports, sized in the shop.</p><span class="tag">Buy</span></div></div>
     </div>
   </div>
   <div class="steps"><div class="wrap">
@@ -286,11 +291,11 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
       <p>Forty years of knowing which brand lasts and which one comes back in a month. Ask, and you'll get an honest answer, not the most expensive box.</p>
     </div>
     <div class="pgrid">
-      <div class="pcard big"><img src="img/demo.jpg" alt="Demonstrating a BP monitor at the counter"><div class="lab"><h3>We demo before you buy</h3><small>Every monitor, every machine, on the counter</small></div></div>
-      <div class="pcard"><img src="img/bp.jpg" alt="Digital BP monitor"><div class="lab"><h3>BP monitors</h3><small>Upper-arm &amp; wrist</small></div></div>
-      <div class="pcard"><img src="img/oximeter.jpg" alt="Pulse oximeter"><div class="lab"><h3>Oximeters</h3><small>Fingertip &amp; paediatric</small></div></div>
-      <div class="pcard"><img src="img/hearing.jpg" alt="Hearing aid"><div class="lab"><h3>Hearing aids</h3><small>Fitted &amp; tuned in-store</small></div></div>
-      <div class="pcard"><img src="img/walker.jpg" alt="Walker"><div class="lab"><h3>Ortho supports</h3><small>Belts, braces, walkers</small></div></div>
+      <div class="pcard big"><img class="fx" loading="lazy" decoding="async" src="img/demo.webp" alt="Demonstrating a BP monitor at the counter"><div class="lab"><h3>We demo before you buy</h3><small>Every monitor, every machine, on the counter</small></div></div>
+      <div class="pcard"><img class="fx" loading="lazy" decoding="async" src="img/bp.webp" alt="Digital BP monitor"><div class="lab"><h3>BP monitors</h3><small>Upper-arm &amp; wrist</small></div></div>
+      <div class="pcard"><img class="fx" loading="lazy" decoding="async" src="img/oximeter.webp" alt="Pulse oximeter"><div class="lab"><h3>Oximeters</h3><small>Fingertip &amp; paediatric</small></div></div>
+      <div class="pcard"><img class="fx" loading="lazy" decoding="async" src="img/hearing.webp" alt="Hearing aid"><div class="lab"><h3>Hearing aids</h3><small>Fitted &amp; tuned in-store</small></div></div>
+      <div class="pcard"><img class="fx" loading="lazy" decoding="async" src="img/walker.webp" alt="Walker"><div class="lab"><h3>Ortho supports</h3><small>Belts, braces, walkers</small></div></div>
       <div class="pcard text big"><div><h3>And the everyday things</h3><p>The stuff clinics, nurses and families come to us for every week.</p></div>
         <ul><li>Adult diapers &amp; underpads</li><li>Syringes &amp; needles</li><li>Stethoscopes</li><li>Thermometers</li><li>Glucometers &amp; strips</li><li>Hot-water bags &amp; ice packs</li><li>Cervical collars</li><li>Air &amp; water mattresses</li><li>Dental &amp; surgical instruments</li><li>Hospital furniture</li></ul></div>
     </div>
@@ -303,7 +308,7 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
     <div>
       <div class="eyebrow">Since 1984</div>
       <h2 class="lines"><span class="ln"><span>The first surgical</span></span><span class="ln"><span>shop in Ulhasnagar.</span></span><span class="ln"><span><em>Still here.</em></span></span></h2>
-      <p>Mamta Surgicals opened opposite the Shiv Mandir on Baba Dholuram Darbar Road when there was nowhere else in town to buy a wheelchair. Two generations later, the counter is the same, the range is ten times bigger, and most customers were sent by someone we helped before.</p>
+      <p>Mamta Surgical opened opposite the Shiv Mandir on Baba Dholuram Darbar Road when there was nowhere else in town to buy a wheelchair. Two generations later, the counter is the same, the range is ten times bigger, and most customers were sent by someone we helped before.</p>
       <p>We don't sell what you don't need. If a rental makes more sense than buying, we'll say so.</p>
       <div class="stats">
         <div class="stat"><b data-count="42">0</b><span>years on the same street</span></div>
@@ -311,7 +316,7 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
         <div class="stat"><b data-count="1000" data-suffix="+">0</b><span>products in stock</span></div>
       </div>
     </div>
-    <div class="ph"><img src="img/shop-entrance.jpg" alt="The entrance of Mamta Surgical, opposite Shiv Mandir"></div>
+    <div class="ph"><img class="fx" loading="lazy" decoding="async" src="img/shop-entrance.webp" alt="The entrance of Mamta Surgical, opposite Shiv Mandir"></div>
   </div>
 </section>
 
@@ -336,10 +341,10 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
   <div class="wrap">
     <div class="sec-head"><div><div class="eyebrow">The shop</div><h2>Look for the <em>orange sign.</em></h2></div><p>Baba Dholuram Darbar Road, opposite Shiv Mandir, next to Satyam Medical. Open till 9:30 every night except Sunday.</p></div>
     <div class="strip">
-      <figure><img src="img/shop-night.jpg" alt="Mamta Surgical shop front at night"><figcaption>The shop at night</figcaption></figure>
-      <figure><img src="img/shop-day.jpg" alt="Mamta Surgical building by day"><figcaption>By day, from the road</figcaption></figure>
-      <figure><img src="img/shop-entrance.jpg" alt="Wheelchair at the entrance"><figcaption>Wheelchairs at the door</figcaption></figure>
-      <figure><img src="img/commode-real.jpg" alt="Folding commode stool"><figcaption>Folding commode stool</figcaption></figure>
+      <figure><img class="fx" loading="lazy" decoding="async" src="img/shop-night.webp" alt="Mamta Surgical shop front at night"><figcaption>The shop at night</figcaption></figure>
+      <figure><img class="fx" loading="lazy" decoding="async" src="img/shop-day.webp" alt="Mamta Surgical building by day"><figcaption>By day, from the road</figcaption></figure>
+      <figure><img class="fx" loading="lazy" decoding="async" src="img/shop-entrance.webp" alt="Wheelchair at the entrance"><figcaption>Wheelchairs at the door</figcaption></figure>
+      <figure><img class="fx" loading="lazy" decoding="async" src="img/commode-real.webp" alt="Folding commode stool"><figcaption>Folding commode stool</figcaption></figure>
     </div>
   </div>
 </section>
@@ -360,17 +365,17 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
         <a class="btn" href="https://maps.google.com/maps?cid=400186720367743956" target="_blank" rel="noopener">Open in Google Maps</a>
       </div>
     </div>
-    <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=19.238356,73.165146(Mamta+Surgicals)&z=17&output=embed" title="Map to Mamta Surgicals"></iframe>
+    <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=19.238356,73.165146(Mamta+Surgical)&z=17&output=embed" title="Map to Mamta Surgical"></iframe>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <div class="top">
-      <div><a class="logo" href="#"><img src="img/logo.png" alt="MS">Mamta Surgicals</a><p style="margin-top:12px">Ulhasnagar's oldest surgical and patient-care shop. Buy or rent. Delivery in Ulhasnagar, Ambernath and Kalyan.</p></div>
+      <div><a class="logo" href="#"><img src="img/logo.webp" alt="MS">Mamta Surgical</a><p style="margin-top:12px">Ulhasnagar's oldest surgical and patient-care shop. Buy or rent. Delivery in Ulhasnagar, Ambernath and Kalyan.</p></div>
       <ul><li><a href="#rent">Rent</a></li><li><a href="#shop">Shop</a></li><li><a href="#story">Story</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#visit">Visit</a></li><li><a href="https://www.instagram.com/mamtasurgical/" target="_blank" rel="noopener">Instagram</a></li></ul>
     </div>
-    <div class="bot"><span>© Mamta Surgicals, Ulhasnagar · Since 1984</span><span>GSTIN 27AFTPC4265R1ZM</span></div>
+    <div class="bot"><span>© Mamta Surgical, Ulhasnagar · Since 1984</span><span>GSTIN 27AFTPC4265R1ZM</span></div>
   </div>
 </footer>
 
@@ -464,6 +469,9 @@ if(matchMedia('(hover:hover)').matches){
   });
 }
 addEventListener('load',()=>ScrollTrigger.refresh());
+
+/* mark images as loaded for the blur-in */
+document.querySelectorAll('img.fx').forEach(i=>{const d=()=>i.classList.add('ld');if(i.complete&&i.naturalWidth)d();else{i.addEventListener('load',d,{once:true});i.addEventListener('error',d,{once:true});}});
 </script>
 </body>
 </html>
