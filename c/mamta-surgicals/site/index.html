@@ -40,17 +40,20 @@ em{font-style:italic;font-weight:900}
 #loader{position:fixed;inset:0;background:var(--teal);z-index:100;display:flex;align-items:center;justify-content:center;color:var(--bone)}
 #loader{flex-direction:column;gap:18px}
 #loader .lg{width:clamp(72px,12vw,120px);transform:scale(0)}
-#loader .l{font-family:var(--serif);font-weight:900;font-style:italic;font-size:clamp(40px,8vw,96px);display:flex;overflow:hidden;letter-spacing:-.03em}
+#loader .l{font-family:var(--serif);font-weight:900;font-style:italic;font-size:clamp(30px,6.4vw,88px);display:flex;overflow:hidden;letter-spacing:-.03em;white-space:nowrap;text-transform:uppercase}
 #loader .l span{display:inline-block;transform:translateY(110%)}
-#loader small{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);letter-spacing:.3em;font-size:11px;text-transform:uppercase;opacity:.7}
+#loader .l span.sp{width:.3em}
+#loader small{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);letter-spacing:.3em;font-size:11px;text-transform:uppercase;opacity:.7;white-space:nowrap}
 
 /* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 0;transition:background .3s,backdrop-filter .3s}
-nav.solid{background:rgba(246,242,234,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav.solid{background:rgba(245,247,252,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:900;font-style:italic;font-size:21px;letter-spacing:-.02em;color:var(--teal);text-transform:uppercase}
 .logo img{width:38px;height:38px;border-radius:50%;background:#fff}
 nav:not(.solid) .logo{color:#fff}
+nav:not(.solid) ul{color:#fff}
+nav:not(.solid) ul a::after{background:#fff}
 nav ul{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:600}
 nav ul a{position:relative}
 nav ul a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--teal);transition:width .3s}
@@ -131,13 +134,14 @@ section{padding:clamp(80px,10vw,140px) 0}
 .pcard .lab{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(0deg,rgba(2,26,107,.88),transparent);color:var(--bone)}
 .pcard .lab h3{font-size:26px}
 .pcard .lab small{font-size:12px;opacity:.85}
-.pcard.big{grid-column:span 2}
+.pcard.big{grid-column:span 2;aspect-ratio:auto;min-height:0}
+.pcard.big:not(.text) img{position:absolute;inset:0}
 .pcard.text{background:var(--teal);color:var(--bone);padding:28px;display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:auto}
 .pcard.text h3{font-size:34px}
 .pcard.text p{opacity:.8;font-size:14.5px}
 .pcard.text ul{list-style:none;columns:2;gap:16px;font-size:13.5px;font-weight:600;margin-top:16px}
 .pcard.text li{padding:4px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-@media(max-width:960px){.pgrid{grid-template-columns:repeat(2,1fr)}.pcard.big{grid-column:span 2}}
+@media(max-width:960px){.pgrid{grid-template-columns:repeat(2,1fr)}.pcard.big{grid-column:span 2;aspect-ratio:4/3}.pcard.text{aspect-ratio:auto}}
 @media(max-width:520px){.pcard.text ul{columns:1}}
 
 /* story */
@@ -153,7 +157,7 @@ section{padding:clamp(80px,10vw,140px) 0}
 .stat b{display:block;font-family:var(--serif);font-size:clamp(44px,5vw,68px);color:#fff;line-height:1}
 .stat span{font-size:13px;opacity:.75;letter-spacing:.04em}
 .yr{position:absolute;right:-2vw;bottom:-4vw;font-family:var(--serif);font-size:30vw;line-height:1;color:rgba(246,242,234,.04);pointer-events:none}
-@media(max-width:860px){.story .grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:860px){.story .grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr);gap:12px}.stat b{font-size:clamp(34px,9vw,44px)}.stat span{font-size:12px}}
 
 /* reviews */
 .reviews{background:var(--paper)}
@@ -177,7 +181,7 @@ section{padding:clamp(80px,10vw,140px) 0}
 .strip figure:nth-child(4) img{object-fit:contain;padding:10px}
 .strip figure:hover img{transform:scale(1.05)}
 .strip figcaption{position:absolute;left:12px;bottom:12px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--teal);padding:6px 10px;border-radius:999px}
-@media(max-width:860px){.strip{grid-template-columns:1fr 1fr}}
+@media(max-width:860px){.strip{grid-template-columns:1fr 1fr;align-items:start}.strip figure,.strip figure:nth-child(2),.strip figure:nth-child(4){aspect-ratio:3/4}}
 
 /* visit */
 .visit{background:var(--paper)}
@@ -211,7 +215,7 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
 </head>
 <body>
 
-<div id="loader"><img src="img/logo.png" alt="" class="lg"><div class="l"><span>M</span><span>A</span><span>M</span><span>T</span><span>A</span></div><small>Surgicals · Ulhasnagar · Since 1984</small></div>
+<div id="loader"><img src="img/logo.png" alt="" class="lg"><div class="l"><span>M</span><span>a</span><span>m</span><span>t</span><span>a</span><span class="sp"></span><span>S</span><span>u</span><span>r</span><span>g</span><span>i</span><span>c</span><span>a</span><span>l</span><span>s</span></div><small>Ulhasnagar · Since 1984</small></div>
 
 <nav>
   <div class="wrap">
@@ -402,7 +406,7 @@ gsap.to(marq,{xPercent:-50,duration:28,ease:'none',repeat:-1});
 
 /* loader -> hero */
 const tl = gsap.timeline();
-tl.to('#loader .lg',{scale:1,duration:.7,ease:'back.out(1.6)'}).to('#loader .l span',{y:0,duration:.9,stagger:.06,ease:'power4.out'},'-=.3')
+tl.to('#loader .lg',{scale:1,duration:.7,ease:'back.out(1.6)'}).to('#loader .l span',{y:0,duration:.9,stagger:.035,ease:'power4.out'},'-=.3')
   .to('#loader',{yPercent:-100,duration:.9,ease:'power4.inOut',delay:.3})
   .from('.hero .bg img',{scale:1.3,duration:1.6,ease:'power3.out'},'-=.9')
   .to('#h1 .w span',{y:0,duration:1,stagger:.05,ease:'power4.out'},'-=1.2')
@@ -432,7 +436,8 @@ mm.add('(min-width: 761px)',()=>{
 });
 mm.add('(max-width: 760px)',()=>{
   // on phones the rail becomes a native swipe strip
-  rail.style.overflowX='auto'; rail.style.paddingLeft='16px'; rail.style.paddingRight='16px';
+  rail.style.overflowX='auto'; rail.style.paddingLeft='16px'; rail.style.paddingRight='16px'; rail.style.scrollSnapType='x mandatory'; rail.style.paddingBottom='8px';
+  rail.querySelectorAll('.rcard').forEach(c=>c.style.scrollSnapAlign='start');
   document.querySelector('.rent .pin').style.height='auto';
 });
 
@@ -448,7 +453,7 @@ gsap.to('.yr',{xPercent:-10,ease:'none',scrollTrigger:{trigger:'.story',start:'t
 document.querySelectorAll('[data-count]').forEach(el=>{
   const end=parseFloat(el.dataset.count), dec=+(el.dataset.dec||0), suf=el.dataset.suffix||'';
   const o={v:0};
-  gsap.to(o,{v:end,duration:2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'},onUpdate:()=>el.textContent=o.v.toFixed(dec)+suf});
+  gsap.to(o,{v:end,duration:2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%'},onUpdate:()=>el.textContent=o.v.toFixed(dec)+suf});
 });
 
 /* cursor tilt on product cards */
