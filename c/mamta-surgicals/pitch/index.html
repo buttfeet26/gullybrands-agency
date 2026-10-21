@@ -48,6 +48,9 @@ h2{font-size:clamp(38px,6vw,84px);margin-bottom:26px}
 .ms .tag{background:rgba(255,255,255,.16);color:#fff}
 .y .tag{background:rgba(0,0,0,.1);color:var(--ink)}
 
+.card.photo{padding:0;overflow:hidden;position:relative;min-height:300px}
+.card.photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.card.photo .cap{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);font-size:14px;font-weight:600}
 /* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 0;background:rgba(10,10,10,.75);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px}
@@ -65,7 +68,7 @@ nav .steps a.on{opacity:1;color:var(--yellow)}
 
 /* cover */
 .cover{background:var(--ms-deep);overflow:hidden}
-.cover .bg{position:absolute;inset:0;opacity:.28;background:url(img/street.jpg) center/cover}
+.cover .bg{position:absolute;inset:0;opacity:.45;background:url(img/shop-night-wide.jpg) center/cover}
 .cover .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,26,107,.3),rgba(2,26,107,1))}
 .cover .wrap{position:relative;z-index:1}
 .cover .logos{display:flex;align-items:center;gap:18px;margin-bottom:40px}
@@ -171,8 +174,9 @@ td small{display:block;opacity:.6;font-size:12.5px;margin-top:4px}
       <div class="card ms"><span class="tag">Google Maps</span><div class="big">4.5★</div><h3>38 reviews. Not one in the last 16 months.</h3><p>No website link, no product list, no WhatsApp button, no reply to a single review. The listing is running on reputation alone.</p></div>
       <div class="card"><span class="tag">Instagram · Facebook</span><div class="big">364</div><h3>followers, 27 posts, following 1,364 accounts.</h3><p>Facebook has 217 likes. Neither has posted in a long time. Nobody searching "wheelchair Ulhasnagar" will land here.</p></div>
       <div class="card"><span class="tag">Website</span><div class="big">0</div><h3>No website. No WhatsApp catalogue. No rental page.</h3><p>Rentals, your highest-intent product, exist online only as a tag on Justdial.</p></div>
+      <div class="card photo"><img src="img/shop-night.jpg" alt="Mamta Surgical shop front"><div class="cap">The shop everyone in Ulhasnagar 1 knows. Google shows it to almost nobody.</div></div>
       <div class="card y"><span class="tag">Name &amp; address hygiene</span><div class="big">4 · 3 · 2</div><h3>Four phone numbers, three PIN codes, two Justdial listings.</h3><p>"Mamta Surgical" and "Mamta Surgicals". Sunday hours wrong on Mappls. Google penalises exactly this kind of mess.</p></div>
-      <div class="ig" style="grid-column:span 2">
+      <div class="ig">
         <div class="hd"><img src="img/logo.png" alt=""><div><b>mamtasurgical</b><small>Total Health Care Solutions · Shop No. 602, Nr Fish Market…</small></div></div>
         <div class="st"><span><b>27</b>posts</span><span><b>364</b>followers</span><span><b>1,364</b>following</span></div>
         <div class="ph"><i>no reels</i><i>no products</i><i>no rentals</i><i>no offers</i><i>no story</i><i>no link</i></div>
@@ -216,7 +220,7 @@ td small{display:block;opacity:.6;font-size:12.5px;margin-top:4px}
   <div class="wrap">
     <div class="num">04 · We already built it</div>
     <h2>Your website,<br><em>live right now.</em></h2>
-    <p class="lead">Built in your colours, with your MS mark. Rentals first, WhatsApp everywhere, the real Google reviews, and a map that opens in one tap. Open it on your phone.</p>
+    <p class="lead">Built in your colours, with your MS mark and your own shop photos. Rentals first, WhatsApp everywhere, the real Google reviews, and a map that opens in one tap. Open it on your phone.</p>
     <div class="mock">
       <div class="lap"><img src="img/demo-desk.jpg" alt="Mamta Surgicals demo website"></div>
       <div class="ph"><img src="img/demo-mob.jpg" alt="Mobile view"></div>

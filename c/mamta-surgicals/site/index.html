@@ -16,7 +16,7 @@
 :root{
   /* Mamta Surgicals brand: royal blue MS monogram on white */
   --teal:#0036D4; --teal-deep:#021A6B; --mint:#E6ECFF; --bone:#F5F7FC; --paper:#FFFFFF;
-  --ink:#0B1030; --mute:#55608A; --saffron:#0101EF; --line:rgba(0,54,212,.16);
+  --ink:#0B1030; --mute:#55608A; --saffron:#0101EF; --amber:#F7A823; --line:rgba(0,54,212,.16);
   --serif:"Archivo",system-ui,sans-serif; --sans:"Manrope",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -63,10 +63,10 @@ nav .btn{padding:10px 16px;font-size:13px}
 .hero{min-height:100svh;position:relative;display:grid;align-items:end;padding:120px 0 40px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,26,107,.35),rgba(2,26,107,.15) 40%,rgba(2,26,107,.9))}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,26,107,.55),rgba(2,26,107,.35) 45%,rgba(2,26,107,.92))}
 .hero .wrap{position:relative;z-index:1;color:var(--bone)}
-.hero .eyebrow{color:#fff}
-.hero .eyebrow::before{background:#fff}
+.hero .eyebrow{color:var(--amber)}
+.hero .eyebrow::before{background:var(--amber)}
 .hero h1{font-size:clamp(46px,8.4vw,124px);margin:18px 0 22px;max-width:14ch}
 .hero h1 em{font-style:italic;color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:.08em;text-decoration-thickness:.04em}
 .hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
@@ -159,7 +159,7 @@ section{padding:clamp(80px,10vw,140px) 0}
 .reviews{background:var(--paper)}
 .rv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .q{background:var(--bone);border:1px solid var(--line);border-radius:24px;padding:28px;position:relative}
-.q .stars{color:var(--teal);letter-spacing:2px;font-size:14px;margin-bottom:14px}
+.q .stars{color:var(--amber);letter-spacing:2px;font-size:14px;margin-bottom:14px}
 .q p{font-family:var(--serif);font-size:24px;line-height:1.25}
 .q small{display:block;margin-top:18px;color:var(--mute);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
 .q.g{background:var(--teal);color:var(--bone);border:0}
@@ -167,7 +167,20 @@ section{padding:clamp(80px,10vw,140px) 0}
 .q.g b{font-family:var(--serif);font-size:72px;line-height:1;display:block}
 @media(max-width:860px){.rv{grid-template-columns:1fr}}
 
+
+/* real shop strip */
+.shopstrip{background:var(--paper);padding-bottom:0}
+.strip{display:grid;grid-template-columns:1.1fr 1fr 1fr .9fr;gap:14px;align-items:end}
+.strip figure{margin:0;border-radius:20px;overflow:hidden;background:var(--mint);aspect-ratio:3/4;position:relative}
+.strip figure:nth-child(2){aspect-ratio:3/4.4}.strip figure:nth-child(4){aspect-ratio:3/3.4;background:#fff}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.strip figure:nth-child(4) img{object-fit:contain;padding:10px}
+.strip figure:hover img{transform:scale(1.05)}
+.strip figcaption{position:absolute;left:12px;bottom:12px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--teal);padding:6px 10px;border-radius:999px}
+@media(max-width:860px){.strip{grid-template-columns:1fr 1fr}}
+
 /* visit */
+.visit{background:var(--paper)}
 .visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
 .visit .card{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:22px}
 .visit h2{font-size:clamp(38px,5vw,64px)}
@@ -215,7 +228,7 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
 </nav>
 
 <header class="hero">
-  <div class="bg"><img src="img/hero.jpg" alt="Inside Mamta Surgicals, Ulhasnagar"></div>
+  <div class="bg"><img src="img/shop-night-wide.jpg" alt="Mamta Surgical shop front at night, Baba Dholuram Darbar Road, Ulhasnagar"></div>
   <div class="wrap">
     <div class="eyebrow">Ulhasnagar's oldest surgical shop</div>
     <h1 id="h1"></h1>
@@ -246,7 +259,7 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
   <div class="pin">
     <div class="rail" id="rail">
       <div class="rcard intro"><div><h3>On rent,<br><em>delivered</em><br>to your door.</h3><p style="margin-top:14px">Same-day in most of Ulhasnagar. Message us a photo of the prescription and we'll tell you what you actually need.</p></div><div class="n">01</div></div>
-      <div class="rcard"><div class="ph"><img src="img/bed.jpg" alt="Hospital bed set up in a living room"></div><div class="tx"><h3>Hospital beds</h3><p>Manual and motorised, with side rails and mattress. Fits through a normal door.</p><span class="tag">Rent · Buy</span></div></div>
+      <div class="rcard"><div class="ph"><img src="img/bed-real.jpg" alt="A Mamta Surgicals hospital bed set up in a customer's home in Ulhasnagar"></div><div class="tx"><h3>Hospital beds</h3><p>Manual and motorised, with side rails and mattress. This one is in a customer's living room in Ulhasnagar.</p><span class="tag">Rent · Buy</span></div></div>
       <div class="rcard"><div class="ph"><img src="img/wheelchair.jpg" alt="Folding wheelchair"></div><div class="tx"><h3>Wheelchairs</h3><p>Folding, lightweight and commode-type. We check the width for your home before sending.</p><span class="tag">Rent · Buy</span></div></div>
       <div class="rcard"><div class="ph"><img src="img/commode.jpg" alt="Commode chair"></div><div class="tx"><h3>Commode chairs</h3><p>Steady, padded, easy to clean. The one product every family thanks us for later.</p><span class="tag">Rent · Buy</span></div></div>
       <div class="rcard"><div class="ph"><img src="img/suction.jpg" alt="Suction machine and nebuliser"></div><div class="tx"><h3>Suction &amp; nebulisers</h3><p>Portable suction pumps and nebulisers for home care. We show you how to use them.</p><span class="tag">Rent · Buy</span></div></div>
@@ -294,7 +307,7 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
         <div class="stat"><b data-count="1000" data-suffix="+">0</b><span>products in stock</span></div>
       </div>
     </div>
-    <div class="ph"><img src="img/care.jpg" alt="Family at home with a rented hospital bed"></div>
+    <div class="ph"><img src="img/shop-entrance.jpg" alt="The entrance of Mamta Surgical, opposite Shiv Mandir"></div>
   </div>
 </section>
 
@@ -311,6 +324,18 @@ footer .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
       <div class="q"><div class="stars">★★★★★</div><p>"Full variety at a reasonable rate, with a demonstration of the tech products."</p><small>Google review</small></div>
       <div class="q"><div class="stars">★★★★★</div><p>"Everything from spirometers to wheelchairs, to forceps and dental instruments. The owner was very polite."</p><small>Google review</small></div>
       <div class="q"><div class="stars">★★★★★</div><p>"Best shop for your healthcare requirements. Very cooperative and helpful. 100% will recommend."</p><small>Google review</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="shopstrip" id="shop-photos">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">The shop</div><h2>Look for the <em>orange sign.</em></h2></div><p>Baba Dholuram Darbar Road, opposite Shiv Mandir, next to Satyam Medical. Open till 9:30 every night except Sunday.</p></div>
+    <div class="strip">
+      <figure><img src="img/shop-night.jpg" alt="Mamta Surgical shop front at night"><figcaption>The shop at night</figcaption></figure>
+      <figure><img src="img/shop-day.jpg" alt="Mamta Surgical building by day"><figcaption>By day, from the road</figcaption></figure>
+      <figure><img src="img/shop-entrance.jpg" alt="Wheelchair at the entrance"><figcaption>Wheelchairs at the door</figcaption></figure>
+      <figure><img src="img/commode-real.jpg" alt="Folding commode stool"><figcaption>Folding commode stool</figcaption></figure>
     </div>
   </div>
 </section>
@@ -391,7 +416,7 @@ gsap.to('.hero .bg img',{yPercent:18,ease:'none',scrollTrigger:{trigger:'.hero',
 ScrollTrigger.create({start:'top -60',onUpdate:s=>document.querySelector('nav').classList.toggle('solid',s.scroll()>60)});
 
 /* generic reveals */
-gsap.utils.toArray('.sec-head, .q, .step, .visit .card, .visit iframe').forEach(el=>{
+gsap.utils.toArray('.sec-head, .q, .step, .visit .card, .visit iframe, .strip figure').forEach(el=>{
   gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});
 });
 gsap.utils.toArray('.pcard').forEach((el,i)=>{
